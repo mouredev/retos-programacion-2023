@@ -16,7 +16,7 @@
 
 Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y enunciado del ejercicio. En su directorio podrás consultar las distintas correcciones del ejercicio agrupadas por lenguaje de programación.
 
-* **#0** - 26/12/22 | Fácil | [`EL FAMOSO "FIZZ BUZZ"`](./Reto%20%230%20|%20EL%20FAMOSO%20"FIZZ%20BUZZ”%20|%20Fácil/ejercicio.md)
+* **#0** - 26/12/22 | Fácil | [`EL FAMOSO "FIZZ BUZZ"`](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20[Fácil]/ejercicio.md)
 
 > [Consulta los 52 retos de programación de 2022](https://github.com/mouredev/Weekly-Challenge-2022-Kotlin)
 
