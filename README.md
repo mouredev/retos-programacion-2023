@@ -6,7 +6,7 @@
 
 ## Información importante
 
-* Cada semana se publica un nuevo reto se corrige en directo desde **[Twitch](https://twitch.tv/mouredev)** el reto de la semana pasada.
+* Cada semana se publica un nuevo reto y se corrige en directo desde **[Twitch](https://twitch.tv/mouredev)** el reto de la semana pasada.
 * En la sección "Eventos" de nuestro servidor de **[Discord](https://discord.gg/mouredev)** encontrarás el día y horario por país de los directos.
 * Puedes utilizar **cualquier lenguaje de programación**, y encontrar tanto mis correcciones como las de la comunidad en el directorio de cada reto.
 * **¿Quieres participar?** Te lo explico en la sección ¿Cómo puedo participar? en este mismo documento.
@@ -25,8 +25,8 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 **Haz un [FORK](https://github.com/mouredev/retos-programacion-2023/fork) del proyecto y trabaja con Git para ir sincronizando las actualizaciones.**
 
 1. En el proyecto tienes un directorio para cada ejercicio. Dentro de cada directorio encontrarás un fichero llamado **ejercicio.md** con el enunciado de cada reto.
-2. Si quieres compartir tu propia solución de un ejercicio con la comunidad, cra un fichero de código con tu nombre y extensión, y realiza una [**PULL REQUEST**](https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) contra el repositorio. 
-3. El fichero de código debe situarse dentro del directorio del reto, en la carpeta correspondiente al lenguaje de programación utilizado (si no existe la carpeta del lenguaje, créala con todas sus letras en minúsculas). Por ejemplo, si has resuelto el reto #0 utilizando el lenguaje de programación Kotlin y tu usuario de GitHub se llama mouredev, tu corrección deberá estar en **"Reto #0/kotlin/mouredev.kt”**. Se rechazarán las Pull Request que no sigan este formato.
+2. Si quieres compartir tu propia solución de un ejercicio con la comunidad, crea un fichero de código con tu nombre y extensión, y realiza una [**PULL REQUEST**](https://docs.github.com/es/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) contra el repositorio. 
+3. El fichero de código debe situarse dentro del directorio del reto, en la carpeta correspondiente al lenguaje de programación utilizado (si no existe la carpeta del lenguaje, créala con todas sus letras en minúsculas). Por ejemplo, si has resuelto el reto #0 utilizando el lenguaje de programación Kotlin y tu usuario de GitHub se llama mouredev, tu corrección deberá estar en **"Retos/Reto #0/kotlin/mouredev.kt”**. Se rechazarán las Pull Request que no sigan este formato.
 4. Cada **SEMANA** (consulta el día en el ejercicio correspondiente) realizaré una transmisión en directo desde **[Twitch](https://twitch.tv/mouredev)** corrigiendo el reto, revisando soluciones de la comunidad y publicando un nuevo ejercicio.
 5. Si necesitas ayuda o quieres comentar cualquier cosa sobre los retos semanales, tienes el canal "reto-semanal” en nuestro servidor de **[Discord](https://discord.gg/mouredev)** (también el día y horario de corrección en la sección “Eventos”).
 	
