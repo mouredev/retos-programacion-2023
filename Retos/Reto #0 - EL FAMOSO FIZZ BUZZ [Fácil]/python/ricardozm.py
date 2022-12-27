@@ -1,3 +1,5 @@
+# Hola Brais, esta es mi solucion con Python al reto 0. Estoy apendiendo Python gracias a tu curso, espero que le sirva a alguien mi aportacion.
+
 fizz = "fizz"
 buzz = "buzz"
 
