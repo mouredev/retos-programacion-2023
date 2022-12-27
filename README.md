@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![https://retosdeprogramacion.com/semanales2023](./Images/header.jpg)
 
 # Retos de programación semanales 2023
@@ -54,3 +55,7 @@ Soy ingeniero de software desde hace más de 12 años. Desde hace 4 años combin
 ### En mi perfil de GitHub tienes más información
 
 [![Web](https://img.shields.io/badge/GitHub-MoureDev-14a1f0?style=for-the-badge&logo=github&logoColor=white&labelColor=101010)](https://github.com/mouredev)
+=======
+# retos-programacion-2023
+Retos de programación semanales de la comunidad MoureDev para practicar lógica en cualquier lenguaje
+>>>>>>> parent of 22513b0 (Reto #0)
