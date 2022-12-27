@@ -3,8 +3,10 @@ func fizzBuzz() -> Void {
   let finalNumber: Int = 100
 
   for number in initialNumber...finalNumber{
+    let isMultTree = number % 3 == 0 
+    let isMultFive = number % 5 == 0
 
-    if (number % 3 == 0 && number % 5 == 0) {
+    if ( isMultTree && isMultFive) {
         print("fizzbuzz")
     }
     else if (number % 3 == 0){
