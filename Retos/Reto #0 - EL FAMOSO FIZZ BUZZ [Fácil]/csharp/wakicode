@@ -1,3 +1,4 @@
+
 Console.WriteLine(
     string
     .Join('\n', Enumerable
