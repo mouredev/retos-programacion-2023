@@ -8,15 +8,15 @@ cada impresión), sustituyendo los siguientes:
 """
 for num in range(1, 101):
   # Inicializamos la cadena que vamos a imprimir
-  output = ""
+  resul = ""
   # Si el número es múltiplo de 3, añadimos "fizz" a la cadena
   if num % 3 == 0:
-      output += "fizz"
+      resul += "fizz"
   # Si el número es múltiplo de 5, añadimos "buzz" a la cadena
   if num % 5 == 0:
-      output += "buzz"
+      resul += "buzz"
   # Si no es múltiplo de ninguno de ellos, añadimos el número a la cadena
-  if output == "":
-      output += str(num)
+  if resul == "":
+      resul += str(num)
   # Imprimimos la cadena y un salto de línea
-  print(output)
+  print(resul)
