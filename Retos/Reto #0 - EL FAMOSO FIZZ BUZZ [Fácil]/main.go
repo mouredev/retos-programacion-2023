@@ -15,11 +15,11 @@ func fizzbuzz(n int) {
 	fizzbuzz(n - 1)
 
 	if n%3 == 0 && n%5 == 0 {
-		fmt.Printf("%s\n", "fizzbuzz")
+		fmt.Println("fizzbuzz")
 	} else if n%3 == 0 {
-		fmt.Printf("%s\n", "fizz")
+		fmt.Println("fizz")
 	} else if n%5 == 0 {
-		fmt.Printf("%s\n", "buzz")
+		fmt.Println("buzz")
 	} else {
 		fmt.Println(n)
 	}
