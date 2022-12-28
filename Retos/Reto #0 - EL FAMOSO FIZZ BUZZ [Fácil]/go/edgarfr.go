@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	for i := 1; i <= 100; i++ {
 		var output string
-		
+
 		if i%3 == 0 {
 			output += "fizz"
 		}
@@ -19,5 +19,5 @@ func main() {
 		} else {
 			fmt.Println(i)
 		}
-	}	
+	}
 }
