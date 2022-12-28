@@ -6,13 +6,13 @@ class Main {
     public static void fizzBuzz() {
 	for (int i = 0 ; i <= 100 ; i++ ){
 		if( i % 3 == 0 && i % 5 == 0 ){
-			System.out.println("fizzbuzz\n");
+			System.out.println("fizzbuzz");
 		} else if( i % 3 == 0  ){
-				System.out.println("fizz\n");
+				System.out.println("fizz");
 			} else if( i % 5 == 0  ){
-					System.out.println("buzz\n");
+					System.out.println("buzz");
 			} else {
-				System.out.println(i + "\n");
+				System.out.println(i);
 			}
 		}
 	} 
