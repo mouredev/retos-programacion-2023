@@ -7,8 +7,7 @@ WITH RECURSIVE fizzbuzz(x) AS(
 )
 SELECT x,
     CASE
-        WHEN x % 3 = 0
-        AND x % 5 = 0 THEN "fizzbuzz"
+        WHEN x % 3 = 0 AND x % 5 = 0 THEN "fizzbuzz"
         WHEN x % 3 = 0 THEN "fizz"
         WHEN x % 5 = 0 THEN "buzz"
         ELSE x
