@@ -1,6 +1,6 @@
 public function retoFizzBuzz() {
-   // Inicializamos la cadena que vamos a imprimir
-   let resul = "";
+  // Inicializamos la cadena que vamos a imprimir
+  let resul = "";
   // Recorremos los números del 1 al 100
   for (let num: number = 1; num <= 100; num++) {
     // Si el número es múltiplo de 3, añadimos "fizz" a la cadena
@@ -12,11 +12,11 @@ public function retoFizzBuzz() {
       resul += "buzz";
     }
     // Si no es múltiplo de ninguno de ellos, añadimos el número a la cadena
-    if (output === "") {
+    if (resul === "") {
       resul += num;
     }
-    // Imprimimos la cadena y un salto de línea
-    console.log(resul);
   }
+  // Imprimimos la cadena y un salto de línea
+  console.log(resul);
 }
-                                    }
+
