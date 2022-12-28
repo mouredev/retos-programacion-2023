@@ -1,4 +1,4 @@
-public function retoFizzBuzz() {
+function retoFizzBuzz() {
   // Inicializamos la cadena que vamos a imprimir
   let resul = "";
   // Recorremos los números del 1 al 100
