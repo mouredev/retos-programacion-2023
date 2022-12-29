@@ -8,7 +8,7 @@ package org.example;
  * - Múltiplos de 5 por la palabra "buzz".
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
-public class FizzBuzz {
+public class MrHarvyson {
     public static void main(String[] args) {
 
         for (int i = 1; i <= 100; i++) {
