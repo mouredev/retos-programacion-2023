@@ -1,8 +1,6 @@
 #!/bin/bash
-
 contador=1
 fin=100
-
 while [ $fin -ge $contador ]
 do
   if [[ $(($contador % 3)) == 0 ]] && [[ $(($contador % 5)) == 0 ]]
