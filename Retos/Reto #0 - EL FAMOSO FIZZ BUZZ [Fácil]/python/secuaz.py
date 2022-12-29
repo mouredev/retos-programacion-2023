@@ -7,9 +7,9 @@ def fizzBuzz(int):
     elif int %3 == 0:
         return "Fizz"
     else:
-        return ""
+        return int
 
 #Loop que imprime en el rango de 1 a 100 Fizz, Buzz o FizzBuzz segun corresponda
 for i in range(1, 101):
-    print (str(i) + " " + fizzBuzz(i))
+    print (fizzBuzz(i))
 
