@@ -9,23 +9,13 @@
     .NET SDK 6 - dotnet run
  */
 
+string FizzBuzz(int number)
+{
+    return number % 3 == 0 && number % 5 == 0 ? "fizzbuzz" : number % 3 == 0 ? "fizz" : number % 5 == 0 ? "buzz" : number.ToString();
+}
+
 for (int number = 1; number <= 100; number++)
 {
-
-    if (number % 3 == 0 && number % 5 == 0)
-    {
-        Console.WriteLine("fizzbuzz");
-    }
-    else if (number % 3 == 0)
-    {
-        Console.WriteLine("fizz");
-    }
-    else if (number % 5 == 0)
-    {
-        Console.WriteLine("buzz");
-    }
-    else
-    {
-        Console.WriteLine(number);
-    }
+    Console.WriteLine(FizzBuzz(number));
 }
+
