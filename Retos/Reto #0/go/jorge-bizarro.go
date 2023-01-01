@@ -19,8 +19,6 @@ func main() {
 			valueString += "Buzz"
 		}
 
-		// valueString = valueNumber
-
 		if valueString == "" {
 			fmt.Println(valueNumber)
 		} else {
