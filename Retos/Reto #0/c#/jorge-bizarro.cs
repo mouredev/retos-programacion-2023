@@ -7,7 +7,7 @@
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
 
-for (int valueNumber = 1; valueNumber < 100; valueNumber++)
+for (int valueNumber = 1; valueNumber <= 100; valueNumber++)
 {
   string valueString = "";
 
