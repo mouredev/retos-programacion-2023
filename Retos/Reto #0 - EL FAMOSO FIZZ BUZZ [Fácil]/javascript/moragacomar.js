@@ -12,6 +12,19 @@
 const print = (texto) => console.log(texto);
 
 
+/* FUNCIÓN FIZZBUZZ V2 */
+
+const fizzbuzz = (numMax) => {
+    for (let i = 1; i <= numMax; i++) {
+        i % 15 === 0 ? print("fizzbuzz") : i % 5 === 0 ? print("buzz") : i % 3 === 0 ? print("fizz") : print(i);
+    }
+}
+
+/* LLAMADA A LA FUNCIÓN FIZZBUZZ V2 */
+
+fizzbuzz(100);
+
+
 /* FUNCIÓN FIZZBUZZ V1 */
 
 // const fizzbuzz = (numMax) => {
@@ -28,14 +41,3 @@ const print = (texto) => console.log(texto);
 //     }
 // }
 
-
-/* FUNCIÓN FIZZBUZZ V2 */
-
-const fizzbuzz = (numMax) => {
-    for (let i = 1; i <= numMax; i++) {
-        i % 15 === 0 ? print("fizzbuzz") : i % 5 === 0 ? print("buzz") : i % 3 === 0 ? print("fizz") : print(i);
-    }
-}
-
-
-fizzbuzz(100);
