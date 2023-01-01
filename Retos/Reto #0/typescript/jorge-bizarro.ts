@@ -1,6 +1,13 @@
-const listOfNumbers: Array<number> = Array.from({ length: 100 }, (_, i) => i + 1);
+/*
+ * Escribe un programa que muestre por consola (con un print) los
+ * números de 1 a 100 (ambos incluidos y con un salto de línea entre
+ * cada impresión), sustituyendo los siguientes:
+ * - Múltiplos de 3 por la palabra "fizz".
+ * - Múltiplos de 5 por la palabra "buzz".
+ * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
+ */
 
-listOfNumbers.forEach((valueNumber) => {
+for (let valueNumber = 1; valueNumber <= 100; valueNumber++) {
   let valueString: string = '';
 
   if (valueNumber % 3 === 0)
@@ -10,7 +17,7 @@ listOfNumbers.forEach((valueNumber) => {
     valueString += 'Buzz';
 
   console.log(valueString || valueNumber);
-});
+}
 
 export { };
 
