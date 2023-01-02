@@ -21,4 +21,5 @@ for n in range(1,101):
         print(f"{n}-fizz")
     elif n % 5 == 0:
         print(f"{n}-buzz")
-        
+    else: 
+        print(n)    
