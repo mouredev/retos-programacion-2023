@@ -9,14 +9,14 @@
 * Cada semana se publica un nuevo reto y se corrige en directo desde **[Twitch](https://twitch.tv/mouredev)** el reto de la semana pasada.
 * En la sección "Eventos" de nuestro servidor de **[Discord](https://discord.gg/mouredev)** encontrarás el día y horario por país de los directos.
 * Puedes utilizar **cualquier lenguaje de programación**, y encontrar tanto mis correcciones como las de la comunidad en el directorio de cada reto.
-* **¿Quieres participar?** Te lo explico en la sección ¿Cómo puedo participar? en este mismo documento.
+* **¿Quieres participar?** Te lo explico en la sección **[¿Cómo puedo participar?](https://github.com/mouredev/retos-programacion-2023#c%C3%B3mo-puedo-participar)** en este mismo documento.
 * Los retos no tienen relación entre ellos. Puedes resolverlos de manera totalmente independiente. Simplemente revisa su nivel de dificultad.
 
 ## Listado de retos
 
 Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y enunciado del ejercicio. En su directorio podrás consultar las distintas correcciones del ejercicio agrupadas por lenguaje de programación.
 
-* **#0** - 26/12/22 | Fácil | [`EL FAMOSO "FIZZ BUZZ"`](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20[Fácil]/ejercicio.md)
+* **#0** - 26/12/22 | Fácil | [`EL FAMOSO "FIZZ BUZZ"`](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D/ejercicio.md)
 
 > [Consulta los 52 retos de programación de 2022](https://github.com/mouredev/Weekly-Challenge-2022-Kotlin)
 
