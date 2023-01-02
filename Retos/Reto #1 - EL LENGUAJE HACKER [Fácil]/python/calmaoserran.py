@@ -21,8 +21,10 @@ def leet_translator(text: str) -> str:
     return translated_test
 
 if __name__ == "__main__":
+    # Si hay parámetro en la invocación lo usa como texto a traducir
     if len(sys.argv) == 2:
         texto_natural = sys.argv[1]
     else:
+    # Y si no usa este parámetro hardcoded
         texto_natural = 'Tres tristes tigres, tragaban trigo en un trigal, en tres tristes trastos, tragaban trigo tres tristes tigres.'
     print(leet_translator(texto_natural))
