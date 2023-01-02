@@ -34,6 +34,16 @@ const hackerLettersDict = {
   x: "><",
   y: "j",
   z: "2",
+  1: "L",
+  2: "R",
+  3: "E",
+  4: "A",
+  5: "S",
+  6: "b",
+  7: "T",
+  8: "B",
+  9: "g",
+  0: "o",
 };
 
 const hackerText = (text) => {
@@ -48,5 +58,5 @@ const hackerText = (text) => {
   return hackerArray.join("");
 };
 
-const output = hackerText("Hola mundo!");
+const output = hackerText("Hola mundo! 2023");
 console.log(output);
