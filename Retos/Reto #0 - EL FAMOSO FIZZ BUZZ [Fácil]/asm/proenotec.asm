@@ -22,7 +22,7 @@ saltoLinea: .ascii "\n"
 main:
   mov $1, %eax   ; inicializa el registro %eax con cero
 
-bluclePrincipal:
+buclePrincipal:
   cmp $101, %eax    ; compara %eax con 101
   jge end_loop      ; si %eax es mayor o igual a 101 terminamos
   mov $15, %ebx     ; cargo 15 en %ebx
@@ -54,7 +54,7 @@ print_buzz:
 
 incrementar_contador:
   inc %eax                  ; incrementa %eax en uno
-  jmp bluclePrincipal       ; vuelve al inicio del ciclo
+  jmp buclePrincipal       ; vuelve al inicio del ciclo
 
 end_loop:
   ret            ; fin
