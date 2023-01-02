@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,11 +55,5 @@ public class Main {
                 enc.append(dev);
         }
         System.out.println("PALABRA ENCRIPTADA: "+ enc);
-
-
-
-
-
-
     }
 }
