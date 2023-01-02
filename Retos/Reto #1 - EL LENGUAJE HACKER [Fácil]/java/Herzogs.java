@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main {
+public class Herzogs {
 
     public static void generarLenguajeHacker(Map<Character, String> lng) {
         lng.put('a', "4");
@@ -46,13 +46,12 @@ public class Main {
     public static void main(String[] args) {
         Map<Character, String> leng = new HashMap<>();
         generarLenguajeHacker(leng);
-        String palabra = "Adios mundo cru3l";
+        String palabra = "Adios muñdo cru3l";
         StringBuilder enc = new StringBuilder();
         System.out.println("PALABRA DESENCRIPTADA: " + palabra);
         for (Character idx: palabra.toLowerCase().toCharArray()) {
             String dev = leng.get(idx);
-            if(dev != null)
-                enc.append(dev);
+            enc.append((dev !=null)?dev:idx);
         }
         System.out.println("PALABRA ENCRIPTADA: "+ enc);
     }
