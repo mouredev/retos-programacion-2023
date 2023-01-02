@@ -1,5 +1,3 @@
-const isMultiple = (number, multiple) => number % multiple === 0
-
 /*
     Reto 0
     Escribe un programa que muestre por consola (con un print) los
@@ -9,6 +7,8 @@ const isMultiple = (number, multiple) => number % multiple === 0
         - Múltiplos de 5 por la palabra "buzz".
         - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
 */
+
+const isMultiple = (number, multiple) => number % multiple === 0
 
 for (let number = 1; number <= 100; number++) {
   if (isMultiple(number, 3) && isMultiple(number, 5)) {
