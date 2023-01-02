@@ -1,4 +1,4 @@
-#Solucion FIZZ BUZZ
+#Solucion FIZZ BUZZ - Reto 0
 
 for fizz_buzz in range(1, 101):
 
