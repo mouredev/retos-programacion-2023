@@ -11,5 +11,4 @@ string ToLeet(string words)
     return
      string
      .Join("", words.ToLower().Select(c=> leet[alfabeto.IndexOf(c)]));
-
 }
