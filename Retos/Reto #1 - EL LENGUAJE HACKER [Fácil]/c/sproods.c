@@ -10,7 +10,7 @@ void imprime(char *);
 
 void main(void)
 {
-    char texto[1000], textoCodificado[1000];
+    char texto[1000], *textoCodificado;
     escribe(texto);
     hackerman(texto, textoCodificado);
     imprime(textoCodificado);
@@ -26,8 +26,9 @@ void hackerman(char *text, char *textCode)
 {
     int i, j;
     char A[36] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
-    char *code[36] = {'4', 'I3', '[', ')', '3', '|=', '&', '#', '1', ',_|', '>|', '1', '/\/\', '^/', '0', '|*', '(_,)', 'I2', '5', '7', '(_)', '\\/', '\/\/', '><', 'j', '2', 'L', 'R', 'E', 'A', 'S', 'b', 'T', 'B', 'g', 'o'};
+    char code[4][36] = {"4", "I3", '[', ')', '3', 'N', '&', '#', '1', 'K', 'i', '1', 'i', 'f', '0', 'd', 'l', 'I', '5', '7', 'l', 'P', 'J', 'S', 'j', '2', 'L', 'R', 'E', 'A', 'S', 'b', 'T', 'B', 'g', 'o'};
 
+    i = 0;
     while (text[i] != '\n')
     {
         for (j = 0; j < 36; j++)
@@ -39,6 +40,7 @@ void hackerman(char *text, char *textCode)
 
         i++;
     }
+}
 
 void imprime(char *text)
 {
