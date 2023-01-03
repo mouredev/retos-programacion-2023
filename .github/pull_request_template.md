@@ -4,15 +4,15 @@
 ## Comprobaciones
 Asegúrate de cumplir los siguientes puntos antes de realizar la "Pull Request":
 
-- [ ] El título de mi Pull Request sigue este formato: "Reto #[número] - [lenguaje_utilizado]". *(Ej: Reto #0 - Kotlin")*
-- [ ] El nombre el fichero que se corresponde con el de mi usuario en GitHub más la extensión del lenguaje. *(Ej: mouredev.kt)*
-- [ ] El fichero de corrección se encuentra dentro del directorio del ejercicio y en una carpeta con el nombre del lenguaje de programación utilizado en minúsculas. *(Ej: Reto #0/kotlin/mouredev.kt)*
-- [ ] He revisado que el nombre del directorio del lenguaje no es conflictivo:
+- [x] El título de mi Pull Request sigue este formato: "Reto #[número] - [lenguaje_utilizado]". *(Ej: Reto #0 - Kotlin")*
+- [x] El nombre el fichero que se corresponde con el de mi usuario en GitHub más la extensión del lenguaje. *(Ej: mouredev.kt)*
+- [x] El fichero de corrección se encuentra dentro del directorio del ejercicio y en una carpeta con el nombre del lenguaje de programación utilizado en minúsculas. *(Ej: Reto #0/kotlin/mouredev.kt)*
+- [x] He revisado que el nombre del directorio del lenguaje no es conflictivo:
 	- c#, no csharp
 	- c++, no cplusplus
 	- go, no golang
 	- javascript, no js
-- [ ] Únicamente he incluído los ficheros de ejercicios. No se aceptarán Pull Requests que contengan archivos adicionales asociados a editores de código o semejantes.
+- [x] Únicamente he incluído los ficheros de ejercicios. No se aceptarán Pull Requests que contengan archivos adicionales asociados a editores de código o semejantes.
 
 ## Información
 
