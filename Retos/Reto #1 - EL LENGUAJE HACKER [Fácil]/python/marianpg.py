@@ -54,4 +54,14 @@ def leet(text):
     return ''.join(leet_text)
 
 # Testeamos
-print(leet('Como estas, Mariano?'))  
+print("               _ _               _              _            ") 
+print("  ___ ___   __| (_) __ _  ___   | |    ___  ___| |_          ") 
+print(" / __/ _ \ / _` | |/ _` |/ _ \  | |   / _ \/ _ \ __|         ") 
+print("| (_| (_) | (_| | | (_| | (_) | | |__|  __/  __/ |_          ") 
+print(" \___\___/ \__,_|_|\__, |\___/  |_____\___|\___|\__|         ") 
+print("                   |___/                                     ")
+
+
+
+print(leet('Hello world!')) 
+print(leet("Hola Mundo!"))
