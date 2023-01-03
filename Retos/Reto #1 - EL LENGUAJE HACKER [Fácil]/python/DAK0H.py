@@ -46,6 +46,7 @@ leet = {
     '9':'g'}
 
 text = input('Escribe el texto que quieres traducir a leguaje hacker: ')
+text = text.lower()
 
 def leet_speak():
     translate_text = ''
