@@ -15,7 +15,7 @@ func hackerLang(text string) string {
 	for _, char := range text {
 		// In case character are in range of UpperCase Letters
 		// are replaced by the LowerCase letter.
-		// 65 = A and z = 90 in ASCII Table
+		// 65 = A and Z = 90 in ASCII Table
 		if 65 <= char && char <= 90 {
 			char = char + 32
 		}
