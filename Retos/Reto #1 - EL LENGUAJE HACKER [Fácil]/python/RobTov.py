@@ -41,8 +41,8 @@ l_code = {
 def leet(text: str) -> None:
     out_str = ''
     for c in text:
-        if (c in l_code.keys()):
-            out_str += l_code[c]
+        if (c.lower() in l_code.keys()):
+            out_str += l_code[c.lower()]
         else:
             out_str += c
     print(out_str)
