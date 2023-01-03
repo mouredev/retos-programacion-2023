@@ -1,4 +1,4 @@
-public class SantiW01 {
+public class santiw01 {
     public static void main(String[] args) {
         int i;
         for(i = 0; i <= 100; i++) {
