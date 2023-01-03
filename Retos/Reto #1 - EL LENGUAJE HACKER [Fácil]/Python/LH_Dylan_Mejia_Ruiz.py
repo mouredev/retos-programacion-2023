@@ -58,7 +58,7 @@ dictionary_lenguage = [
     },
     {
         "caracter": "M",
-        "value": "JVI"
+        "value": "/\\/\\"
     },
     {
         "caracter": "N",
@@ -98,7 +98,7 @@ dictionary_lenguage = [
     },
     {
         "caracter": "W",
-        "value": "\/\/"
+        "value": "\\/\\/"
     },
     {
         "caracter": "X",
