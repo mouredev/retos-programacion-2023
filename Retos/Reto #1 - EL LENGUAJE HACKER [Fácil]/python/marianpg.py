@@ -11,21 +11,19 @@ def leet(text):
         't': '7',
         'z': '2'
     }
-
-    # Creamos una lista vacía para almacenar el texto transformado
+    # lista vacia
     leet_text = []
 
-    # Recorremos cada caracter del texto
     for char in text:
-        # Si el caracter está en el diccionario, lo reemplazamos por su valor en "leet"
+    
         if char in leet_dict:
             leet_text.append(leet_dict[char])
-        # Si no está en el diccionario, dejamos el caracter sin cambiar
+    
         else:
             leet_text.append(char)
 
-    # Devolvemos el texto transformado como una cadena
+    
     return ''.join(leet_text)
 
-# Probamos la función con un ejemplo
-print(leet('Como estas, Mariano?'))  # Debería mostrar "h0l4 mund0"
+# Testeamos
+print(leet('Como estas, Mariano?'))  
