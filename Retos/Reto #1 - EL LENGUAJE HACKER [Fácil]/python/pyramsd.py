@@ -12,4 +12,5 @@ def normal_a_leet(palabra):
             palabra_leet += dictionary[i]
     print(palabra_leet)
 
-normal_a_leet("sergio2005")
+palabra = input("texto a texto leet: ")
+normal_a_leet(palabra)
