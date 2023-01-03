@@ -50,5 +50,4 @@ def traducir(a):
 
     print(f"la traducción es: {palabra}")
 
-
 traducir(input("introduce un texto para traducir: ").lower())
