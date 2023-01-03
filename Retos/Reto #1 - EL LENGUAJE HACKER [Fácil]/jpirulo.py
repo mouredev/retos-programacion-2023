@@ -36,5 +36,5 @@ def word_leet(word):
     return resultado
 
 
-word = input("ingrese palabra a convertir: ")
+word = "ingrese palabra a convertir"
 print(word_leet(word.lower()))
