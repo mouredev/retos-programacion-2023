@@ -36,5 +36,9 @@ def word_leet(word):
     return resultado
 
 
-word = "ingrese palabra a convertir"
-print(word_leet(word.lower()))
+
+
+
+if __name__ == "__main__":
+    word = "ingrese palabra a convertir"
+    print(word_leet(word.lower()))
