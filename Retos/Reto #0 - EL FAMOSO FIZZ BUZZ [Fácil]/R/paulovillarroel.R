@@ -1,4 +1,4 @@
-## FIZZ BUZZ
+# FIZZ BUZZ
 
 fbnums <- 1:100
 output <- vector()
