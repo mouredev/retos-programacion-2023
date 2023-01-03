@@ -9,19 +9,51 @@
 
 
 def cambia_letra(caracter):
-    alfanum = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-               'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7',
-               '8', '9']
-    lenguaje_leet = ["4", "|3", "[", ")", "3", "|=", "&", "#", "1", ",_|", ">|", "1", "/\\/\\", "^/",
-                     "0", "|*", "(_,)", "I2", "5", "7", "(_)", "\\/", "\\/\\/", "><", "j", "2", "o", "L", "R", "E", "A",
-                     "S", "b", "T", "B", "g"]
+    diccionario_esp_leet = {
+        "a": "4",
+        "b": "|3",
+        "c": "[",
+        "d": ")",
+        "e": "3",
+        "f": "|=",
+        "g": "&",
+        "h": "#",
+        "i": "1",
+        "j": ",_|",
+        "k": ">|",
+        "l": "1",
+        "m": "/\\/\\",
+        "n": "^/",
+        "o": "0",
+        "p": "|*",
+        "q": "(_,)",
+        "r": "I2",
+        "s": "5",
+        "t": "7",
+        "u": "(_)",
+        "v": "\\/",
+        "w": "\\/\\/",
+        "x": "><",
+        "y": "j",
+        "z": "2",
+        "0": "o",
+        "1": "L",
+        "2": "R",
+        "3": "E",
+        "4": "A",
+        "5": "S",
+        "6": "b",
+        "7": "T",
+        "8": "B",
+        "9": "g",
+    }
 
-    index = alfanum.index(caracter)
-    return lenguaje_leet[index]
+    return diccionario_esp_leet[caracter]
 
 
 def traduce_a_leet(texto):
     texto_en_leet = ""
+  
     for letra in texto:
         if letra == 'ñ':
             texto_en_leet += "ñ"
@@ -30,11 +62,12 @@ def traduce_a_leet(texto):
             texto_en_leet += texto_traducido
         else:
             texto_en_leet += letra
+          
     return texto_en_leet
 
 
 def inicio():
-    texto_usuario = input("Introduce un texto a traducir: ")
+    texto_usuario = input("Introduce un texto a traducir: ").lower()
     texto_traducido = traduce_a_leet(texto_usuario)
     print(f"El texto en lenguaje hacker es {texto_traducido}.")
 
