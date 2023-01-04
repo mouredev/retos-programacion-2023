@@ -41,5 +41,14 @@ dictionary = {
 def l33t(text):
     return ''.join([dictionary[letter.lower()] for letter in text])
 
+def l33t_recursive(text, response=''):
+    if isinstance(text, str): text = list(text)
+    if not text: return response
+    response += dictionary[text.pop(0).lower()]
+    return l33t_recursive(text, response)
+
 
 print(l33t('Hola mundo'))
+print(l33t_recursive('Hola mundo'))
+
+
