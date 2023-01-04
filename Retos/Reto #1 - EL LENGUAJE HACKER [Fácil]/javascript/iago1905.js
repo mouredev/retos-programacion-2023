@@ -38,6 +38,7 @@ const leet = {
   0: "o",
 };
 
+
 function traducir(input) {
   let cambio = "";
   const texto = input.split("");
