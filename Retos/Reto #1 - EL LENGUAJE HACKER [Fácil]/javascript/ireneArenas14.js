@@ -5,7 +5,7 @@
  * - Utiliza esta tabla (https://www.gamehouse.com/blog/leet-speak-cheat-sheet/)
  *   con el alfabeto y los números en "leet".
  *   (Usa la primera opción de cada transformación. Por ejemplo "4" para la "a")
- */
+*/
 
 const letters = {
     a: "4",
