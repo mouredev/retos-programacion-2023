@@ -7,24 +7,43 @@
  *   (Usa la primera opción de cada transformación. Por ejemplo "4" para la "a")
  */
 
- String text = '''Hola como estas MoureDev? 
+String text = '''Hola como estas MoureDev? 
 Espero que te guste mi solucion. 
 ¡Muchas gracias por todo lo que haces por la comunidad!''';
 
 String solution(String text) {
-  return text.split('').map((el) {
+  return text.toUpperCase().split('').map((el) {
     const Map<String, String> leetAlphabet = {
       'A': '4',
+      'B': 'I3',
+      'C': '[',
+      'D': ')',
       'E': '3',
-      'G': '6',
+      'F': '|=',
+      'G': '&',
+      'H': '#',
       'I': '1',
+      'J': ',_|',
+      'K': '>|',
+      'L': '1',
+      'M': '/\\/\\',
+      'N': '^/',
       'O': '0',
+      'P': '|*',
+      'Q': '(_,)',
+      'R': 'I2',
       'S': '5',
       'T': '7',
+      'U': '(_)',
+      'V': '\\/',
+      'W': '\\/\\/',
+      'X': '><',
+      'Y': 'j',
+      'Z': '2',
     };
 
-    return (leetAlphabet.keys.contains(el.toUpperCase()))
-        ? leetAlphabet[el.toUpperCase()]!
+    return (leetAlphabet.keys.contains(el))
+        ? leetAlphabet[el]!
         : el;
   }).join('');
 }
@@ -32,7 +51,7 @@ String solution(String text) {
 void main() {
   print(solution(text));
   // Output:
-  // H0l4 c0m0 35745 M0ur3D3v?
-  // 35p3r0 qu3 73 6u573 m1 50luc10n. 
-  // ¡Much45 6r4c145 p0r 70d0 l0 qu3 h4c35 p0r l4 c0mun1d4d!
+  // #014 [0/\/\0 35745 /\/\0(_)I23)3\/? 
+  // 35|*3I20 (_,)(_)3 73 &(_)573 /\/\1 501(_)[10^/. 
+  // ¡/\/\(_)[#45 &I24[145 |*0I2 70)0 10 (_,)(_)3 #4[35 |*0I2 14 [0/\/\(_)^/1)4)!
 }
