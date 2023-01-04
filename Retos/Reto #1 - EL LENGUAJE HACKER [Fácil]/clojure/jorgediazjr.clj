@@ -77,10 +77,10 @@
         leet-msg (->> msg-chars (map replace-char) (str/join ""))]
     (println leet-msg)))
 
-(get-leet-message "demo" "intermediate")
-(get-leet-message "leet" "basic")
-(get-leet-message "lamer" "basic")
-(get-leet-message "noob" "basic")
-(get-leet-message "hacker" "advanced")
-(get-leet-message "fear" "intermediate")
-(get-leet-message "fun" "intermediate")
+(get-leet-message "demo" "intermediate")  ; |)3/\/\0
+(get-leet-message "leet" "basic")         ; l33t
+(get-leet-message "lamer" "basic")        ; l4m3r
+(get-leet-message "noob" "basic")         ; n00b
+(get-leet-message "hacker" "advanced")    ; ]-[/\{|(ë12
+(get-leet-message "fear" "intermediate")  ; ph34I2
+(get-leet-message "fun" "intermediate")   ; ph(_)|\|
