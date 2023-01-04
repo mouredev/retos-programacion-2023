@@ -17,10 +17,10 @@
 
 Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y enunciado del ejercicio. En su directorio podrás consultar las distintas correcciones del ejercicio agrupadas por lenguaje de programación.
 
-* **#0** - 26/12/22 | Fácil | [`EL FAMOSO "FIZZ BUZZ"`](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D/ejercicio.md) | [Mi corrección](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D/python/mouredev.py) | [Correcciones de la comunidad](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D)
+* **#0** - 26/12/22 | Fácil | [`EL FAMOSO "FIZZ BUZZ"`](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/2iW4NCzOAxs)] [[MI SOLUCIÓN](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D)]
 * **#1** - 02/01/23 | Fácil | [`EL "LENGUAJE HACKER"`](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D/ejercicio.md) | Último reto publicado
 
-> Corrección y Publicación próximo reto - 09/01/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1059567200329027584) en [Twitch](https://twitch.tv/mouredev)
+> **Corrección y Publicación próximo reto - 09/01/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1059567200329027584) en [Twitch](https://twitch.tv/mouredev)**
 
 **Consulta los 52 retos de programación y las 12 aplicaciones para tu portfolio de 2022:**
 
@@ -65,6 +65,7 @@ Si quieres unirte a nuestra comunidad de desarrollo, aprender programación de A
 [![Discord](https://img.shields.io/discord/729672926432985098?style=social&label=Discord&logo=discord)](https://mouredev.com/discord)
 [![Twitter Follow](https://img.shields.io/twitter/follow/mouredev?style=social)](https://twitter.com/mouredev)
 ![GitHub Followers](https://img.shields.io/github/followers/mouredev?style=social)
+![GitHub Stars](https://img.shields.io/github/stars/mouredev?style=social)
 
 Soy ingeniero de software desde hace más de 12 años. Desde hace 4 años combino mi trabajo desarrollando Apps con creación de contenido formativo sobre programación y tecnología en diferentes redes sociales como **[@mouredev](https://moure.dev)**.
 
