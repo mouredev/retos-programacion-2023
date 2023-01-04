@@ -1,4 +1,4 @@
-(ns solution-01)
+(ns jorgediazjr)
 
 ; Exercise 01:
 ; Write a program that will print to terminal the numbers
