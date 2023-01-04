@@ -11,6 +11,3 @@ def traducir(texto):
                         continue
                 cambio+=leet[str.upper(i)]
         print(cambio)
-
-
-traducir("65894984")
