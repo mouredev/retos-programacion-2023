@@ -1,0 +1,893 @@
+[33mcommit 3406a5c7bb2fe35730b97b3e75345a27b6afd680[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mJETC2001[m[33m)[m
+Merge: ff6e498 4ac9b4c
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 16:27:44 2023 +0100
+
+    Merge pull request #356 from lfernandomr18/apexsol
+    
+    Reto #0 - Apex
+
+[33mcommit ff6e498304f18c15f0e6d332d6196bc51ade9461[m
+Merge: beff13d ea059bd
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 16:27:25 2023 +0100
+
+    Merge pull request #355 from RiveroDev/main
+    
+    Reto #1 - python : Respuesta de Ejercicio
+
+[33mcommit beff13d4adcc0c5e7b842b0fa0985cc2e75dc318[m
+Merge: 44389de 8bb7fda
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 16:27:11 2023 +0100
+
+    Merge pull request #354 from pepeju1995/main
+    
+    Reto #1 - PHP
+
+[33mcommit 44389deba24086cbb513882df71afb5721d7dfc1[m
+Merge: 64d78de 34b1c96
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 16:27:00 2023 +0100
+
+    Merge pull request #353 from jesusSan1/main
+    
+    Reto #1-Javascript
+
+[33mcommit 64d78de9a98d60d4d73cac1edd89160c48040ce4[m
+Merge: 6994831 92801db
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 16:25:30 2023 +0100
+
+    Merge pull request #352 from fjvgallego/main
+    
+    Reto #1 - Swift
+
+[33mcommit 69948318375e20964568449a361a26f42471a1a4[m
+Merge: 6a106c4 ca2acb9
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 16:25:19 2023 +0100
+
+    Merge pull request #351 from PisanoWP/main
+    
+    Reto #1 - Kotlin
+
+[33mcommit 6a106c429d3c24122936d25ebf04c79dea2bf51f[m
+Merge: 4e491f8 fc1937f
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 16:24:37 2023 +0100
+
+    Merge pull request #350 from armandojrojasm/Reto_1-EL-LENGUAJE-HACKER-armandojrojasm
+    
+    Reto #1 - C#
+
+[33mcommit 4e491f82d900d43e60c63803e54f11302a3aaca0[m
+Merge: d849637 265b968
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 16:24:27 2023 +0100
+
+    Merge pull request #349 from guabisabidev/main
+    
+    Reto #0 - java
+
+[33mcommit ea059bd8dc1b08bb41245c663d1934928e8ff98b[m
+Author: RichardRivero <Richard_armando@hotmail.com>
+Date:   Tue Jan 3 11:18:09 2023 -0400
+
+    Reto #1 -python: Corrreccion; se agrego los numeros al diccionario
+
+[33mcommit 4ac9b4cf7d4302671dec44d662592e766274cc4a[m
+Author: Fernando Mesones <49699368+lfernandomr18@users.noreply.github.com>
+Date:   Tue Jan 3 10:10:41 2023 -0500
+
+    Delete apex.db
+    
+    no es necesario
+
+[33mcommit 322c63fcb7d33bfb56a0de10bcd821e6265c5419[m
+Author: lfernandomr18 <lfernandomr18@gmail.com>
+Date:   Tue Jan 3 10:01:48 2023 -0500
+
+    agregado solucion apex
+
+[33mcommit 783a29dbffa75fac814c25a3eb5af97969d8984c[m
+Author: RichardRivero <Richard_armando@hotmail.com>
+Date:   Tue Jan 3 11:00:26 2023 -0400
+
+    Reto #1 - python : Respuesta de Ejercicio
+
+[33mcommit 8bb7fda952f533060820eb3b8bfc5cf8f6612136[m
+Author: Jose Juan <56514339+pepeju1995@users.noreply.github.com>
+Date:   Tue Jan 3 15:54:52 2023 +0100
+
+    Create pepeju1995.php
+
+[33mcommit 34b1c960b50268a265f5314d5fb098c895744d16[m
+Merge: b9ce0be d849637
+Author: jose de jesus sanchez ruiz <jesus@holatrabajo.com>
+Date:   Tue Jan 3 08:50:06 2023 -0600
+
+    Merge branch 'main' of https://github.com/jesusSan1/retos-programacion-2023 into main
+
+[33mcommit b9ce0bebb2a2b3a2db3469d8e0e91ae8431f5d83[m
+Author: jose de jesus sanchez ruiz <jesus@holatrabajo.com>
+Date:   Tue Jan 3 08:50:04 2023 -0600
+
+    Reto #1-Javascript
+
+[33mcommit f77e74e44a0b11140c2d1a9e01ab61b7cce3a2cd[m
+Author: jose de jesus sanchez ruiz <jesus@holatrabajo.com>
+Date:   Tue Jan 3 08:47:49 2023 -0600
+
+    Reto #1-Javascript
+
+[33mcommit 92801db5ac2c7a783b5ddbcc08b1c5853298376e[m
+Author: Francisco Javier Gallego Lahera <fgallego19@hotmail.com>
+Date:   Tue Jan 3 15:46:34 2023 +0100
+
+    Reto #1 - Swift
+
+[33mcommit ca2acb910b1528ea6bf833399b0f30ee890e56f6[m
+Author: BNNDES01C\jc.gomezlobo <jc.gomezlobo@bannia.es>
+Date:   Tue Jan 3 15:43:55 2023 +0100
+
+    Reto #1 - Kotlin
+
+[33mcommit fc1937f9af8315fbd3c109297551b6fb5f5a46ec[m
+Author: armandojrojasm <rojas.moreira@gmail.com>
+Date:   Tue Jan 3 11:26:09 2023 -0300
+
+    Reto #1 c#
+
+[33mcommit 265b968808cd65c97d359ce56387b31c4174b707[m
+Author: guabisabidev <guabidev@gmail.com>
+Date:   Tue Jan 3 15:02:23 2023 +0100
+
+    Reto #0 - java
+
+[33mcommit d84963701b77e27c18b0d4e0a38237402082cca2[m
+Merge: 645b171 5f275a7
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 14:58:44 2023 +0100
+
+    Merge pull request #348 from RiveroDev/main
+    
+    Reto #0 - Python : Propuesta de respuesta
+
+[33mcommit 645b17114564bc1a68191c4c8b4398300f8911d9[m
+Merge: b1e8ed7 30fe4e8
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 14:38:14 2023 +0100
+
+    Merge pull request #347 from guabisabidev/main
+    
+    Reto #0 - javascript
+
+[33mcommit b1e8ed76ffe225bb8711c472bf485ca55f12b378[m
+Merge: 9fb02b0 548bf79
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 14:37:59 2023 +0100
+
+    Merge pull request #346 from IDandT/main
+    
+    Reto #1 - C#
+
+[33mcommit 9fb02b07f80727d1f7711b5d8d7f8eac00a9a07c[m
+Merge: 6a43b43 86abd59
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 14:37:48 2023 +0100
+
+    Merge pull request #345 from Anynou/Reto-#0---Python
+    
+     Reto #1 - Python
+
+[33mcommit 30fe4e889b45b1aa7f405be6aaba6a58dd5acad3[m
+Author: guabisabidev <guabidev@gmail.com>
+Date:   Tue Jan 3 14:33:19 2023 +0100
+
+    Reto #0 - javascript
+
+[33mcommit 548bf795babf3750b3d3304f972ff9e2f281df8c[m
+Author: IDandT <idandt@gmail.com>
+Date:   Tue Jan 3 14:12:10 2023 +0100
+
+    Reto #1 - C#
+
+[33mcommit 5f275a78a209ed5fa7156236e0072ba82f457472[m
+Author: RichardRivero <Richard_armando@hotmail.com>
+Date:   Tue Jan 3 09:10:38 2023 -0400
+
+    Reto #0 - Python : Propuesta de respuesta
+
+[33mcommit 86abd597aa20669cbfb5565f2fef51734de4de00[m
+Author: Anynou <jose.alonso0087@gmail.com>
+Date:   Tue Jan 3 14:00:20 2023 +0100
+
+     Reto #1 - Python
+
+[33mcommit 6a43b43345c7b44583943624879268b2a3aa71eb[m
+Merge: 5b090b0 f221034
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 13:38:44 2023 +0100
+
+    Merge pull request #344 from dreyg/feature/reto#0-java-dreyg
+    
+    Reto #0 - Java
+
+[33mcommit 5b090b09f9291da3ef56525b82d668457cb0c5b1[m
+Merge: 0ce989e a505994
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 13:38:34 2023 +0100
+
+    Merge pull request #343 from DanielFCre/main
+    
+    Reto #0 - Javascript
+
+[33mcommit 0ce989e49b946ed9dac4deef7bca079da0a87c83[m
+Merge: b4327d6 b73fd9f
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 13:38:24 2023 +0100
+
+    Merge pull request #342 from DAK0H/main
+    
+    Reto #1 - python
+
+[33mcommit b4327d6a480b8fb8d33fe30b4a1e9627f3feff43[m
+Merge: 7c52c01 0728b35
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 13:37:52 2023 +0100
+
+    Merge pull request #341 from orazioc17/main
+    
+    Reto #1 - Python
+
+[33mcommit 7c52c010f8c227ad15aed3abbcfc2db11409294d[m
+Merge: 672db70 8bf7438
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 13:37:40 2023 +0100
+
+    Merge pull request #340 from danher0310/danher0310
+    
+    Reto #1 - javascript
+
+[33mcommit 672db70f163556becfb91ea8b93af2d7c16ab7df[m
+Merge: d254dce dce6ba6
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 13:37:28 2023 +0100
+
+    Merge pull request #339 from PabloGradolph/main
+    
+    Reto #1 - Python y C++
+
+[33mcommit d254dcee99a8e31e21e716857edc20d9709011e0[m
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 13:32:29 2023 +0100
+
+    Reubicación de solución propuesta por wakicode para el Reto #1
+
+[33mcommit f221034814dfcd5c62740107675a44e327f500a8[m
+Author: David Rey <d.reyg30@gmail.com>
+Date:   Tue Jan 3 13:02:27 2023 +0100
+
+    RETO SEMANAL #0 - JAVA
+
+[33mcommit a5059943f0ee22b30f190feff445580a56b00988[m
+Author: Daniel Fernández Crespo <108697694+DanielFCre@users.noreply.github.com>
+Date:   Tue Jan 3 12:58:26 2023 +0100
+
+    Create danielfcre.js
+
+[33mcommit dce6ba6192e4c82d8101be694eed0200327ad935[m
+Merge: 9f06a40 0854228
+Author: Pablo Gradolph Oliva <pablo.gradolph@gmail.com>
+Date:   Tue Jan 3 12:51:31 2023 +0100
+
+    Merge branch 'mouredev:main' into main
+
+[33mcommit 8bf743856aee1ab89fb376deaad6ebb02cc0ab6f[m
+Author: Daniel <daniel.herrera2292@gmail.com>
+Date:   Tue Jan 3 07:49:33 2023 -0400
+
+    Agregar comando prompt
+
+[33mcommit 0728b350048833bfc096626aa3221e909bf0322c[m
+Author: Orazio Cappadonna <oraziocappadonna1999@gmail.com>
+Date:   Tue Jan 3 07:46:49 2023 -0400
+
+    reto solucionado
+
+[33mcommit 9f06a404d8ae4f1f4ef6fa9ccc2472edcb9fdf9f[m
+Author: Gradolph <pablo.gradolph@gmail.com>
+Date:   Tue Jan 3 12:45:33 2023 +0100
+
+    Reto #1 - C++
+
+[33mcommit b73fd9f1abcadf55ad3075e53ea68561b38b229c[m
+Author: DAK0H <dakohzoe@gmail.com>
+Date:   Tue Jan 3 12:45:28 2023 +0100
+
+    Update DAK0H.py
+
+[33mcommit ee2615681ebd1409758529bb4eb2dda345ff91da[m
+Author: Daniel <daniel.herrera2292@gmail.com>
+Date:   Tue Jan 3 07:41:06 2023 -0400
+
+    Reto #1 Javascript
+
+[33mcommit b27657522539f79c2c0411f0ab7ef202257cd80e[m
+Author: Gradolph <pablo.gradolph@gmail.com>
+Date:   Tue Jan 3 11:56:10 2023 +0100
+
+    Reto #1 - Python
+
+[33mcommit 0854228e3df9e32435ff9f79907d1d6423da2a64[m
+Merge: 2a1f017 500deb2
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 11:37:42 2023 +0100
+
+    Merge pull request #338 from federocky/main
+    
+    Reto #0 - javascript
+
+[33mcommit 2a1f017aa98c973db823073f0b2889b050480a42[m
+Merge: 7c0a3f2 bf78fe6
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 11:37:29 2023 +0100
+
+    Merge pull request #337 from proenotec/main
+    
+    Reto #0 - asm
+
+[33mcommit 7c0a3f21289f583528721d0e56eba234b193c8c1[m
+Merge: e94df06 a93e4e3
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 11:37:18 2023 +0100
+
+    Merge pull request #336 from Wakicode/main
+    
+    Reto #1 - Kotlin
+
+[33mcommit e94df061726c0c57a83a64f67141cdb9564612ca[m
+Merge: 4fa5777 3baea10
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 11:37:07 2023 +0100
+
+    Merge pull request #335 from PabloGradolph/main
+    
+    Reto #0 - C++
+
+[33mcommit 4fa5777115dd6ec6635feb79aaa3b79d07adcfa2[m
+Merge: 74ed354 c08df8e
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 11:36:53 2023 +0100
+
+    Merge pull request #334 from pardoblanco/main
+    
+    Reto#1 - Python
+
+[33mcommit 74ed354331ef87f359d4bc74d4b6ddad2866fadc[m
+Merge: 7dbda29 55fdd98
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 11:36:43 2023 +0100
+
+    Merge pull request #333 from sanzcarlos/main
+    
+    Main
+
+[33mcommit a93e4e373b2f6d1d7cb52d4ff88bc15bfd2de3d1[m
+Author: Wakicode <73446148+Wakicode@users.noreply.github.com>
+Date:   Tue Jan 3 11:34:27 2023 +0100
+
+    Delete Retos/Reto #1/kotlin directory
+
+[33mcommit c882569ab6f1b472a3140c5557d98551d90be428[m
+Author: Wakicode <joambrus@hotmail.com>
+Date:   Tue Jan 3 11:33:45 2023 +0100
+
+    Reto#1 - EL LENGUAJE HACKER
+
+[33mcommit 2eae8becb72ba8d5cad5fcbb64cbd40bf99721a3[m
+Author: Wakicode <joambrus@hotmail.com>
+Date:   Tue Jan 3 11:25:23 2023 +0100
+
+    Reto#1 - C#
+
+[33mcommit 500deb2451ef49a20c27bb5349c263aa267a7f9c[m
+Author: Federico Jacome <fedeandresdeveloper@gmail.com>
+Date:   Tue Jan 3 11:23:11 2023 +0100
+
+    Reto #0 - javascript
+
+[33mcommit 1aa254d396d99db9adfae0ccf0c89ef2105ac0f4[m
+Merge: 3b8a674 9fec9db
+Author: Wakicode <joambrus@hotmail.com>
+Date:   Tue Jan 3 11:15:00 2023 +0100
+
+    Merge remote-tracking branch 'origin/main'
+    
+    # Conflicts:
+    #       Retos/Reto #1/kotlin/wakicode.kt
+
+[33mcommit 3b8a674182f0b01fb165341d1e3df7aef0915a7b[m
+Author: Wakicode <joambrus@hotmail.com>
+Date:   Tue Jan 3 11:14:17 2023 +0100
+
+    Reto #1 - Kotlin
+
+[33mcommit 9fec9db5b76f9e6acfff3aa1a1aafed14350a6a1[m
+Author: Wakicode <73446148+Wakicode@users.noreply.github.com>
+Date:   Tue Jan 3 11:13:03 2023 +0100
+
+    Delete Retos/Reto #1/kotlin directory
+
+[33mcommit 3baea10d737a78f3fed0d9b5e358ccae10d869a7[m
+Merge: 1ce86d8 7dbda29
+Author: Pablo Gradolph Oliva <pablo.gradolph@gmail.com>
+Date:   Tue Jan 3 11:12:40 2023 +0100
+
+    Merge branch 'mouredev:main' into main
+
+[33mcommit 382714382f0bf1f43ab16eff8b60f72e0ce28785[m
+Merge: 8622a5a a11d14a
+Author: Wakicode <joambrus@hotmail.com>
+Date:   Tue Jan 3 11:11:37 2023 +0100
+
+    Merge remote-tracking branch 'origin/main'
+    
+    # Conflicts:
+    #       Retos/Reto #1/kotlin/wakicode.kt
+
+[33mcommit 8622a5a0869f918a53276af34d632be91ceaae1f[m
+Author: Wakicode <joambrus@hotmail.com>
+Date:   Tue Jan 3 11:10:37 2023 +0100
+
+    Reto#1 - Kotlin
+
+[33mcommit 1ce86d8c6662c14a93d6acf01be0609c01d6414d[m
+Author: Gradolph <pablo.gradolph@gmail.com>
+Date:   Tue Jan 3 11:10:22 2023 +0100
+
+    Reto #0 - C++
+
+[33mcommit d399f72b829e5661ba7c9219bb44353ee0fc6d0f[m
+Author: Gradolph <pablo.gradolph@gmail.com>
+Date:   Tue Jan 3 11:04:42 2023 +0100
+
+    Reto #0 - C++
+
+[33mcommit a11d14a68aa3ea1e19dd58e9c4e6108c94164c32[m
+Author: Wakicode <73446148+Wakicode@users.noreply.github.com>
+Date:   Tue Jan 3 10:58:13 2023 +0100
+
+    Delete Retos/Reto #1 directory
+
+[33mcommit c08df8ee4c5f7f68f885182b77276e91e2e03178[m
+Author: pardoblanco <albertopb1943@gmail.com>
+Date:   Tue Jan 3 10:40:43 2023 +0100
+
+    Reto semanal #1 Python
+
+[33mcommit 7dbda298eaa869199c8c670db4687df35ac18468[m
+Merge: 53d3e41 eca0e48
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 10:39:37 2023 +0100
+
+    Merge pull request #332 from 3cko0/main
+    
+    Reto #1 - Python
+
+[33mcommit 53d3e4179647e98974dda3421fd2cba935143ab1[m
+Merge: 78022c0 bc5ccea
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 10:39:26 2023 +0100
+
+    Merge pull request #331 from keys4dev/main
+    
+    Add files via upload
+
+[33mcommit 55fdd986d5f62c30f6380d9a318f83bc5d74e5b6[m
+Merge: ccc5a26 78022c0
+Author: Carlos Sanz <carlos.sanzpenas@gmail.com>
+Date:   Tue Jan 3 10:39:09 2023 +0100
+
+    Merge branch 'main' of https://github.com/sanzcarlos/retos-programacion-2023
+
+[33mcommit eca0e48fbf040f172c8c7e041a9e13b41f8c691d[m
+Author: 3cko0 <3cko0dev@gmail.com>
+Date:   Tue Jan 3 10:29:47 2023 +0100
+
+    3cko0 python solution
+
+[33mcommit bc5ccea98a001224fe0aca39476306bc442cedea[m
+Author: Keys 4 Dev <75089820+keys4dev@users.noreply.github.com>
+Date:   Tue Jan 3 10:26:59 2023 +0100
+
+    Add files via upload
+
+[33mcommit b69d2d36f59c590e7428f60e4f6714c98a34e91f[m
+Author: Keys 4 Dev <75089820+keys4dev@users.noreply.github.com>
+Date:   Tue Jan 3 10:03:34 2023 +0100
+
+    Add files via upload
+
+[33mcommit 78022c024682788ea2933ce7beac11ff39cc97cd[m
+Merge: 493510e 3a8c3ab
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:24:02 2023 +0100
+
+    Merge pull request #330 from BertoMP/main
+    
+    Reto #1 - Python
+
+[33mcommit 493510e7134dfc43e1ca1dbeba8303ec8adf3f5d[m
+Merge: a3913df 70f7d92
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:22:57 2023 +0100
+
+    Merge pull request #262 from albertferre/main
+    
+    Reto #1 - python
+
+[33mcommit a3913df78cd1140bca155acbc5eab7cabe4012ba[m
+Merge: d2338b5 9f3dc4f
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:22:44 2023 +0100
+
+    Merge pull request #259 from iago1905/main
+    
+    Reto #1 - Python
+
+[33mcommit d2338b5abd47eb6ccd1b1877467f7f205fda8bfa[m
+Merge: 7a9b242 f5ef97b
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:22:29 2023 +0100
+
+    Merge pull request #322 from jcdm60/reto-#1
+    
+    Reto #1 - Python
+
+[33mcommit 3a8c3ab68e3f100ea6dbd97c384413293bc77d0c[m
+Merge: be0a0ea 7a9b242
+Author: Alberto Martínez <115874159+BertoMP@users.noreply.github.com>
+Date:   Tue Jan 3 09:22:19 2023 +0100
+
+    Merge branch 'mouredev:main' into main
+
+[33mcommit 7a9b2421d3db5d5808468b88963e362bf7809073[m
+Merge: 31bdf20 c80182a
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:21:15 2023 +0100
+
+    Merge pull request #329 from test0n3/reto-1-el-lenguaje-hacker
+    
+    Reto #1 - Javascript y Ruby
+
+[33mcommit 31bdf20c0dc0c4358a6a505fbc856ac115b4f810[m
+Merge: 12a146d 30ecfe3
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:21:01 2023 +0100
+
+    Merge pull request #247 from lombervid/reto-1-php
+    
+    Reto #1 - PHP
+
+[33mcommit 12a146dff78e9d5c23f9a466068c126192e5b5fb[m
+Merge: 43dd889 954292f
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:20:52 2023 +0100
+
+    Merge pull request #243 from lombervid/reto-1-go
+    
+    Reto #1 - Go
+
+[33mcommit 43dd889a66edf12291e8f93cf02457a1d83e576f[m
+Merge: 8b2e140 80472b2
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:20:39 2023 +0100
+
+    Merge pull request #312 from lombervid/reto-1-rust
+    
+    Reto #1 - Rust
+
+[33mcommit 8b2e140124817bf4947eda63802cc20f537af8fb[m
+Merge: 4c65913 617a210
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:20:29 2023 +0100
+
+    Merge pull request #328 from lakergarcia/main
+    
+    Reto #1 - Python
+
+[33mcommit 4c659130f6b3ebab7c2f7737a6e2f5a9936ff812[m
+Merge: cbbd1e6 f572426
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:19:41 2023 +0100
+
+    Merge pull request #327 from espinoleandroo/main
+    
+    Reto #1 - Java
+
+[33mcommit cbbd1e6957eb97b4a15138e8506584ad6db47ae7[m
+Merge: 4681eaa fa2e45a
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:19:25 2023 +0100
+
+    Merge pull request #325 from jesus-borja/main
+    
+    Reto #1 - Java
+
+[33mcommit 4681eaa19c450b0327b379251f544609ba1b2ee9[m
+Merge: 2cd52e1 7dd90e3
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:18:21 2023 +0100
+
+    Merge pull request #319 from amartellram/Reto-01
+    
+    Reto #1 - Java
+
+[33mcommit 2cd52e13fd9c792dc651a6b36387f4c165389c5d[m
+Merge: 1727b08 6af0114
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:18:10 2023 +0100
+
+    Merge pull request #321 from KingLB44/main
+    
+    Reto #0 - CSHARP
+
+[33mcommit 1727b08c8310b1bdffa2f0d669d8b40a712567de[m
+Merge: 36676a1 ca0f480
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:17:56 2023 +0100
+
+    Merge pull request #320 from vishowsky/Vishowsky
+    
+    Reto #0 - Javascript
+
+[33mcommit 36676a13edd52f04f6155fdacb77dc65f1b072d4[m
+Merge: 8155c0f 8d7e55d
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:17:46 2023 +0100
+
+    Merge pull request #314 from vishowsky/main
+    
+    Reto #1 - Javascript
+
+[33mcommit 8155c0fead3003e9117b62c84b212b392ee7e7d5[m
+Merge: 7ac13b9 3402194
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:17:34 2023 +0100
+
+    Merge pull request #318 from joaquinferrero/main
+    
+    Reto #1 - Raku, Perl
+
+[33mcommit be0a0eacaef9e6a123ad37021ef51d34f6c730b7[m
+Author: Alberto Martínez <115874159+BertoMP@users.noreply.github.com>
+Date:   Tue Jan 3 09:17:22 2023 +0100
+
+    Reto #1 - Python (cambios en mi programa)
+
+[33mcommit 7ac13b9b78b29fb61338b44e5fba39523c65fa0d[m
+Merge: e774901 cf0b11c
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:16:55 2023 +0100
+
+    Merge pull request #317 from broscrDev/Solution_1
+    
+    Reto #1 - Javascript
+
+[33mcommit e7749019743625394f730ef1095462a4beef1aa8[m
+Merge: c2ef21d ed419bc
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:16:42 2023 +0100
+
+    Merge pull request #316 from kristiancdev/main
+    
+    Reto #1: EL LENGUAJE HACKER - c#
+
+[33mcommit c2ef21d7d9d899c2c60c51567cf9ae667aca02b6[m
+Merge: 56fc6e1 25b8057
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:16:31 2023 +0100
+
+    Merge pull request #315 from broscrDev/reto_0
+    
+    Reto #0 - Javascript
+
+[33mcommit 56fc6e11b9f3cc94bd454dcf3c2d4b241d216637[m
+Merge: be3f02c 9da77f9
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:16:20 2023 +0100
+
+    Merge pull request #307 from usabalza/main
+    
+    Reto #0 - Swift
+
+[33mcommit be3f02ceb478058863fb5bca6ded46b5cce60782[m
+Merge: b2bef8e 56b601d
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:16:06 2023 +0100
+
+    Merge pull request #313 from regalk13/main
+    
+    Reto #1 - Rust
+
+[33mcommit b2bef8e7495d37ff4f505d5d17cadb347703649a[m
+Merge: ce537ea b4e7278
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:15:55 2023 +0100
+
+    Merge pull request #311 from DamonCDB/main
+    
+    Reto #1 - Python
+
+[33mcommit ce537ea93ffbbae45984bed8457cf10758917676[m
+Merge: 0af43c5 a884cde
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:14:55 2023 +0100
+
+    Merge pull request #310 from sanzcarlos/main
+    
+    Reto #0 - Python
+
+[33mcommit 0af43c5b9f6c85b67fbbc1158a3cc3a41035f4d4[m
+Merge: f94ea64 c5daab4
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:14:42 2023 +0100
+
+    Merge pull request #300 from jdrestre/featurejdrestre
+    
+    Reto #0 - python
+
+[33mcommit f94ea64a03a30dffa3d7f3a3a2395b53a4c76d6c[m
+Merge: 46487b4 65fab62
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:14:32 2023 +0100
+
+    Merge pull request #275 from CasaisA/main
+    
+    Reto #1 - Python
+
+[33mcommit 46487b4a82b66993feb505cda3e534689d649d57[m
+Merge: 310062e ee947e1
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:14:22 2023 +0100
+
+    Merge pull request #306 from jizquierdoh/main
+    
+    Reto #1 - javascript
+
+[33mcommit 310062e2e11c559a23e14b2af9e175abd13fe4a8[m
+Merge: 1899dfa 00978d6
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:14:07 2023 +0100
+
+    Merge pull request #283 from ElBauti/reto1
+    
+    Reto #1 - Python
+
+[33mcommit 1899dfaf0bf079dc413b9a2198f46b8c69a67704[m
+Merge: dce8502 80f4966
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:13:52 2023 +0100
+
+    Merge pull request #285 from calmaoserran/calmaoserran
+    
+    Reto #1 - Python
+
+[33mcommit dce8502016ff26616859239b808ccdcecfd3c907[m
+Merge: a649971 ec79760
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:13:23 2023 +0100
+
+    Merge pull request #289 from lufranbeco/miprimerreto
+    
+    Reto #0 - Python
+
+[33mcommit a64997197886effb0f501cdf84a0736a53b4e1b5[m
+Merge: dad28f7 16531f2
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:13:11 2023 +0100
+
+    Merge pull request #305 from nahueld97/main
+    
+    Reto #1 Java
+
+[33mcommit dad28f763cf246aba5c3d2de00386494e447c98b[m
+Merge: 6b3914e 3ec51e3
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:12:57 2023 +0100
+
+    Merge pull request #304 from jonanv/jonanv
+    
+    :sparkles: Reto #1 javascript
+
+[33mcommit 6b3914e78ace2a969b6a60a58ae4d680daea7fa7[m
+Merge: 3638a6f 300c6f6
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:12:47 2023 +0100
+
+    Merge pull request #303 from secuaz/main
+    
+    Solución Reto #1 on Python by Secuaz
+
+[33mcommit 3638a6f7edb988e4736f50d44937019737fcf350[m
+Merge: b3f3d53 813a6cf
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:12:34 2023 +0100
+
+    Merge pull request #302 from Kirenai/kirenai
+    
+    Reto #0 - Java
+
+[33mcommit b3f3d53dc379d80ffae38c1068c1c0e3876924c4[m
+Merge: cbc5b89 8e6388a
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:12:17 2023 +0100
+
+    Merge pull request #301 from MrHarvyson/main
+    
+    Reto #01 - Java
+
+[33mcommit cbc5b8952e779768229587512c841047246b297c[m
+Merge: e6401b3 229f073
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:12:07 2023 +0100
+
+    Merge pull request #299 from savp03/savp03
+    
+    Reto #1 Python
+
+[33mcommit e6401b300795519c8b9339fba8524699a6da718e[m
+Merge: 2cf4a64 ac49c5c
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:11:50 2023 +0100
+
+    Merge pull request #278 from jaliagag/reto0
+    
+    Reto #0 - python
+
+[33mcommit 2cf4a64f8490f0ad8ce36b204a0e719ad0a18ea9[m
+Merge: 46d3a13 7bec27c
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:11:32 2023 +0100
+
+    Merge pull request #298 from Kehos/main
+    
+    Reto #1 - Javascript
+
+[33mcommit 46d3a13747835490a9c92799456cd4d750094034[m
+Merge: 2656b6b 2cdb857
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:11:04 2023 +0100
+
+    Merge pull request #296 from JSilvaH/main
+    
+    Reto #1 - Kotlin
+
+[33mcommit 2656b6b2378db0246b88812f91f34c308dfba951[m
+Merge: 7480e15 be2b521
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:10:51 2023 +0100
+
+    Merge pull request #295 from DAK0H/main
+    
+    Reto #1 - python
+
+[33mcommit 7480e15099a53e42524489a001f003662c5ae431[m
+Merge: ca7a6dc 0b34421
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:10:35 2023 +0100
+
+    Merge pull request #294 from davidqui/main
+    
+    Reto #0 - Java
+
+[33mcommit ca7a6dc88c88a6e7211d4e9b7b0d6364c1beca40[m
+Merge: d16b09f ddf994d
+Author: Brais Moure <mouredev@gmail.com>
+Date:   Tue Jan 3 09:10:26 2023 +0100
+
+    Merge pull request #288 from salaguna/main
+    
+    Reto #0 - C#
