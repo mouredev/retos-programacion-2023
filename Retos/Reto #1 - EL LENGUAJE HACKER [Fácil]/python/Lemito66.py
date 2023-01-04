@@ -23,7 +23,7 @@ def transform_to_language_hacker(word):
 
     finally_word = ""
     for item in word:
-        if item.isalpha() and item.lower() in dictionary_of_words:
+        if item.lower() in dictionary_of_words:
             finally_word += dictionary_of_words[item.lower()]
         else:
             finally_word += item
