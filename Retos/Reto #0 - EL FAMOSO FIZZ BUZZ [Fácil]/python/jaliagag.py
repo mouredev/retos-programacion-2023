@@ -1,4 +1,6 @@
+"""
 # Reto #0: EL FAMOSO "FIZZ BUZZ"
+
 #### Dificultad: Fácil | Publicación: 26/12/22 | Corrección: 02/01/23
 
 ## Enunciado
@@ -15,6 +17,18 @@
 ```
 #### Tienes toda la información extendida sobre los retos de programación semanales en **[retosdeprogramacion.com/semanales2023](https://retosdeprogramacion.com/semanales2023)**.
 
-Sigue las **[instrucciones](../README.md)**, consulta las correcciones y aporta la tuya propia utilizando el lenguaje de programación que quieras.
+Sigue las **[instrucciones](../../README.md)**, consulta las correcciones y aporta la tuya propia utilizando el lenguaje de programación que quieras.
 
 > Recuerda que cada semana se publica un nuevo ejercicio y se corrige el de la semana anterior en directo desde **[Twitch](https://twitch.tv/mouredev)**. Tienes el horario en la sección "eventos" del servidor de **[Discord](https://discord.gg/mouredev)**.
+"""
+
+for i in range(1,101):
+    if i % 3 == 0 and i % 5 == 0:
+        print('fizzbuzz')
+    elif i % 3 == 0:
+        print('fizz')
+    elif i % 5 == 0:
+        print('buzz')
+    else:
+        print(i)
+
