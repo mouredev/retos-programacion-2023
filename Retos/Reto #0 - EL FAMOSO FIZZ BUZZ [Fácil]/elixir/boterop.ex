@@ -1,4 +1,4 @@
-defmodule Boterop do
+defmodule Reto0.Boterop do
   def fizz_buzz(result_list \\ [], number \\ 1)
   def fizz_buzz(result_list, number) when number > 100, do: result_list
 
@@ -16,4 +16,4 @@ defmodule Boterop do
   def solve(number), do: number
 end
 
-Boterop.fizz_buzz()
+Reto0.Boterop.fizz_buzz()
