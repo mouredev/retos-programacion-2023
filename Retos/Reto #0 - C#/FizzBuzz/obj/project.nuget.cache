@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "hApEOlpJVvgZcCGTXeenTCkOOkiwJWMuEelUoaIhizIF1InaKpNyr3JcIxIH5tiFwkZ556MnnUqQvTDA1zvKOQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aborja\\source\\repos\\FizzBuzz\\FizzBuzz\\FizzBuzz.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aborja\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.30\\microsoft.netcore.app.host.win-x64.3.1.30.nupkg.sha512",
+    "C:\\Users\\aborja\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
