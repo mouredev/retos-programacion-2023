@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.title{
+    color: whitesmoke;
+}
+#res{
+    color: whitesmoke;
+}
+#text{
+    width: 450px;
+    border-radius: 5px;
+}
+.div{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+
+}
+body{
+    background-color: #18181b;
+    display: block;
+    justify-content: center;
+    padding-left: 20%;
+    padding-top: 5%;
+}
+button{
+    width: 200px;
+    color: blueviolet;
+    border-radius: 5px;
+}
