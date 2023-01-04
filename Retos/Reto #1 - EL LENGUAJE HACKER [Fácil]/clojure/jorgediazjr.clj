@@ -77,7 +77,7 @@
               (cond
                 (contains? chosen-leet-map m-char) (get chosen-leet-map m-char)
                 :else message-char)))]
-    (str/join "" (map replace-chars-with-leet (seq (char-array message))))))
+    (println (str/join "" (map replace-chars-with-leet (seq (char-array message)))))))
 
 (get-leet-message "demo" "intermediate")
 (get-leet-message "leet" "basic")
@@ -85,3 +85,4 @@
 (get-leet-message "noob" "basic")
 (get-leet-message "hacker" "advanced")
 (get-leet-message "fear" "intermediate")
+(get-leet-message "fun" "intermediate")
