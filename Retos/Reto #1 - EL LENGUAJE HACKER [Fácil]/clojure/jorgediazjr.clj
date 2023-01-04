@@ -71,13 +71,11 @@
                 "advanced" advanced-leet-map})
 
 (defn get-leet-message [message leet-type]
-  (letfn [(replace-chars-with-leet [message-char]
-            (let [m-char (str/lower-case message-char)
-                  chosen-leet-map (get leet-maps leet-type)]
-              (cond
-                (contains? chosen-leet-map m-char) (get chosen-leet-map m-char)
-                :else message-char)))]
-    (println (str/join "" (map replace-chars-with-leet (seq (char-array message)))))))
+  (let [msg-chars (-> message char-array seq)
+        leet-mappings (leet-maps leet-type)
+        replace-char #(leet-mappings (str/lower-case %) %)
+        leet-msg (->> msg-chars (map replace-char) (str/join ""))]
+    (println leet-msg)))
 
 (get-leet-message "demo" "intermediate")
 (get-leet-message "leet" "basic")
