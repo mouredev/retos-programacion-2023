@@ -10,4 +10,5 @@ def fizzbuzz():
             print("buzz")
         else:
             print(number)
+            
 fizzbuzz()
