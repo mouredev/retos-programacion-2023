@@ -48,4 +48,7 @@ function toLeet(string $text = ""){
     }
     return strtr($text,$leetCode);    
 }
+
+echo toLeet("Hola mundo, soy yo Carlos. ")
+
 ?>
