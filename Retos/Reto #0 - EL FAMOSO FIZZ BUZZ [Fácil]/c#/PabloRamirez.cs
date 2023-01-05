@@ -25,6 +25,7 @@ namespace FizzBuzzReto0
             Console.ReadKey();  
         }
 
+
         /// <summary>
         /// Method for check the numbers
         /// </summary>
