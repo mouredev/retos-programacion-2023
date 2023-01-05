@@ -1,0 +1,14 @@
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\bin\Debug\netcoreapp3.1\LENGUAJEHACKER.exe
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\bin\Debug\netcoreapp3.1\LENGUAJEHACKER.deps.json
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\bin\Debug\netcoreapp3.1\LENGUAJEHACKER.runtimeconfig.json
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\bin\Debug\netcoreapp3.1\LENGUAJEHACKER.runtimeconfig.dev.json
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\bin\Debug\netcoreapp3.1\LENGUAJEHACKER.dll
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\bin\Debug\netcoreapp3.1\LENGUAJEHACKER.pdb
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\obj\Debug\netcoreapp3.1\LENGUAJEHACKER.csproj.AssemblyReference.cache
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\obj\Debug\netcoreapp3.1\LENGUAJEHACKER.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\obj\Debug\netcoreapp3.1\LENGUAJEHACKER.AssemblyInfoInputs.cache
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\obj\Debug\netcoreapp3.1\LENGUAJEHACKER.AssemblyInfo.cs
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\obj\Debug\netcoreapp3.1\LENGUAJEHACKER.csproj.CoreCompileInputs.cache
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\obj\Debug\netcoreapp3.1\LENGUAJEHACKER.dll
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\obj\Debug\netcoreapp3.1\LENGUAJEHACKER.pdb
+C:\Users\aborja\source\repos\LENGUAJEHACKER\LENGUAJEHACKER\obj\Debug\netcoreapp3.1\LENGUAJEHACKER.genruntimeconfig.cache

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "9CFtPDcUIx60AkzsBlz+qrRO+tZ1UpuRDaMdNv1+LTRJzIhsRIe0mtwY2a3nJGZnbAigLYHIp0CieC2TcCW48Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aborja\\source\\repos\\LENGUAJEHACKER\\LENGUAJEHACKER\\LENGUAJEHACKER.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aborja\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.30\\microsoft.netcore.app.host.win-x64.3.1.30.nupkg.sha512",
+    "C:\\Users\\aborja\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
