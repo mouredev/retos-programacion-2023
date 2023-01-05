@@ -6,10 +6,10 @@ public class camilaspt {
 
     public static void fizzBuzz(){
         for (int i = 1; i <= 100; i ++ ){
-            if(multiplo3(i)){
+            if(multiplo3(i) && !multiplo5(i)){
                 System.out.println("fizz");
             }
-            if(multiplo5(i)){
+            if(multiplo5(i) && !multiplo3(i)){
                 System.out.println("buzz");
             }
             if (multiplo3y5(i)) {
