@@ -98,8 +98,8 @@ public class dancorrdev {
             case 'z':
                 System.out.print("2");
                 break;
-            case ' ':
-                System.out.print(" ");
+            default:
+                System.out.print(letter);
                 break;
         }
     }
