@@ -41,10 +41,10 @@ def HackerEncode(plainText):
     encryptedText = ""
 
     for letter in plainText:
-        if letter in leetCode.keys():
-            encryptedText += leetCode[letter]
+        if letter.lower() in leetCode.keys():
+            encryptedText += leetCode[letter.lower()]
         else:
-            encryptedText += letter
+            encryptedText += letter.lower()
 
     return encryptedText
 
