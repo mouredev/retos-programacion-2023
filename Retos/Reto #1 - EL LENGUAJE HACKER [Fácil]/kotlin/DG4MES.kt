@@ -47,5 +47,5 @@ fun textToHacker(text:String):String {
     
 fun main(){
     val texto = "holanda"
-    print(textToHacker(texto))
+    println(textToHacker(texto))
 }
