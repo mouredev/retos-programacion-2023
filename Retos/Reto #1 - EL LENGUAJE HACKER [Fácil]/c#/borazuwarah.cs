@@ -1,5 +1,4 @@
 /*
-
  * Escribe un programa que reciba un texto y transforme lenguaje natural a
  * "lenguaje hacker" (conocido realmente como "leet" o "1337"). Este lenguaje
  *  se caracteriza por sustituir caracteres alfanuméricos.
@@ -9,7 +8,6 @@
  */
 
 using System;
-
 
 namespace MoureReto1
 {
