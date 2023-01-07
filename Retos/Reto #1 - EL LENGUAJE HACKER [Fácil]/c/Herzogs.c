@@ -37,7 +37,7 @@ extern char* generarCodigoLeet(const char *msg, leet *map){
   while(*msg != '\0'){
     leet *cod=NULL;
     if(isalpha(*msg)){
-      cod = busquedaBinaria(map, *msg, 0, CANT_LET);
+      cod = busquedaBinaria(map, tolower(*msg), 0, CANT_LET);
     }
     if(isdigit(*msg)){
       cod = busquedaBinaria(map, *msg, CANT_LET, TAM_DIC);
@@ -134,7 +134,7 @@ extern void generarDiccionario(leet *diccionario){
 int main(const int nargs, const char **args){
   leet diccionario[TAM_DIC];
   generarDiccionario(diccionario);
-  char *msg = "hola a todos\0";
+  char *msg = "HOLA A TODOS\0";
   char *res = generarCodigoLeet(msg, diccionario);
   fprintf(stdout,"Mensaje sin decodificar es: %s\nMensaje codificado es %s\n",msg,res);
   free(res);
