@@ -7,18 +7,17 @@
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
 
-for(let number = 1; number <= 100; number++){
-  console.log(fizzbuzz(number))
+ fun main() {
+    for (number in 1..100) {
+        println(fizzbuzz(number))
+    }
 }
 
-
-function fizzbuzz(number){
-  if(number % 3 == 0 && number % 5 == 0){
-    return "fizzbuzz"
-  }else if(number % 3 == 0){
-    return "fizz"
-  }else if(number % 5 == 0){
-    return "buzz"
-  }
-  return number
+fun fizzbuzz(number: Int): String {
+    return when {
+        number % 3 == 0 && number % 5 == 0 -> "fizzbuzz"
+        number % 3 == 0 -> "fizz"
+        number % 5 == 0 -> "buzz"
+        else -> number.toString()
+    }
 }
