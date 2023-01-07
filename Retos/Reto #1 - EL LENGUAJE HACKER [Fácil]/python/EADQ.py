@@ -53,7 +53,17 @@ hacker_replace = (
     ('w' , '\X/'),
     ('x' , '?'),
     ('y' , '7'),
-    ('z' , '7_')
+    ('z' , '7_'),
+    ('1' , 'L'),
+    ('2' , 'R'),
+    ('3' , 'E'),
+    ('4' , 'A'),
+    ('5' , 'S'),
+    ('6' , 'b'),
+    ('7' , 'T'),
+    ('8' , 'B'),
+    ('9' , 'g'),
+    ('0' , 'o')
 
 )
 
@@ -62,23 +72,4 @@ for old, new in hacker_replace:
     hacker_convert = hacker_convert.replace(old, new)
 
 print('El dato encriptado es: ' + hacker_convert)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
