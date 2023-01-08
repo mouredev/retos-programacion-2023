@@ -2,45 +2,61 @@
 #include <stdbool.h>
 #include <string.h>
 #include <stdlib.h>
+#include <ctype.h>
+
+#define LENG_STRING 100
+#define TAM_DIC 36
+#define CANT_LET 26
+#define CANT_NUM 10
 
 typedef struct{
   char key;
   char value[4];
 }leet;
 
-static leet* buscarReferenciaEnElDiccionario(const leet *dict, const char key, const int size ){
-  leet * aux = NULL;
-  bool enc = false;
-  int idx = 0;
-  while(idx < size && !enc){
-    if(dict->key == key){
-      aux = dict;
-      enc = true;
-    }
-    dict++;
-  }
-  return (enc==true)?aux:NULL;
+static leet* busquedaBinaria(leet* vect, char key, int ini, int fin){
+  if(ini > fin)
+    return NULL;
+  int med = (ini+fin)/2;
+  leet *aux = vect+med;
+  if(aux->key == key)
+    return aux;
+  if(key < aux->key)
+    fin = med-1;
+  else
+    ini = med+1;
+  return busquedaBinaria(vect, key, ini, fin);
 }
 
 
-
-char* generarCodigoLeet(const char *msg, const leet *dict, int size){
+extern char* generarCodigoLeet(const char *msg, leet *map){
   char *nuevaCadena = NULL;
-  nuevaCadena = (char*) malloc(sizeof(char)*100);
+  nuevaCadena = (char*) malloc(sizeof(char)*LENG_STRING);
   if(nuevaCadena == NULL)
     return NULL;
   while(*msg != '\0'){
-    leet *cod = buscarReferenciaEnElDiccionario(dict,*msg,size);
-    if(cod != NULL)
+    leet *cod=NULL;
+    if(isalpha(*msg)){
+      cod = busquedaBinaria(map, tolower(*msg), 0, CANT_LET);
+    }
+    if(isdigit(*msg)){
+      cod = busquedaBinaria(map, *msg, CANT_LET, TAM_DIC);
+    }
+    if(cod != NULL){
       strcat(nuevaCadena,cod->value);
-    else
-      strcat(nuevaCadena,msg);
+    }else{
+      char cadena[2];
+      cadena[0]=*msg;
+      cadena[1]='\0';
+      strcat(nuevaCadena,cadena);
+    }
     msg++;
   }
   return nuevaCadena;
 }
 
-void generarDiccionario(leet *diccionario){
+
+extern void generarDiccionario(leet *diccionario){
   diccionario[0].key = 'a';
   strcpy(diccionario[0].value,"4");
   diccionario[1].key='b';
@@ -116,10 +132,11 @@ void generarDiccionario(leet *diccionario){
 }
 
 int main(const int nargs, const char **args){
-  leet diccionario[36];
+  leet diccionario[TAM_DIC];
   generarDiccionario(diccionario);
-  char * msg = "hola\0";
-  //fputs(msg,stdout);
-  fprintf(stdout,"Mensaje sin decodificar es: %s\nMensaje codificado es %s\n",msg,generarCodigoLeet(msg,diccionario,36));
+  char *msg = "HOLA A TODOS\0";
+  char *res = generarCodigoLeet(msg, diccionario);
+  fprintf(stdout,"Mensaje sin decodificar es: %s\nMensaje codificado es %s\n",msg,res);
+  free(res);
   return 0;
 }
