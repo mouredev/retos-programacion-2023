@@ -10,7 +10,7 @@
 // definimos equivalencias en un objeto
 const table =  {
   'a':'4',
-  'b':'IB',
+  'b':'I3',
   'c':'[',
   'd':')',
   'e':'3',
@@ -49,7 +49,7 @@ const table =  {
 
 /** Función que acepta un cadena de entrada y una tabla de conversión y devuelve la frase traducida a leet */
 function translate(input, _table=table){
-  return input.split('').map((x)=> _table[x] ||x).join('');
+  return input.toLowerCase().split('').map((x)=> _table[x] ||x).join('');
 }
 
 
