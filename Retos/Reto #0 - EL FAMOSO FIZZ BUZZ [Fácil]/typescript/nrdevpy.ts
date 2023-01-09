@@ -1,6 +1,5 @@
-const fizzBuzz = () => {
-    let i: number;
-    for (i = 1; i <= 100; i++) {
+const fizzBuzz = (): void => {
+    for (let i: number = 1; i <= 100; i++) {
         if (i % 3 === 0 && i % 5 === 0) {
             console.log(`fizzbuzz`)
         } else if (i % 3 === 0){
