@@ -75,4 +75,4 @@ while(string.IsNullOrWhiteSpace(word)){
     word = Console.ReadLine();
 }
 
-Console.WriteLine($"Texto traducido: {HackerLanguage(word)}");
+Console.WriteLine($"Texto traducido: {HackerLanguage(word.ToLower())}");
