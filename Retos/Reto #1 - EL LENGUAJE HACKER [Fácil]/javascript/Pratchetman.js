@@ -9,6 +9,9 @@ let arrTraduccion = new Array();
 for (let i = 0; i < frase.length; i++){
     index = alphabet.indexOf(frase[i]);
     arrTraduccion[i] = leet[index];
+    if (alphabet.indexOf(frase[i]) == -1){
+      arrTraduccion[i] = frase[i];
+    }
 }
 
 let traduccion = arrTraduccion.join("");

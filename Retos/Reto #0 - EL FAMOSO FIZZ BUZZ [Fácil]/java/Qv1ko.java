@@ -4,7 +4,7 @@ public class Qv1ko {
         for(int i=1;i<=100;i++) {
             fizzbuzz(i);
         }
-	}//main
+    }//main
 
     private static void fizzbuzz(int number) {
         if(number%3==0&&number%5==0) {
