@@ -1,5 +1,5 @@
-function leetSpeak(input: string) {
-    const leetAlph: object = {
+function leetSpeak(input) {
+    const leetAlph = {
         a: '4',
         b: 'I3',
         c: '[',
@@ -36,22 +36,23 @@ function leetSpeak(input: string) {
         8: 'B',
         9: 'g',
         0: 'o',
-    }
+    };
     const formatOutput = () => {
         try {
-            let inputArr: string[] = input.toLowerCase().split("");
-            let ctx: string = '';
+            let inputArr = input.toLowerCase().split("");
+            let ctx = '';
             inputArr.map(letter => {
-                letter !== ' ' ? ctx += leetAlph[letter as keyof typeof leetSpeak] : ctx += ' ';
+                letter !== ' ' ? ctx += leetAlph[letter] : ctx += ' ';
             });
             return ctx;
-        } catch (err){
-            console.log(err)
-            return 'Please introduce a string as a parameter.'
         }
-    }
+        catch (err) {
+            console.log(err);
+            return 'Please introduce a string as a parameter.';
+        }
+    };
     return formatOutput();
 }
-console.log (leetSpeak('mouredev'));
-console.log (leetSpeak('Starting 2023 with Mouredevs weekly challenges'));
-console.log (leetSpeak('Starting learning Typescript'));
+console.log(leetSpeak('mouredev'));
+console.log(leetSpeak('Starting 2023 with Mouredevs weekly challenges'));
+console.log(leetSpeak('Starting learning Typescript'));
