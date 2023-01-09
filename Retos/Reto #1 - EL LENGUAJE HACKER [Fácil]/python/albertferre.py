@@ -34,7 +34,17 @@ leet_dict = dict({
     'x': '><',
     'y': 'j',
     'z': '2',
-})
+    '1': 'L',
+    '2': 'R',
+    '3': 'E', 
+    '4': 'A', 
+    '5': 'S',
+    '6': 'b',
+    '7': 'T', 
+    '8': 'B', 
+    '9': 'g', 
+    '0':'o'
+    })
 
 
 def leet(string):
@@ -45,6 +55,6 @@ def leet(string):
     return string
 
 if __name__ == "__main__":
-    text = 'El veloz murcielago hindu comia feliz cardillo y kiwi'
+    text = 'El veloz murcielago hindu comia 23 feliz cardillo y kiwi'
     print(text)
     print(leet(text))
