@@ -38,13 +38,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "F:/Desarrollo/retos-programacion-2023/Retos/Reto #1 - EL LENGUAJE HACKER [Fácil]/kotlin/malopezrom.kts",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.Node">
     <configuration name="F:\Desarrollo\retos-programacion-2023\Retos\Reto #1 - EL LENGUAJE HACKER [Fácil]\kotlin\malopezrom.kts" type="KotlinStandaloneScriptRunConfigurationType" temporary="true" nameIsGenerated="true">
       <module name="retos-programacion-2023" />
       <shortenClasspath name="NONE" />
@@ -52,6 +54,15 @@
       <option name="filePath" value="F:\Desarrollo\retos-programacion-2023\Retos\Reto #1 - EL LENGUAJE HACKER [Fácil]\kotlin\malopezrom.kts" />
       <method v="2" />
     </configuration>
+    <configuration name="Node" type="NodeJSConfigurationType" application-parameters="--project tsconfig.json" node-parameters="--require ts-node/register" path-to-js-file="$FilePathRelativeToProjectRoot$" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" application-parameters="--project tsconfig.json" node-parameters="--require ts-node/register" path-to-js-file="$FilePathRelativeToProjectRoot$">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.Node" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
