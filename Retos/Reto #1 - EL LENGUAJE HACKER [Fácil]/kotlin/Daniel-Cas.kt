@@ -1,5 +1,3 @@
-import java.util.Dictionary
-
 fun main() {
     val word: String = readln().lowercase()
     val dictionaryMap: Map<Char, String> = mapOf(
