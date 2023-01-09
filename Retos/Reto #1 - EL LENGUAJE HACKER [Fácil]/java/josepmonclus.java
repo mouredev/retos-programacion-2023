@@ -11,7 +11,7 @@ import java.util.Scanner;
  *   (Usa la primera opción de cada transformación. Por ejemplo "4" para la "a")
  */
 
-public class jmonclus {
+public class josepmonclus {
     public static final Map<Character, String> hackerMap = new HashMap<Character, String>();
 
     static {
