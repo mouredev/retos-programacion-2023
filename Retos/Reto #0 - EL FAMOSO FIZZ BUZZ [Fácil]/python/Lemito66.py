@@ -23,3 +23,4 @@ def fizz_buzz(limit):
 
 for i in fizz_buzz(100):
     print(i)
+    
