@@ -1,7 +1,6 @@
 import kotlin.system.exitProcess
 
-val player1 = listOf<String>("Love", "15", "30", "40")
-val player2 = listOf<String>("Love", "15", "30", "40")
+val playersPoints = listOf<String>("Love", "15", "30", "40")
 var player1Points = 0
 var player2Points = 0
 var deucePoints1 = 0
@@ -26,7 +25,7 @@ private fun game() {
                 deuce()
                 return
             }
-            println("${player1[player1Points]} - ${player2[player2Points]}")
+            println("${playersPoints[player1Points]} - ${playersPoints[player2Points]}")
             game()
         }
 
@@ -41,10 +40,9 @@ private fun game() {
                 deuce()
                 return
             }
-            println("${player1[player1Points]} - ${player2[player2Points]}")
+            println("${playersPoints[player1Points]} - ${playersPoints[player2Points]}")
             game()
         }
-
         else -> {
             println("Ingresa P1 o P2")
             game()
@@ -54,7 +52,6 @@ private fun game() {
 
 fun deuce() {
     when (readln()) {
-
         "P1" -> {
             deucePoints1++
             if (deucePoints1 > deucePoints2 && deucePoints1 - deucePoints2 == 1) {
@@ -68,7 +65,6 @@ fun deuce() {
                 exitProcess(0)
             }
         }
-
         "P2" -> {
             deucePoints2++
             if (deucePoints2 > deucePoints1 && deucePoints2 - deucePoints1 == 1) {
