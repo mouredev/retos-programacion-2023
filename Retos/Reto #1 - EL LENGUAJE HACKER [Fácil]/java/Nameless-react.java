@@ -71,6 +71,6 @@ public class NamelessReact {
         List<String> word = Arrays.asList(JOptionPane.showInputDialog("Digite un nombre o palabra: ").split("")).stream()
                             .map(letter -> replaceLetters.containsKey(letter.toUpperCase()) ? replaceLetters.get(letter.toUpperCase()) : letter)
                             .collect(Collectors.toList());
-        JOptionPane.showMessageDialog(String.join("", word));
+        JOptionPane.showMessageDialog(null, String.join("", word));
     }
 }
