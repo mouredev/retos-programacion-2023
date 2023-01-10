@@ -2,7 +2,7 @@
  * Reto #2 - El partido de tenis
  * Propuesta de solución realizada por Kehos
  * https://github.com/Kehos
- * 09/01/2023
+ * 10/01/2023
  */
 
 // Test array
