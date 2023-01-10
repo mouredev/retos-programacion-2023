@@ -1,15 +1,7 @@
-puntos = (
-    'Love',
-    '15',
-    '30',
-    '40',
-    )
+puntos = ('Love', '15', '30', '40')
 
 def juego(secuencia):
-    jugador = {
-        'P1': 0,
-        'P2': 0
-    }
+    jugador = {'P1': 0, 'P2': 0}
     for punto in secuencia:
         jugador[punto] += 1
         if jugador['P1'] >= 3 and jugador['P2'] >= 3: 
