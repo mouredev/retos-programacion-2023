@@ -25,11 +25,8 @@
  * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
  */
 
-
-
 const score = [0,0]
 const points = ['Love',15,30,40,'Deuce','Ventaja']
-
 
 function TennisGame(result) {
   let isWinner = false;
@@ -66,4 +63,5 @@ function resultGame(currentPlayer) {
 
   return false
 }
+
 TennisGame(['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1'])
