@@ -12,7 +12,7 @@ enum RoundStatus: CustomStringConvertible {
     case win(Player)
     case none
     
-    // This description eases localization
+    // This description eases localization, and testing
     var description: String {
         switch self {
         case let .regular(scoreP1, scoreP2):
