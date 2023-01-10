@@ -78,6 +78,7 @@ public class reto02_ElPartidoDeTenis {
             }
             blnJuegoFinalizado = dimeMarcador(intPuntuacionP1, intPuntuacionP2);
         }
+        scEntrada.close();
     }
     public static void main(String[] args) {
         inicio();
