@@ -25,40 +25,52 @@ public class NamelessReact {
  
     
     public static void hackerLenguaje() {
-        Hashtable<String, String> replaceLetters = new Hashtable<String, String>();
+        Map<String, String> replaceLetters = new HashMap<>() {{
+            put("A", "4");
+            put("B", "I3");
+            put("C", "[");
+            put("D", ")");
+            put("E", "3");
+            put("F", "|=");
+            put("G", "&");
+            put("H", "#");
+            put("I", "1");
+            put("J", ",_|");
+            put("K", ">|");
+            put("L", "1");
+            put("M", "/\\/\\");
+            put("N", "^/");
+            put("O", "0");
+            put("P", "|*");
+            put("Q", "(_,)");
+            put("R", "|2");
+            put("S", "5");
+            put("T", "7");
+            put("U", "(_)");
+            put("V", "\\/");
+            put("W", "\\/\\/");
+            put("X", "><");
+            put("Y", "j");
+            put("Z", "2");
+            put(" ", " ");        
+            put("1", "L");        
+            put("2", "R");        
+            put("3", "E");        
+            put("4", "A");        
+            put("5", "S");        
+            put("6", "b");        
+            put("7", "T");        
+            put("8", "B");        
+            put("9", "g");        
+            put("0", "o");        
+        }};
         
         
         
-        replaceLetters.put("A", "4");
-        replaceLetters.put("B", "I3");
-        replaceLetters.put("C", "[");
-        replaceLetters.put("D", ")");
-        replaceLetters.put("E", "3");
-        replaceLetters.put("F", "|=");
-        replaceLetters.put("G", "&");
-        replaceLetters.put("H", "#");
-        replaceLetters.put("I", "1");
-        replaceLetters.put("J", ",_|");
-        replaceLetters.put("K", ">|");
-        replaceLetters.put("L", "1");
-        replaceLetters.put("M", "/\\/\\");
-        replaceLetters.put("N", "^/");
-        replaceLetters.put("O", "0");
-        replaceLetters.put("P", "|*");
-        replaceLetters.put("Q", "(_,)");
-        replaceLetters.put("R", "|2");
-        replaceLetters.put("S", "5");
-        replaceLetters.put("T", "7");
-        replaceLetters.put("U", "(_)");
-        replaceLetters.put("V", "\\/");
-        replaceLetters.put("W", "\\/\\/");
-        replaceLetters.put("X", "><");
-        replaceLetters.put("Y", "j");
-        replaceLetters.put("Z", "2");
-        replaceLetters.put(" ", " ");
         
-        
-        List<String> word = Arrays.asList(JOptionPane.showInputDialog("Digite un nombre o palabra: ").toUpperCase().split("")).stream().map(letter -> replaceLetters.get(letter)).collect(Collectors.toList());
+        List<String> word = Arrays.asList(JOptionPane.showInputDialog("Digite un nombre o palabra: ").split("")).stream()
+                            .map(letter -> replaceLetters.containsKey(letter.toUpperCase()) ? replaceLetters.get(letter.toUpperCase()) : letter)
+                            .collect(Collectors.toList());
         JOptionPane.showMessageDialog(null, String.join("", word));
     }
 }
