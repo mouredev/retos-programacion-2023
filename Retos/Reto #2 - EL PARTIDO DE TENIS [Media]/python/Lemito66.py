@@ -19,25 +19,54 @@
  */
 """
 
-def puntuaciones_del_juego(lista_de_puntos):
-    jugadores = {'P1':0,
-                 'P2':0}
-    for i in lista_de_puntos:
-        if i.upper() == 'P1':
-            jugadores[i.upper()] +=1
-        elif i.upper() == 'P2':
-            jugadores[i.upper()] +=1
-            
-    return list((jugadores['P1'], jugadores['P2']))
-    
-    
-def imprimir_resultados(marcador):
-    lista_de_marcador = ['love','15', '30', '40']
-    return f'P1 {lista_de_marcador[marcador[0]]} - P2 {lista_de_marcador[marcador[1]]}'
+
+def primer_game(lista_de_puntos: list):
+    jugadores = {'P1': 0,
+                 'P2': 0}
+    resultado_P1 = ''
+    resultado_P2 = ''
+    try:
+        if len(lista_de_puntos) > 0:
+            for puntos in lista_de_puntos:
+                jugadores[puntos.upper()] += 1
+                if jugadores['P1'] == 3 and jugadores['P2'] == 3:
+                    print('Deuce')
+                elif jugadores['P1'] >= 4 or jugadores['P2'] >= 4:
+                    if jugadores['P1'] == jugadores['P2']:
+                        print('Deuce')
+                    elif jugadores['P1'] > jugadores['P2']:
+                        if jugadores['P1'] - jugadores['P2'] == 1:
+                            print('Ventaja P1')
+                        else:
+                            print(f'Game P1')
+                    else:
+                        if jugadores['P2'] - jugadores['P1'] == 1:
+                            print('Ventaja P2')
+                        else:
+                            print(f'Game P2')
+                else:
+                    if jugadores['P1'] == 0:
+                        resultado_P1 = 'Love'
+                    elif jugadores['P1'] == 1:
+                        resultado_P1 = '15'
+                    elif jugadores['P1'] == 2:
+                        resultado_P1 = '30'
+                    else:
+                        resultado_P1 = ('40')
+                    if jugadores['P2'] == 0:
+                        resultado_P2 = 'Love'
+                    elif jugadores['P2'] == 1:
+                        resultado_P2 = '15'
+                    elif jugadores['P2'] == 2:
+                        resultado_P2 = '30'
+                    else:
+                        resultado_P2 = ('40')
+                    print(f'{resultado_P1}-{resultado_P2}')
+        else:
+            print('La lista esta vacia')
+    except:
+        print(f'Error, el valor no es el correcto')
 
 
-
-""" for i in range(len(puntuaciones_del_juego(["P1", "P1"]))):
-    print(imprimir_resultados(puntuaciones_del_juego(["P1", "P1"]))) """
-    
-print(imprimir_resultados(puntuaciones_del_juego(["P1", "P1", "P2"])))
+primer_game(["P1", "P2", "P1", "P2", "P1", "P2",
+            "P1", "P2", "P1", "P2", "P2", "P2"])
