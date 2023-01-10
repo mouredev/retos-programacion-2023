@@ -1,15 +1,4 @@
-      let juego = new Array(
-        "P1",
-        "P1",
-        "P2",
-        "P1",
-        "P2",
-        "P2",
-        "P1",
-        "P2",
-        "P2",
-        "P2"
-      );
+      let juego = new Array("P1","P1","P2","P1","P2","P2","P1","P2","P2","P2");
 
       function ganadorJuego(arr) {
         let jeuP1 = new Array("Love", "15", "30", "40", "Advantage");
