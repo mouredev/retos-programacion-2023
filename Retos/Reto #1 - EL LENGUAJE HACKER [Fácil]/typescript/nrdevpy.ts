@@ -42,7 +42,7 @@ function leetSpeak(input: string) {
             let inputArr: string[] = input.toLowerCase().split("");
             let ctx: string = '';
             inputArr.map(letter => {
-                letter !== ' ' ? ctx += leetAlph[letter] : ctx += ' ';
+                letter !== ' ' ? ctx += leetAlph[letter as keyof typeof leetSpeak] : ctx += ' ';
             });
             return ctx;
         } catch (err){
@@ -53,5 +53,5 @@ function leetSpeak(input: string) {
     return formatOutput();
 }
 console.log (leetSpeak('mouredev'));
-console.log (leetSpeak('Empezando 2023 con los retos semanales de mouredev'));
-console.log (leetSpeak('Empezando el año aprendiendo Typescript'));
+console.log (leetSpeak('Starting 2023 with Mouredevs weekly challenges'));
+console.log (leetSpeak('Starting learning Typescript'));
