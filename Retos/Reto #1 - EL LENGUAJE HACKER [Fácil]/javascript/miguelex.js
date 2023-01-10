@@ -1,7 +1,7 @@
 function HackerEncode(plainText) {
   let leetCode = new Map([
     ["a", "4'"],
-    [("b", "I3")],
+    ["b", "I3"],
     ["c", "["],
     ["d", ")"],
     ["e", "3"],
@@ -41,7 +41,7 @@ function HackerEncode(plainText) {
   let encryptedText = "";
 
   for (let i = 0; i < plainText.length; i++) {
-    let letter = plainText[i];
+    let letter = plainText[i].toLowerCase();
 
     if (leetCode.has(letter)) {
       encryptedText += leetCode.get(letter);
