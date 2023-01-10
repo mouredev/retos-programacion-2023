@@ -39,7 +39,7 @@ def hackerLenguaje(*word):
             "0": "o",        
     }
     
-    translation = list(map(lambda letter: replaceLetters.get(letter.upper()) if replaceLetters[letter.upper()] else letter, word))
+    translation = list(map(lambda letter: replaceLetters.get(letter.upper()) if replaceLetters.get(letter.upper()) else letter, word))
     print("".join(translation));
 
 
