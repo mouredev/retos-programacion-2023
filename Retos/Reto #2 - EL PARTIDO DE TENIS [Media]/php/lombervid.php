@@ -1,8 +1,7 @@
 <?php
 
-function getScore(int $p1, int $p2): string
+function getScore(int $p1, int $p2, bool &$ended = false): string
 {
-    static $ended = false;
     $scoreTerms = ['Love', '15', '30', '40'];
     $p1Score = $scoreTerms[$p1] ?? '';
     $p2Score = $scoreTerms[$p2] ?? '';
@@ -40,12 +39,13 @@ function getMatchScore(array $scores): array
 {
     $p1 = 0;
     $p2 = 0;
+    $ended = false;
     $matchScores = [];
 
     foreach ($scores as $i => $score) {
         $matchScores[] = match (strtoupper($score)) {
-            'P1' => getScore(++$p1, $p2),
-            'P2' => getScore($p1, ++$p2),
+            'P1' => getScore(++$p1, $p2, $ended),
+            'P2' => getScore($p1, ++$p2, $ended),
             default => exit("Invalid score: \"{$score}\" at position {$i}\n"),
         };
     }
