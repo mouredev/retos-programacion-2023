@@ -8,10 +8,10 @@ def parseSome(score: Int): String =
 
 def printScoreBoard(scoreBoard: (Int, Int)): Unit =
   scoreBoard match
-    case (p1, p2) if p1 == p2 && p1 >= 3 => println("Deuce")
-    case (p1, p2) if Iterator(p1, p2).max >= 4 && (p1 - p2).abs >= 2 => println(s"Player ${if (p1 > p2) 1 else 2} wins")
-    case (p1, p2) if Iterator(p1, p2).min >= 3 && p1 != p2 => println(s"Advantage P${if (p1 > p2) 1 else 2}")
-    case (p1, p2) => println(s"${parseSome(p1)} - ${parseSome(p2)}")
+    case (p1, p2) if Iterator(p1, p2).max < 3 => println(s"${parseSome(p1)} - ${parseSome(p2)}")
+    case (p1, p2) if p1 == p2 => println("Deuce")
+    case (p1, p2) if (p1 - p2).abs >= 2 => println(s"Player ${if (p1 > p2) 1 else 2} wins")
+    case (p1, p2) if p1 != p2 => println(s"Advantage P${if (p1 > p2) 1 else 2}")
 
 @main
 def main(): Unit = {
