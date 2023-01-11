@@ -20,6 +20,8 @@ def transformar_texto(texto):
     for i in texto:
         if i in leet:
             texto_encriptado += leet[i]
+        else:
+            texto_encriptado += i
             
     return texto_encriptado
 
