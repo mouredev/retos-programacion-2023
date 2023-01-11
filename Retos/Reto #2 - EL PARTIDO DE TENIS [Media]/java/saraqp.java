@@ -10,7 +10,6 @@ public class saraqp {
         String usuario=sc.nextLine().toUpperCase();
         String[] partido_usuario=(usuario.trim()).split(",");
 
-        System.out.println();
         jugarPartido(partido_usuario);
         sc.close();
     }
