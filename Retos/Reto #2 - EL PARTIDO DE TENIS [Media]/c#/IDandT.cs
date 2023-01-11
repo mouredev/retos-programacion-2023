@@ -35,10 +35,10 @@ namespace Soluciones
         int playerIndex = pointWinner.ToUpper() == "P1" ? 0 : 1;
         int rivalIndex = pointWinner.ToUpper() == "P1" ? 1 : 0;
 
-        // Si habia ventaja del rival igualamos a 40
+        // Si habia ventaja del rival, se la quitamos estabeciendo Deuce
         if (GetPoints(rivalIndex) == "Advantage")
         {
-          playerPoints[rivalIndex] = Array.IndexOf(possiblePoints, "40");
+          playerPoints[rivalIndex] -= 1;
           isDeuce = true;
         }
         else
@@ -57,7 +57,7 @@ namespace Soluciones
               isDeuce = true;
             else
               // Si el rival tiene 30 puntos o menos, obtener ventaja equivale a victoria
-              if (GetPoints(playerIndex) == "Advantage") playerPoints[playerIndex] = 5;
+              if (GetPoints(playerIndex) == "Advantage") playerPoints[playerIndex] += 1;
           }
         }
 
