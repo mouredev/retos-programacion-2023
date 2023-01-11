@@ -7,7 +7,7 @@ function getScore(int $p1, int $p2, bool &$ended = false): string
     $p2Score = $scoreTerms[$p2] ?? '';
 
     if ($ended) {
-        exit("Game had already ended. Invalid extra scores.\n");
+        throw new Exception("Game had already ended. Invalid extra scores.", 1);
     }
 
     if ($p1 === $p2 && $p1 >= 3) {
@@ -46,16 +46,34 @@ function getMatchScore(array $scores): array
         $matchScores[] = match (strtoupper($score)) {
             'P1' => getScore(++$p1, $p2, $ended),
             'P2' => getScore($p1, ++$p2, $ended),
-            default => exit("Invalid score: \"{$score}\" at position {$i}\n"),
+            default => throw new Exception("Invalid score: \"{$score}\" at position {$i}", 1),
         };
+    }
+
+    if (!$ended) {
+        throw new Exception("Not enough scores to finish the match.", 1);
     }
 
     return $matchScores;
 }
 
 // Main Code
-$scores = ['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1'];
+$matches = [
+    ['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1'],
+    ['P1', 'P1', 'P1', 'P1'],
+];
 
-foreach (getMatchScore($scores) as $score) {
-    echo "{$score}\n";
+foreach ($matches as $index => $match) {
+    try {
+        $match = getMatchScore($match);
+
+        echo "Match {$index} Result:\n";
+
+        foreach ($match as $score) {
+            echo "{$score}\n";
+        }
+    } catch (\Throwable $th) {
+        echo "Match {$index} has been skeeped with the error: {$th->getMessage()}\n";
+    }
+    echo "\n";
 }
