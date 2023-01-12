@@ -22,44 +22,33 @@ fun playTennis() {
             continue
         }
 
-        if (player == PLAYER_ONE) {
-            p1Score += 1
-        } else {
-            p2Score += 1
+        if (player == PLAYER_ONE) p1Score += 1 else p2Score += 1
+
+        if (p1Score == 3 && p2Score == 3) {
+            println("Deuce\n")
+            continue
         }
 
-        // Si superan el máximo de puntos
         if (p1Score > 3 || p2Score > 3) {
-            // Si hay empate
-            if (p1Score == p2Score) {
-                println("Deuce\n")
-                continue
-            }
+            when {
+                p1Score - p2Score >= 2 -> {
+                    println("Ha ganado el $PLAYER_ONE")
+                    playing = false
+                }
 
-            // Si hay un ganador
-            if (p1Score - p2Score >= 2) {
-                println("Ha ganado el $PLAYER_ONE")
-                playing = false
-                continue
-            } else if (p2Score - p1Score >= 2) {
-                println("Ha ganado el $PLAYER_TWO")
-                playing = false
-                continue
-            }
+                p2Score - p1Score >= 2 -> {
+                    println("Ha ganado el $PLAYER_TWO")
+                    playing = false
+                }
 
-            // Si hay un jugador con ventaja
-            if (p1Score > p2Score) {
-                println("Ventaja $PLAYER_ONE\n")
-                continue
-            } else {
-                println("Ventaja $PLAYER_TWO\n")
-                continue
+                p1Score == p2Score -> println("Deuce\n")
+                p1Score > p2Score -> println("Ventaja $PLAYER_ONE\n")
+                else -> println("Ventaja $PLAYER_TWO\n")
             }
         } else {
             println("${score[p1Score]} - ${score[p2Score]}\n")
-            continue
         }
     } while (playing)
 
-    println("\n----- ----- -----")
+    println("\n----- ------- -----")
 }
