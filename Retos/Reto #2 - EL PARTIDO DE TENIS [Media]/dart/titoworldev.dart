@@ -19,13 +19,11 @@ void solution(List<String> seq) {
       } else if (p1 >= 40 && p1 == p2) {
         print('Deuce');
       } else if (p1 > 40 && p1 != p2 || p2 > 40 && p1 != p2) {
-        if (p1 - 10 > p2) {
-          print('Ha ganado el P1');
-        } else if (p2 - 10 > p1) {
-          print('Ha ganado el P2');
-        } else {
-          print(p1 > p2 ? 'Ventaja P1' : 'Ventaja P2');
-        }
+        p1 - 10 > p2
+            ? print('Ha ganado el P1')
+            : p2 - 10 > p1
+                ? print('Ha ganado el P2')
+                : print(p1 > p2 ? 'Ventaja P1' : 'Ventaja P2');
       } else {
         print('$p1 - $p2');
       }
