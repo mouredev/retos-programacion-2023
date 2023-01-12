@@ -5,6 +5,9 @@ package sample api;
 //DOCUMENTACION DE CARBON:
 //https://github.com/carbon-language/carbon-lang/blob/trunk/docs/design/README.md
 
+//COMPILADOR web
+//https://carbon.compiler-explorer.com/
+
 //Los prints son un poco marroneros porque al parecer el compilador web de Carbon falla más que una 
 //escopeta de feria, entonces no puedo concatenar para printear ni cosas similares.
 
