@@ -64,7 +64,6 @@ function comparePoints(points) {
 
 const start = () => {
   tennisGame(["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"]);
-  tennisGame(["P1", "P2"]);
 };
 
 start();
