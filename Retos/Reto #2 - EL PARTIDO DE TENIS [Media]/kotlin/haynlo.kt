@@ -1,8 +1,4 @@
-package mourdev_2023
-
-import mourdev_2023.PlayerState.*
-
-fun main(args: Array<String>) {
+fun main() {
     val p1 = Player(name = "P1")
     val p2 = Player(name = "P2")
 
