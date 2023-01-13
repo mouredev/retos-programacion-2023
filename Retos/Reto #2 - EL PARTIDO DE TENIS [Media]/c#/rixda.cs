@@ -24,7 +24,7 @@
         int[] points = { 0, 0 };
         bool playing = true;
 
-        public string CountPoint(Players player)
+        public string CountPoint(Players player) // recibe un emum solo por comodidad al ingresar datos de prueba
         {
             
             if (playing)
@@ -78,11 +78,11 @@
              
 
         }
-        public string CountPoint(Players[] players)
+        public string CountPoint(Players[] players) //  recibe un emum solo por comodidad al ingresar datos de prueba
         {
             foreach (Players player in players)
             {
-                 CountPoint(player);
+                 Console.WriteLine (CountPoint(player));
                 
             }
             return "cadena terminada";
@@ -92,5 +92,12 @@
         {
             P1, P2
         }
+        public string reseteGame (){
+            points[0]=0;
+            points[1]=0;
+            playing = true;
+            return "el marcador se ha reseteado";
+        }
+        
 
     }
