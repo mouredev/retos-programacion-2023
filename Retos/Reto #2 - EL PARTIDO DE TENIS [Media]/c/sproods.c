@@ -22,13 +22,12 @@ void main(void)
     int i;
 
     player[0].puntaje = 0;
-    strcpy(player[0].nomen, "Love");
     player[1].puntaje = 0;
-    strcpy(player[1].nomen, "Love");
 
     datos(player);
 
-    while (((player[0].puntaje != 3 && player[1].puntaje != 3) && (player[0].puntaje <= 3 || player[1].puntaje <= 3)) || (fabs(player[0].puntaje - player[1].puntaje)) < 2)
+    // while (((player[0].puntaje != 3 && player[1].puntaje != 3) || (fabs(player[0].puntaje - player[1].puntaje)) < 2)  && ((player[0].puntaje <= 3 && player[1].puntaje <= 3) || (fabs(player[0].puntaje - player[1].puntaje)) < 2))
+    while (((player[0].puntaje != 3 && player[1].puntaje != 3) && (player[0].puntaje <= 3 && player[1].puntaje <= 3)) || ((fabs(player[0].puntaje - player[1].puntaje)) < 2))
     {
         puntos(player);
         nomenclatura(player);
@@ -65,10 +64,8 @@ void puntos(jugador name[2])
 void nomenclatura(jugador name[2])
 {
     int i;
-    char N[4][5] = {"Love", "15", "30", "40"};
 
-    while ((name[0].puntaje < 3 && name[1].puntaje <= 3) || (name[0].puntaje <= 3 && name[1].puntaje < 3))
-    {
+    if ((name[0].puntaje < 3 && name[1].puntaje <= 3) || (name[0].puntaje <= 3 && name[1].puntaje < 3))
         for (i = 0; i < 2; i++)
         {
             if (name[i].puntaje == 0)
@@ -83,7 +80,6 @@ void nomenclatura(jugador name[2])
                         if (name[i].puntaje == 3)
                             strcpy(name[i].nomen, "40");
         }
-    }
 }
 
 void tabla_Puntuaciones(jugador name[2])
@@ -93,15 +89,46 @@ void tabla_Puntuaciones(jugador name[2])
     len1 = strlen(name[0].nombre);
     len2 = strlen(name[1].nombre);
 
-    printf("\n%s\t%s\n", name[0].nombre, name[1].nombre);
-    for (i = 0; i < len1 / 2; i++)
-        printf(" ");
-    printf("%s", name[0].nomen);
-    for (i = 0; i < len1 / 2; i++)
-        printf(" ");
-    printf("\t");
-    for (i = 0; i < len2 / 2; i++)
-        printf(" ");
-    printf("%s", name[1].nomen);
-    printf("\n");
+    if ((name[0].puntaje < 3 && name[1].puntaje <= 3) || (name[0].puntaje <= 3 && name[1].puntaje < 3))
+    {
+        if ((fabs(name[0].puntaje - name[1].puntaje) >= 2) && (name[0].puntaje > 2 || name[1].puntaje > 2))
+        {
+            if (name[0].puntaje > name[1].puntaje)
+                printf("HA GANADO %s\n", name[0].nombre);
+            if (name[1].puntaje > name[0].puntaje)
+                printf("HA GANADO %s\n", name[1].nombre);
+        }
+        else
+        {
+            printf("\n%s\t%s\n", name[0].nombre, name[1].nombre);
+            printf("%s", name[0].nomen);
+            for (i = 0; i < len1; i++)
+                printf(" ");
+            printf("\t");
+            printf("%s", name[1].nomen);
+            printf("\n");
+        }
+    }
+    else
+    {
+        if (name[0].puntaje == name[1].puntaje)
+            printf("\nDEUCE\n");
+        else
+        {
+            if (fabs(name[0].puntaje - name[1].puntaje) == 1)
+            {
+                if (name[0].puntaje > name[1].puntaje)
+                    printf("\nVENTAJA %s\n", name[0].nombre);
+                else
+                    printf("\nVENTAJA %s\n", name[1].nombre);
+            }
+            if (fabs(name[0].puntaje - name[1].puntaje) == 2)
+            {
+                if (name[0].puntaje > name[1].puntaje)
+                    printf("\nHA GANADO %s\n", name[0].nombre);
+                if (name[1].puntaje > name[0].puntaje)
+                    printf("\nHA GANADO %s\n", name[1].nombre);
+            }
+        }
+    }
 }
