@@ -54,7 +54,7 @@ string HackerLanguage(string text)
     
     foreach (char character in text)
     {
-        if(leet.TryGetValue(character.ToString(), out string? replacedCharacter))
+        if(leet.TryGetValue(character.ToString().ToLower(), out string? replacedCharacter))
         {
             result += replacedCharacter;
         }
@@ -75,4 +75,4 @@ while(string.IsNullOrWhiteSpace(word)){
     word = Console.ReadLine();
 }
 
-Console.WriteLine($"Texto traducido: {HackerLanguage(word.ToLower())}");
+Console.WriteLine($"Texto traducido: {HackerLanguage(word)}");
