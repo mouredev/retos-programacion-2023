@@ -28,10 +28,14 @@ printGame(text) {
 
       if (p1 < 3 && p2 < 3 || p1 == 3 && p2 < 3 || p1 < 3 && p2 == 3) {
         game.add("${scores[p1]} - ${scores[p2]}");
-      } else if (p1 == 3 && p2 == 3) {
-        game.add("Deuce");
       } else {
         switch (p1 - p2) {
+          case 0:
+            {
+              game.add("Deuce");
+            }
+            break;
+
           case 1:
             {
               game.add("Ventaja P1");
