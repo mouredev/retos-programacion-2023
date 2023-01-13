@@ -1,16 +1,22 @@
-puntos = ('Love', '15', '30', '40')
-
 def juego(secuencia):
-    jugador = {'P1': 0, 'P2': 0}
+    puntos = ('Love', '15', '30', '40')
+    jugador_1 = jugador_2 = 0
     for punto in secuencia:
-        jugador[punto] += 1
-        if jugador['P1'] >= 3 and jugador['P2'] >= 3: 
-            ventaja = jugador['P1'] - jugador['P2']
+        if punto == 'P1':
+            jugador_1 += 1
+        else:
+            jugador_2 += 1
+        if jugador_1 >= 3 or jugador_2 >= 3:
+            ventaja = jugador_1 - jugador_2
             if ventaja == 0:
                 print('Deuce')
-            elif abs(ventaja) == 1:
-                print(f'Ventaja {"P1" if ventaja > 0 else "P2"}')
-            else:
-                print(f'Ha ganado el {"P1" if ventaja > 0 else "P2"}')
-        else:
-            print(f'{puntos[jugador["P1"]]} - {puntos[jugador["P2"]]}')
+                continue
+            elif jugador_1 > 3 or jugador_2 > 3:
+                P1_o_P2 = f'{"P1" if ventaja > 0 else "P2"}'
+                if abs(ventaja) == 1:
+                    print(f'Ventaja {P1_o_P2}')
+                    continue
+                else:
+                    print(f'Ha ganado el {P1_o_P2}')
+                    break
+        print(f'{puntos[jugador_1]} - {puntos[jugador_2]}')
