@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class Qv1ko {
 
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
         String point="";
         int player1=0,player2=0;
-        Scanner sc=new Scanner(System.in);
         do {
             do {
                 System.out.print("Who got the point (P1 or P2): ");
@@ -29,9 +29,9 @@ public class Qv1ko {
             return "Advantage P1";
         } if(player2>3&&player1==(player2-1)) {
             return "Advantage P2";
-        } if(player1>3&&player2<=(player1-2)) {
+        } if(player1>3&&player2<(player1-1)) {
             return "Won the P1";
-        } if(player2>3&&player1<=(player2-2)) {
+        } if(player2>3&&player1<(player2-1)) {
             return "Won the P2";
         } else {
             switch(player1) {
