@@ -43,7 +43,7 @@ if __name__ == "__main__":
 
     while partidoTerminado == 'false':
         player = menu()
-        playerCorrect = check_player(player)
+        playerCorrect = checkPlayer(player)
 
         if playerCorrect == "P1":
             puntosP1 += 1            
@@ -77,9 +77,3 @@ if __name__ == "__main__":
                 print("Ventaja P2")
             elif puntosP2 < puntosP1:
                 print("Ventaja P1")
-
-        
-
-        
-        
-
