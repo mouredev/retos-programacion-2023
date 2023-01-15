@@ -18,7 +18,7 @@
 Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y enunciado del ejercicio. En su directorio podrás consultar las distintas correcciones del ejercicio agrupadas por lenguaje de programación.
 
 * **#0** - 26/12/22 | Fácil | [`EL FAMOSO "FIZZ BUZZ"`](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/2iW4NCzOAxs)] [[MI SOLUCIÓN](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D)]
-* **#1** - 02/01/23 | Fácil | [`EL "LENGUAJE HACKER"`](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D)]
+* **#1** - 02/01/23 | Fácil | [`EL "LENGUAJE HACKER"`](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/EIxlo_SVUss)] [[MI SOLUCIÓN](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D)]
 * **#2** - 09/01/23 | Media | [`EL PARTIDO DE TENIS`](./Retos/Reto%20%232%20-%20EL%20PARTIDO%20DE%20TENIS%20%5BMedia%5D/ejercicio.md) | Último reto publicado
 
 > **Corrección y Publicación próximo reto - 16/01/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1061957441971036242) en [Twitch](https://twitch.tv/mouredev)**
@@ -59,7 +59,7 @@ Si quieres unirte a nuestra comunidad de desarrollo, aprender programación de A
 
 [![Twitch](https://img.shields.io/badge/Twitch-Retos_en_directo-9146FF?style=for-the-badge&logo=twitch&logoColor=white&labelColor=101010)](https://twitch.tv/mouredev)
 [![Discord](https://img.shields.io/badge/Discord-Canal_de_chat_para_retos-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=101010)](https://mouredev.com/discord)
-[![Link](https://img.shields.io/badge/Links_de_interés-moure.dev-39E09B?style=for-the-badge&logo=Linktree&logoColor=white&labelColor=101010)](https://mouredev.com)
+[![Link](https://img.shields.io/badge/Links_de_interés-moure.dev-39E09B?style=for-the-badge&logo=Linktree&logoColor=white&labelColor=101010)](https://moure.dev)
 
 ## ![https://mouredev.com](https://raw.githubusercontent.com/mouredev/mouredev/master/mouredev_emote.png) Hola, mi nombre es Brais Moure.
 ### Freelance full-stack iOS & Android engineer
