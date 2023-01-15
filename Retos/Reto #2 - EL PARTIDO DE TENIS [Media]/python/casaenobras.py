@@ -11,7 +11,7 @@ def tennis_match(match: list):
     win = False
 
     process = log.progress("Score")
-    
+
     process.status(f" {points[p1_score]} - {points[p2_score]}")
     sleep(1)
     
@@ -67,8 +67,8 @@ def tennis_match(match: list):
 
 
 
-#tennis_match(["p1", "p2", "p1", "p2", "p1", "p2", "p1", "p2", "p1", "p2", "p1", "p2", "p1", "p1", "p1"])
-#tennis_match(["p1", "p2", "p2", "p2"])
-#tennis_match(["p1", "p2", "p2", "p2", "p2"])
-#tennis_match(["p1", "p2", "p1", "p2", "p1", "p2", "p1", "p2", "p2", "p1", "p1", "p2", "p2", "p2", "p2"])
+tennis_match(["p1", "p2", "p1", "p2", "p1", "p2", "p1", "p2", "p1", "p2", "p1", "p2", "p1", "p1", "p1"])
+tennis_match(["p1", "p2", "p2", "p2"])
+tennis_match(["p1", "p2", "p2", "p2", "p2"])
+tennis_match(["p1", "p2", "p1", "p2", "p1", "p2", "p1", "p2", "p2", "p1", "p1", "p2", "p2", "p2", "p2"])
 tennis_match(["p1", "P2", "p1", "p2", "1", "p2", "p1", "p2", "p1", "p2", "p1", "p2", "p1", "p1", "p1"])
