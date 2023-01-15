@@ -1,3 +1,5 @@
+import kotlin.math.abs
+
 fun main() {
   /*
    * Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado.
@@ -54,10 +56,9 @@ private fun calculateScoreGame(matchResult: MutableList<String>): List<String> {
 }
 
 private fun isWin(scoreP1: Int, scoreP2: Int) =
-  (scoreP1 > 3 && scoreP1 >= scoreP2 + 2) || (scoreP2 > 3 && scoreP2 >= scoreP1 + 2)
+  (scoreP1 >= 4 || scoreP2 >= 4) && abs(scoreP1 - scoreP2) >= 2
 
 private fun isAdvantage(scoreP1: Int, scoreP2: Int) =
-  (scoreP1 > 3 && (scoreP1 == scoreP2 + 1)) || (scoreP2 > 3 && scoreP2 == scoreP1 + 1)
+  (scoreP1 > 3 || scoreP2 > 3) && abs(scoreP1 - scoreP2) == 1
 
-private fun isDeuce(scoreP1: Int, scoreP2: Int) =
-  (scoreP1 >= 3 && scoreP2 >= 3) && scoreP1 == scoreP2
+private fun isDeuce(scoreP1: Int, scoreP2: Int) = scoreP1 >= 3 && scoreP2 >= 3 && scoreP1 == scoreP2
