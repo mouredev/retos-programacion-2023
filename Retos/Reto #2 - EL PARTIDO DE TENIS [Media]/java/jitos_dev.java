@@ -1,8 +1,12 @@
-package reto2;
+package java;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import static reto2.jitos_dev.Player.*;
+import static java.jitos_dev.Player.P1;
+import static .jitos_dev.Player.P2;
+
 /*
  * Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado.
  * El programa recibirá una secuencia formada por "P1" (Player 1) o "P2" (Player 2), según quien
@@ -24,165 +28,150 @@ import static reto2.jitos_dev.Player.*;
 public class jitos_dev {
 
     public static void main(String[] args) {
-        Player[] gameSequence = new Player[]{P1, P1, P2, P2, P1, P2, P1, P1};
-        Player[] gameSequence2 = new Player[]{P1, P1, P2, P2, P1, P2, P1, P2, P2, P2};
+        Player[] gameSequence = new Player[] { P1, P1, P2, P2, P1, P2, P1, P1 };
+        Player[] gameSequence2 = new Player[] { P1, P1, P2, P2, P1, P2, P1, P2, P2, P2 };
         List<Marker> finalMarker = match(gameSequence2);
         finalMarker.forEach(System.out::println);
     }
 
     private static List<Marker> match(Player[] secuence) {
-        //Lista de "Marcadores" para devolver
+        // Lista de "Marcadores" para guardar los resultados
         List<Marker> markers = new ArrayList<>();
-        //Lista de posibles puntuaciones del juego
-        List<Score> scores = Arrays.asList(scores());
-        int positionInArray1 = 1;
-        int positionInArray2 = 1;
+        // Lista de posibles puntuaciones del juego
+        List<String> scores = Arrays.asList(scores());
 
-        //Recorremos la secuencia de juego que nos pasan por parámetro
-        for (Player player: secuence) {
+        // Recorremos la secuencia de juego que nos pasan por parámetro
+        for (Player player : secuence) {
+            // Creamos un nuevo marcador para este juego
             Marker marker = new Marker();
 
-            //Si markers no está vacía le damos el valor del último marcador a "marker"
-            if (!markers.isEmpty()) {
-                Marker lastMarker = markers.get(markers.size() -1);
-                marker.setScore1(lastMarker.getScore1());
-                marker.setScore2(lastMarker.getScore2());
-            }
+            // Si "markers" no está vacía le damos el valor del último marcador a "marker"
+            // Declaramos lastMarker para que no apunte al mismo objeto
+            Marker lastMarker = markers.isEmpty() ? marker : markers.get(markers.size() - 1);
+            marker.setScoreP1(lastMarker.getScoreP1());
+            marker.setScoreP2(lastMarker.getScoreP2());
 
-            //Si ha ganado el jugador 1
-            if (player == P1 && marker.getScore1().getValue().equals("Ventaja P1")) {
-                Score winner = new Score("Ha ganado el P1");
-                marker.setScore1(winner);
-                marker.setScore2(winner);
-                markers.add(marker);
-                break;
-            }
-
-            //Si ha ganado el jugador 2
-            if (player == P2 && marker.getScore2().getValue().equals("Ventaja P2")) {
-                Score winner = new Score("Ha ganado el P2");
-                marker.setScore1(winner);
-                marker.setScore2(winner);
-                markers.add(marker);
-                break;
-            }
-            //Las puntuaciones de un juego son "Love" (cero), 15, 30, 40, "Deuce" (empate), ventaja.
-            //Le damos el nuevo valor al marcador
+            // Le damos el nuevo valor al marcador
             if (player == P1) {
-                //Le damos la nueva puntuación. Si es la última que es Ventaja le damos el valor de DEUCE
-                if (marker.score1.getValue().contains("Ventaja P2")) {
-                    marker.setScore1(new Score("Deuce"));
-                    marker.setScore2(new Score("Deuce"));
-                    //Retrocedemos una posición en el array para las dos puntuaciones
-                    positionInArray2--;
-                    positionInArray1--;
-                } else {
-                    marker.score1 = scores.get(positionInArray1);
-                    positionInArray1++;
+                String lastScore = lastMarker.getScoreP1();
+
+                // Si tiene ventaja y ha ganado el punto gana el partido
+                if (lastScore.equals("Ventaja P1")) {
+                    marker.setScoreP1("Ha ganado el P1");
+                    marker.setScoreP2("Ha ganado el P1");
+                    markers.add(marker);
+                    break;
                 }
 
-                if (marker.score1.getValue().startsWith("Ventaja") || marker.score2.getValue().startsWith("Ventaja")) {
-                    marker.setScore1(new Score("Ventaja P1"));
-                    marker.setScore2(new Score("Ventaja P1"));
-                    //Sumamos uno a la posición del player2 porque al player1 ya se la sumamos en el else
-                    positionInArray2++;
+                // Si tiene Ventaja y ha perdido el punto le damos el valor de DEUCE a los dos
+                if (lastScore.equals("Ventaja P2")) {
+                    marker.setScoreP1("Deuce");
+                    marker.setScoreP2("Deuce");
+                    markers.add(marker);
+                    continue;
+                }
+
+                // Almacenamos la nueva puntuación que es el valor que tiene la puntuación
+                // actual más uno en el array
+                String newScore = scores.get(scores.indexOf(lastScore) + 1);
+
+                marker.setScoreP1(newScore);
+
+                // Si es ventaja se lo modificamos a los dos
+                if (marker.getScoreP1().startsWith("Ventaja")) {
+                    marker.setScoreP1("Ventaja P1");
+                    marker.setScoreP2("Ventaja P1");
                 }
 
             } else {
-                //Le damos la nueva puntuación
-                if (marker.score2.getValue().contains("Ventaja P1")) {
-                    marker.setScore1(new Score("Deuce"));
-                    marker.setScore2(new Score("Deuce"));
-                    //Retrocedemos una posición en el array para las dos puntuaciones
-                    positionInArray1--;
-                    positionInArray2--;
-                } else {
-                    marker.score2 = scores.get(positionInArray2);
-                    positionInArray2++;
+                String lastScore = lastMarker.getScoreP2();
+
+                // Si tiene ventaja y ha ganado el punto gana el partido
+                if (lastScore.equals("Ventaja P2")) {
+                    marker.setScoreP1("Ha ganado el P2");
+                    marker.setScoreP2("Ha ganado el P2");
+                    markers.add(marker);
+                    break;
                 }
 
-                if (marker.score1.getValue().startsWith("Ventaja") || marker.score2.getValue().startsWith("Ventaja")) {
-                    marker.setScore1(new Score("Ventaja P2"));
-                    marker.setScore2(new Score("Ventaja P2"));
-                    //Sumamos uno a la posición del player1 porque al player2 ya se la sumamos en el else
-                    positionInArray1++;
+                // Si tiene Ventaja y ha perdido el punto le damos el valor de DEUCE a los dos
+                if (lastScore.equals("Ventaja P1")) {
+                    marker.setScoreP1("Deuce");
+                    marker.setScoreP2("Deuce");
+                    markers.add(marker);
+                    continue;
+                }
+
+                // Almacenamos la nueva puntuación que es el valor que tiene la puntuación
+                // actual más uno en el array
+                String newScore = scores.get(scores.indexOf(lastScore) + 1);
+
+                marker.setScoreP2(newScore);
+
+                // Si es ventaja se lo modificamos a los dos
+                if (marker.getScoreP2().startsWith("Ventaja")) {
+                    marker.setScoreP1("Ventaja P2");
+                    marker.setScoreP2("Ventaja P2");
                 }
 
             }
 
-            //Si la puntuación es 40 40 le damos el valor de DEUCE
-            if (marker.getScore1().getValue().equals("40") && marker.getScore2().getValue().equals("40")) {
-                marker.setScore1(new Score("Deuce"));
-                marker.setScore2(new Score("Deuce"));
-                positionInArray1++;
-                positionInArray2++;
+            // Si la puntuación es 40 40 le damos el valor de DEUCE
+            if (marker.getScoreP1().equals("40") && marker.getScoreP2().equals("40")) {
+                marker.setScoreP1("Deuce");
+                marker.setScoreP2("Deuce");
             }
 
+            // añadimos el marcador de este punto a la lista
             markers.add(marker);
         }
 
         return markers;
     }
 
-    private static Score[] scores() {
-        return new Score[]{new Score("Love"), new Score("15"), new Score("30"), new Score("40"), new Score("Deuce"), new Score("Ventaja")};
+    private static String[] scores() {
+        return new String[] { "Love", "15", "30", "40", "Deuce", "Ventaja" };
     }
 
     public enum Player {
         P1, P2
     }
 
-    static class Score {
-        private String value;
-
-        public Score(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        public void setValue(String value) {
-            this.value = value;
-        }
-    }
-
     static class Marker {
-        private Score score1;
-        private Score score2;
+        private String scoreP1;
+        private String scoreP2;
 
         public Marker() {
-            this.score1 = new Score("Love");
-            this.score2 = new Score("Love");
+            this.scoreP1 = "Love";
+            this.scoreP2 = "Love";
         }
 
-        public Score getScore1() {
-            return score1;
+        public String getScoreP1() {
+            return scoreP1;
         }
 
-        public void setScore1(Score score1) {
-            this.score1 = score1;
+        public void setScoreP1(String scoreP1) {
+            this.scoreP1 = scoreP1;
         }
 
-        public Score getScore2() {
-            return score2;
+        public String getScoreP2() {
+            return scoreP2;
         }
 
-        public void setScore2(Score score2) {
-            this.score2 = score2;
+        public void setScoreP2(String scoreP2) {
+            this.scoreP2 = scoreP2;
         }
 
         @Override
         public String toString() {
-            if (score1.getValue().equals("Deuce") && score2.getValue().equals("Deuce"))
-                return score1.getValue();
-            else if (score1.getValue().startsWith("Ventaja") && score2.getValue().startsWith("Ventaja"))
-                return score1.getValue();
-            else if (score1.getValue().startsWith("Ha ganado") && score2.getValue().startsWith("Ha ganado"))
-                return score1.getValue();
+            if (scoreP1.equals("Deuce") && scoreP2.equals("Deuce"))
+                return scoreP1;
+            else if (scoreP1.startsWith("Ventaja") && scoreP2.startsWith("Ventaja"))
+                return scoreP1;
+            else if (scoreP1.startsWith("Ha ganado") && scoreP2.startsWith("Ha ganado"))
+                return scoreP1;
             else
-                return score1.getValue().concat(" - ").concat(score2.getValue());
+                return scoreP1.concat(" - ").concat(scoreP2);
         }
     }
 }
