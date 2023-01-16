@@ -17,7 +17,7 @@
  * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
 '''
 #Inicialización de los puntos de juego
-pointsTable = {
+points_table = {
   0: "Love", 1: "15", 2: "30", 3: "40"
 }
 
@@ -38,10 +38,10 @@ def score(puntos1, puntos2, adv):
     else:
       print("Deuce")
   else:
-    print(pointsTable[puntos1],"-",pointsTable[puntos2])
+    print(points_table[puntos1],"-",points_table[puntos2])
   return False
 
-def juegoTenis(arr):
+def juego_tenis(arr):
   #Inicialización de variables
   jugador1: int = 0
   jugador2: int = 0
@@ -80,5 +80,5 @@ def juegoTenis(arr):
       print("El juego ya ha terminado")
 
 #Secuencia de datos para enviar
-juegoTenis(["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P2", "P2", "P1", "P1",
+juego_tenis(["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P2", "P2", "P1", "P1",
              "P1", "P1", "P2", "P2", "P1", "P2", "P2"])
