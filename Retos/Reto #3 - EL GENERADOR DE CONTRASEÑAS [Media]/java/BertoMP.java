@@ -8,8 +8,7 @@
  * (Pudiendo combinar todos estos parámetros entre ellos)
  */
 
-
- import java.util.Scanner;
+import java.util.Scanner;
 
 public class reto03_ElGeneradorDeContrasenas {
     public static void main(String[] args) {
