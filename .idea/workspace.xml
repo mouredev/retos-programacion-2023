@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa798dde-dfc4-4e0f-a061-76f95d013dd0" name="Changes" comment="" />
+    <list default="true" id="aa798dde-dfc4-4e0f-a061-76f95d013dd0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/retos-programacion-2023.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/retos-programacion-2023.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/retos-programacion-2023.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,24 +42,45 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/Desarrollo/retos-programacion-2023/Retos/Reto #1 - EL LENGUAJE HACKER [Fácil]/kotlin/malopezrom.kts",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "jdk.selected.JAVA_MODULE": "openjdk-19 (WSL)",
+    "last_opened_file_path": "//wsl$/Debian/home/malopez/dev/retos-programacion-2023",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.excludes",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.2.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external"
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2022.3.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external"
   }
 }]]></component>
-  <component name="RunManager" selected="Node.js.Node">
-    <configuration name="F:\Desarrollo\retos-programacion-2023\Retos\Reto #1 - EL LENGUAJE HACKER [Fácil]\kotlin\malopezrom.kts" type="KotlinStandaloneScriptRunConfigurationType" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Kotlin.MalopezromKt">
+    <configuration name="CumpatomasKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CumpatomasKt" />
       <module name="retos-programacion-2023" />
-      <shortenClasspath name="NONE" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Retos/Reto #0 - EL FAMOSO FIZZ BUZZ [Fácil]/kotlin" />
-      <option name="filePath" value="F:\Desarrollo\retos-programacion-2023\Retos\Reto #1 - EL LENGUAJE HACKER [Fácil]\kotlin\malopezrom.kts" />
-      <method v="2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FrablamoKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FrablamoKt" />
+      <module name="retos-programacion-2023" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MalopezromKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MalopezromKt" />
+      <module name="retos-programacion-2023" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Node" type="NodeJSConfigurationType" application-parameters="--project tsconfig.json" node-parameters="--require ts-node/register" path-to-js-file="$FilePathRelativeToProjectRoot$" working-dir="$PROJECT_DIR$">
       <method v="2" />
@@ -61,8 +89,18 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Kotlin.CumpatomasKt" />
+      <item itemvalue="Kotlin.FrablamoKt" />
+      <item itemvalue="Kotlin.MalopezromKt" />
       <item itemvalue="Node.js.Node" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.MalopezromKt" />
+        <item itemvalue="Kotlin.CumpatomasKt" />
+        <item itemvalue="Kotlin.FrablamoKt" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
