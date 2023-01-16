@@ -16,16 +16,18 @@ leetTable = {
   "u": "(_)", "v": "\\/", "w": "\\/\\/", "x": "><",
   "y": "j", "z": "2", "1": "L", "2": "R", "3": "E",
   "4": "A", "5": "S", "6": "b", "7": "T", "8": "B",
-  "9": "g", "0": "o", " ": " "
+  "9": "g", "0": "o"
 };
 
 def leetTranslate(frase):
   newPhrase = list(frase)
   for i in range(len(newPhrase)):
-    newPhrase[i] = leetTable[newPhrase[i].lower()]
+    if newPhrase[i].lower() in leetTable.keys():
+      newPhrase[i] = leetTable[newPhrase[i].lower()]
   return "".join(newPhrase)
 
 
 print(leetTranslate("La mera prueba"))
-print(leetTranslate("2da comprobacion del reto 1"))
+print(leetTranslate("2da comprobación del reto 1"))
 print(leetTranslate("numeros 1234567890"))
+print(leetTranslate("Ángel se fue a la tierra, del olvido!"))
