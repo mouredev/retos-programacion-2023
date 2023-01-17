@@ -1,39 +1,12 @@
-function tennisGame(points: string[]) {
-    const scores = ["Love", "15", "30", "40"];
-    let p1Score = 0;
-    let p2Score = 0;
-    let winner:string = "";
-    for (const point of points) {
-        if (point === "P1") {
-            p1Score++;
-        } else if (point === "P2") {
-            p2Score++;
-        }
-        if (p1Score < 4 && p2Score < 4) {
-            console.log(`${scores[p1Score]} - ${scores[p2Score]}`);
-        } else if (p1Score === p2Score) {
-            console.log("Deuce");
-        } else if (p1Score > p2Score) {
-            if (p1Score - p2Score === 1) {
-                console.log("Ventaja P1");
-                winner = "P1";
-            } else {
-                winner = "P1";
-            }
-        } else {
-            if (p2Score - p1Score === 1) {
-                console.log("Ventaja P2");
-                winner = "P2";
-            } else {
-                winner = "P2";
-            }
-        }
+function leetSpeak(text: string): string {
+    const leetDict = {
+        'a': '4', 'b': '8', 'c': '(', 'd': 'd', 'e': '3', 'f': 'f', 'g': '9',
+        'h': '#', 'i': '1', 'j': 'j', 'k': 'k', 'l': '1', 'm': 'm', 'n': 'n',
+        'o': '0', 'p': 'p', 'q': 'q', 'r': '2', 's': '5', 't': '7', 'u': 'u',
+        'v': 'v', 'w': 'w', 'x': 'x', 'y': 'y', 'z': '2', '0': '0', '1': '1',
+        '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8',
+        '9': '9'
     }
-    if (winner != ""){
-        console.log(`Ha ganado el ${winner}`);
-    }
+    return [...text].map(char => leetDict[char.toLowerCase()] || char).join('')
 }
-
-// Example usage
-const points = ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"];
-tennisGame(points);
+console.log(leetSpeak("Hello World"))  // H3110 W0r1d
