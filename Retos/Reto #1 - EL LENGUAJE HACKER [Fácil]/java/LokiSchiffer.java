@@ -50,22 +50,23 @@ class Main {
     leetTable.put("8", "B");
     leetTable.put("9", "g");
     leetTable.put("0", "o");
-    leetTable.put(" ", " ");
   }
 
   static String leetTranslate(String frase) {
     String[] phraseArray =frase.split("");
-    StringBuffer newPhrase = new StringBuffer(phraseArray.length);
     for (int i = 0; i < phraseArray.length; i++) {
-      newPhrase.append(leetTable.get(phraseArray[i].toLowerCase()));
+      if (leetTable.containsKey(phraseArray[i].toLowerCase())) {
+        phraseArray[i] = leetTable.get(phraseArray[i].toLowerCase());
+      }
     }
-    return newPhrase.toString();
+    return String.join("", phraseArray);
 }
 
   public static void main(String[] args) {
     populateTable();
     System.out.println(leetTranslate("La mera prueba"));
-    System.out.println(leetTranslate("2da comprobacion del reto 1"));
+    System.out.println(leetTranslate("2da comprobación del reto 1"));
     System.out.println(leetTranslate("numeros 1234567890"));
+    System.out.println(leetTranslate("Ángel se fue a la tierra, del olvido!"));
   }
 }
