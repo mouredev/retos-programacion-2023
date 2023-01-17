@@ -32,11 +32,17 @@ class Match {
     _points.clear();
   }
 
+  bool hasWinner(int p1Points, int p2Points) {
+    return (p1Points >= _secuence.length || p2Points >= _secuence.length) ||
+        (p1Points == _secuence.length - 1 && (p1Points - p2Points).abs() > 1) ||
+        (p2Points == _secuence.length - 1 && (p1Points - p2Points).abs() > 1);
+  }
+
   String showScore() {
     late String output;
     int p1Points = _players['P1']!;
     int p2Points = _players['P2']!;
-    if (p1Points >= _secuence.length || p2Points >= _secuence.length) {
+    if (hasWinner(p1Points, p2Points)) {
       String winner = p1Points > p2Points ? 'P1' : 'P2';
       output = 'El partido lo gano $winner';
     } else if (_secuence[p1Points] == '40' && _secuence[p2Points] == '40') {
@@ -70,8 +76,7 @@ class Match {
       }
       _currentPoint++;
       currentScore = showScore();
-      _endedFlag = _players['P1']! >= _secuence.length ||
-          _players['P2']! >= _secuence.length;
+      _endedFlag = hasWinner(_players['P1']!, _players['P2']!);
     } else {
       currentScore = 'el pardido ya terminó';
     }
