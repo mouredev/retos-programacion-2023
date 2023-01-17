@@ -14,7 +14,8 @@ function generatePassword(length: number = 12, useUppercase: boolean = true, use
     let characters = '';
     // Validar la longitud de la contraseña
     if (length <= 8 || length => 16) {
-        length = parseInt(prompt("Introduzca una longitud válida entre 8 y 16 caracteres: "));
+        prompt("Error: la longitud de la contraseña debe estar entre 8 y 16");
+        return;
     }
       
     // Crear una lista de caracteres permitidos
