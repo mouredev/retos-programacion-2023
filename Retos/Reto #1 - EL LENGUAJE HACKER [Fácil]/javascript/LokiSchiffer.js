@@ -15,16 +15,19 @@ const leetTable = {
   "u": "(_)", "v": "\\/", "w": "\\/\\/", "x": "><",
   "y": "j", "z": "2", "1": "L", "2": "R", "3": "E",
   "4": "A", "5": "S", "6": "b", "7": "T", "8": "B",
-  "9": "g", "0": "o", " ": " "
+  "9": "g", "0": "o"
 }
 
 function leetTranslate(frase){
   let newPhrase = frase.split("")
   for (let i = 0; i < newPhrase.length; i++)
-    newPhrase[i] = leetTable[newPhrase[i].toLowerCase()]
+    if(newPhrase[i].toLowerCase() in leetTable) {
+      newPhrase[i] = leetTable[newPhrase[i].toLowerCase()]
+    }
   return newPhrase.join("")
 }
 
 console.log(leetTranslate("La mera prueba"))
-console.log(leetTranslate("2da comprobacion del reto 1"))
+console.log(leetTranslate("2da comprobación del reto 1"))
 console.log(leetTranslate("numeros 1234567890"))
+console.log(leetTranslate("Ángel se fue a la tierra, del olvido!"))
