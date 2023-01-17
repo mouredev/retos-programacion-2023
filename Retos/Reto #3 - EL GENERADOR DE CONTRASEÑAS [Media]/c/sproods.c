@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
 
 #define MAX 16
 
@@ -18,17 +19,63 @@ void Imprime(int *, int);
 
 void main(void)
 {
-    int tam, letras[MAX];
+    int tam, letras[MAX], op;
+    char res;
 
-    do
+    while (true)
     {
-        printf("\nDetermine el número de caracteres de su contraseña (entre 8 y 16): ");
-        scanf("%d", &tam);
-    }
-    while (tam < 8 || tam > 16);
+        do
+        {
+            printf("\nDetermine el número de caracteres de su contraseña (entre 8 y 16): ");
+            scanf("%d", &tam);
+            fflush(stdin);
+        }
+        while (tam < 8 || tam > 16);
 
-    MinusMayusNumsSimb(letras, tam);
-    Imprime(letras, tam);
+        do
+        {
+            printf("Elija, entre las siguientes alternativas, el tipo de caracteres que desea tener en su contraseña:\n");
+            printf("\n1. Solo minúsculas\n2. Minúsculas y mayúsculas\n3. Minúsculas y números\n4. Minúsculas y símbolos\n5. Minúsculas, mayúsculas y números\n6. Minúsculas, mayúsculas y símbolos\n7. Minúsculas, números y símbolos\n8. Todos combinados...\n");
+            scanf("%d", &op);
+            fflush(stdin);
+        }
+        while (op < 1 || op > 8);
+
+        switch (op)
+        {
+            case 1: Minus(letras, tam);
+                break;
+            case 2: MinusMayus(letras, tam);
+                break;
+            case 3: MinusNums(letras, tam);
+                break;
+            case 4: MinusSimb(letras, tam);
+                break;
+            case 5: MinusMayusNums(letras, tam);
+                break;
+            case 6: MinusMayusSimb(letras, tam);
+                break;
+            case 7: MinusNumsSimb(letras, tam);
+                break;
+            case 8: MinusMayusNumsSimb(letras, tam);
+                break;
+        }
+
+        Imprime(letras, tam);
+
+        do
+        {
+            printf("\n¿Desea generar otra contraseña? (s/n): ");
+            res = getchar();
+            fflush(stdin);
+        }
+        while (res != 's' && res != 'n');
+
+        if (res == 'n')
+            break;
+    }
+
+    printf("\nGracias por usar el generador aleatorio de contraseñas...\n");
 }
 
 void Minus(int A[], int T)
@@ -169,6 +216,12 @@ void Imprime(int A[], int T)
 {
     int i;
 
+    printf("\nSu contraseña es:\n");
     for (i = 0; i < T; i++)
-        printf("%d\t- %d\t - %c\n", i + 1, A[i], A[i]);
+    {
+        //printf("%d\t- %d\t - %c\n", i + 1, A[i], A[i]);       // Impresión de los caracteres con su correspondiente códgigo ASCI.
+        printf("%c", A[i]);
+    }
+
+    printf("\n");
 }
