@@ -40,12 +40,12 @@ const juegoDelTenis = (arregloDePunto) => {
 };
 
 const imprimirResultados = (jugadores, marcador) => {
-    let diferenciaDePunto = 0;
+    let diferenciaDePuntos = 0;
     if (jugadores["P1"] === 3 && jugadores["P2"] === 3) {
       console.log("Deuce");
     } else if (jugadores["P1"] >= 4 || jugadores["P1"] >= 4) {
       diferenciaDePuntos = jugadores["P1"] - jugadores["P2"];
-      if (diferenciaDePunto === 0) {
+      if (diferenciaDePuntos === 0) {
         console.log("Deuce");
       } else if (diferenciaDePuntos === 1) {
         console.log("Ventaja P1");
@@ -63,3 +63,4 @@ const imprimirResultados = (jugadores, marcador) => {
 
 
 juegoDelTenis(['P1', 'P1', 'P1','P1'])
+juegoDelTenis(['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1'])
