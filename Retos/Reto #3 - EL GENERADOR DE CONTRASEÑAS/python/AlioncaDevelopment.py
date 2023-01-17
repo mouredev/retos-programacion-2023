@@ -1,4 +1,4 @@
-/*
+"""
  * Escribe un programa que sea capaz de generar contraseñas de forma aleatoria.
  * Podrás configurar generar contraseñas con los siguientes parámetros:
  * - Longitud: Entre 8 y 16.
@@ -6,7 +6,7 @@
  * - Con o sin números.
  * - Con o sin símbolos.
  * (Pudiendo combinar todos estos parámetros entre ellos)
- */
+"""
 
 import random
 import string
@@ -14,7 +14,8 @@ import string
 def generate_password(length=12, use_uppercase=True, use_numbers=True, use_symbols=True):
     # Validar la longitud de la contraseña
     if not 8 <= length <= 16:
-        length = int(input("Introduzca una longitud válida entre 8 y 16 caracteres: "))
+        Print("Error: la longitud de la contraseña debe estar entre 8 y 16")
+        return
     # Crear una lista de caracteres permitidos
     characters = ''
     if use_uppercase:
