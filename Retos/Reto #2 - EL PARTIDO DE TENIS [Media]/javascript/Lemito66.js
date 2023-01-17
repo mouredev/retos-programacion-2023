@@ -57,7 +57,7 @@ const imprimirResultados = (jugadores, marcador) => {
         console.log("Game P2");
       }
     } else {
-      console.log(`${marcador[jugadores["P1"]]}-${marcador[jugadores["P2"]]}`);
+        console.log(`${marcador[jugadores["P1"]]}-${marcador[jugadores["P2"]]}`);
     }
   }
 
