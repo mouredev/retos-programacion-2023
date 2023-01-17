@@ -1,3 +1,5 @@
+import java.util.*
+
 val ltrs = mapOf(
         "A" to "4",
         "B" to "|3",
@@ -38,11 +40,11 @@ val ltrs = mapOf(
         " " to " "
 )
 fun textToHacker(text:String):String {
-    var hacker = ""
-    for(ltr in text.toUpperCase()){
-        hacker += ltrs["$ltr"]
-    }
-    return hacker 
+        var hacker = ""
+        for (ltr in text.uppercase(Locale.getDefault())) {
+                hacker += ltrs["$ltr"]
+        }
+        return hacker
 }
     
 fun main(){
