@@ -23,13 +23,13 @@ fun main() {
     val simbolos = "!@#$%^&*()_+-=[]{}|;':,.<>/?`~"
     val caracteres = StringBuilder()
     caracteres.append(letras)
-    if (incluirMayus.toUpperCase() == "S") {
+    if (incluirMayus.uppercase(Locale.getDefault()) == "S") {
         caracteres.append(letrasMayus)
     }
-    if (incluirNumeros.toUpperCase() == "S") {
+    if (incluirNumeros.uppercase(Locale.getDefault()) == "S") {
         caracteres.append(numeros)
     }
-    if (incluirSimbolos.toUpperCase() == "S") {
+    if (incluirSimbolos.uppercase(Locale.getDefault()) == "S") {
         caracteres.append(simbolos)
     }
     val caracteresArray = caracteres.toString().toCharArray()
