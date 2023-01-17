@@ -14,11 +14,6 @@ import string, random
 
 def pasword_generator(length: int, uppercase: bool, numbers: bool, symbols: bool) -> str:
 
-    # Control de errores en la longitud de la contraseña
-    while length < 8 and length > 16:
-        print("La longitud de la contraseña debe estar entre 8 y 16")
-        length = input("Introduzca de nuevo la longitud de la contraseña: ")
-
     # Definimos los números, letras y signos que podemos tener en la contraseña.
     if uppercase: letters = string.ascii_letters 
     else: letters = string.ascii_lowercase
@@ -34,7 +29,12 @@ def pasword_generator(length: int, uppercase: bool, numbers: bool, symbols: bool
     return pasword
 
 def main():
+
+    # Pedimos las características de la contraseña con control de errores.
     length = int(input("Introduzca la longitud deseada de la contraseña: "))
+    while length < 8 or length > 16:
+        print("La longitud de la contraseña debe estar entre 8 y 16")
+        length = int(input("Introduzca de nuevo la longitud de la contraseña: "))
 
     upper_letters = input("¿Puede tener letras mayúsculas? Y/N: ")
     while upper_letters != "Y" and upper_letters != "N":
