@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jdk-17.0">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../Program Files/Java/jdk-17.0.5" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
