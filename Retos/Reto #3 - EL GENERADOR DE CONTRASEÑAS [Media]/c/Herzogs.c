@@ -10,6 +10,9 @@
 #define LONG_SIM 22
 #define LONG_LET 26
 
+/*Para poder correr este ejercicio es necesario tener instalado libsodium y
+ *para compilarlo desde una terminal hay que escribir "gcc -Wall -lsodium Herzogs -o main" */
+
 char obtenerCaracter(const char *str, int size) {
   int idx = randombytes_uniform(size);
   printf("\nSIZE[%d] - IDX[%d] - CH[%c]",size,idx,*(str+idx));
