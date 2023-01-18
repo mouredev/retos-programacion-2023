@@ -19,19 +19,24 @@ map<char, string> leetTable = {
   {'u', "(_)"}, {'v', "\\/"}, {'w', "\\/\\/"}, {'x', "><"},
   {'y', "j"}, {'z', "2"}, {'1', "L"}, {'2', "R"}, {'3', "E"},
   {'4', "A"}, {'5', "S"}, {'6', "b"}, {'7', "T"}, {'8', "B"},
-  {'9', "g"}, {'0', "o"}, {' ', " "}
+  {'9', "g"}, {'0', "o"}
 };
 
 string leetTranslate(string frase){
   string newPhrase ="";
   for (int i = 0; i < frase.length(); i++) {
-    newPhrase += leetTable[tolower(frase[i])];
+    if (leetTable.find(frase[i]) != leetTable.end()) {
+      newPhrase += leetTable[tolower(frase[i])];
+    } else {
+      newPhrase += frase[i];
+    }
   }
   return newPhrase;
 }
 
 int main() {
   cout << leetTranslate("La mera prueba") << endl;
-  cout << leetTranslate("2da comprobacion del reto 1") << endl;
+  cout << leetTranslate("2da comprobación del reto 1") << endl;
   cout << leetTranslate("numeros 1234567890") << endl;
+  cout << leetTranslate("Ángel se fue a la tierra, del olvido!") << endl;
 }
