@@ -39,5 +39,5 @@ fun main() {
         contrasena.append(caracteresArray[random.nextInt(caracteresArray.size)])
     }
     println("La contraseña generada es: $contrasena")
-    println("La contraseña generada es: $contrasena")
+ 
 }
