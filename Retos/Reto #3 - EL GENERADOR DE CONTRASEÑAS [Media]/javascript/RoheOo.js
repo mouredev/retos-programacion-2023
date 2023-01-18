@@ -1,5 +1,5 @@
-const getRandom = (int) => {
-  return Math.floor(Math.random() * int);
+const getRandom = (max) => {
+  return Math.floor(Math.random() * max);
 };
 
 const generatePassword = (
@@ -16,37 +16,31 @@ const generatePassword = (
     option = 0;
 
   for (let i = 0; i < length; i++) {
-    option = getRandom(3);
-
-    if (
-      addUppercase === false &&
-      addSymbols === false &&
-      addNumbers === false
-    ) {
+    if (!addUppercase && !addSymbols && !addNumbers) {
       option = 0;
-    } else if (addUppercase && addSymbols === false && addNumbers === false) {
+    } else if (addUppercase && !addSymbols && !addNumbers) {
       while (option === 3 || option === 2) {
         option = getRandom(3);
       }
-    } else if (addUppercase && addSymbols && addNumbers === false) {
+    } else if (addUppercase && addSymbols && !addNumbers) {
       while (option === 3) {
         option = getRandom(3);
       }
     } else if (addUppercase && addSymbols && addNumbers) {
       option = getRandom(3);
-    } else if (addUppercase === false && addSymbols && addNumbers === false) {
+    } else if (!addUppercase && addSymbols && !addNumbers) {
       while (option === 1 || option === 3) {
         option = getRandom(3);
       }
-    } else if (addUppercase === false && addSymbols && addNumbers) {
+    } else if (!addUppercase && addSymbols && addNumbers) {
       while (option === 1) {
         option = getRandom(3);
       }
-    } else if (addUppercase === false && addSymbols === false && addNumbers) {
+    } else if (!addUppercase && !addSymbols && addNumbers) {
       while (option === 1 || option === 2) {
         option = getRandom(3);
       }
-    } else if (addUppercase && addSymbols === false && addNumbers) {
+    } else if (addUppercase && !addSymbols && addNumbers) {
       while (option === 2) {
         option = getRandom(3);
       }
