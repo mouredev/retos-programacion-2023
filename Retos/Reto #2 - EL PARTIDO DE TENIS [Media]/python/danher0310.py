@@ -30,110 +30,35 @@ p1 = 0
 p2 = 0
 
 def game():
+  
   p1 = 0  
   p2 = 0
+  game = ['Love','15','30','40']  
   winner = False
-  while( winner != True):
+  
+  while( winner != True):    
+    
     point = point_for()
     if point == "p1":
       p1 += 1
-      if(p1 == 1 and p2 ==0):
-        print("15 - Love")
-      elif(p1 == 2 and p2 == 0):
-        print("30 - Love")
-      elif(p1 == 3 and p2 ==0):
-        print("40 - Love") 
-      elif(p1 == 4 and p2 == 0):
-        print("Set - Love")
-        msj = "El ganador es el P1"
-        winner = True
-        
-      elif(p1 == 1 and p2 == 1):
-        print("15 - 15")
-      elif(p1 == 2 and p2 == 1):
-        print("30 - 15")
-      elif(p1 == 3 and p2 == 1):
-        print("40 - 15") 
-      elif(p1 == 4 and p2 == 1):
-        print("Set - 15")
-        msj = "El ganador es el P1"
-        winner = True
-      
-      elif(p1 == 1 and p2 == 2):
-        print("15 - 30")
-      elif(p1 == 2 and p2 == 2):
-        print("30 - 30")
-      elif(p1 == 3 and p2 == 2):
-        print("40 - 30") 
-      elif(p1 == 4 and p2 == 2):
-        print("Set - 30")
-        msj = "El ganador es el P1"
-        winner = True
-        
-      elif(p1 == 1 and p2 == 3):
-        print("15 - 40")
-      elif(p1 == 2 and p2 == 3):
-        print("30 - 40")
-      elif(p1 >= 3 and p2 >=3):
-        if(p1 == p2):
-          print("Deuce - Deuce")     
-        elif((p1-p2) == 1):          
-          print("Ventaja a P1")
-        elif((p1-p2) == 2):          
-          msj = "El ganador es el P1"
-          winner = True
-       
-      
-      
-      
+    
     elif point == "p2":
-      p2 += 1 
-      if(p2 == 1 and p1 ==0):
-        print("Love - 15")
-      elif(p2 == 2 and p1 == 0):
-        print("Love - 30")
-      elif(p2 == 3 and p1 ==0):
-        print("Love - 40") 
-      elif(p2 == 4 and p1 == 0):
-        print("Love - Set")
-        msj = "El ganador es el P2"
+      p2 += 1
+
+    if p1 >= 3 and p2 >=3:
+      if abs(p1 - p2) <= 1:        
+        print("Deuce" if(p1 == p2) else 
+              "Ventaja P1" if p1 > p2 else "Ventaja P2")
+      else:
         winner = True
-        
-      elif(p2 == 1 and p1 == 1):
-        print("15 - 15")
-      elif(p2 == 2 and p1 == 1):
-        print("15 - 30")
-      elif(p2 == 3 and p1 == 1):
-        print("15 - 40") 
-      elif(p2 == 4 and p1 == 1):
-        print("15 - Set")
-        msj = "El ganador es el P2"
-        winner = True
-      
-      elif(p2 == 1 and p1 == 2):
-        print("30 - 15")
-      elif(p2 == 2 and p1 == 2):
-        print("30 - 30")
-      elif(p2 == 3 and p1 == 2):
-        print("30 - 40") 
-      elif(p2 == 4 and p1 == 2):
-        print("30 - Set")
-        msj = "El ganador es el P2"
-        winner = True
-        
-      elif(p2 == 1 and p1 == 3):
-        print("40 - 15")
-      elif(p2 == 2 and p1 == 3):
-        print("40 - 30")
-      elif(p1 >= 3 and p2 >=3):
-        if(p1 == p2):
-          print("Deuce - Deuce")     
-        elif((p2-p1) == 1):
-          print("Ventaja P2")
-        elif((p2-p1) == 2):
-          
-          msj = "El ganador es el P2"
-          winner = True
+        msj = ("Ha ganado el P1" if(p1>p2) else "Ha Ganado el P2")
+    
+    else:
+      if p1 < 4 and p2 < 4:
+        print(f"{game[p1]} - {game[p2]}")
+      else:
+         winner = True
+         msj = ("Ha ganado el P1" if(p1>p2) else "Ha Ganado el P2")
       
     
   return msj
