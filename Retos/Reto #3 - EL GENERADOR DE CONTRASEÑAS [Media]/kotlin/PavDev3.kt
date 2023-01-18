@@ -1,5 +1,5 @@
 import java.util.*
-//Reto #3 Generador de contraseñas
+
 fun main() {
     val scanner = Scanner(System.`in`)
     println("Ingrese la longitud de la contraseña (8-16):")
@@ -23,13 +23,13 @@ fun main() {
     val simbolos = "!@#$%^&*()_+-=[]{}|;':,.<>/?`~"
     val caracteres = StringBuilder()
     caracteres.append(letras)
-    if (incluirMayus.uppercase(Locale.getDefault()) == "S") {
+    if (incluirMayus.toUpperCase() == "S") {
         caracteres.append(letrasMayus)
     }
-    if (incluirNumeros.uppercase(Locale.getDefault()) == "S") {
+    if (incluirNumeros.toUpperCase() == "S") {
         caracteres.append(numeros)
     }
-    if (incluirSimbolos.uppercase(Locale.getDefault()) == "S") {
+    if (incluirSimbolos.toUpperCase() == "S") {
         caracteres.append(simbolos)
     }
     val caracteresArray = caracteres.toString().toCharArray()
@@ -39,5 +39,6 @@ fun main() {
         contrasena.append(caracteresArray[random.nextInt(caracteresArray.size)])
     }
     println("La contraseña generada es: $contrasena")
-    
+    println("La contraseña generada es: $contrasena")
+
 }
