@@ -3,3 +3,4 @@
 .idea/kotlinScripting.xml
 /output/
 .idea/workspace.xml
+.vscode/launch.json
