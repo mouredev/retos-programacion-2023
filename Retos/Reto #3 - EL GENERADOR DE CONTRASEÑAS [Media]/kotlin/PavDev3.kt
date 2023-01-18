@@ -40,5 +40,4 @@ fun main() {
     }
     println("La contraseña generada es: $contrasena")
     println("La contraseña generada es: $contrasena")
-
 }
