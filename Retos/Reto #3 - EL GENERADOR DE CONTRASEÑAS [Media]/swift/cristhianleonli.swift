@@ -9,7 +9,6 @@ enum Constants {
     static let passwordMaxLength: Int = 16
 }
 
-
 struct PasswordOption: OptionSet {
     let rawValue: Int
     
