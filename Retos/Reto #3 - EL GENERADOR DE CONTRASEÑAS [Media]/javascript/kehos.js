@@ -3,6 +3,25 @@
  * Propuesta de solución realizada por Kehos
  * https://github.com/Kehos
  * 18/01/2023
+ * 
+ * Funcionamiento:
+ * ejecutar archivo con el comando "node kehos.js"
+ * 
+ * Se puede añadir los siguientes parámetros:
+ * - chars:   Acepta un valor numérico entre 8 y 16. Define los caracteres que tendrá la contraseña, si se entra un número fuera del rango se ajusta al límite más cercano.
+ *            EJEMPLO: chars=10 -> contraseña de 10 caracteres | chars=100 -> contraseña de 16 caracteres
+ * 
+ * - caps:    Acepta un valor booleano. Define si la contraseña puede tener letras mayúsculas.
+ *            EJEMPLO: caps=true -> La contraseña podrá tener letras mayúsculas
+ * 
+ * - num:     Acepta un valor booleano. Define si la contraseña puede tener números.
+ *            EJEMPLO: num=true -> La contraseña podrá tener caracteres numéricos
+ * 
+ * - symbol:  Aceptra un valor booleano. Define si la contraseña puede tener símbolos.
+ *            EJEMPLO: symbol=true -> La contraseña podrá tener caracteres símbolos
+ * 
+ * Si se añade un mismo parámetro varias veces se escogerá siempre el último valor.
+ * EJEMPLO: node kehos.js caps=true caps=false -> La contraseña no podrá tener letras mayúsculas
  */
 
 // Generator config
