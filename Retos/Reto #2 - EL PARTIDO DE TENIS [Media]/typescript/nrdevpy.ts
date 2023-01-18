@@ -40,10 +40,13 @@ function tenis(game: string[]) {
     }
 }
 
-const cases = [
+const situations = [
     ['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1',],
     ['P1', 'P1', 'P2', 'P2', 'P1'],
     ['P1', 'P2', 'p1', 'P2', 'p1', 'P2', 'p1', 'P2', 'p2'],
 ];
 
-tenis(cases[2])
+for (let situation of situations.entries()){
+    console.log(`\nGame: ${situation[0] + 1}`)
+    tenis(situation[1])
+}
