@@ -59,6 +59,9 @@ function getMatchScore(array $scores): array
 
 // Main Code
 $matches = [
+    ['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P3', 'P1'],
+    ['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1', 'P2'],
+    ['P1', 'P1', 'P2'],
     ['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1'],
     ['P1', 'P1', 'P1', 'P1'],
 ];
@@ -73,7 +76,7 @@ foreach ($matches as $index => $match) {
             echo "{$score}\n";
         }
     } catch (\Throwable $th) {
-        echo "Match {$index} has been skeeped with the error: {$th->getMessage()}\n";
+        echo "Match {$index} has been skipped with the error: {$th->getMessage()}\n";
     }
     echo "\n";
 }
