@@ -1,5 +1,5 @@
 import random
-valid_chars = []
+valid_chars = [] 
 
 valid_chars += list("abcdefghijklmnopqrstuvwxyz")
 password = ""
