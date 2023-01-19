@@ -30,7 +30,7 @@ class TennisMatch
 
     resp.map do |p1, p2|
       diff = (p1 - p2).abs
-      if ((p1 < 3) || (p2 < 3)) && (diff <= 2)
+      if ((p1 < 3) || (p2 < 3)) && (diff <= 3)
         [SCORES[p1.to_s], SCORES[p2.to_s]]
       elsif diff.zero?
         ['deuce']
@@ -67,7 +67,7 @@ class TennisMatch
   def valid_score?(scores)
     p1, p2 = scores.last
     diff = (p1 - p2).abs
-    return true if (diff == 2) || (diff == 3 && [p1, p2].include?(0))
+    return true if (diff == 2) || (diff == 4 && [p1, p2].include?(0))
 
     false
   end
@@ -93,17 +93,17 @@ end
 # 7. input inválido, input incorrecto
 
 TESTS = { input: [%w[P1 P1 P2 P2 P1 P2 P1 P1],
-                  %w[P2 P2 P2],
+                  %w[P2 P2 P2 P2],
                   %w[],
                   %w[P1 P1 P2 P2 P1 P2 P1 P1 P1],
-                  %w[P2 P2 P2 P2],
+                  %w[P2 P2 P2 P2 P2],
                   %w[P1 P1 P2 P2],
                   %w[P1 A2 p p2]],
           output: [[[1, 0], [2, 0], [2, 1], [2, 2], [3, 2], [3, 3], [4, 3], [5, 3]],
-                   [[0, 1], [0, 2], [0, 3]],
+                   [[0, 1], [0, 2], [0, 3], [0, 4]],
                    [[-1, -1]],
                    [[1, 0], [2, 0], [2, 1], [2, 2], [3, 2], [3, 3], [4, 3], [5, 3], [6, 3]],
-                   [[0, 1], [0, 2], [0, 3], [0, 4]],
+                   [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5]],
                    [[1, 0], [2, 0], [2, 1], [2, 2]],
                    [[-1, -1]]] }.freeze
 

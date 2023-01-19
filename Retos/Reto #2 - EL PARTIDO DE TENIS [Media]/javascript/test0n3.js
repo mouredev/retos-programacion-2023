@@ -31,7 +31,7 @@ const tennisScore = (gameScores) => {
 
   return gameScores.map(([p1, p2]) => {
     let diff = Math.abs(p1 - p2);
-    if ((p1 < 3 || p2 < 3) && diff <= 2)
+    if ((p1 < 3 || p2 < 3) && diff <= 3)
       return [scores[String(p1)], scores[String(p2)]];
     else if (diff == 0) return ["deuce"];
     else if (diff == 1) return [`advantage ${p1 > p2 ? "P1" : "P2"}`];
@@ -65,7 +65,7 @@ const invalidScore = (scores) => {
   let [p1, p2] = scores[scores.length - 1];
   let diff = Math.abs(p1 - p2);
 
-  if (diff == 2 || (diff == 3 && [p1, p2].includes(0))) return false;
+  if (diff == 2 || (diff == 4 && [p1, p2].includes(0))) return false;
   return true;
 };
 
@@ -99,10 +99,10 @@ const capitalize = (text) => text.slice(0, 1).toUpperCase() + text.slice(1);
 const tests = {
   input: [
     ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"],
-    ["P2", "P2", "P2"],
+    ["P2", "P2", "P2", "P2"],
     [],
     ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1", "P1"],
-    ["P2", "P2", "P2", "P2"],
+    ["P2", "P2", "P2", "P2", "P2"],
     ["P1", "P1", "P2", "P2"],
     ["P1", "A2", "p", "p2"],
   ],
@@ -121,6 +121,7 @@ const tests = {
       [0, 1],
       [0, 2],
       [0, 3],
+      [0, 4],
     ],
     [[-1, -1]],
     [
@@ -139,6 +140,7 @@ const tests = {
       [0, 2],
       [0, 3],
       [0, 4],
+      [0, 5],
     ],
     [
       [1, 0],
