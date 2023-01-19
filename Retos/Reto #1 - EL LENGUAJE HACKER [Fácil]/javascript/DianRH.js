@@ -45,11 +45,11 @@ function LeetLanguage(text) {
     for(char of text.toLowerCase()){
           for(leetChar in LeetAlphabet) {
             if(leetChar === char){
-              transform = LeetAlphabet[leetChar] 
-              console.log(transform)
+              transform += LeetAlphabet[leetChar] 
             }
         }
-    } 
+    }
+    return transform; 
 }
 
-LeetLanguage('Programacion');
+console.log(LeetLanguage('Programacion'));
