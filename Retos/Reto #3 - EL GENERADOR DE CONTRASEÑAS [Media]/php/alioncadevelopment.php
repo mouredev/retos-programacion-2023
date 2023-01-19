@@ -11,7 +11,7 @@
  */
 
 function generatePassword($length, $uppercase, $numbers, $symbols) {
-    if ($length <= 8 || $length >= 16) {
+    if ($length < 8 || $length > 16) {
         echo "Error: password length must be between 8 and 16";
         return;
     }
