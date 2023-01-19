@@ -31,7 +31,7 @@ sub MAIN(
 ) {
     my Set $números    = set  0  ..  9;				# conjunto de números
     my Set $letras     = set 'a' .. 'z';			# conjunto de letras
-    my Set $mayúsculas = set $letras.keys.map: { .uc };		# conjunto de letras mayúsculas
+    my Set $mayúsculas = set 'A' .. 'Z';			# conjunto de letras mayúsculas
     my Set $símbolos   = set '!$%&*+-.,/:;<>=_@'.comb;		# conjunto de símbolos
 
     my Set $caracteres-posibles					# creamos el conjunto de caracteres
