@@ -4,3 +4,7 @@
 /output/
 .idea/workspace.xml
 .vscode/launch.json
+/node_modules/
+node_modules/.package-lock.json
+package-lock.json
+package.json
