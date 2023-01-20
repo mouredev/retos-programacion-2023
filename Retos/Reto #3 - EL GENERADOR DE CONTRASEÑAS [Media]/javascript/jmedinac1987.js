@@ -96,9 +96,8 @@ function calculatePassword(parameters) {
 
 function recalculatePassword(prePassword, Length, characterArray){
   let newPrePassword = "";
-  let arrayText = [];
+  let arrayText = prePassword === "" ? "" : prePassword.split("");
   let recalculateLength = prePassword === "" ? Length : Length-1;
-  arrayText = prePassword.split("");
 
   for (let i = 0; i < recalculateLength; i++) {
     let random = Math.floor(Math.random() * recalculateLength);
@@ -114,9 +113,11 @@ function recalculatePassword(prePassword, Length, characterArray){
     }      
   }
 
-  arrayText.forEach((character) => {
-    newPrePassword += character;
-  });
+  if(prePassword != ""){
+    arrayText.forEach((character) => {
+      newPrePassword += character;
+    });
+  } 
 
   return newPrePassword;
 }
