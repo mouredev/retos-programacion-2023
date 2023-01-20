@@ -17,4 +17,4 @@ const transformText = (normalText) => {
   console.log(newLeetText);
 };
 
-transformText("hi my birthday is October 21 ");
+transformText("hi my birthday is October 21");
