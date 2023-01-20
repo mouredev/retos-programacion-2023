@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: org.jetbrains.kotlin:kotlin-script-runtime:1.7.21" type="repository">
+    <properties maven-id="org.jetbrains.kotlin:kotlin-script-runtime:1.7.21" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-script-runtime/1.7.21/kotlin-script-runtime-1.7.21.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-script-runtime/1.7.21/kotlin-script-runtime-1.7.21-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/kotlin/kotlin-script-runtime/1.7.21/kotlin-script-runtime-1.7.21-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
