@@ -2,12 +2,12 @@
 function FizzBuzz (limit: number) {
   return Array.from({ length: limit }, (_, i) => i + 1)
     .map((num) => {
-      return (num % 15 === 0) ? 'FizzBuzz'
-        : (num % 5 === 0) ? 'Buzz'
-        : (num % 3 === 0) ? 'Fizz'
+      return (num % 15 === 0) ? 'fizzbuzz'
+        : (num % 5 === 0) ? 'buzz'
+        : (num % 3 === 0) ? 'fizz'
         : num
     })
     .join(' ')
 }
 
-console.log(FizzBuzz(45))
+console.log(FizzBuzz(100))
