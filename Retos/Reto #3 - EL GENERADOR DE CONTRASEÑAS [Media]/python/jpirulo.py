@@ -1,4 +1,3 @@
-#password
 import random
 valid_chars = [] 
 
