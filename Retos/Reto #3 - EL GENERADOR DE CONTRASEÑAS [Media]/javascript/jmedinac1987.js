@@ -77,10 +77,7 @@ function calculatePassword(parameters) {
 
   let prePassword = ""; 
 
-  for (let i = 0, j = parameters.Length; i < j; i++) {
-    let random = Math.floor(Math.random() * j);
-    prePassword += letters[random];
-  }
+  prePassword = recalculatePassword(prePassword, parameters.Length, letters);
   
   if (parameters.CapitalLetters) {
     prePassword = recalculatePassword(prePassword, parameters.Length, []);    
@@ -98,27 +95,30 @@ function calculatePassword(parameters) {
 }
 
 function recalculatePassword(prePassword, Length, characterArray){
-    let newPrePassword = "";
-    let arrayText = [];
-    arrayText = prePassword.split("");
+  let newPrePassword = "";
+  let arrayText = [];
+  let recalculateLength = prePassword === "" ? Length : Length-1;
+  arrayText = prePassword.split("");
 
-    for (let i = 0, j = Length-1; i < j; i++) {
-      let random = Math.floor(Math.random() * j);
-      
+  for (let i = 0; i < recalculateLength; i++) {
+    let random = Math.floor(Math.random() * recalculateLength);
+    
+    if(prePassword === ""){
+      newPrePassword += characterArray[random];
+    }else{
       if(characterArray.length === 0){        
         arrayText[random] = prePassword.charAt(random).toUpperCase();
       }else{
         arrayText[random] = characterArray[i] ?? arrayText[random];
       }      
-    }
+    }      
+  }
 
-    arrayText.forEach((character) => {
-      newPrePassword += character;
-    });
+  arrayText.forEach((character) => {
+    newPrePassword += character;
+  });
 
-    newPrePassword;  
-  
-    return newPrePassword;
+  return newPrePassword;
 }
 
 let parameters = {
