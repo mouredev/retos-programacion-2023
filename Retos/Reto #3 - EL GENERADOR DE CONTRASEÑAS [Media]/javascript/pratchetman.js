@@ -32,7 +32,6 @@
           else if (ifNum == true && ifSymbol == true){
             pass += text2[Math.floor(Math.random() * ((text2.length - 1) - 0 + 1) + 0)]
             
-
           }
           else if (ifNum == false && ifSymbol == true){
             pass += text3[Math.floor(Math.random() * ((text3.length - 1) - 0 + 1) + 0)]
