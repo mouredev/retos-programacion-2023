@@ -11,7 +11,6 @@
 import random
 import string
 
-
 length = input("Longitud entre 8 y 16 caracteres: ")
 
 if not int(length) in range(8, 17):
