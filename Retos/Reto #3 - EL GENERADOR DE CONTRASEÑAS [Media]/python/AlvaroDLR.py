@@ -38,6 +38,5 @@ def generate_password(length, uppercase, digits, symbols):
     return ''.join(random.choice(password_chars) for _ in range(length))
 
 # Ejemplo de uso
-
 password = generate_password(int(length), uppercase, digits, symbols)
 print(f"\nLa password generada es: {password}")
