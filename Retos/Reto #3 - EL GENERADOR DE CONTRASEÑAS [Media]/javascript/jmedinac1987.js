@@ -1,42 +1,18 @@
 "use strict";
 
-let parameters = {
-  Length: 16,
-  CapitalLetters: true,
-  Numbers: true,
-  Symbols: true,
-};
-
-let response = passwordGenerator(parameters);
-
-console.log(`length: ${response.length} - `, `Password: ${response}`);
-
 function passwordGenerator(parameters) {
-
   let formatSymbols = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
   let formatCapitalLetters = /[A-Z]/;
   let formatNumbers = /[0-9]/;
-  let password = "";
 
+  let password = "";
   if (parameters.Length === undefined)
     return "It is necessary to define a length between 8 and 16 characters";
 
   if (parameters.Length < 8 || parameters.Length > 16)
     return `length parameter does not meet supported length, supported length between 8 and 16 supplied length ${parameters.Length}`;
 
-  password = prePassword(parameters.Length);
-
-  if (parameters.CapitalLetters) {
-    password = addCapitalLetters(password);
-  }
-
-  if (parameters.Numbers) {
-    password = addNumbers(password);
-  }
-
-  if (parameters.Symbols) {
-    password = addSymbols(password);
-  }
+  password = calculatePassword(parameters);
 
   if (parameters.CapitalLetters && parameters.Numbers && parameters.Symbols) {
     if (
@@ -87,78 +63,72 @@ function passwordGenerator(parameters) {
   return password;
 }
 
-function prePassword(Length) {
+function calculatePassword(parameters) {
+    
+  let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   let letters = [
-    "a", "b", "c", "d", "e", "f", "g", "h", "i", 
-    "j", "k", "l", "m", "n", "o", "p", "q", "r", 
-    "s", "t", "u", "v", "w", "x", "y", "z" ];
+    "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
+    ,"q","r","s","t","u","v","w","x","y","z",
+  ];
+  let symbols = [
+    "|","¬","!","#","$","%","&","/","\\","(",")","=","?","¿","¡","*",
+    "-","+","[","]","}","{","-","_",";",",",".",":","°","<",">","'",
+  ];
 
-  let prePassword = "";
+  let prePassword = ""; 
 
-  for (let i = 0; i < Length; i++) {
-    let random = Math.floor(Math.random() * (Length - 0 + 1) + 0);
-    prePassword += letters[random];
+  prePassword = recalculatePassword(prePassword, parameters.Length, letters);
+  
+  if (parameters.CapitalLetters) {
+    prePassword = recalculatePassword(prePassword, parameters.Length, []);    
+  }
+  
+  if (parameters.Numbers) {
+    prePassword = recalculatePassword(prePassword, parameters.Length, numbers)    
+  }
+  
+  if (parameters.Symbols) {
+    prePassword = recalculatePassword(prePassword, parameters.Length, symbols)    
   }
 
   return prePassword;
 }
 
-function addCapitalLetters(prePassword) {
-  let arrayText = [];
+function recalculatePassword(prePassword, Length, characterArray){
   let newPrePassword = "";
-  arrayText = prePassword.split("");
+  let arrayText = prePassword === "" ? "" : prePassword.split("");
+  let recalculateLength = prePassword === "" ? Length : Length-1;
 
-  for (let i = 0, j = arrayText.length; i < j; i++) {
-    let random = Math.floor(Math.random() * (j - 0 + 1) + 0);
-    arrayText[random] = prePassword.charAt(random).toUpperCase();
+  for (let i = 0; i < recalculateLength; i++) {
+    let random = Math.floor(Math.random() * recalculateLength);
+    
+    if(prePassword === ""){
+      newPrePassword += characterArray[random];
+    }else{
+      if(characterArray.length === 0){        
+        arrayText[random] = prePassword.charAt(random).toUpperCase();
+      }else{
+        arrayText[random] = characterArray[i] ?? arrayText[random];
+      }      
+    }      
   }
 
-  arrayText.forEach((letter) => {
-    newPrePassword += letter;
-  });
+  if(prePassword != ""){
+    arrayText.forEach((character) => {
+      newPrePassword += character;
+    });
+  } 
 
   return newPrePassword;
 }
 
-function addNumbers(prePassword) {
-  let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+let parameters = {
+  Length: 8,
+  CapitalLetters: true,
+  Numbers: true,
+  Symbols: true,
+};
 
-  let arrayText = [];
-  let newPrePassword = "";
-  arrayText = prePassword.split("");
+let response = passwordGenerator(parameters);
 
-  for (let i = 0, j = arrayText.length; i < j; i++) {
-    let random = Math.floor(Math.random() * (j - 0 + 1) + 0);
-    if (arrayText[random] != undefined)
-      arrayText[random] = numbers[i] ?? arrayText[random];
-  }
-
-  arrayText.forEach((character) => {
-    newPrePassword += character;
-  });
-
-  return newPrePassword;
-}
-
-function addSymbols(prePassword) {
-  let symbols = [
-    "|", "¬", "!", "#", "$", "%", "&", "/", "\\", "(", ")", "=", "?", 
-    "¿", "¡", "*", "-", "+", "[", "]", "}", "{", "-", "_", ";", ",",
-    ".", ":", "°", "<", ">", "'" ];
-
-  let arrayText = [];
-  let newPrePassword = "";
-  arrayText = prePassword.split("");
-
-  for (let i = 0, j = arrayText.length; i < j; i++) {
-    let random = Math.floor(Math.random() * (j - 0 + 1) + 0);
-    if (arrayText[random] != undefined)
-      arrayText[random] = symbols[i] ?? arrayText[random];
-  }
-
-  arrayText.forEach((character) => {
-    newPrePassword += character;
-  });
-
-  return newPrePassword;
-}
+console.log(`length: ${response.length} - `, `Password: ${response}`);
