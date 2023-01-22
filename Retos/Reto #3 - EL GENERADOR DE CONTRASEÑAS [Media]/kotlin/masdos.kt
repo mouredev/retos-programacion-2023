@@ -46,10 +46,12 @@ private fun hasPreference(preferenceName: String): Boolean {
         preference = true
         validPreference = true
       }
+
       "no" -> {
         preference = false
         validPreference = true
       }
+
       else -> println("El parámetro '$response' no es correcto. Aceptados: si o no")
     }
   }
@@ -63,10 +65,26 @@ private fun generatePassword(
   hasSymbols: Boolean
 ): String {
   var password = generateLowercasePassword(passwordSize)
-  if (hasUppercase) password = addUppercase(password)
-  if (hasNumbers) password = addNumbers(password)
-  if (hasSymbols) password = addSymbols(password)
+  do {
+    if (hasUppercase) password = addUppercase(password)
+    if (hasNumbers) password = addNumbers(password)
+    if (hasSymbols) password = addSymbols(password)
+  } while (!isValidPassword(password, hasUppercase, hasNumbers, hasSymbols))
   return password
+}
+
+fun isValidPassword(
+  password: String,
+  hasUppercase: Boolean,
+  hasNumbers: Boolean,
+  hasSymbols: Boolean
+): Boolean {
+  if (!password.any { it in 'a'..'z' }) return false
+  if (hasUppercase && !password.any { it in 'A'..'Z' }) return false
+  if (hasNumbers && !password.any { it in '0'..'9' }) return false
+  if (hasSymbols && !password.any { it in listOf('!', '¡', '?', '¿', '#', '@', '$', '%', '&') })
+    return false
+  return true
 }
 
 private fun generateLowercasePassword(passwordSize: Int): String {
