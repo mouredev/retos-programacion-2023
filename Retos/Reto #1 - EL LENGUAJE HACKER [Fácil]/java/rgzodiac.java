@@ -66,10 +66,10 @@ public class Reto1 {
 	private static String toHackerText(String naturalText) {
 
 		StringBuilder sb = new StringBuilder();
-		for (char word : naturalText.toCharArray()) {
-			String wordStr = String.valueOf(word);
-			String leet = leetAlphabet.get(wordStr.toUpperCase());
-			sb.append(leet != null ? leet : wordStr);
+		for (char naturalWord : naturalText.toCharArray()) {
+			String naturalWordStr = String.valueOf(naturalWord);
+			String leetWord = leetAlphabet.get(naturalWordStr.toUpperCase());
+			sb.append(leetWord != null ? leetWord : naturalWordStr);
 		}
 
 		return sb.toString();
