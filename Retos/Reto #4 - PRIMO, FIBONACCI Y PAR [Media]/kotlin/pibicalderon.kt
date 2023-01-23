@@ -15,13 +15,12 @@ fun validateNumber(number: Int) {
             if (isFibonacci(absNumber)) {" es fibonacci"} else {" no es fibonacci"} +
             " y es " +
             if (isEven(absNumber)) {"par"} else {"impar"}
-        )
+    )
 }
 
 fun isPrime(number: Int): Boolean {
 
-    if (number == 0) return false
-    if (number < 4) return true
+    if (number == 0 || number == 1) return false
     for(i in 2 .. (number/2)) {
         if (number % i == 0) {
             return false
