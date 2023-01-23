@@ -48,3 +48,4 @@ fun SetScore(match: Array<String>){
 var game = arrayOf("P1", "P1", "P1","P1", "P2","P2","P2","P2")
 
 SetScore(game)
+
