@@ -11,6 +11,6 @@ leet =  {
         " ": " ",      ",": ",",   ".": ".",      ";": ";"
     }
 
-print(*[leet[char] for char in list(input("Introduce your string: "))], sep='')
+print(*[leet[char.lower()] if char.lower() in leet else char for char in list(input("Introduce your string: "))], sep='')
 
 
