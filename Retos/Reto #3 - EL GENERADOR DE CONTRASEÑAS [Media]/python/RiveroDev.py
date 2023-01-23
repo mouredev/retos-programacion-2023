@@ -1,24 +1,15 @@
 from random import randint as rand
 
-alpha = ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t",
-        "u","v","w","x","y","z")
-
+alpha = ("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z")
 numb = ("1","2","3","4","5","6","7","8","9","0")
-
-sign = ("!","@","#","$","%","^","&","*","(",")","_","+","-","=",
-        "{","}","[","]","<",">",",",".","?","/")
+sign = ("!","@","#","$","%","^","&","*","(",")","_","+","-","=","{","}","[","]","<",">",",",".","?","/")
 
 
-longitud = input("Indique la cantos digitos quieres tu clave: ")
+longitud = int(input("Indique la cantos digitos quieres tu clave: "))
 con_numero = input("quieres que contenga numeros s/n: ")
 con_letras = input("quieres que contenga letras s/n: ")
 con_letras_mayusculas = input("quieres que contenga letras mayusculas s/n:")
 con_simbolos = input("quieres que contenga simbolos s/n: ")
-
-def valor_valido() -> str:
-        """Genera una nuevo input para reemplazar uno ya realizado"""
-        valor_entrada = input("ingrese una valor valido: ")
-        return valor_entrada
 
 def validar(input_valor: str ) -> bool:
         """Verifica si un input str es numerico, si no lo es
@@ -30,6 +21,11 @@ def validar(input_valor: str ) -> bool:
                         longitud = valor_valido()
                 else:
                         valide = False
+
+def valor_valido() -> str:
+        """Genera una nuevo input para reemplazar uno ya realizado"""
+        valor_entrada = input("ingrese una valor valido: ")
+        return valor_entrada
 
 def verificacion(valor_entrada: str) -> bool:
         """Verifica que un input cumpla con las reglas 
@@ -55,6 +51,8 @@ def verificacion(valor_entrada: str) -> bool:
                         estado = False
         return valor 
 
+# La verificaciones con para que los input sean correctos 
+
 def select_dicc() -> dict:
         dicc_total = ()
         if con_numero == True :
@@ -68,8 +66,22 @@ def select_dicc() -> dict:
 
         return dicc_total
 
-def code_generate():
-        pass
+def code_selec(valores: list) -> str:
+        """selecciona de una lista un item al azar"""
+        valor = rand.choise(valores)
+        return valor
+
+def code_gerenerator(longitud) -> str:
+        """Gerenara un codigo aleatorio 
+        necesita la logintud y una lista"""
+
+        letras = select_dicc()
+        passcode = ""
+        for i in range(longitud + 1):
+                passcode += code_selec(letras)
+
+
 
 if __name__=="__main__":
-        pass
+
+        print(code_gerenerator())
