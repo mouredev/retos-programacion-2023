@@ -18,9 +18,9 @@ transformar_texto <- function(texto) {
 
     for (i in 1:nchar(texto)) {
       if (substr(texto, i, i) %in% names(leet)) {
-        texto_encriptado = paste(texto_encriptado, leet[substr(texto, i, i)])
+        texto_encriptado = paste(texto_encriptado, leet[substr(texto, i, i)], sep = "")
       } else {
-        texto_encriptado = paste(texto_encriptado, substr(texto, i, i))
+        texto_encriptado = paste(texto_encriptado, substr(texto, i, i), sep = "")
       }
     }
     return(texto_encriptado)
