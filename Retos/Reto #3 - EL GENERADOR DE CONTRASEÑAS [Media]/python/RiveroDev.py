@@ -8,12 +8,12 @@ numb = ("1","2","3","4","5","6","7","8","9","0")
 sign = ("!","@","#","$","%","^","&","*","(",")","_","+","-","=",
         "{","}","[","]","<",">",",",".","?","/")
 
-def inicializador():
-        longitud = input("Indique la cantos digitos quieres tu clave: ")
-        con_numero = input("quieres que contenga numeros s/n: ")
-        con_letras = input("quieres que contenga letras s/n: ")
-        con_letras_mayusculas = input("quieres que contenga letras mayusculas s/n:")
-        con_simbolos = input("quieres que contenga simbolos s/n: ")
+
+longitud = input("Indique la cantos digitos quieres tu clave: ")
+con_numero = input("quieres que contenga numeros s/n: ")
+con_letras = input("quieres que contenga letras s/n: ")
+con_letras_mayusculas = input("quieres que contenga letras mayusculas s/n:")
+con_simbolos = input("quieres que contenga simbolos s/n: ")
 
 def valor_valido() -> str:
         """Genera una nuevo input para reemplazar uno ya realizado"""
@@ -56,7 +56,17 @@ def verificacion(valor_entrada: str) -> bool:
         return valor 
 
 def select_dicc() -> dict:
-        pass
+        dicc_total = ()
+        if con_numero == True :
+                dicc_total += numb
+        if con_letras == True :
+                dicc_total += alpha
+        if con_letras_mayusculas == True :
+                dicc_total += (x.lower() for x in alpha)
+        if con_simbolos == True :
+                dicc_total += sign
+
+        return dicc_total
 
 def code_generate():
         pass
