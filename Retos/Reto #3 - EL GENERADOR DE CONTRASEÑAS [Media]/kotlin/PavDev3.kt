@@ -9,7 +9,7 @@ fun main() {
         println("Ingrese la longitud de la contraseña (8-16):")
         longitud = scanner.nextInt()
     }
-    println("Desea incluir mayúsclas en la contraseña? (S/N)")
+    println("Desea incluir mayúsculas en la contraseña? (S/N)")
     val incluirMayus = scanner.next()
     println("Desea incluir números en la contraseña? (S/N)")
     val incluirNumeros = scanner.next()
