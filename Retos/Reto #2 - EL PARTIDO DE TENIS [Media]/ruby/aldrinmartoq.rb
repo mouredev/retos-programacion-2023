@@ -23,14 +23,9 @@ class Tenis
 
     if fin
       @puntajes.map do |jugador, puntaje|
-        if puntaje - min >= 2
-          @terminado = true
-          return "Ha ganado el #{jugador}"
-        elsif puntaje - min >= 1
-          return "Ventaja #{jugador}"
-        elsif puntaje == max
-          return "Deuce"
-        end
+        return "Ha ganado el #{jugador}"  if puntaje - min >= 2 && (@terminado = true)
+        return "Ventaja #{jugador}"       if puntaje - min >= 1
+        return "Deuce"                    if puntaje == max
       end
     else
       @puntajes.values.map { |puntaje| PUNTUACIÓN[puntaje] }.join(' - ')
