@@ -1,8 +1,13 @@
 fun main() {
     println("Introduce un número:")
-    val numero = readLine()!!.toInt()
-    val result = isPrimeAndFibonacciAndParity(numero)
-    println(result)
+    val input = readLine()
+    try {
+        val n = input!!.toInt()
+        val result = isPrimeAndFibonacciAndParity(n)
+        println(result)
+    } catch (e: NumberFormatException) {
+        println("La entrada no es un número válido.")
+    }
 }
 
 fun isPrimeAndFibonacciAndParity(n: Int): String {
