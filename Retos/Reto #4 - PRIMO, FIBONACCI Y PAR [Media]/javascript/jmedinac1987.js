@@ -1,7 +1,7 @@
 "use strict";
 
 function isItEvent(number) {
-  return number % 2 === 0 ? true : false;
+  return number % 2 === 0;
 }
 
 function isItPrimeNumber(number) {
