@@ -31,15 +31,13 @@ const isPrime = (number) => {
     for (let i = 0; i <= number; i++) {
       if (number % i === 0) {
         count += 1;
-      } 
+      }
     }
     if (count === 2) {
-        return true
+      return true;
     } else {
-        return false
+      return false;
     }
   }
   return false;
 };
-
-
