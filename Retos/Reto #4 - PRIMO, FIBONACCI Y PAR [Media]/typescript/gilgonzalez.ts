@@ -29,28 +29,13 @@ function par(numero:number):boolean{
 function check(numero:number):void{
     let cadena = '';
 
-    if (par(numero)){
-        cadena= numero+' es par'
-    }
-    else
-    {
-        cadena = numero + ' es impar'
-    }
-    if(primo(numero)){
-        cadena += ', es primo'
-    }
-    else 
-    {
-        cadena += ', no es primo'
-    }
-    if(fibonacci(numero)){
-        cadena += ' y pertenece a la secuencia de Fibonacci'
-    }
-    else 
-    {
-        cadena += ' y no pertenece a la secuencia de Fibonacci'
-    }
+    let cadPar = par(numero) ? ' es par':' es impar';
+    let cadPrimo = primo(numero) ? ', es primo': ', no es primo'
+    let cadFibonacci = fibonacci(numero) ? ' y pertenece a la secuencia de Fibonacci' : ' y no pertenece a la secuencia de Fibonacci'
+    cadena = numero + cadPar + cadPrimo + cadFibonacci;
+    console.log(cadena)
 }
+check(233)
 
 
 
