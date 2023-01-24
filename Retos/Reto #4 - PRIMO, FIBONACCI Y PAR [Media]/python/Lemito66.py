@@ -6,34 +6,56 @@
 
 """
 
+
 def is_even(number: int):
-    if number%2==0:
+    if number % 2 == 0:
         return True
     else:
         return False
-    
-def is_fibonnaci(number: int):
+
+
+def is_fibonacci(number: int):
     # 0, 1, 1, 2, 3, 5, 8, 13, 21
-    list_of_number = [0,1]
-    for i in range(2,2500):
+    list_of_number = [0, 1]
+    for i in range(2, 2500):
         list_of_number.append(list_of_number[i-2]+list_of_number[i-1])
     if number in list_of_number:
         return True
     else:
         return False
-        
+
+
 def is_prime(number: int):
     count = 0
     if number > 0:
-        for i in range(1,number):
-            if number%i==0:
+        for i in range(1, number+1):
+            if number % i == 0:
                 count += 1
-        if count ==2:
+        if count == 2:
             return True
         else:
             return False
     else:
         return False
-""" print(is_even(6))
-print(is_fibonnaci(155)) """
-print(is_prime(2))
+
+
+def isprime_isfibonnaci_is_even(number: int):
+    result = ''
+    if is_prime(number):
+        result += 'es primo, '
+    else:
+        result += 'no es primo, '
+    if is_fibonacci(number):
+        result += 'fibonacci '
+    else:
+        result += 'no es fibonacci '
+    if is_even(number):
+        result += 'y es par'
+    else:
+        result += 'y es impar'
+    return f'{number} {result}.'
+
+
+print(isprime_isfibonnaci_is_even(2))
+print(isprime_isfibonnaci_is_even(7))
+
