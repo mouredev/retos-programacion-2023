@@ -9,11 +9,13 @@ function esPrimo(n){
     
     if(n===2){
         return `${n} es primo, `
-    }else if(n<2){
+    }
+
+    if(n<2){
         return `${n} no es primo, `
-    }else if(n==0){
-        return `${n} no es primo, `
-    }for(let i = 2; i<n; i++){
+    }
+    
+    for(let i = 2; i<n; i++){
         if(n%i===0){
             return `${n} no es primo, `
         }
@@ -21,8 +23,6 @@ function esPrimo(n){
     
     return `${n} es primo, `
 }
-
-
 
 function fibonacci(n){
     let x = 0;
