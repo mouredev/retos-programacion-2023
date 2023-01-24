@@ -3,7 +3,7 @@ import 'dart:math';
 
 void main(List<String> args) {
   PasswordGenerator passG =
-      PasswordGenerator(length: 16, capitalLetter: true, number: true);
+      PasswordGenerator(length: 15, capitalLetter: true, number: true);
   print(passG.generate());
 }
 
@@ -19,7 +19,11 @@ class PasswordGenerator {
       bool capitalLetter = false,
       bool number = false,
       bool symbol = false})
-      : _length = length,
+      : _length = length < 8
+            ? 8
+            : length > 16
+                ? 16
+                : length,
         _capitalLetter = capitalLetter,
         _number = number,
         _symbol = symbol;
