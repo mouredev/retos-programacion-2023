@@ -43,26 +43,24 @@ function isFibonacci(n) {
 
 function getFibonacciNumbers(n) {
     let fibonacci = [0, 1];
-    let count = fibonacci.length;
 
-    while (fibonacci[count-1] < n){
-        let newPosition = fibonacci[count-1] + fibonacci[count-2];
+    while (fibonacci[fibonacci.length - 1] < n){
+        let newPosition = fibonacci[fibonacci.length - 1] + fibonacci[fibonacci.length - 2];
 
         fibonacci.push(newPosition);
-        count += 1;
     }
 
     return fibonacci;
 }
 
-function isEven(n){
+function isEven(n) {
    return n % 2 === 0;
 }
 
 // Examples
-console.log(buildAnswer(0)) // "el número ingresado no es válido"
-console.log(buildAnswer(1)) // "no es primo, es fibonacci y no es par"
-console.log(buildAnswer(2)) // "es primo, es fibonacci y es par"
-console.log(buildAnswer(13)) // "es primo, es fibonacci y no es par"
-console.log(buildAnswer(16)) // "no es primo, no es fibonacci y es par"
-console.log(buildAnswer(21)) // "no es primo, es fibonacci y no es par"
+console.log(buildAnswer(0)); // "el número ingresado no es válido"
+console.log(buildAnswer(1)); // "no es primo, es fibonacci y no es par"
+console.log(buildAnswer(2)); // "es primo, es fibonacci y es par"
+console.log(buildAnswer(13)); // "es primo, es fibonacci y no es par"
+console.log(buildAnswer(16)); // "no es primo, no es fibonacci y es par"
+console.log(buildAnswer(21)); // "no es primo, es fibonacci y no es par"
