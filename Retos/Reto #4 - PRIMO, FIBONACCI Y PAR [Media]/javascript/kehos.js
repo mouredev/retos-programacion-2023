@@ -5,29 +5,44 @@
  * 24/01/2023
  */
 
-let isPrime = false;
+let isPrime = true;
 let isFibonacci = false;
 let isEven = false;
 
-function checkPrime() {}
-
-function checkFibonacci() {}
-
-function checkEven() {}
-
-function checkNumber(number) {
-  if (!isNaN(number) && typeof number === 'number') {
-    checkPrime(number);
-    checkFibonacci(number);
-    checkEven(number);
-    console.log(`- ${number} ${isPrime ? '' : 'no '}es primo, ${isFibonacci ? '' : 'no es '}fibonacci y es ${isEven ? 'par' : 'impar'}.`);
-  } else {
-    console.log('- El valor introducido no es un número correcto');
+function checkPrime(number) {
+  isPrime = true;
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      isPrime = false;
+      break;
+    }
   }
 }
 
-console.log('\n');
-checkNumber(2);
-checkNumber(100);
-checkNumber('hello');
-checkNumber(false);
+function checkFibonacci(number) {
+  isFibonacci = (isPerfectSquare(5 * number * number + 4) || isPerfectSquare(5 * number * number - 4));
+}
+
+function isPerfectSquare(number) {
+  const square = parseInt(Math.sqrt(number));
+  return number === square * square;
+}
+
+function checkEven(number) {
+  isEven = number % 2 === 0;
+}
+
+function checkNumber(value) {
+  if (!isNaN(value) && typeof value === 'number') {
+    checkPrime(value);
+    checkFibonacci(value);
+    checkEven(value);
+    console.log(`- ${value} ${isPrime ? '' : 'no '}es primo, ${isFibonacci ? '' : 'no '}es fibonacci y es ${isEven ? 'par' : 'impar'}.`);
+  } else {
+    console.log(`- El valor introducido ("${value}") no es un número válido`);
+  }
+}
+
+const valueArray = [ 2, 100, true, 8, 'Hello', 7, {}, 93, 13 ];
+console.log('\nValores a evaluar: ', valueArray, '\n');
+valueArray.forEach( value => checkNumber(value) );
