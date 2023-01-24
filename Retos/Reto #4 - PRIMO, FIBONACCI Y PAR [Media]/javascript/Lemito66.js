@@ -6,24 +6,40 @@
  */
 
 const isEven = (number) => {
-    if (number % 2 ===0){
-        return true
-    }
-    else{
-        return false
-    }
-}
+  if (number % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
 const isFibonnaci = (number) => {
-    list_of_number = [0,1]
-    for (let i = 2; i <= 2500; i++) {
-        list_of_number.push(list_of_number[i-2]+list_of_number[i-1])
+  let list_of_number = [0, 1];
+  for (let i = 2; i <= 2500; i++) {
+    list_of_number.push(list_of_number[i - 2] + list_of_number[i - 1]);
+  }
+  if (list_of_number.indexOf(number) !== -1) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const isPrime = (number) => {
+  let count = 0;
+  if (number > 0) {
+    for (let i = 0; i <= number; i++) {
+      if (number % i === 0) {
+        count += 1;
+      } 
     }
-    if (list_of_number.indexOf(number) !== -1) {
+    if (count === 2) {
         return true
-    }else{
+    } else {
         return false
     }
-}
+  }
+  return false;
+};
 
-console.log(isFibonnaci(9));
+
