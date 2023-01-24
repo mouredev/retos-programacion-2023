@@ -32,7 +32,7 @@ public class sergiolpzgmz {
         int suma=0;
 
         boolean fibonacci = false;
-        for (int i = 1; i <20 ; i++) {
+        for (int i = 1; i <= numUsuario; i++) {
             suma = num1 + num2;
             num1 = num2;
             num2 = suma;
