@@ -84,16 +84,7 @@ class CheckNumber
     }
 }
 
-$loop = array(
-    new CheckNumber(1),
-    new CheckNumber(2),
-    new CheckNumber(3),
-    new CheckNumber(4),
-    new CheckNumber(5),
-    new CheckNumber(6),
-    new CheckNumber(7),
-    new CheckNumber(8)
-);
-foreach ($loop as $item) {
+for ($i = 1; $i < 10; $i++) {
+    $item = new CheckNumber($i);
     echo $item . "\n";
 }
