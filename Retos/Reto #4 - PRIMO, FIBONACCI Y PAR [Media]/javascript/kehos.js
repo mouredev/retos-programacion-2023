@@ -11,6 +11,11 @@ let isEven = false;
 
 function checkPrime(number) {
   isPrime = true;
+  
+  if (number === 0 || number === 1) {
+    isPrime = false;
+  }
+
   for (let i = 2; i < number; i++) {
     if (number % i === 0) {
       isPrime = false;
@@ -43,6 +48,6 @@ function checkNumber(value) {
   }
 }
 
-const valueArray = [ 2, 100, true, 8, 'Hello', 7, {}, 93, 13 ];
+const valueArray = [ 1, 0, 2, 100, true, 8, 'Hello', 7, {}, 93, 13 ];
 console.log('\nValores a evaluar: ', valueArray, '\n');
 valueArray.forEach( value => checkNumber(value) );
