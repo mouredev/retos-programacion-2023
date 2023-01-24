@@ -24,7 +24,7 @@ var P1: number = 0;
 var P2: number = 0;
 var deuceMode: boolean = false;
 
-function printResutl(P1: number, P2: number): void{
+function printResult(P1: number, P2: number): void{
     if (P1 === 4 && P2 === 4) {
         console.log("Deuce");
         deuceMode = true;
@@ -53,7 +53,7 @@ function startGame(game: Array<string>): void {
             P1--;
             P2--;
         }
-        printResutl(P1,P2);
+        printResult(P1,P2);
         if ((deuceMode && (P1 === 6 || P2 === 6)) ||
         (!deuceMode && (P1 === 4 || P2 === 4)) ||
          (index + 1) === game.length) return true;
