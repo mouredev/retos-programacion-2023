@@ -15,6 +15,9 @@ public class Main {
         num = teclado.nextInt();
 
         //Primo
+        if(num <= 1){
+            esPrimo = false;
+        }
         for (int i = 2; i < num; i++) {
             result = num % i;
             if (result == 0) {
