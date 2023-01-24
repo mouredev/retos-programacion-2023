@@ -80,4 +80,4 @@ function esPrimoFibonacciPar(n){
 
 console.log(esPrimoFibonacciPar(2)) // 2 es primo, fibonacci y es par 
 console.log(esPrimoFibonacciPar(7)) // 7 es primo, no es fibonacci y es impar
-console.log(esPrimoFibonacciPar(6)) // 6 es primo, no es fibonacci y es par
+console.log(esPrimoFibonacciPar(6)) // 6 no es primo, no es fibonacci y es par
