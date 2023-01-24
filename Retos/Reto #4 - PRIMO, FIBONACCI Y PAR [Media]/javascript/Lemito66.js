@@ -13,7 +13,7 @@ const isEven = (number) => {
   }
 };
 
-const isFibonnaci = (number) => {
+const isFibonacci = (number) => {
   let list_of_number = [0, 1];
   for (let i = 2; i <= 2500; i++) {
     list_of_number.push(list_of_number[i - 2] + list_of_number[i - 1]);
@@ -41,3 +41,25 @@ const isPrime = (number) => {
   }
   return false;
 };
+
+const isprime_isfibonnaci_is_even = (number) => {
+    let result = ''
+    if (isPrime(number)){
+        result += 'es primo, '
+    }else {
+        result += 'no es primo, '
+    }  
+    
+    if (isFibonacci(number)){
+        result += 'fibonacci '
+    }else{
+        result += 'no es fibonacci '}
+    if (isEven(number)){
+        result += 'y es par'
+    }else{
+        result += 'y es impar'}
+    return `${number} ${result}.`
+}
+
+console.log(isprime_isfibonnaci_is_even(2))
+console.log(isprime_isfibonnaci_is_even(7))
