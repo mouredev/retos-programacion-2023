@@ -1,4 +1,4 @@
-function buildAnswer(n) {
+function getValidation(n) {
     if (!isValidInput(n)){
         return 'el número ingresado no es válido';
     }
@@ -58,9 +58,9 @@ function isEven(n) {
 }
 
 // Examples
-console.log(buildAnswer(0)); // "el número ingresado no es válido"
-console.log(buildAnswer(1)); // "no es primo, es fibonacci y no es par"
-console.log(buildAnswer(2)); // "es primo, es fibonacci y es par"
-console.log(buildAnswer(13)); // "es primo, es fibonacci y no es par"
-console.log(buildAnswer(16)); // "no es primo, no es fibonacci y es par"
-console.log(buildAnswer(21)); // "no es primo, es fibonacci y no es par"
+console.log(getValidation(0)); // "el número ingresado no es válido"
+console.log(getValidation(1)); // "no es primo, es fibonacci y no es par"
+console.log(getValidation(2)); // "es primo, es fibonacci y es par"
+console.log(getValidation(13)); // "es primo, es fibonacci y no es par"
+console.log(getValidation(16)); // "no es primo, no es fibonacci y es par"
+console.log(getValidation(21)); // "no es primo, es fibonacci y no es par"
