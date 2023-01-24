@@ -1,7 +1,7 @@
 "use strict";
 
 function isItEvent(number) {
-  return number % 2 === 0;
+  return number % 2 == 0;
 }
 
 function isItPrimeNumber(number) {
@@ -14,7 +14,7 @@ function isItPrimeNumber(number) {
     }
   }
 
-  return counter > 2 ? false : true;
+  return counter == 2;
 }
 
 function isItFibonacci(number) {
