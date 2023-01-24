@@ -20,9 +20,10 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#0** - 26/12/22 | Fácil | [`EL FAMOSO "FIZZ BUZZ"`](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/2iW4NCzOAxs)] [[MI SOLUCIÓN](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%230%20-%20EL%20FAMOSO%20FIZZ%20BUZZ%20%5BFácil%5D)]
 * **#1** - 02/01/23 | Fácil | [`EL "LENGUAJE HACKER"`](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/EIxlo_SVUss)] [[MI SOLUCIÓN](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%231%20-%20EL%20LENGUAJE%20HACKER%20%5BFácil%5D)]
 * **#2** - 09/01/23 | Media | [`EL PARTIDO DE TENIS`](./Retos/Reto%20%232%20-%20EL%20PARTIDO%20DE%20TENIS%20%5BMedia%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/-WW4iRmgXuk)] [[MI SOLUCIÓN](./Retos/Reto%20%232%20-%20EL%20PARTIDO%20DE%20TENIS%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%232%20-%20EL%20PARTIDO%20DE%20TENIS%20%5BMedia%5D)]
-* **#3** - 16/01/23 | Media | [`EL GENERADOR DE CONTRASEÑAS`](./Retos/Reto%20%233%20-%20EL%20GENERADOR%20DE%20CONTRASEÑAS%20%5BMedia%5D/ejercicio.md) | Último reto publicado
+* **#3** - 16/01/23 | Media | [`EL GENERADOR DE CONTRASEÑAS`](./Retos/Reto%20%233%20-%20EL%20GENERADOR%20DE%20CONTRASEÑAS%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%233%20-%20EL%20GENERADOR%20DE%20CONTRASEÑAS%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%233%20-%20EL%20GENERADOR%20DE%20CONTRASEÑAS%20%5BMedia%5D)]
+* **#4** - 23/01/23 | Media | [`PRIMO, FIBONACCI Y PAR`](./Retos/Reto%20%234%20-%20PRIMO,%20FIBONACCI%20Y%20PAR%20%5BMedia%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 23/01/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1064501601378762854) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 30/01/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1067008002017738782) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
