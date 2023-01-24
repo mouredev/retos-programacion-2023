@@ -76,8 +76,8 @@ class CheckNumber
     public function __toString()
     {
         $data   = $this->numberEntered;
-        if (!is_int($data)) {
-            throw new Exception("Debe ingresar un valor entero.");
+        if (!is_int($data) || $data === 0) {
+            throw new Exception("Debe ingresar un valor entero y mayor a 0.");
         }
         $output = $this->IsPrimo($data) . $this->IsFibonacci($data) . $this->IsPar($data);
         return $output;
@@ -85,7 +85,6 @@ class CheckNumber
 }
 
 $loop = array(
-    new CheckNumber(0),
     new CheckNumber(1),
     new CheckNumber(2),
     new CheckNumber(3),
