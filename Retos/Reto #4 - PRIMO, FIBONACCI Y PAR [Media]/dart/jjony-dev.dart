@@ -43,6 +43,6 @@ abstract class NumberClassifier {
     while (current > 1 && number % current != 0) {
       current--;
     }
-    return current == number || current <= 1;
+    return number > 1 && current <= 1;
   }
 }
