@@ -14,4 +14,16 @@ const isEven = (number) => {
     }
 }
 
-console.log(isEven(5));
+const isFibonnaci = (number) => {
+    list_of_number = [0,1]
+    for (let i = 2; i <= 2500; i++) {
+        list_of_number.push(list_of_number[i-2]+list_of_number[i-1])
+    }
+    if (list_of_number.indexOf(number) !== -1) {
+        return true
+    }else{
+        return false
+    }
+}
+
+console.log(isFibonnaci(9));
