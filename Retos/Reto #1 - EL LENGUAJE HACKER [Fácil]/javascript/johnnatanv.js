@@ -75,22 +75,15 @@ let encryptCheat = {
   0: `o`,
 };
 
-// let text = "leet";
-
 let encrypt = (text) => {
   let encryption = "";
 
-for (let char = 0; char < text.length; char++) {
-  let newChar = text[char].toUpperCase() ? text[char].toUpperCase() : text[char];
-  encryption += encryptCheat[newChar];
-}
-console.log(encryption)
-}
+  for (let char = 0; char < text.length; char++) {
+    let newChar = text[char].toUpperCase();
+    encryption += text[char] === " " ? text[char] : encryptCheat[newChar];
+  }
 
-// console.log(encryptCheat.M);
-// encrypt("Prueba de Argumentos");
+  console.log(encryption);
+};
 
-
-let data = "a c"
-console.log(data.toUpperCase()
-)
+encrypt("Hola Johnnatan");
