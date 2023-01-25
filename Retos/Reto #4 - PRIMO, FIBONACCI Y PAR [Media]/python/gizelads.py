@@ -10,12 +10,36 @@ def es_par(num):
         return False
 
 
+def es_fibonacci(num):
+    aux1 = 0
+    aux2 = 1
+    fibo = 0
+    while fibo < num:
+        fibo = aux1 + aux2
+        aux1 = aux2
+        aux2 = fibo
+
+    if num == fibo:
+        return True
+    else:
+        return False
+
+
 def run():
     numero = int(input("Escribe un numero: "))
-    if es_par(numero):
-        print(numero, "es par.")
+    respuesta = ""
+
+    if es_fibonacci(numero):
+        respuesta = "fibonacci y "
     else:
-        print(numero, "es impar.")
+        respuesta = "no es fibonacci y "
+    
+    if es_par(numero):
+        respuesta += "es par."
+    else:
+        respuesta += "es impar."
+    
+    print(respuesta)
 
 
 if __name__ == "__main__":
