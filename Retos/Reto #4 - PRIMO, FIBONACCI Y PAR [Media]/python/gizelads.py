@@ -41,19 +41,22 @@ def run():
     numero = int(input("Escribe un numero: "))
     respuesta = ""
 
-    print(es_primo(numero))
-
-    """ if es_fibonacci(numero):
-        respuesta = "fibonacci y "
+    if es_primo(numero):
+        respuesta = str(numero) + " es primo, "
     else:
-        respuesta = "no es fibonacci y "
+        respuesta = str(numero) + " no es primo, "
+
+    if es_fibonacci(numero):
+        respuesta += "fibonacci y "
+    else:
+        respuesta += "no es fibonacci y "
     
     if es_par(numero):
         respuesta += "es par."
     else:
         respuesta += "es impar."
     
-    print(respuesta) """
+    print(respuesta)
 
 
 if __name__ == "__main__":
