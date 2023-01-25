@@ -24,6 +24,7 @@ public class sergiolpzgmz {
                 break;
             }
         }
+        if(numUsuario == 0 || numUsuario == 1) primo = false;
         return primo;
     }
     public static boolean esFibonacci(int numUsuario){
@@ -57,10 +58,10 @@ public class sergiolpzgmz {
         else par = "y es impar";
         if(esPrimo(numUsuario)==true) primo = "es primo";
         else primo = " no es primo";
-        if (esFibonacci(numUsuario)==true) fibonacci = ", fibonacci ";
+        if (esFibonacci(numUsuario)==true) fibonacci = ", es fibonacci ";
         else fibonacci = ", no es fibonacci ";
 
-        System.out.println(numUsuario + " " + primo + fibonacci + par);
+        System.out.println(numUsuario + "" + primo + fibonacci + par);
 
         sc.close();
     }
