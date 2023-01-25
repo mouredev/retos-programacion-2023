@@ -25,11 +25,25 @@ def es_fibonacci(num):
         return False
 
 
+def es_primo(num):
+    cont = 0
+    for i in range(1, num + 1):
+        if num % i == 0:
+            cont += 1
+    
+    if cont == 2:
+        return True
+    else:
+        return False
+
+
 def run():
     numero = int(input("Escribe un numero: "))
     respuesta = ""
 
-    if es_fibonacci(numero):
+    print(es_primo(numero))
+
+    """ if es_fibonacci(numero):
         respuesta = "fibonacci y "
     else:
         respuesta = "no es fibonacci y "
@@ -39,7 +53,7 @@ def run():
     else:
         respuesta += "es impar."
     
-    print(respuesta)
+    print(respuesta) """
 
 
 if __name__ == "__main__":
