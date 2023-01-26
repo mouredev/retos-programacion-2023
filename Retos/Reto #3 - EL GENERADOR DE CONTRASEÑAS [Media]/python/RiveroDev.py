@@ -5,25 +5,36 @@ numb = ("1","2","3","4","5","6","7","8","9","0")
 sign = ("!","@","#","$","%","^","&","*","(",")","_","+","-","=","{","}","[","]","<",">",",",".","?","/")
 
 
-longitud = int(input("Indique la cantos digitos quieres tu clave: "))
-con_numero = input("quieres que contenga numeros s/n: ")
-con_letras = input("quieres que contenga letras s/n: ")
-con_letras_mayusculas = input("quieres que contenga letras mayusculas s/n:")
-con_simbolos = input("quieres que contenga simbolos s/n: ")
+def preguntas() -> dict :
+        dic_valores = {"longitud":None,"con_numero":None,"con_letras":None,
+                        "con_letras_mayusculas":None,"con_simbolos":None}
 
+        longitud = input("Indique la cantos digitos quieres tu clave: ")
+        dic_valores["longitud"]=validar(longitud) 
+        con_numero = input("quieres que contenga numeros s/n: ")
+        dic_valores["con_numero"]=verificacion(con_numero)
+        con_letras = input("quieres que contenga letras s/n: ")
+        dic_valores["con_letras"]=verificacion(con_letras)
+        con_letras_mayusculas = input("quieres que contenga letras mayusculas s/n:")
+        dic_valores["con_letras_mayusculas"] =verificacion(con_letras_mayusculas)
+        con_simbolos = input("quieres que contenga simbolos s/n: ")
+        dic_valores["con_simbolos"]=verificacion(con_simbolos)
+
+        return dic_valores
 
 # validaciones de entrada
 
-def validar(input_valor: str ) -> bool:
+def validar(input_valor: str ) -> int:
         """Verifica si un input str es numerico, si no lo es
         pedira que ingreses un numero """
-
+        valor = input_valor        
         valide = True
         while valide:
-                if input_valor.isnumeric() == False:
-                        longitud = valor_valido()
+                if (valor.isnumeric()) == False:
+                        valor = valor_valido()
                 else:
                         valide = False
+        return int(valor)
 
 def valor_valido() -> str:
         """Genera una nuevo input para reemplazar uno ya realizado"""
@@ -57,32 +68,38 @@ def verificacion(valor_entrada: str) -> bool:
 # La verificaciones con para que los input sean correctos 
 
 def select_dicc() -> dict:
-        dicc_total = ()
-        if con_numero == True :
-                dicc_total += numb
-        if con_letras == True :
-                dicc_total += alpha
-        if con_letras_mayusculas == True :
-                dicc_total += (x.lower() for x in alpha)
-        if con_simbolos == True :
-                dicc_total += sign
+        list_total = ()
+        respuestas = preguntas()
+        if respuestas["con_numero"] == True :
+                list_total += numb
+        if respuestas["con_letras"] == True :
+                list_total += alpha
+        if respuestas["con_letras_mayusculas"] == True :
+                list_total += (x.lower() for x in alpha)
+        if respuestas["con_simbolos"] == True :
+                list_total += sign
 
-        return dicc_total
+        return list_total
 
-def code_selec(valores: list) -> str:
+def code_selec() -> str:
         """selecciona de una lista un item al azar"""
+        valores = select_dicc()
         valor = rand.choise(valores)
         return valor
 
 def code_gerenerator(longitud) -> str:
         """Gerenara un codigo aleatorio 
         necesita la logintud y una lista"""
-
+        x = 0        
+        passcode = ''
         letras = select_dicc()
-        passcode = ""
-        for i in range(longitud + 1):
+        while x <= longitud:
                 passcode += code_selec(letras)
-
+                x+=1
+        return passcode
 
 if __name__=="__main__":
-        pass
+
+        #print(code_gerenerator())
+
+        print(preguntas())
