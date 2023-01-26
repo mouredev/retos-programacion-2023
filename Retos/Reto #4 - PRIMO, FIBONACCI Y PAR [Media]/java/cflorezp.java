@@ -1,6 +1,5 @@
 package reto4PrimoFibonacciPar;
 
-import java.net.StandardSocketOptions;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
