@@ -15,9 +15,9 @@ public class mjordanaam {
                     return false;
                 }
             }
+            return true;
         }
-        else return number != 0;
-        return true;
+        else return false;
     }
 
     public static int fibonacci(int number){
@@ -88,6 +88,7 @@ public class mjordanaam {
         System.out.println(checkNumber(89));
         System.out.println(checkNumber(97));
         System.out.println(checkNumber(100));
+        System.out.println(checkNumber(1));
         System.out.println(checkNumber(-1));
     }
 }
