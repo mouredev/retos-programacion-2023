@@ -11,6 +11,9 @@ con_letras = input("quieres que contenga letras s/n: ")
 con_letras_mayusculas = input("quieres que contenga letras mayusculas s/n:")
 con_simbolos = input("quieres que contenga simbolos s/n: ")
 
+
+# validaciones de entrada
+
 def validar(input_valor: str ) -> bool:
         """Verifica si un input str es numerico, si no lo es
         pedira que ingreses un numero """
@@ -81,7 +84,5 @@ def code_gerenerator(longitud) -> str:
                 passcode += code_selec(letras)
 
 
-
 if __name__=="__main__":
-
-        print(code_gerenerator())
+        pass
