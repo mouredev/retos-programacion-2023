@@ -73,5 +73,3 @@ fi
 
 # Imprimir el resultado
 echo $string
-
-
