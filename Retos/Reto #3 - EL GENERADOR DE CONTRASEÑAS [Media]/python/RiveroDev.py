@@ -1,4 +1,4 @@
-#! home/bin/python3
+#! /bin/python3
 
 import random
 
