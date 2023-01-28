@@ -14,11 +14,11 @@ function is_prime(int $number): bool
 				return false;
 			}
 		}
+		return true;
 	}
-	else if($number == 0){
+	else {
 		return false;
 	}
-	return true;
 }
 
 function fibonacci(int $number): int
@@ -98,4 +98,5 @@ check_number(0);
 check_number(89);
 check_number(97);
 check_number(100);
+check_number(1);
 check_number(-1);
