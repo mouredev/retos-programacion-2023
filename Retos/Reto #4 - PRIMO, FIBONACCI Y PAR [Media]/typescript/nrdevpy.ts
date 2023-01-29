@@ -7,22 +7,22 @@
 // TODO: [X] Detect if the number given is Fibonacci
 // TODO: [X] Detect if the number given is prime
 // TODO: [X] Detect if the number given is par
-// TODO: [ ] Return message
+// TODO: [X] Return message
 
 function numberProperties(number: number) {
     // Check if the number given is par
     const isPar = number % 2 === 0;
-    console.log(isPar)
+    const parMsg = isPar ? 'es par' : 'es impar';
 
     // Check if the number given is prime
     let isPrime = false;
     let primeCounter = 0;
     for (let i = 1; i <= number; i++) {
-        console.log(`The rest of ${number} by ${i} is equal to: ${number % i}`)
         if (number % i === 0) ++primeCounter;
     }
     if (primeCounter === 2) isPrime = true;
-    console.log(isPrime)
+    const primeMsg = isPrime ? 'es primo' : 'no es primo';
+    
 
     // Check if the number given is fibonacci
     let f1 = 0;
@@ -34,10 +34,15 @@ function numberProperties(number: number) {
         f2 = f1;
         f1 = f3;
         fibonacci.push(f3)
-        console.log(fibonacci)
     }
     const isFibonacci = fibonacci.some(n => n === number);
-    return isFibonacci;
+    const fibonacciMsg = isFibonacci ? 'es fibonacci' : 'no es fibonacci';
+    
+    // Message
+    let message = `${number} ${primeMsg}, ${fibonacciMsg} y ${parMsg}`;
+    return message;
 }
-
-console.log(numberProperties(144))
+numberProperties(1) // 1 no es primo, es fibonacci y es impar
+numberProperties(7) // 7 es primo, no es fibonacci y es impar
+numberProperties(8) // 8 no es primo, es fibonacci y es par
+numberProperties(144) // 144 no es primo, es fibonacci y es par
