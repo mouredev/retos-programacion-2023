@@ -23,73 +23,77 @@
  *
  * .....................................................................................................................
  *
- * Usage: ./kyrex23 <input>
- * Example: ./kyrex23 P1 P1 P2 P2 P1 P2 P1 P1
+ * Usage: ./kyrex23 P1 P1 P2 P2 P1 P2 P1 P1 (arguments other than P1 or P2 are ignored)
 */
 
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-const char *KEY_PLAYER_1 = "P1";
-const char *KEY_PLAYER_2 = "P2";
-const int KEY_POINT_PLAYER_1 = 1; // Used to parse input -> 1 means point for player_1
-const int KEY_POINT_PLAYER_2 = 2; // Used to parse input -> 2 means point for player_2
+typedef struct {
+	int id;
+	char *name;
+	int score;
+} Player;
+
 const char *PUNCTUATIONS[] = {"Love", "15", "30", "40"};
 
-int filter_points(char*[], int, int**);
+int filter_points(char *[], int, Player, Player, int *[]);
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 int main(int argc, char *argv[]) {
-    if(argc < 2) {
-        printf("[ERROR] Missing required input sequence\n");
-        printf("Usage example: %s P1 P1 P2 P2 P1 P2 P1 P1\n", argv[0]);
-        return 1;
-    }
+	if(argc < 2) {
+		printf("[ERROR] Missing required input sequence\n");
+		printf("Usage example: %s P1 P1 P2 P2 P1 P2 P1 P1\n", argv[0]);
+		return 1;
+	}
 
-    // Let's filter and parse the input: using int[] for points is easier to handle than using char*[]
-    int *points = NULL;
-    int num_points = filter_points(argv, argc, &points); // must be passed by reference to allocate dynamic memory
+	Player player1 = { .id = 1, .name = "P1", .score = 0};
+	Player player2 = { .id = 2, .name = "P2", .score = 0};
 
-    if(num_points == 0) {
-        printf("[ERROR] Invalid input: arguments must be a list of {P1, P2}");
-        return 2;
-    }
+	int *points = NULL; // Let's filter and parse the input: int[] is better to collect the results than char*[]
+	int num_points = filter_points(argv, argc, player1, player2, &points); // by reference to allocate dynamic memory
 
-    int score_player_1 = 0;
-    int score_player_2 = 0;
+	if(num_points == 0) {
+		printf("[ERROR] Invalid input: arguments must be a list of {%s, %s}\n", player1.name, player2.name);
+		return 2;
+	}
 
-    for(int i = 0; i < num_points; ++i) {
-        score_player_1 += (points[i] == KEY_POINT_PLAYER_1);
-        score_player_2 += (points[i] == KEY_POINT_PLAYER_2);
+	Player *winner = NULL;
+	for(int i = 0; i < num_points && !winner; ++i) {
+		(points[i] == player1.id) ? player1.score++ : player2.score++;
 
-        if(score_player_1 > 2 && score_player_1 == score_player_2) // Draws after 3 pints -> Deuce
-            printf("Deuce\n");
-        else if(score_player_1 > 3 || score_player_2 > 3) {
-            if(abs(score_player_1 - score_player_2) < 2)
-                printf("Ventaja %s\n", (score_player_1 > score_player_2 ? KEY_PLAYER_1 : KEY_PLAYER_2));
-            else printf("Ha ganado el %s\n", (score_player_1 > score_player_2 ? KEY_PLAYER_1 : KEY_PLAYER_2));
-        } else printf("%s - %s\n", PUNCTUATIONS[score_player_1], PUNCTUATIONS[score_player_2]);
-    }
+		if(player1.score > 2 && player1.score == player2.score) {
+			printf("Deuce\n");
+		} else if(player1.score > 3 || player2.score > 3) {
+			Player *temporal_winner = (player1.score > player2.score) ? &player1 : &player2;
+			if(abs(player1.score - player2.score) < 2) {
+				printf("Ventaja %s\n", temporal_winner->name);
+			} else winner = temporal_winner;
+		} else printf("%s - %s\n", PUNCTUATIONS[player1.score], PUNCTUATIONS[player2.score]);
+	}
 
-    free(points);
+	if(winner) printf("Ha ganado el %s\n", winner->name);
+	else printf("[WARN] El partido no ha terminado!!\n");
+
+	free(points);
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-int filter_points(char *original_inputs[], int num_original_inputs, int **parsed_inputs) {
-    int num_parsed_inputs = 0;
+int filter_points(char *inputs[], int num_inputs, Player p1, Player p2, int *valid_points[]) {
+	int num_valid_points = 0;
 
-    for(int i = 0; i < num_original_inputs; ++i) {
-        int current_point = (strcmp(original_inputs[i], KEY_PLAYER_1) == 0) ? KEY_POINT_PLAYER_1 :
-            (strcmp(original_inputs[i], KEY_PLAYER_2) == 0) ? KEY_POINT_PLAYER_2 : 0;
+	for(int i = 0; i < num_inputs; ++i) {
+		int current_winner = (strcmp(inputs[i], p1.name) == 0) ? p1.id :
+							 (strcmp(inputs[i], p2.name) == 0) ? p2.id : -1;
 
-        if(current_point != 0) {
-            *parsed_inputs = (int*)realloc(*parsed_inputs, sizeof(int) * (num_parsed_inputs + 1));
-            (*parsed_inputs)[num_parsed_inputs++] = current_point;
-        }
-    }
+		if(current_winner != -1) {
+			*valid_points = (int*)realloc(*valid_points, sizeof(int) * (num_valid_points + 1));
+			(*valid_points)[num_valid_points++] = current_winner;
+		}
+	}
 
-    return num_parsed_inputs;
+	return num_valid_points;
 }
