@@ -41,8 +41,6 @@ function isFibonacci(number) {
   for (let index = 0; index < number + 2; index++) {
     list.push(fibonacci(index));
   }
-  console.log(list);
-
   return list.includes(number);
 }
 
