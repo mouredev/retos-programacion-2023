@@ -1,11 +1,6 @@
 import Foundation
 
-enum PasswordLength: Int {
-    case short = 8
-    case long = 16
-}
-
-func passwordGenerator(length: PasswordLength, withMayus: Bool, withNumbers: Bool, withSpecial: Bool) -> String {
+func passwordGenerator(length: Int, withMayus: Bool, withNumbers: Bool, withSpecial: Bool) -> String {
     var letters = "abcdefghijklmnopqrstuvwxyz"
     let numbers = "01234567890"
     let mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -19,7 +14,13 @@ func passwordGenerator(length: PasswordLength, withMayus: Bool, withNumbers: Boo
     if withSpecial {
         letters.append(special)
     }
-    return String((0..<length.rawValue).map{ _ in letters.randomElement()!})
+    
+    switch length {
+    case 0..<8: return "Contraseña muy corta"
+    case 8..<17: return String((0..<length).map{ _ in letters.randomElement()!})
+    case 17...: return "Contraseña muy larga"
+    default: return "Error inesperado"
+    }
 }
 
-passwordGenerator(length: .long, withMayus: true, withNumbers: true, withSpecial: true)
+passwordGenerator(length: 8, withMayus: true, withNumbers: true, withSpecial: true)
