@@ -4,7 +4,7 @@ func passwordGenerator(length: Int, withMayus: Bool, withNumbers: Bool, withSpec
     var letters = "abcdefghijklmnopqrstuvwxyz"
     let numbers = "01234567890"
     let mayus = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    let special = "!@#$%^&*+_-=~"
+    let special = "!@#$%^&*+_-=~><.,:'?/"
     if withMayus {
         letters.append(mayus)
     }
