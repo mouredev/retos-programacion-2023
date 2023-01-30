@@ -44,4 +44,6 @@ def validate_number(number: int) -> str:
 
     return result
 
-print(validate_number(55))
+
+if __name__ == "__main__":
+    print(validate_number(55))
