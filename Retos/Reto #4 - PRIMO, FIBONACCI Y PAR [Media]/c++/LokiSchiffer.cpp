@@ -28,12 +28,12 @@ int main() {
 }
 
 bool isPrime(int number) {
-	// comprobar si el número es par para quitarlos todos con excepción del 2
+	// comprobar si el número es par y así descarlos todos con excepción del 2
 	if (number < 2 || (number % 2 == 0 && number != 2)) {
 		return false;
 	}
 	
-	//Se revisan el modulo emepzando en 3 y sin tener en cuenta los pares
+	// Se revisa el modulo empezando en 3 y sin tener en cuenta los pares
 	for (int i = 3; i <= (number / 2); i += 2) {
 		if (number % i == 0) {
 			return false;
