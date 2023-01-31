@@ -1,5 +1,6 @@
 #include <unistd.h>
 
-int main(void){
-  write(1, "Hello World", 12);
+int main(void)
+{
+        write(1, "Hello World", 12);
 }
