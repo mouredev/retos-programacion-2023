@@ -1,13 +1,22 @@
+package reto4
+
+/*
+ * Escribe un programa que, dado un número, compruebe y muestre si es primo, fibonacci y par.
+ * Ejemplos:
+ * - Con el número 2, nos dirá: "2 es primo, fibonacci y es par"
+ * - Con el número 7, nos dirá: "7 es primo, no es fibonacci y es impar"
+ */
+
 fun main() {
-    println(buildStringResult(144))
     println(buildStringResult(2))
-    println(buildStringResult(11))
-    println(buildStringResult(13))
     println(buildStringResult(7))
+    println(buildStringResult(0))
+    println(buildStringResult(1))
+    println(buildStringResult(-2))
 }
 
 private fun buildStringResult(number: Int): String {
-    var stringResult = ""
+    var stringResult = "$number "
 
     stringResult += if (isPrimeNumber(number)) "es primo," else "no es primo,"
     stringResult += if (isFibonacciNumber(number)) " es fibonacci" else " no es fibonacci"
@@ -48,8 +57,14 @@ fun isEvenNumber(number: Int): Boolean {
 }
 
 fun isPrimeNumber(number: Int): Boolean {
-    (2 until number).forEach {
-        if (number % it == 0) return false
+    if (number > 1) {
+        var isPrime = true
+        (2 until number).forEach {
+            if (number % it == 0) isPrime = false
+        }
+        return isPrime
+    } else {
+        return false
     }
-    return true
 }
+
