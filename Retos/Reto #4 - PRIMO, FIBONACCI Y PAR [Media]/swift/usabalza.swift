@@ -37,11 +37,11 @@ func isFibonacci(_ n: Int) -> Bool {
     }
 }
 
-func evenPrimeFibonacci(_ n: Int) -> String {
+func evenPrimeFibonacci(_ n: Int) {
     let even = isEven(n) ? "es par" : "es impar"
     let prime = isPrime(n) ? "es primo" : "NO es primo"
     let fibonacci = isFibonacci(n) ? "es fibonacci" : "NO es fibonacci"
-    return "\(n) \(even), \(prime) y \(fibonacci)"
+    print("\(n) \(even), \(prime) y \(fibonacci)")
 }
 
 evenPrimeFibonacci(13)
