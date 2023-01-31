@@ -8,9 +8,6 @@
  * A ver quién se atreve con uno de esos lenguajes que no solemos ver por ahí... 
  */
 
-
-
-
 public static void main(String[] args) {
     System.out.print("Hello World!")
  }
