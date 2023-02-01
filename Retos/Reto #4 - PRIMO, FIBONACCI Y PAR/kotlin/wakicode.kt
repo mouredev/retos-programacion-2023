@@ -1,7 +1,6 @@
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-//Enumerable.Range(2, max).Count(n => Enumerable.Range(2, (int)Math.Sqrt(n) - 1).All(i => n % i > 0))
 /*
  * Escribe un programa que, dado un número, compruebe y muestre si es primo, fibonacci y par.
  * Ejemplos:
