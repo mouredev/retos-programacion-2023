@@ -1,0 +1,97 @@
+
+	.TITLE "HOLA MUNDO, por Joaquin Ferrero"
+	.OPT OBJ
+
+; Dirección inicial ;;;;;;;;;;;;;;;;;
+	*=  $4000
+
+;;; Definiciones ;;;;;;;;;;;;;;;;;;;;
+; Caracter de fin de línea
+EOL	= $9B
+
+; Comandos para dispositivos de E/S
+OPEN	= $03		; Abrir un dispositivo o archivo
+READ	= $04		; Abrir un dispositivo o archivo en modo lectura
+WRITE	= $08		; Abrir un dispositivo o archivo en modo escritura
+GETREC	= $05		; Leer un registro del dispositivo o archivo
+GETCHR	= $07		; Leer un carácter del dispositivo o archivo
+PUTREC	= $09		; Escribir un registro a un dispositivo o archivo
+PUTCHR	= $0B		; Escribir un carácter a un dispositivo o archivo
+CLOSE	= $0C		; Cerrar un dispositivo o archivo
+
+; Búfer de comando para E/S
+IOCHID	= $0340		; [1] ID del manejador
+ICDNO	= $0341		; [1] Número del dispositivo
+ICCOM	= $0342		; [1] Byte de comando
+ICSTK	= $0343		; [1] Byte de estado
+ICBAL	= $0344		; [1] Byte bajo Dirección del búfer
+ICBAH	= $0345		; [1] Byte alto Dirección del búfer
+ICFITL	= $0346		; [2] libre
+ICBLL	= $0348		; [1] Byte bajo Longitud del búfer
+ICBLH	= $0349		; [1] Byte alto Longitud del búfer
+ICAX1	= $034A		; [1] Byte auxiliar 1: Lectura o Escritura
+ICAX2	= $034B		; [1] Byte auxiliar 2
+ICAX3	= $034C		; [1] Byte auxiliar 3
+ICAX4	= $034D		; [1] Byte auxiliar 4
+ICAX5	= $034E		; [1] Byte auxiliar 5
+ICAX6	= $034F		; [1] Byte auxiliar 6
+; Total: 16 bytes. Todos los búferes están seguidos
+
+; Vectores del SO
+CIOV	= $E456		; [2] Vector central de E/S
+
+
+;;; Programa ;;;;;;;;;;;;;;;;;;;;;;;;
+
+START
+; Abrir pantalla para escritura
+	LDX #$20	; Usaremos el IOCB #2 (2 * 16 = 32). X será el índice al búfer
+
+        LDA #OPEN	; Abriremos el dispositivo
+	STA ICCOM,X	; Ponemos comando
+
+	LDA #DEVICE&255	; Dirección del nombre del dispositivo
+        STA ICBAL,X
+        LDA #DEVICE/256
+        STA ICBAH,X
+
+; Establecer pantalla en modo escritura
+	LDA #WRITE	; Activar modo escritura
+        STA ICAX1,X
+
+	LDA #$00
+        STA ICAX2,X
+
+	JSR CIOV	; Llamar al sistema. CIOV usa X para saber a que IOCB nos referimos
+
+; Escribir un registro
+	LDA #PUTREC	; Escribir un registro
+        STA ICCOM,X	; Ponemos comando
+
+	LDA #TEXTO&255	; Dirección del texto a imprimir
+        STA ICBAL,X
+        LDA #TEXTO/256
+        STA ICBAH,X
+
+	LDA #$00	; Longitud del registro: $FF00 es mágico, imprimir hasta encontrar fin de línea
+        STA ICBLL,X
+        LDA #$FF
+        STA ICBLH,X
+
+; Imprimir
+        JSR CIOV
+
+; Fin
+	BRK
+
+;;; Datos ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Dispositivo a usar
+DEVICE	.BYTE "E:",EOL
+
+; Texto a imprimir
+TEXTO	.BYTE "HOLA, MUNDO!",EOL
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+	.END
+
