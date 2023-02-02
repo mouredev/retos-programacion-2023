@@ -71,9 +71,9 @@ num_2= 28657
 comprovar(num_2)
 num_3= 144
 comprovar(num_3)
-"""
-num_4= 2971215073
+
+num_4= 5
 comprovar(num_4)
-"""
+
 num_5=6
 comprovar(num_5)

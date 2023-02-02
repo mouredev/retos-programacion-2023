@@ -9,20 +9,20 @@ def check_prime_fibonacci_even(number):
     if number > 1:
         for index in range(2, number):
             if number % index == 0:
-                result += "no es primo, "
+                result =result+ "no es primo, "
                 break
         else:
-            result += "es primo, "
+            result =result+ "es primo, "
 
     else:
-        result += "no es primo, "
+        result =result+ "no es primo, "
 
     # Fibonacci
-    result += "es fibonacci " if number > 0 and (is_perfect_square(5 * number * number + 4) or is_perfect_square(
-        5 * number * number - 4)) else "no es fibonacci "
+    # result += "es fibonacci " if number > 0 and (is_perfect_square(5 * number * number + 4) or is_perfect_square(
+    #     5 * number * number - 4)) else "no es fibonacci "
 
-    # Par
-    result += "y es par" if number % 2 == 0 else "y es impar"
+    # # Par
+    # result += "y es par" if number % 2 == 0 else "y es impar"
 
     print(result)
 
@@ -37,3 +37,5 @@ check_prime_fibonacci_even(7)
 check_prime_fibonacci_even(0)
 check_prime_fibonacci_even(1)
 check_prime_fibonacci_even(-2)
+
+
