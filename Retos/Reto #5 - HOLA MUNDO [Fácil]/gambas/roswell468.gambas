@@ -1,3 +1,5 @@
+' https://gambas.sourceforge.net/en/main.html#
+
 Public Sub Main()
  
 PRINT "Hola Mundo!"
