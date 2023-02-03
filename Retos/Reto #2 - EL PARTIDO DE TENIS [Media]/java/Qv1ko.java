@@ -10,45 +10,31 @@ public class Qv1ko {
             do {
                 System.out.print("Who got the point (P1 or P2): ");
                 point=sc.nextLine();
-            } while(!(point.equalsIgnoreCase("P1")||point.equalsIgnoreCase("P2")));
-            if(point.equalsIgnoreCase("P1")) {
-                player1++;
-            } else {
-                player2++;
-            }
-            System.out.println(scoreboard(player1,player2));
-        } while(!((player1>3&&player1>player2+1)||(player2>3&&player2>player1+1)));
+            } while(!(point.equalsIgnoreCase("p1")||point.equalsIgnoreCase("p2")));
+            player1+=(point.equalsIgnoreCase("p1"))? 1:0;
+            player2+=(point.equalsIgnoreCase("p2"))? 1:0;
+            scoreboard(player1,player2);
+        } while(Math.abs(player1-player2)<2||player1<4&&player2<4);
         sc.close();
     }//main
 
-    private static String scoreboard(int player1,int player2) {
-        String scoreboard="";
-        if(player1>3&&player1==player2) {
-            return "Deuce";
-        } if(player1>3&&player2==(player1-1)) {
-            return "Advantage P1";
-        } if(player2>3&&player1==(player2-1)) {
-            return "Advantage P2";
-        } if(player1>3&&player2<(player1-1)) {
-            return "Won the P1";
-        } if(player2>3&&player1<(player2-1)) {
-            return "Won the P2";
+    private static void scoreboard(int player1,int player2) {
+        String[] values=new String[]{"Love","15","30","40"};
+        boolean end=false;
+        if(player1>=3&&player2>=3) {
+            if(Math.abs(player1-player2)<2) {
+                System.out.println((player1==player2)? "Deuce":(player1>player2)? "Advantage P1":"Advantage P2");
+            } else {
+                end=true;
+            }
         } else {
-            switch(player1) {
-                case 0: scoreboard+="Love";break;
-                case 1: scoreboard+="15";break;
-                case 2: scoreboard+="30";break;
-                case 3: scoreboard+="40";break;
+            if(player1<4&&player2<4) {
+                System.out.println(values[player1]+" - "+values[player2]);
+            } else {
+                end=true;
             }
-            scoreboard+=" - ";
-            switch(player2) {
-                case 0: scoreboard+="Love";break;
-                case 1: scoreboard+="15";break;
-                case 2: scoreboard+="30";break;
-                case 3: scoreboard+="40";break;
-            }
-            return scoreboard;
         }
+        System.out.println((end)? (player1>player2)? "Won the P1":"Won the P2":"");
     }//scoreboard
 
 }//class

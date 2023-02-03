@@ -41,7 +41,7 @@ public class NamelessReact {
             }
             
             if(points[i].equals("P1") && pointsOne > 40) {
-                if (playerOne - playerTwo == 30) {
+                if (playerOne - playerTwo >= 30) {
                     System.out.println("Ha ganado el P1");
                     return;
                 }
@@ -51,7 +51,7 @@ public class NamelessReact {
                 continue;
                 
             } else if (points[i].equals("P2") && pointsTwo > 40) {
-                if (playerTwo - playerOne == 30) {
+                if (playerTwo - playerOne >= 30) {
                     System.out.println("Ha ganado el P2");
                     return;
                 }
