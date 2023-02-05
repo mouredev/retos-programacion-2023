@@ -1,0 +1,2 @@
+CLS
+PRINT "HELLO WORLD!!!"

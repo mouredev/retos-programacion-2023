@@ -1,0 +1,3 @@
+class Hello
+    def main
+        print 'HELLO WORLD'

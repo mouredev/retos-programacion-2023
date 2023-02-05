@@ -5,15 +5,12 @@ class Number():
     def is_fibonacci(self):
         fib, num = 0, 1
 
-        while fib <= self.n:
-            if self.n == fib:
-                return True
-
+        while fib < self.n:
             piv = fib
             fib = fib+num
             num = piv
 
-        return False
+        return True if self.n == fib else False
 
     def is_even(self):
         return self.n % 2 == 0
