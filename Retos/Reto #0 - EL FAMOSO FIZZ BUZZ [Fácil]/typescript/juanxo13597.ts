@@ -7,10 +7,12 @@
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
 
-export function fizzBuzz(limit:number) {
-  const result:string[] = [];
-    for (let i:number = 1; i <= limit; i++) {
-        result.push(i % 3 === 0 && i % 5 === 0 ? "fizzbuzz" : i % 3 === 0 ? "fizz" : i % 5 === 0 ? "buzz" : i.toString());
+export function fizzBuzz(limit: number) {
+    const result: string[] = [];
+    for (let i: number = 1; i <= limit; i++) {
+        result.push(
+            i % 3 === 0 && i % 5 === 0 ? 'fizzbuzz' : i % 3 === 0 ? 'fizz' : i % 5 === 0 ? 'buzz' : i.toString()
+        );
     }
 
     return result;

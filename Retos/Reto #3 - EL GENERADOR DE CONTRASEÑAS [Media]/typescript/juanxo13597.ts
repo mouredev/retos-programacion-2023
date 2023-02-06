@@ -1,22 +1,17 @@
 /*
-* Escribe un programa que sea capaz de generar contraseñas de forma aleatoria.
-* Podrás configurar generar contraseñas con los siguientes parámetros:
-* - Longitud: Entre 8 y 16.
-* - Con o sin letras mayúsculas.
-* - Con o sin números.
-* - Con o sin símbolos.
-* (Pudiendo combinar todos estos parámetros entre ellos)
-*/
+ * Escribe un programa que sea capaz de generar contraseñas de forma aleatoria.
+ * Podrás configurar generar contraseñas con los siguientes parámetros:
+ * - Longitud: Entre 8 y 16.
+ * - Con o sin letras mayúsculas.
+ * - Con o sin números.
+ * - Con o sin símbolos.
+ * (Pudiendo combinar todos estos parámetros entre ellos)
+ */
 
-export function generatePassword(
-    length: number,
-    upperCase: boolean,
-    numbers: boolean,
-    symbols: boolean
-): string {
+export function generatePassword(length: number, upperCase: boolean, numbers: boolean, symbols: boolean): string {
     const alphabet = 'abcdefghijklmnopqrstuvwxyz';
     const numbersStr = '0123456789';
-    const symbolsStr = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+    const symbolsStr = '!@#$%^&*()_+~`|}{[]:;?><,./-=';
     let password = '';
 
     for (let i = 0; i < length; i++) {
