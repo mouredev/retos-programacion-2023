@@ -14,7 +14,6 @@
  * - Ejemplo. Entrada: [("🗿","✂️"), ("✂️","🗿"), ("📄","✂️")]. Resultado: "Player 2".
  * - Debes buscar información sobre cómo se juega con estas 5 posibilidades.
  */
- */
 ```
 #### Tienes toda la información extendida sobre los retos de programación semanales en **[retosdeprogramacion.com/semanales2023](https://retosdeprogramacion.com/semanales2023)**.
 
