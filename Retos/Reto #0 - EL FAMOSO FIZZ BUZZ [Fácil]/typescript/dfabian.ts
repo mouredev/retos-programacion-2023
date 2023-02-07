@@ -6,8 +6,7 @@
  * - Múltiplos de 5 por la palabra "buzz".
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
-
-const fizzBuzz = (number: number): string|number => {
+const fizzBuzz = (number: number): string => {
   const isFizz = number % 3 === 0;
   const isBuzz = number % 5 === 0;
   const isFizzBuzz = isFizz && isBuzz;
@@ -24,11 +23,10 @@ const fizzBuzz = (number: number): string|number => {
     return 'Buzz';
   }
 
-  return number;
+  return number.toString();
 }
 // Create range from 1 to 100
 const numbers: Array<number> = Array.from(Array(100).keys()).map(n => n + 1);
 // Iterate over list
 const fizzBuzzList: Array<string> = numbers.map(number => fizzBuzz(number));
 console.log(fizzBuzzList.join('\n'));
-
