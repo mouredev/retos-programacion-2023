@@ -19,7 +19,7 @@ def reglas(par: tuple) -> int:
     
     # En caso de empate no pasa nada
     if par[0] == par[1]:
-        pass
+        return 0
     else:
         jugador1 = manos[par[0]]
         jugador2 = manos[par[1]]
@@ -47,6 +47,8 @@ def juego(jugadas: list) -> str:
             contador_P1 += 1
         elif jugada == 2:
             contador_P2 += 1
+        elif jugada == 0:
+            continue
         else:
             return "Está ocurriendo un error."
     
@@ -69,6 +71,7 @@ def main():
     print(juego([("🗿","✂️"), ("✂️","🗿"), ("📄","✂️")]))
     print(juego([("🗿","✂️"), ("✂️","🗿"), ("📄","✂️"), ("🗿","✂️"), ("✂️","🗿"), ("📄","✂️")]))
     print(juego([("✂️","🖖"), ("🦎","🖖"), ("🦎","📄"), ("🗿","📄"), ("🖖","🗿")]))
+    print(juego([("🗿","✂️"), ("✂️","🗿"), ("📄","✂️"), ("📄","📄"), ("🖖","✂️")]))
 
     # Ejemplos de mal uso
     print()
