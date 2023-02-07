@@ -1,7 +1,7 @@
-function getVictor(data) {
+function getVictor(game) {
   let pointsPlayerOne = 0, pointsPlayerTwo = 0;
 
-  for (let playersChoice of data) {
+  for (let playersChoice of game) {
     let resultOfGettingThePoint = getPoint(playersChoice);
 
     if (resultOfGettingThePoint === undefined || playersChoice[0] === playersChoice[1])
