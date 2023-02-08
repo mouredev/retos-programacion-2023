@@ -19,17 +19,32 @@ public class cflorezp {
         rules.put("lagarto", new ArrayList<>(Arrays.asList("spock", "papel")));
         rules.put("spock", new ArrayList<>(Arrays.asList("tijera", "piedra")));
 
-        System.out.println(rules);
 
-        String jugada = "tijera";
-        List<String> points = new ArrayList<>();
-        points = rules.get(jugada);
-        if(points.get(0).equals(jugada) || points.get(1).equals("lagarto")){
-            int player1 = 1;
-            int player2 = 0;
-            System.out.println(player1);
-            System.out.println(player2);
+        int scorePlayer1 = 0;
+        int scorePlayer2 = 0;
+        String[][] intro = {{"piedra","tijera"}, {"tijera","tijera"}, {"papel","papel"}};
+        for(int i = 0; i < intro.length; i++){
+            for(int j = 0; j < 1; j++){
+                List<String> values = rules.get(intro[i][j]);
+                String valuePlayer2 = intro[i][1];
+                if(intro[i][j].equals(valuePlayer2)){
+                    continue;
+                }
+                if(values.contains(valuePlayer2)){
+                    scorePlayer1 += 1;
+                }else{
+                    scorePlayer2 += 1;
+                }
+            }
         }
+
+        System.out.println("Player 1: " + scorePlayer1);
+        System.out.println("Player 2: " + scorePlayer2);
+
+
+
+
+
 
 
     }
