@@ -36,7 +36,6 @@ private fun play(player1: String, player2: String) {
             35 -> if(values[player2]!! > values[player1]!!) "player2" else "player1"
             38 -> if(values[player2]!! < values[player1]!!) "player2" else "player1"
             else -> "wrong input"
-
         }
     println("player1: $player1 / player2: $player2")
     if (winner != "tie!") println("$winner wins!") else println(winner)
