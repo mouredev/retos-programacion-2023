@@ -34,7 +34,7 @@ function game(players) {
        return "Necesitas al menos una jugada de 2 personas"
       }      
      else{
-      for (let  element in win_moves[player[1]]){
+     for (let  element in win_moves[player[1]]){
           if (win_moves[player[1]][element] === player[0]){
             p2_points++
             
@@ -46,21 +46,19 @@ function game(players) {
             
           }
      }
-   
-     if (p2_points > p1_points){
-      return "Jugador 2 es el ganador"
-     }
-     else if(p2_points < p1_points){
-      return "Jugador 1 es el ganador"
-     
-     }else if (p2_points == p1_points){
-      return "Juego empatado"
-     }
     
-     
      
      }
    });
+   if (p1_points > p2_points){
+    return "Jugador 1 es el ganador"
+   }
+   else if(p1_points == p2_points){
+    return "Juegos empatados"
+   }
+   else{
+    return "Jugador 2 es el ganador"
+   }
    
    
 };
@@ -69,6 +67,8 @@ function game(players) {
   
   console.log(game([["🗿","✂️"], ["✂️","🗿"],["📄","✂️"]]));
   console.log(game([["🗿","🖖"],["✂️","🗿"]]));
-  console.log(game([("🦎","🖖"), ("✂️","🦎"), ("📄","🗿")]))
-  console.log(game([ ("✂️","🦎"), ("📄","🗿")]))
+  console.log(game([["🦎","🖖"], ["✂️","🦎"], ["📄","🗿"]]))
+  console.log(game([["✂️","🦎"], ["📄","🗿"]]))
+  
+
   
