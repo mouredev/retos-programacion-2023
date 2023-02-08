@@ -4,10 +4,11 @@ class Jugador:
     self.opciones = ['🗿', '📄', '✂️', '🦎', '🖖']
     self.opcion = None
     self.puntos = 0
-  def jugar(self):
+
+  def elegir_opcion(self):
     self.opcion = input(
         f'{self.nombre}, elige : {self.opciones}')
-    if self.opcion =='🗿':
+    if self.opcion == '🗿':
       print("Piedra")
     elif self.opcion == '📄':
       print("Papel")
@@ -17,8 +18,6 @@ class Jugador:
       print("Lagarto")
     else:
         print("Spock")
-
-      
 
 
 class Juego:
@@ -30,7 +29,7 @@ class Juego:
                        "✂️": ["📄", "🦎"],
                        "🦎": ["🖖", "📄"],
                        "🖖": ["✂️", "🗿"]
-    }
+                       }
 
   def evaluar(self, opcion1, opcion2):
     if opcion1 == opcion2:
@@ -41,15 +40,14 @@ class Juego:
       return f'Gana {self.jugador2.nombre}'
 
   def jugar(self):
-    self.jugador1.jugar()
-    self.jugador2.jugar()
+    self.jugador1.elegir_opcion()
+    self.jugador2.elegir_opcion()
     resultado = self.evaluar(self.jugador1.opcion, self.jugador2.opcion)
     print(resultado)
     if resultado == f'Gana {self.jugador1.nombre}':
       self.jugador1.puntos += 1
     elif resultado == f'Gana {self.jugador2.nombre}':
       self.jugador2.puntos += 1
-
 
 jugador1 = Jugador('Player 1')
 jugador2 = Jugador('Player 2')
