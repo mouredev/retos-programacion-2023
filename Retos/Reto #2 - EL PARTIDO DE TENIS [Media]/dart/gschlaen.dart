@@ -18,6 +18,7 @@ printGame(text) {
   var p1 = 0;
   var p2 = 0;
   var game = [];
+  bool finished = false;
 
   if (sec.length == 0) {
     print("La secuencia no es valida");
@@ -28,8 +29,16 @@ printGame(text) {
 
       if (p1 < 3 && p2 < 3 || p1 == 3 && p2 < 3 || p1 < 3 && p2 == 3) {
         game.add("${scores[p1]} - ${scores[p2]}");
+      } else if (p1 == 4 && p2 < 3) {
+        game.add("Ha ganado el P1");
+        finished = true;
+        break loop;
+      } else if (p2 == 4 && p1 < 3) {
+        game.add("Ha ganado el P2");
+        finished = true;
+        break loop;
       } else {
-        switch (p1 - p2) {
+        switch ((p1 - p2).abs()) {
           case 0:
             {
               game.add("Deuce");
@@ -38,25 +47,14 @@ printGame(text) {
 
           case 1:
             {
-              game.add("Ventaja P1");
-            }
-            break;
-
-          case -1:
-            {
-              game.add("Ventaja P2");
+              p1 > p2 ? game.add("Ventaja P1") : game.add("Ventaja P2");
             }
             break;
 
           case 2:
             {
-              game.add("Ha ganado el P1");
-            }
-            break;
-
-          case -2:
-            {
-              game.add("Ha ganado el P2");
+              p1 > p2 ? game.add("Ha ganado el P1") : game.add("Ha ganado el P2");
+              finished = true;
             }
             break;
 
@@ -68,7 +66,11 @@ printGame(text) {
         }
       }
     }
-    game.map((e) => print(e)).toList();
+    if (finished) {
+      game.map((e) => print(e)).toList();
+    } else {
+      print("La partida ingresada no es válida");
+    }
   }
 }
 

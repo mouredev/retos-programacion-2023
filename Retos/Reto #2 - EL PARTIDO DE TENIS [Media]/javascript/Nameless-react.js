@@ -35,7 +35,7 @@ const partidoTenis = (...points) => {
             }
             
             if(points[i] === "P1" && pointsOne > 40) {
-                if (playerOne - playerTwo === 30) {
+                if (playerOne - playerTwo >= 30) {
                     console.log("Ha ganado el P1");
                     return;
                 }
@@ -45,7 +45,7 @@ const partidoTenis = (...points) => {
                 continue;
                 
             } else if (points[i] === "P2" && pointsTwo > 40) {
-                if (playerTwo - playerOne === 30) {
+                if (playerTwo - playerOne >= 30) {
                     console.log("Ha ganado el P2");
                     return;
                 }

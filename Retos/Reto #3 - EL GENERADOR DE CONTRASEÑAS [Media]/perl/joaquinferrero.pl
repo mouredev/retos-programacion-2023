@@ -37,7 +37,7 @@ if (length($l.$m.$n.$s) == 0				# si no se indicó ninguna opción,
 ### Caracteres posibles #################################
 my @números    =  0  ..  9;
 my @letras     = 'a' .. 'z';
-my @mayúsculas = map { uc } @letras;
+my @mayúsculas = 'A' .. 'Z';
 my @símbolos   = ('!','$','%','&','*','+','-','.','/',':',';','<','>','=','_','@');
 
 my @caracteres_posibles = (
