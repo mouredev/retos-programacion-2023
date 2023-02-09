@@ -149,25 +149,6 @@ function playRound(playerSelection, computerSelection) {
     return [result, playerScore, computerScore]
 }
 
-/*function game() {
-    let playerScore = 0
-    let computerScore = 0
-
-    for (let counter = 0; counter < 5; counter++) {
-        const playerSelection = prompt('Enter an option (Rock, Paper, Scissors, Lizard or Spock): ');
-        const computerSelection = getComputerChoice();
-        score = playRound(playerSelection, computerSelection)
-        playerScore += score[1]
-        computerScore += score[2]
-        console.log(score[0]);
-        console.log('Player: ' + playerScore);
-        console.log('Computer: ' + computerScore);
-    }
-}*/
-
-//game()
-
-
 function Menu() {
     let playerScore = 0
     let computerScore = 0
