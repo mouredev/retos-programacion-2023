@@ -11,20 +11,20 @@
  * - Debes buscar información sobre cómo se juega con estas 5 posibilidades.
  */
 /* Resultados
-  '🪨': ['✂️', '🦎'],
-  '📃': ['🪨', '🖖🏻'],
+  '🗿': ['✂️', '🦎'],
+  '📃': ['🗿', '🖖🏻'],
   '✂️': ['📃', '🦎'],
   '🦎': ['📃', '🖖🏻'],
-  '🖖🏻': ['✂️', '🪨'],
+  '🖖🏻': ['✂️', '🗿'],
  */
 
 // Table with the rules of the game
 const results = [
-  '🪨': ['✂️', '🦎'],
-  '📃': ['🪨', '🖖🏻'],
+  '🗿': ['✂️', '🦎'],
+  '📃': ['🗿', '🖖🏻'],
   '✂️': ['📃', '🦎'],
   '🦎': ['📃', '🖖🏻'],
-  '🖖🏻': ['✂️', '🪨'],
+  '🖖🏻': ['✂️', '🗿'],
 ];
 
 // Initialising points of the game
@@ -35,7 +35,8 @@ let game = [
   ];
   
 // Entry
-let game1 = [("🗿","✂️"), ("✂️","🗿"), ("📄","✂️")];
+let game1 = [("🗿","✂️"), ("✂️","🗿"), ("📄","✂️")]; // "Player2"
+let game2 = [("✂️","🗿"), ("📄","🖖"), ("🦎","🖖"), ("🖖","✂️")]; // "Player1"
 
 function pptle(game) {
   // Reset the results
@@ -56,11 +57,11 @@ function pptle(game) {
       game.Tie += 1;
     } else {
       // Who win that game
-      // Check table results
+      // Check table results. Result1 will have the options that loose against player1
       result1 = results[gp1];
       console.log(result1);
       // if guest player2 is in result1 Player1 win if not Player2 wins
-      if ((gp2 === result1[0]) or (gp2 === result1[1])) {
+      if ((gp2 === result1[0]) || (gp2 === result1[1])) {
         // wins player1
         game.Player1 += 1;
       } else {
@@ -70,7 +71,7 @@ function pptle(game) {
     }
   }
   // Check the final result
-  if ((game.Tie > game.Player1) or (game.Tie > game.Player2) or (game.Player1 === game.Player2)) {
+  if ((game.Tie > game.Player1) || (game.Tie > game.Player2) || (game.Player1 === game.Player2)) {
     //Tie
     return "Tie";
   } else if (game.Player1 > game.Player2) {
