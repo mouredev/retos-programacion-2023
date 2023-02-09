@@ -13,11 +13,11 @@ function isPrime(number){
 				return false;
 			}
 		}
+		return true;
 	}
-	else if(number === 0){
+	else {
 		return false;
 	}
-	return true;
 }
   
 function fibonacci(number){
@@ -94,4 +94,5 @@ console.log(checkNumber(0));
 console.log(checkNumber(89));
 console.log(checkNumber(97));
 console.log(checkNumber(100));
+console.log(checkNumber(1));
 console.log(checkNumber(-1));

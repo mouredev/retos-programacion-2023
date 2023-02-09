@@ -57,6 +57,3 @@ else:
     for each in contraseña:
         password+=each
     print(f"Tu contraseña es: \n {password}")
-
-
-

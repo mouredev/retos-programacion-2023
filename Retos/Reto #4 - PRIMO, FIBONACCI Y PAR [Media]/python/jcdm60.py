@@ -12,21 +12,19 @@
 
 import math
 
+
 class Number_PFP:
     def __init__(self, number):
         self.number = number
-        self.result_fib = self.isFibonacci()
-        self.result_pri = self.isPrime()
-        self.result_odd = self.isOdd()
 
     def isPerfectSquare(self, x):
         s = int(math.sqrt(x))
         return s * s == x
 
     def isFibonacci(self):
-        return self.isPerfectSquare(5 * self.number * self.number + 4) or self.isPerfectSquare(
-            5 * self.number * self.number - 4
-        )
+        return self.isPerfectSquare(
+            5 * self.number * self.number + 4
+        ) or self.isPerfectSquare(5 * self.number * self.number - 4)
 
     def isPrime(self):
         if self.number == 2 or self.number == 3:
@@ -42,17 +40,18 @@ class Number_PFP:
         flag = False
         if self.number % 2:
             flag = True
-        return  flag
+        return flag
+
 
 if __name__ == "__main__":
-    number = int(input("Digite un número entero: "))
+    number = int(input("Digite un número entero positivo: "))
     finonacci = Number_PFP(number)
     result_pri = finonacci.isPrime()
     result_fib = finonacci.isFibonacci()
     result_odd = finonacci.isOdd()
 
     text_pri = "es primo," if result_pri else "no es primo,"
-    text_fib = "fibonacci" if result_fib else "no es fibonacci"    
+    text_fib = "fibonacci" if result_fib else "no es fibonacci"
     text_odd = "y es impar" if result_odd else "y es par"
 
     print(f"{number} {text_pri} {text_fib} {text_odd}")

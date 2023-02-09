@@ -7,6 +7,7 @@ public class EspinoLeandroo {
 
         Scanner sc = new Scanner(System.in);
 
+        System.out.print("Ingresa Número: ");
         int n = sc.nextInt();
 
         System.out.print("El número " + n);

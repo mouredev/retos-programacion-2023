@@ -12,11 +12,11 @@ bool isPrime(number){
         return false;
       }
     }
+    return true;
   }
-  else if(number == 0){
+  else {
     return false;
   }
-  return true;
 }
 
 int fibonacci(number){
@@ -96,5 +96,6 @@ void main() {
   print(checkNumber(89));
   print(checkNumber(97));
   print(checkNumber(100));
+  print(checkNumber(1));
   print(checkNumber(-1));
 }

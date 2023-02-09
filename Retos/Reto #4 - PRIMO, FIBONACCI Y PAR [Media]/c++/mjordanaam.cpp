@@ -17,11 +17,11 @@ bool is_prime(int number){
         return false;
       }
     }
+    return true;
   }
-  else if(number == 0){
+  else {
     return false;
   }
-  return true;
 }
 
 int fibonacci(int number){
@@ -99,6 +99,7 @@ int main(){
     check_number(89);
     check_number(97);
     check_number(100);
+    check_number(1);
     check_number(-1);
     return 0;
 }

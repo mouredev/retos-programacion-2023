@@ -36,10 +36,9 @@ def is_prime(number: int) -> bool:
 		for i in range(2, number):
 			if number % i == 0:
 				return False
-	elif number == 0:
+		return True
+	else:
 		return False
-
-	return True
 
 
 def is_even(number: int) -> bool:
@@ -81,4 +80,5 @@ print(check_number(0))
 print(check_number(89))
 print(check_number(97))
 print(check_number(100))
+print(check_number(1))
 print(check_number(-1))

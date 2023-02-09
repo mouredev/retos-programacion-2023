@@ -5,35 +5,27 @@ public class Qv1ko {
     }//main
 
     private static void checker(int number) {
-        String primeResult=" ",fibonacciResult=" ",evenResult=" ";
-        int fib1=0,fib2=1;
-        for(int i=number;i>0;i--) {
-            if(number%i==0&&number!=i&&number!=1) {
-                primeResult=number+" is prime,";
-                break;
-            } else {
-                primeResult=number+" is not prime,";
-            }
-        }
-        while((fib1+fib2)<=number) {
-            if(number==(fib1+fib2)) {
-                fibonacciResult=" fibonacci and";
-                break;
-            } else {
-                fibonacciResult=" is not fibonacci and";
-                if(fib1<fib2) {
-                    fib1+=fib2;
-                } else {
-                    fib2+=fib1;
+        String result=number+" ";
+        boolean prime=true;
+        if(number>1) {
+            for(int i=2;i<number;i++) {
+                if(number%i==0) {
+                    prime=false;
+                    break;
                 }
             }
-        }
-        if(number%2==0) {
-            evenResult=" is even";
+            result+=(prime)? "is prime, ":"is not prime, ";
         } else {
-            evenResult=" is odd";
+            result+="is not prime, ";
         }
-        System.out.println(primeResult+fibonacciResult+evenResult);
+        result+=(number>0&&(fibonacciEquation(5*number*number+4)||fibonacciEquation(5*number*number-4)))? "fibonacci and ":"is not fibonacci and ";
+        result+=(number%2==0)? "is even":"is odd";
+        System.out.println(result);
     }//checker
+
+    private static boolean fibonacciEquation(int number) {
+        int sqrt=(int)Math.sqrt(number);
+        return sqrt*sqrt==number;
+    }//fibonnaciEquation
 
 }//class

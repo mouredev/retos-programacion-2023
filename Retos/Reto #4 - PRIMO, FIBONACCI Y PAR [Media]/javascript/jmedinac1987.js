@@ -18,7 +18,8 @@ function isItPrimeNumber(number) {
 }
 
 function isItFibonacci(number) {
-  if (number == 0 || number == 1) return true;
+  if (number == 0) return false;
+  if (number == 1) return true;
 
   let serie = [0, 1];
 
@@ -35,16 +36,16 @@ function checkNumber(number) {
 
   if (!Number.isInteger(number)) return "Please enter a whole number";
 
-  let absoluteValue = Math.abs(number);
-  let isPar = isItEvent(absoluteValue) ? "is event" : "is odd";
-  let isPrimeNumber = isItPrimeNumber(absoluteValue)
+  
+  let isPar = isItEvent(number) ? "is event" : "is odd";
+  let isPrimeNumber = isItPrimeNumber(number)
     ? "is prime"
     : "is not prime";
-  let isFibonacci = isItFibonacci(absoluteValue)
+  let isFibonacci = isItFibonacci(number)
     ? "is fibonacci"
     : "is not fibonacci";
 
-  return `${absoluteValue} ${isPrimeNumber}, ${isFibonacci} and ${isPar}`;
+  return `${number} ${isPrimeNumber}, ${isFibonacci} and ${isPar}`;
 }
 
 console.log(checkNumber(2));
