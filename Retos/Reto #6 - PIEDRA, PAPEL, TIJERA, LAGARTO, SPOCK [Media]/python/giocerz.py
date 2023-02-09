@@ -11,9 +11,9 @@ def winner(lista):
         elif result == -1:   
             p2 +=1
     if p1>p2:
-        return "player 1"
+        return "Player 1"
     elif p2>p1:
-        return "player 2"
+        return "Player 2"
     else:
-        return "tie"    
+        return "Tie"    
 
