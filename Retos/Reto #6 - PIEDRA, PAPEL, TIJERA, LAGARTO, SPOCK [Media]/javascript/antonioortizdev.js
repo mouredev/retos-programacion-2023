@@ -43,18 +43,27 @@ function getResult(games) {
     return "Tie"
 }
 
-console.log(
-    getResult([
+console.table({
+    winsPlayer2: getResult([
         ["🗿", "✂️"],
+        ["✂️", "🗿"],
+        ["🖖", "🦎"],
+    ]), // Should print "Player 2"
+    winsPlayer1: getResult([
+        ["🦎", "📄"],
+        ["🗿", "🖖"],
+        ["🦎", "🖖"],
+        ["🗿", "✂️"],
+        ["🗿", "🗿"],
+        ["📄", "🗿"],
         ["✂️", "🗿"],
         ["📄", "✂️"],
-    ]), // Should print "Player 2"
-    // call getResult passing an array of three games to print "Player 1"
-    getResult([
-        ["🗿", "✂️"],
+    ]), // Should print "Player 1"
+    tie: getResult([
+        ["🖖", "✂️"],
         ["✂️", "🗿"],
-        ["✂️", "✂️"],
+        ["🖖", "🖖"],
         ["✂️", "📄"],
         ["🗿", "📄"],
-    ]) // Should print "Tie"
-)
+    ]), // Should print "Tie"
+})
