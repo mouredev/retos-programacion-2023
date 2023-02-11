@@ -19,11 +19,11 @@ type Strongness [2]Option
 type Options map[Option]Strongness
 
 var options = Options{
-	"🗿":  {"🦎", "✂️"},
-	"📄":  {"🗿", "🖖"},
-	"✂️": {"📄", "🦎"},
-	"🦎":  {"🖖", "📄"},
-	"🖖":  {"✂️", "🗿"},
+	Rock:     {Lizard, Scissors},
+	Paper:    {Rock, Spock},
+	Scissors: {Paper, Lizard},
+	Lizard:   {Spock, Paper},
+	Spock:    {Scissors, Rock},
 }
 
 func (wn Strongness) Contains(symbol Option) bool {
