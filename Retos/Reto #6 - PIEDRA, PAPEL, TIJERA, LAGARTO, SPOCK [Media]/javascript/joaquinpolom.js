@@ -19,62 +19,59 @@
  */
 
 // Table with the rules of the game
-const results = [
+let results = {
   '🗿': ['✂️', '🦎'],
-  '📃': ['🗿', '🖖🏻'],
+  '📃': ['🗿', '🖖'],
   '✂️': ['📃', '🦎'],
-  '🦎': ['📃', '🖖🏻'],
-  '🖖🏻': ['✂️', '🗿'],
-];
+  '🦎': ['📃', '🖖'],
+  '🖖': ['✂️', '🗿'],
+};
 
 // Initialising points of the game
-let game = [
+let gameResult = [
   Player1 = 0,
   Player2 = 0,
   Tie = 0,
   ];
   
 // Entry
-let game1 = [("🗿","✂️"), ("✂️","🗿"), ("📄","✂️")]; // "Player2"
-let game2 = [("✂️","🗿"), ("📄","🖖"), ("🦎","🖖"), ("🖖","✂️")]; // "Player1"
+let game1 = [['🗿','✂️'], ['✂️','🗿'], ['📃','✂️']]; // "Player2"
+let game2 = [['✂️','🗿'], ['📃','🖖'], ['🦎','🖖'], ['🖖','✂️']]; // "Player1"
 
 function pptle(game) {
   // Reset the results
-  game.Player1 = 0;
-  game.Player2 = 0;
-  game.Tie = 0;
+  gameResult.Player1 = 0;
+  gameResult.Player2 = 0;
+  gameResult.Tie = 0;
   // Check every result
   for (const a of game) {
     // Guest player1
-    gp1 = a[0];
-    console.log(gp1);
+    let gp1 = a[0];
     // Guest player2
-    gp2 = a[1];
-    console.log(gp2);
+    let gp2 = a[1];
     // if it is the same result then tie
     if (gp1 === gp2) {
       // Tie
-      game.Tie += 1;
+      gameResult.Tie += 1;
     } else {
       // Who win that game
       // Check table results. Result1 will have the options that loose against player1
-      result1 = results[gp1];
-      console.log(result1);
+      var result1 = results[gp1];
       // if guest player2 is in result1 Player1 win if not Player2 wins
       if ((gp2 === result1[0]) || (gp2 === result1[1])) {
         // wins player1
-        game.Player1 += 1;
+        gameResult.Player1 += 1;
       } else {
         // wins player2
-        game.Player2 += 1;
+        gameResult.Player2 += 1;
       }
     }
   }
   // Check the final result
-  if ((game.Tie > game.Player1) || (game.Tie > game.Player2) || (game.Player1 === game.Player2)) {
+  if ((gameResult.Tie > gameResult.Player1) || (gameResult.Tie > gameResult.Player2) || (gameResult.Player1 === gameResult.Player2)) {
     //Tie
     return "Tie";
-  } else if (game.Player1 > game.Player2) {
+  } else if (gameResult.Player1 > gameResult.Player2) {
     // Win Player1
     return "Player1";
   } else {
@@ -83,4 +80,7 @@ function pptle(game) {
   }
 }
 
+console.log(game1);
 console.log(pptle(game1));
+console.log(game2);
+console.log(pptle(game2));
