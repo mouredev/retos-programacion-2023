@@ -108,9 +108,9 @@ func cases() {
         got := traductor(input)
 
         if want == got {
-            fmt.Printf("Case con exito ✅: ")
+            fmt.Printf("Caso con exito ✅: ")
         } else {
-            fmt.Printf("Case fallido ❌: ")
+            fmt.Printf("Caso fallido ❌: ")
         }
 
         fmt.Printf("\n\tinput:\t\"%s\"\n\twant:\t\"%s\"\n\tgot:\t\"%s\"\n\n", input, want, got)
