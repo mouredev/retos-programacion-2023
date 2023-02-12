@@ -1,5 +1,5 @@
 
-public class DaniLobato {
+public class Dlobaton {
     /*
      * Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado.
      * El programa recibirá una secuencia formada por "P1" (Player 1) o "P2" (Player 2), según quien
