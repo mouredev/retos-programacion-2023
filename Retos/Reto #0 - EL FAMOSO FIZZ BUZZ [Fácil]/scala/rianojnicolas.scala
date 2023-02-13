@@ -7,23 +7,25 @@
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
 */
 
-def fizzBuzz(numero : Int) : String = {
-    if (numero % 5 == 0 && numero % 3 == 0) {
-        return "FizzBuzz " + numero.toString
+object Reto0 extends App {
+    def fizzbuzz(numero: Int) : String = {
+        if (numero % 5 == 0 && numero % 3 == 0) {
+            return "FizzBuzz " + numero.toString
+        }
+        else if (numero % 5 == 0) {
+            return "Buzz " + numero.toString
+        }
+        else if (numero % 3 == 0) {
+            return "Fizz " + numero.toString
+        }
+        else {
+            return numero.toString
+        }
     }
-    else if (numero % 5 == 0) {
-        return "Buzz " + numero.toString
-    }
-    else if (numero % 3 == 0) {
-        return "Fizz " + numero.toString
-    }
-    else {
-        return numero.toString
-    }
-}
 
-
-for (i <- 1 to 100) {
-    var resultado = fizzBuzz(i)
-    println(resultado)
+    
+    for (i <- 1 to 100) {
+        var resultado = fizzbuzz(i)
+        println(resultado)
+    }
 }

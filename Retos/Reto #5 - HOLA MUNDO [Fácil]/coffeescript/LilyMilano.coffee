@@ -1,0 +1,3 @@
+# CoffeeScript
+
+alert "Hello, World!"

@@ -34,7 +34,7 @@ def partidoTenis (*points):
             
             
             if(point == "P1" and pointsOne > 40):
-                if (playerOne - playerTwo == 30):
+                if (playerOne - playerTwo >= 30):
                     print("Ha ganado el P1")
                     return
                 
@@ -44,7 +44,7 @@ def partidoTenis (*points):
                 continue
                 
             elif (point == "P2" and pointsTwo > 40):
-                if (playerTwo - playerOne == 30):
+                if (playerTwo - playerOne >= 30):
                     print("Ha ganado el P2")
                     return
                 

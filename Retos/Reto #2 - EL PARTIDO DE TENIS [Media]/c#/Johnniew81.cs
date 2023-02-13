@@ -34,12 +34,15 @@
         static string machtennis(string partido)
         {
             string resultado = "";
-            string[] puntuacion = { "love", "15", "30", "40", "40", "Ventaja" };
+            string[] puntuacion = { "love", "15", "30", "40"};
+            int i = 0;
             int puntuacionP1, puntuacionP2;
+            bool error, final;
+            error= final =false;
             string tanto;
             puntuacionP1 = 0;
             puntuacionP2 = 0;
-            for (int i = 0; i < partido.Length; i++)
+            while((error == false && final == false) && (i <partido.Length))
             {
                 tanto = partido.Substring(i, 2);
                 if (tanto == "p1" || tanto == "P1")
@@ -53,32 +56,52 @@
                 else
                 {
                     resultado = "Meter los datos correctos \n ejemplo: p1,p2,p1,p2";
-                    return resultado;
+                    error = true;
                 }
-                if ((puntuacionP1 == 3 && puntuacionP2 == 3) || (puntuacionP1 == 5 && puntuacionP2 == 5))
-                {
+                if ((puntuacionP1 > 2 || puntuacionP2 > 2) && error == false)
+                { 
+                    if (puntuacionP1 > 2 && puntuacionP2 > 2)
+                    {
+                        if (Math.Abs(puntuacionP1 - puntuacionP2) == 2)
+                        {
+                            final = true;
+                            if (i < (partido.Length - 2))
+                            {
+                                resultado += "**** ANOTACION ERRONEA MAS PUNTOS DE LOS PERMITIDOS ****";
+                            }
+                            else
+                            { 
+                                resultado += puntuacionP1 > puntuacionP2 ? "GANADOR JUGADOR 1" : "GANADOR JUGADOR 2";
+                            }
 
-                    puntuacionP1 = 4;
-                    puntuacionP2 = 4;
-                    resultado += "Deuce\n";
-                }
-                else if ((puntuacionP1 == 6) || (puntuacionP1 == 4 && puntuacionP2 < 3))
-                {
-                    resultado += "GANADOR JUGADOR 1";
-                    return resultado;
-                }
-                else if ((puntuacionP2 == 6) || (puntuacionP2 == 4 && puntuacionP1 < 3))
-                {
-                    resultado += "GANADOR JUGADOR 2";
-                    return resultado;
+                        }
+                        else { 
+                            resultado += (puntuacionP1 == puntuacionP2) ? "Deuces\n" : (puntuacionP1 > puntuacionP2) ? "Ventaja jugador 1\n" : "Ventaja jugador 2\n";
+                        }
+                    }
+                    else if ((puntuacionP1 > 3 && puntuacionP2 < 3) || (puntuacionP1 < 3 && puntuacionP2 > 3))
+                    {
+                        final = true;
+                        if (i < (partido.Length - 2))
+                        {
+                            resultado += "**** ANOTACION ERRONEA MAS PUNTOS DE LOS PERMITIDOS ****";
+                        }else
+                        { 
+                            resultado += puntuacionP1 > puntuacionP2 ? "GANADOR JUGADOR 1" : "GANADOR JUGADOR 2";
+                        }
+                    }
+                    else
+                    {
+                        resultado += puntuacion[puntuacionP1] + " - " + puntuacion[puntuacionP2] + "\n";
+                    }
                 }
                 else
                 {
-                    resultado += puntuacion[puntuacionP1] + " - " + puntuacion[puntuacionP2] + "\n";
+                    resultado += error == false?puntuacion[puntuacionP1] + " - " + puntuacion[puntuacionP2] + "\n":"\n *** ERROR ***";
                 }
-                i++;
+                i +=2;
             }
-            resultado += "**** PARDIDO INACABADO****";
+            if (error==false && final == false) resultado += "**** PARDIDO INACABADO****";
             return resultado;
         }
     }
