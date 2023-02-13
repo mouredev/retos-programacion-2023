@@ -6,7 +6,7 @@
  * Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado.
  * El programa recibirá una secuencia formada por "P1" (Player 1) o "P2" (Player 2), según quien
  * gane cada punto del juego.
- * 
+ *
  * - Las puntuaciones de un juego son "Love" (cero), 15, 30, 40, "Deuce" (empate), ventaja.
  * - Ante la secuencia [P1, P1, P2, P2, P1, P2, P1, P1], el programa mostraría lo siguiente:
  *   15 - Love
@@ -17,8 +17,8 @@
  *   Deuce
  *   Ventaja P1
  *   Ha ganado el P1
- * - Si quieres, puedes controlar errores en la entrada de datos.   
- * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
+ * - Si quieres, puedes controlar errores en la entrada de datos.
+ * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.
 
 #### Tienes toda la información extendida sobre los retos de programación semanales en **[retosdeprogramacion.com/semanales2023](https://retosdeprogramacion.com/semanales2023)**.
 
@@ -29,45 +29,28 @@ Sigue las **[instrucciones](../../README.md)**, consulta las correcciones y apor
 
 #import randint
 
-print('Arranca el partido y como es de esperar')
 
 jugadores = {
-    "P1" : "Love",
-    "P2" : "Love"
+    "P1"    : "Love",
+    "P2"    : "Love",
 }
 
-comentarios = ["¡Qué gran partido!"]
-comentarios_p1 = ["¡Gran punto para P1!"]
-comentarios_p2 = ["¡Gran punto para P2!"]
+orden = ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"]
 
-puntos = ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"]
+puntos = ["Love", 15, 30, 40, "Ventaja", "Ha ganado"]
 
-def suma_puntos(base,player):
-    if base == "Love":
-        base = "15"
-        jugadores[player]=base
-        print(player,base)
-        return
-    elif base == "15":
-        base = "30"
-        jugadores[player]=base
-        print(player,base)
-        return
-    elif base == "30":
-        base = "40"
-        jugadores[player]=base
-        print(player,base)
-        return
-    elif base == "40":
-        base = "Win"
-        jugadores[player]=base
-        print(player,base)
-        return
+def shout_scores(player_scored):
+    actual_pos = puntos.index(jugadores[player_scored])
+    if jugadores["P1"] == 40 and jugadores["P2"] == 40:
+        print("Deuce")
+        jugadores[player_scored] = puntos[actual_pos+1]
+        print("Ventaja",player_scored)
+    else:
+        jugadores[player_scored] = puntos[actual_pos+1]
+        if jugadores[player_scored] == "Ha ganado":
+            print("Ha ganado",player_scored)
+        else:
+            print(jugadores["P1"],"-",jugadores["P2"])
 
-for i in puntos:
-    #print(jugadores)
-    suma_puntos(jugadores[i],i)
-    if i == "P1":
-        print(comentarios_p1[0])
-    elif i == "P2":
-        print(comentarios_p2[0])
+for i in orden:
+    shout_scores(i)
