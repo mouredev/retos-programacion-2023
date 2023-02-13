@@ -119,5 +119,3 @@ namespace piedra_papel_tijera_lagarto_spock{
         }
     }
 }
-
-
