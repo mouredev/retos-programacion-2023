@@ -5,7 +5,7 @@ def primo_Fibo_Par(n):
     if n%2==0: par, primo = " y es par", " no es primo, "
     else: 
         par = " y es impar"
-        for i in range(3,10):
+        for i in range(3,n//2):
             if n != i and n%i == 0: 
                 primo = " no es primo, "
                 break
