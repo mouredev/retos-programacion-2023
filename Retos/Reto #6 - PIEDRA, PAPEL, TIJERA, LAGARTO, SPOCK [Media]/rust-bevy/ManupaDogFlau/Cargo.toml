@@ -1,0 +1,21 @@
+[package]
+name = "piedra-papel-tijera-lagarto-spock"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = { version = "0.9.0", features = ["dynamic"] }
+rand = "0.8.4"
+
+[workspace]
+resolver = "2" # Important! wgpu/Bevy needs this!
+
+# Enable a small amount of optimization in debug mode
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
