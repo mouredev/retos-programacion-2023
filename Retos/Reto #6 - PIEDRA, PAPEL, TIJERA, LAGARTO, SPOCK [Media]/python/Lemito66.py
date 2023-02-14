@@ -24,7 +24,7 @@ def rock_paper_scissors_lizard_spock(games):
         player_one_game = game[0]
         player_two_game = game[1]
         if player_one_game != player_two_game:
-            if player_one_game in rules[player_one_game]:
+            if player_two_game in rules[player_one_game]:
                 player_one += 1
             else:
                 player_two += 1
