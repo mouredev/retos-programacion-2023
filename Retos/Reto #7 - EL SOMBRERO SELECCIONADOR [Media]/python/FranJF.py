@@ -15,26 +15,26 @@ class SombreroSeleccionador:
     CASAS: dict = {
         "Gryffindor": {"puntuacion": 0, "respuesta_desempate": "Mi coraje"},
         "Slytherin": {"puntuacion": 0, "respuesta_desempate": "Mi astucia"},
-        "Hufflepuff": {"puntuacion": 0, "respuesta_desempate": "Mi empatia"},
+        "Hufflepuff": {"puntuacion": 0, "respuesta_desempate": "Mi empatía"},
         "Ravenclaw": {"puntuacion": 0, "respuesta_desempate": "Mis conocimientos"},
     }
     PREGUNTAS: dict= {
-        "¿Qué animal escogerías?": ["Buho", "Gato", "Perro", "Rata"],
-        "Todos los elixires te otorgan un poder, ¿cuál prefieres?": [
+        "¿Qué animal escogerías?": ["Búho", "Gato", "Perro", "Rata"],
+        "Todos estos elixires te otorgan un poder, ¿cuál prefieres?": [
             "Fuerza",
             "Invisibilidad",
-            "Hablar con los animales",
-            "Sabiduria",
+            "Capacidad de hablar con los animales",
+            "Sabiduría",
         ],
         "Como recompensa por tus hazañas te otorgan únicamente un objeto de la Sala de los Menesteres, ¿cuál escoges?": [
-            "Gema de la inmortalidad",
-            "La varita de Sauco",
-            "Las gafas lee mentes",
-            "El colgante de la inteligencia",
+            "Gema de la Inmortalidad",
+            "La Varita de Saúco",
+            "Unas gafas que te permiten leer la mente",
+            "El Colgante de la Inteligencia",
         ],
         "¿Qué palabra te define mejor?": [
-            "Valentia",
-            "Lideragzo",
+            "Valentía",
+            "Liderazgo",
             "Lealtad",
             "Inteligencia",
         ],
