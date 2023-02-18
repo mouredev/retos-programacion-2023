@@ -1,0 +1,68 @@
+#     _ __  __  _____ 
+#    | |  \/  |/ ____|
+#    | | \  / | |     
+# _  | | |\/| | |     
+#| |_| | |  | | |____ 
+#\____/|_|  |_|\_____|                        
+
+
+print("¡Bienvenido al Sombrero Seleccionador de Hogwarts!")
+print("Para determinar en qué casa perteneces, responderás a una serie de preguntas y elegirás una de las cuatro opciones disponibles. ¡Empecemos!")
+
+# Definimos las preguntas y sus opciones
+preguntas = [
+    "¿Qué habilidad mágica te gustaría aprender?",
+    ["a) Vuelo en escoba", "b) Transformaciones", "c) Defensa contra las artes oscuras", "d) Adivinación"],
+    "¿Cuál de estas criaturas mágicas te parece más interesante?",
+    ["a) Dragón", "b) Hipogrifo", "c) Basilisco", "d) Centauro"],
+    "¿Cuál de estas características es más importante para ti?",
+    ["a) Coraje", "b) Ambición", "c) Lealtad", "d) Inteligencia"],
+    "¿Qué lugar te gustaría explorar en Hogwarts?",
+    ["a) La Sala Común de Gryffindor", "b) Las mazmorras de Slytherin", "c) Los jardines de Hufflepuff", "d) La biblioteca de Ravenclaw"],
+    "¿Qué cualidad valoras más en un amigo?",
+    ["a) Valentía", "b) Astucia", "c) Honestidad", "d) Sabiduría"]
+]
+
+# Definimos las respuestas y las casas correspondientes
+respuestas = {
+    "aaaaa": "Gryffindor",
+    "bbbba": "Slytherin",
+    "ccccc": "Hufflepuff",
+    "ddddd": "Ravenclaw",
+    "dddcc": "Ravenclaw",
+    "dddc": "Hufflepuff",
+    "dddba": "Slytherin",
+    "dcccd": "Gryffindor",
+    "dcccb": "Hufflepuff",
+    "dccca": "Gryffindor",
+    "bbaad": "Ravenclaw",
+    "bbacd": "Slytherin",
+    "bbaaa": "Hufflepuff",
+    "baaad": "Ravenclaw",
+    "aaaaa": "Gryffindor",
+    "aaaab": "Slytherin",
+    "aaaba": "Hufflepuff",
+    "aabaa": "Gryffindor",
+    "abaaa": "Slytherin",
+    "baaaa": "Hufflepuff",
+    "aaaaa": "Ravenclaw",
+    "aaaaa": "Gryffindor"
+}
+
+# Mostramos las preguntas y guardamos las respuestas del usuario
+respuestas_usuario = ""
+for i in range(0, len(preguntas), 2):
+    print(preguntas[i])
+    opciones = preguntas[i + 1]
+    for opcion in opciones:
+        print(opcion)
+    respuesta = input("Respuesta (a, b, c o d): ")
+    respuestas_usuario += respuesta
+    print("")
+
+# Mostramos la casa correspondiente
+casa = respuestas.get(respuestas_usuario)
+if casa:
+    print("¡Felicidades por haber sido seleccionado en " + casa + "!")
+else:
+    print("Lo siento, no hemos podido determinar tu casa. Está claro que eres seguidor del que NO-DEBE-SER-NOMBRADO, y deberás enfetnarte a la decisión y confianza directa de Dumbledore.")
