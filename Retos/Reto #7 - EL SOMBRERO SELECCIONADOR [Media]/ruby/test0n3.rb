@@ -2,11 +2,11 @@
 
 # class Survey for challenge Sorting Hat
 class Questionnaire
-  QUESTIONS = { '0' => { 'content' => '¿Qué color prefieres?' },
-                '1' => { 'content' => '¿Qué animal te agrada?' },
-                '2' => { 'content' => '¿Qué característica aprecias en tus compañeros?' },
-                '3' => { 'content' => '¿Qué elemento prefieres?' },
-                '4' => { 'content' => '¿Qué gema te agrada?' } }.freeze
+  QUESTIONS = { '0' => '¿Qué color prefieres?',
+                '1' => '¿Qué animal te agrada?',
+                '2' => '¿Qué característica aprecias en tus compañeros?',
+                '3' => '¿Qué elemento prefieres?',
+                '4' => '¿Qué gema te agrada?' }.freeze
   ANSWERS = { '0' => { '1' => 'rojo', '2' => 'azul',
                        '3' => 'verde', '4' => 'amarillo' },
               '1' => { '1' => 'leon', '2' => 'águila',
@@ -21,19 +21,18 @@ class Questionnaire
   HOUSES = %w[gryffindor ravenclaw slytherin hufflepuff].freeze
 
   def start_questionnaire
-    house_options = { 'gryffindor' => 0, 'slytherin' => 0, 'hufflepuff' => 0, 'ravenclaw' => 0 }
+    results = { 'gryffindor' => 0, 'slytherin' => 0, 'hufflepuff' => 0, 'ravenclaw' => 0 }
     puts 'El Sombrero Seleccionador'
     QUESTIONS.each_key do |id|
-      diplay_questions(id)
+      display_question(id)
       display_options(id)
-      house = catch_answer(id)
-      house_options[house] += 1
+      results[catch_answer(id)] += 1
     end
-    display_answer(house_options).capitalize
+    display_answer(results).capitalize
   end
 
-  def diplay_questions(id)
-    puts "\n\n#{QUESTIONS[id]['content']}"
+  def display_question(id)
+    puts "\n\n#{QUESTIONS[id]}"
   end
 
   def display_options(id)
