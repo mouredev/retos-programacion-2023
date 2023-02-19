@@ -18,7 +18,17 @@ class miguelex
             "2. ¿Qué criatura mágica te gustaría tener como mascota?",
             "3. ¿Cuál es tu asignatura favorita en Hogwarts?",
             "4. ¿Cuál es tu lugar favorito en el castillo de Hogwarts?",
-            "5. ¿Cuál es tu hechizo favorito?"
+            "5. ¿Cuál es tu hechizo favorito?",
+            "6. ¿Qué objeto mágico te gustaría poseer?",
+            "7. ¿Cuál es tu personaje favorito de Harry Potter?",
+            "8. ¿Qué harías si te enfrentas a un troll?",
+            "9. ¿Qué tipo de clima prefieres?",
+            "10. ¿Cuál es tu forma preferida de transporte mágico?",
+            "11. ¿Qué color te atrae más?",
+            "12. ¿Qué criatura mágica te da más miedo?",
+            "13. ¿Cuál es tu golosina mágica favorita?",
+            "14. ¿Cuál es tu asignatura menos favorita en Hogwarts?",
+            "15. ¿Qué actividad te gustaría hacer en tu tiempo libre en Hogwarts?"
         };
 
         string[][] opciones = {
@@ -26,7 +36,16 @@ class miguelex
             new string[] {"a. Búho", "b. Gato", "c. Rata", "d. Lechuza"},
             new string[] {"a. Pociones", "b. Transformaciones", "c. Herbología", "d. Defensa contra las Artes Oscuras"},
             new string[] {"a. La Sala Común de mi casa", "b. El Gran Comedor", "c. La Biblioteca", "d. Los terrenos del castillo"},
-            new string[] {"a. Expecto Patronum", "b. Wingardium Leviosa", "c. Expelliarmus", "d. Lumos"}
+            new string[] {"a. Expecto Patronum", "b. Wingardium Leviosa", "c. Expelliarmus", "d. Lumos"},
+            new string[] {"a. La Capa de Invisibilidad", "b. La Varita dNeville Longbottom", "d. Draco Malfoy"},
+            new string[] {"a. Huir", "b. Atacar", "c. Pedir ayuda", "d. Intentar razonar con él"},
+            new string[] {"a. Sol", "b. Lluvia", "c. Nieve", "d. Viento"},
+            new string[] {"a. Escoba voladora", "b. El Autobús Noctámbulo", "c. El Tren Hogwarts Express", "d. Aparición"},
+            new string[] {"a. Rojo", "b. Azul", "c. Amarillo", "d. Verde"},
+            new string[] {"a. Dementor", "b. El Basilisco", "c. El Hombre Lobo", "d. Las Arpías"},
+            new string[] {"a. Grageas de Todos los Sabores", "b. Chocolate de la Caja de Bertie Bott", "c. Pastel de Calabaza", "d. Caramelos de Menta"},
+            new string[] {"a. Historia de la Magia", "b. Adivinación", "c. Estudio de los Muggles", "d. Runas Antiguas"},
+            new string[] {"a. Jugar al Quidditch", "b. Explorar el castillo", "c. Leer en la Biblioteca", "d. Pasar tiempo con amigos"}
         };
 
         // Elegimos cuatro preguntas al azar
