@@ -1,4 +1,4 @@
-program main;
+program Mariopolonia0;
 
 var 
     respuesta: array[1..4] of integer;
