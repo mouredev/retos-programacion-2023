@@ -10,7 +10,7 @@
  */
 
 import 'dart:io';
-import 'dart:math';
+import 'dart:math' as math;
 
 void main() {
   hatSelection();
@@ -48,11 +48,11 @@ void hatSelection() {
   };
   String result = 'Gryffindor';
 
-  for (var i = 0; i < questions.length; i++) {
-    stdout.write(questions[i]['question'] + '\n');
+  questions.forEach((elem) {
+    stdout.write(elem['question'] + '\n');
 
-    for (var idx = 0; idx < questions[i]['answers'].length; idx++) {
-      stdout.write('${idx + 1} - ' + questions[i]['answers'][idx] + '\n');
+    for (var idx = 0; idx < elem['answers'].length; idx++) {
+      stdout.write('${idx + 1} - ' + elem['answers'][idx] + '\n');
     }
     stdout.write('\nResponde solo con el numero de la respuesta: ');
 
@@ -74,14 +74,14 @@ void hatSelection() {
       default:
         print('Invalid answer');
     }
-  }
+  });
 
   int count = 1;
   points.values.reduce((prev, curr) {
     final key = points.keys.elementAt(count);
     curr > prev ? result = key : result;
     count++;
-    return max(prev, curr);
+    return math.max(prev, curr);
   });
 
   print('Tu casa será: $result');
