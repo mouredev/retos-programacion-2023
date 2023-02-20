@@ -53,6 +53,8 @@ function checkRound(move1, move2) {
 // Get player moves and eval each round
 function evalGame(gameMoves) {
   console.log('\nROCK | PAPER | SCISSORS | LIZARD | SPOCK\nJugadas a evaluar:\n', gameMoves, '\n');
+  player1 = 0;
+  player2 = 0;
   gameMoves.forEach( game => checkRound(game[0], game[1]) );
   const gameResult = player1 === player2 ? 'Empate!' : player1 > player2 ? 'Gana jugador 1' : 'Gana jugador 2';
   console.log(gameResult + ' -> ' + player1 + '/' + player2);
