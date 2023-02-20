@@ -70,10 +70,19 @@ void hatSelection() {
   }
 
   String result = '';
-  List points = [gryffindor, hufflepuff, ravenclaw, slytherin];
+  Map<String, int> points = {
+    'gryffindor': gryffindor,
+    'hufflepuff': hufflepuff,
+    'ravenclaw': ravenclaw,
+    'slytherin': slytherin,
+  };
 
-  points.reduce((value, element) {
-    value < element ? result = 'Gryffindor' : null;
+  points.values.reduce((value, element) {
+    final key = points.keys.firstWhere((k) => points[k] == element);
+    // Poner la primera letra en mayúscula
+    value < element
+        ? result = key.replaceFirst(RegExp(r'\b\w'), (m) => {m.toUpperCase()})
+        : null;
     return value;
   });
 
