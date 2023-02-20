@@ -1,0 +1,61 @@
+let accGryffindor = 0;
+let accHufflepuff = 0;
+let accRavenclaw = 0;
+let accSlythering = 0;
+let i = 0;
+let respuestas = []
+let casas=['Gryffindor', 'Hufflepuff', 'ravenclaw', 'Slythering']
+const preguntas = ['Que color te gusta mas: \n2-rojo\n4-amarillo\n6-azul\n8-verde\n', 
+                    'Que valoras mas: \n2-honor\n4-lealtad\n6-sabiduria\n8-ambicion\n',
+                    'que piensas de las artes oscuras: \n2-malas\n4-algo que debe ser prohibido\n6-utiles para aprender\n8-necesarias y usables\n',
+                    'cual de los 4 siguientes presidentes de howards te gusta mas: \n2-dumbledore\n4-helga huffelpuff\n6-Rowena\n8-Salazar  Ravencraw\n',
+                    'con que animal te representas mas?: \n2-leon\n4-tejon\n6-agila\n8-serpiente\n']
+
+
+
+const pregunta = (i) =>{
+    process.stdout.write(preguntas[i])
+}
+
+
+process.stdin.on('data', (data)=>{
+    respuestas.push(data.toString().trim())
+    do{
+        if (respuestas[i] == 2){
+            accGryffindor+=10
+        }else if (respuestas[i] == 4){
+            accHufflepuff+=20
+        }else if( respuestas[i] == 6){
+                accRavenclaw+=30
+            }else if (respuestas[i]==8){
+                accSlythering+=40
+            }else if (respuestas[i]!==2 ||respuestas[i]!==4||respuestas[i]!==6||respuestas[i]!==8){
+                console.log('error')
+                process.exit()
+            }
+            i++
+    }while(i<respuestas.length)
+   
+
+    if (respuestas.length < preguntas.length){
+        pregunta(respuestas.length)
+        
+       
+    }else{
+        if (accGryffindor>accHufflepuff&&accGryffindor>accRavenclaw&&accGryffindor>accSlythering){
+            console.log(casas[0])
+        }else if(accGryffindor<accHufflepuff&&accHufflepuff>accRavenclaw&&accHufflepuff>accSlythering){
+            console.log(casas[1])
+        }else if (accGryffindor<accRavenclaw&&accSlythering<accRavenclaw&&accHufflepuff<accRavenclaw){
+            console.log(casas[2])
+        }else if (accSlythering>accHufflepuff&&accSlythering>accRavenclaw&&accGryffindor<accSlythering){
+            console.log(casas[3])
+        }else{
+            console.log('lo siento no perteneces a ninguna casa')
+        }
+
+        process.exit()
+    }
+
+})
+pregunta(0)
