@@ -10,6 +10,7 @@
  */
 
 import 'dart:io';
+import 'dart:math';
 
 void main() {
   hatSelection();
@@ -39,51 +40,48 @@ void hatSelection() {
     }
   ];
 
-  int gryffindor = 0;
-  int hufflepuff = 0;
-  int ravenclaw = 0;
-  int slytherin = 0;
+  Map<String, int> points = {
+    'Gryffindor': 0,
+    'Hufflepuff': 0,
+    'Ravenclaw': 0,
+    'Slytherin': 0,
+  };
+  String result = 'Gryffindor';
 
   for (var i = 0; i < questions.length; i++) {
     stdout.write(questions[i]['question'] + '\n');
-    for (var idx = 0; idx < questions[i]['answers'].length; i++) {
+
+    for (var idx = 0; idx < questions[i]['answers'].length; idx++) {
       stdout.write('${idx + 1} - ' + questions[i]['answers'][idx] + '\n');
     }
-    stdout.write('Enter the number of your answer: \n');
+    stdout.write('\nResponde solo con el numero de la respuesta: ');
+
     var answer = stdin.readLineSync();
+    print('\n');
     switch (answer) {
       case '1':
-        gryffindor++;
+        points['Gryffindor'] = points['Gryffindor']! + 1;
         break;
       case '2':
-        hufflepuff++;
+        points['Hufflepuff'] = points['Hufflepuff']! + 1;
         break;
       case '3':
-        ravenclaw++;
+        points['Ravenclaw'] = points['Ravenclaw']! + 1;
         break;
       case '4':
-        slytherin++;
+        points['Slytherin'] = points['Slytherin']! + 1;
         break;
       default:
         print('Invalid answer');
     }
   }
 
-  String result = '';
-  Map<String, int> points = {
-    'gryffindor': gryffindor,
-    'hufflepuff': hufflepuff,
-    'ravenclaw': ravenclaw,
-    'slytherin': slytherin,
-  };
-
-  points.values.reduce((value, element) {
-    final key = points.keys.firstWhere((k) => points[k] == element);
-    // Poner la primera letra en mayúscula
-    value < element
-        ? result = key.replaceFirst(RegExp(r'\b\w'), (m) => {m.toUpperCase()})
-        : null;
-    return value;
+  int count = 1;
+  points.values.reduce((prev, curr) {
+    final key = points.keys.elementAt(count);
+    curr > prev ? result = key : result;
+    count++;
+    return max(prev, curr);
   });
 
   print('Tu casa será: $result');
