@@ -26,7 +26,7 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#6** - 06/02/23 | Media | [`PIEDRA, PAPEL, TIJERA, LAGARTO, SPOCK`](./Retos/Reto%20%236%20-%20PIEDRA,%20PAPEL,%20TIJERA,%20LAGARTO,%20SPOCK%20%5BMedia%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/JC4muXe60Pw)] [[MI SOLUCIÓN](./Retos/Reto%20%236%20-%20PIEDRA,%20PAPEL,%20TIJERA,%20LAGARTO,%20SPOCK%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%236%20-%20PIEDRA,%20PAPEL,%20TIJERA,%20LAGARTO,%20SPOCK%20%5BMedia%5D)]
 * **#7** - 13/02/23 | Media | [`EL SOMBRERO SELECCIONADOR`](./Retos/Reto%20%237%20-%20EL%20SOMBRERO%20SELECCIONADOR%20%5BMedia%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 20/02/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1074618686062743552) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 21/02/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1074618686062743552) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
