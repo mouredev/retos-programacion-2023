@@ -1,5 +1,5 @@
 # Reto #7: El sombrero seleccionador
-#### Dificultad: Media | Publicación: 13/02/23 | Corrección: 21/02/23
+#### Dificultad: Media | Publicación: 13/02/23 | Corrección: 20/02/23
 
 ## Enunciado
 
