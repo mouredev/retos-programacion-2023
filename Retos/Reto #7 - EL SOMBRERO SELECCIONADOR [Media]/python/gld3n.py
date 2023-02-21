@@ -19,19 +19,16 @@ the response, adds a point to the corresponding house.
 """
 def verification():
     global houses
-
-    while True:
-        try:
-            election = int(input(""))
-        except ValueError:
-            print("You must provide a *number* between 1 and 4")
-            continue
-        else:
-            if election < 1 or election > 4:
-                print("You must provide a number between 1 and 4")
-                continue 
-
-            break
+    
+    try:
+        election = int(input(""))
+    except ValueError:
+        print("You must provide a *number* between 1 and 4")
+        return verification()
+    else:
+        if election < 1 or election > 4:
+            print("You must provide a number between 1 and 4")
+            return verification()
 
     if election == 1:
         houses["Hufflepuff"] += 1
