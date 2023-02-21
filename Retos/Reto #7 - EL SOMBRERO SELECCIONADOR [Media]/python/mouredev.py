@@ -21,7 +21,7 @@ def get_answer():
     return get_answer()
 
 
-print("Hola, soy el \"Sombrero Selecionador\"\nTendrás que responder cinco preguntas para ayudarme a descubrir tu casa de Hogwarts.\n")
+print("Hola, soy el \"Sombrero Seleccionador\"\nTendrás que responder cinco preguntas para ayudarme a descubrir tu casa de Hogwarts.\n")
 
 hat_questions = [HatQuestion("¿Cómo te definirías?", [
                             ("1. Valiente", "gryffindor"),
@@ -66,8 +66,6 @@ for hat_question in hat_questions:
     houses[house] += 1
 
     print()
-
-print(houses)
 
 selected_house = []
 max_points = 0
