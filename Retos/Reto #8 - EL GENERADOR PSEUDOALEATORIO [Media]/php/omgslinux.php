@@ -10,7 +10,7 @@
 function myRandom()
 {
     $d=new DateTime();
-    return $d->format('u') % 100;
+    return $d->format('u') % 101;
 }
 
 for ($i=1; $i<=20; $i++) {
