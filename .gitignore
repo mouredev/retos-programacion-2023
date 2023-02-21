@@ -2,7 +2,7 @@
 .DS_store
 
 # Ignora .gitingnore
-.gitingnore
+.gitignore
 
 # Ignora .idea directorioy archivos .iml
 /.idea
