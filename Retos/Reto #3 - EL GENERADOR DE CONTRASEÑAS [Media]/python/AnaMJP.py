@@ -4,7 +4,7 @@ def passwordGenerator():
     want_upper = input("Quieres que contenga letras mayúsculas? (y,n): ")
     want_num = input("Quieres que contenga numeros? (y,n): ")
     want_simb = input("Quieres que contenga símbolos? (y,n): ")
-    
+
     count = 1
     password = ""
     choosed = list()
@@ -22,7 +22,8 @@ def passwordGenerator():
             choosed.append(str(num))
 
         if(want_simb == "y"):      
-            simb = chr(random.randrange(33, 47))
+            simb = random.choice((chr(random.randrange(33, 47)), chr(random.randrange(58, 64)), chr(random.randrange(91, 96))))
+            print(simb)
             choosed.append(simb)
 
         password += random.choice(choosed)
