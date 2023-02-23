@@ -1,5 +1,7 @@
 import time
 
+# @javierm_p
+
 
 def metodo_parte_media_del_cuadrado(seed):
     cudrado_seed = seed**2
