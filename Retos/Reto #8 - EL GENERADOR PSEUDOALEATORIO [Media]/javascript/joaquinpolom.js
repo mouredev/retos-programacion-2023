@@ -12,7 +12,8 @@
 let a = 5;
 let b = 20;
 let m = 100;
-let i = 5;
+//let i = 5;
+let i = Date.now().GetMilliseconds() + 50;
 //var x = 0.0;
 // var x = Date.now().GetMilliseconds() / 10;
 var x = () => {
