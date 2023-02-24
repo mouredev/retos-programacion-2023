@@ -16,6 +16,6 @@ const segment2 = Number(now.slice(-3));
 const mod = segment1 % segment2;
 
 // Aplicamos una fórmula que altere use los tres valores anteriores usando operaciones no lineales
-const rand = Math.round((100 * ((segment2 * mod) / (segment1 - mod)))) % 100
+const rand = Math.round((100 * ((segment2 * mod) / (segment1 - mod)))) % 101
 
 console.log(rand)
