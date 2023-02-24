@@ -1,14 +1,17 @@
 import math
 
 def is_fibonacci(n):
-    x,y,fib=-1,1,0
-    while fib<n:
-        fib=x+y
-        x=y
-        y=fib
-    if fib==n:
-        return True
-    else: 
+    if n>0:
+        x,y,fib=-1,1,0
+        while fib<n:
+            fib=x+y
+            x=y
+            y=fib
+        if fib==n:
+            return True
+        else: 
+            return False
+    else:
         return False
 
 def is_prime(n):
@@ -29,3 +32,4 @@ def test_number(number):
 
 test_number(2)
 test_number(7)
+test_number(0)
