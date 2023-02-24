@@ -28,4 +28,4 @@ def piedra_papel_tijera_lagarto_spock(listado):
 
 piedra_papel_tijera_lagarto_spock([("🗿","✂️"), ("✂️","🗿"), ("📄","✂️")])
 piedra_papel_tijera_lagarto_spock([("🗿","🖖"), ("🖖","🗿"), ("🦎","✂️"),("🗿","✂️")])
-piedra_papel_tijera_lagarto_spock([("🗿","🖖"), ("🖖","🗿"), ("🦎","✂️"),("🗿","✂️"),("🦎","🖖")])
+piedra_papel_tijera_lagarto_spock([("🗿","🖖"), ("🖖","🗿"), ("🦎","✂️"),("🗿","✂️"),("🦎","🖖"),("✂️","📄")])
