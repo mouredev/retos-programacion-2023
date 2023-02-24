@@ -4,3 +4,10 @@
  *
  * Es más complicado de lo que parece...
 """
+import time
+def number_random():
+    now_time = time.time()
+    return int(now_time * 1000000) % 101
+
+print(number_random())
+
