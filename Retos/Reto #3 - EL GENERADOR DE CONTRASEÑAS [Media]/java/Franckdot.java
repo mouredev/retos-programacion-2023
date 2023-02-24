@@ -83,9 +83,9 @@ public class Franckdot {
                     break;
             }
         }
-        System.out.println(newPass);
+        System.out.println("Esta es su nueva contraseña: " + newPass);
         }else{
-            System.out.println("Agrego una valor no deseado, vuelva a intentarlo");
+            System.out.println("Agrego una valor no deseado, por favor vuelva a intentarlo!!!!");
         }
         
     }
