@@ -12,8 +12,7 @@ def reglas(jugado):
             points=[0,1,0,0,1]
         elif jugado[0]==options[4]:
             points=[1,0,1,0,0]
-        indice=options.index(jugado[1]) 
-        return points[indice]
+        return points[options.index(jugado[1])]
     else:
         return 2
 
