@@ -12,23 +12,8 @@
 let a = 5;
 let b = 20;
 let m = 100;
-//let i = 5;
-let i = Date.now().GetMilliseconds() + 50;
-//var x = 0.0;
-// var x = Date.now().GetMilliseconds() / 10;
-var x = () => {
-  // Get the time
-  const ahora = new Date.now();
-  return (ahora.GetMilliseconds() / 10);
-}
-
-function initSeed() {
-  // Init the seed
-  // Get the time
-  const ahora = new Date.now();
-  var x = (ahora.GetMilliseconds()) / 10;
-  return x;
-}
+let i = Date.now() % 2500;
+var x = Date.now() % 100;
 
 function genNumRandom(x) {
   while (i > 0) {
@@ -36,8 +21,9 @@ function genNumRandom(x) {
     var x = (a * x + b) % m;
     genNumRandom(x);
   }
+  return x;
 }
 
-initSeed();
-genNumRandom(x);
+//console.log(x);
+var x = genNumRandom(x);
 console.log(x);
