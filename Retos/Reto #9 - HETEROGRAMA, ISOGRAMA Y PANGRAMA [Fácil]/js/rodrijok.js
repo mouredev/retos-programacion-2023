@@ -5,7 +5,7 @@
  * - Debes buscar la definición de cada uno de estos términos.
  */
 
-function is_heterograma(cadena) {
+function heterograma(cadena) {
     // Heterograma: es una palabra que no tiene letras repetidas.
     let string = cadena.toLowerCase().split("")
     string = string.map(letra => letra.replace(" ", ""))
@@ -13,7 +13,7 @@ function is_heterograma(cadena) {
     return string.length == cadena.length
 }
 
-function is_isograma(cadena) {
+function isograma(cadena) {
     // Isograma: es una palabra o frase en la que cada letra aparece el mismo número de veces
     let string = cadena.toLowerCase().split("")
     let letras_usadas = {}
@@ -27,7 +27,7 @@ function is_isograma(cadena) {
     return Object.values(letras_usadas).every(valor => valor == valor_maximo)
 }
 
-function is_pangrama(cadena) {
+function pangrama(cadena) {
     // Pangrama: es una frase que contiene todas las letras del abecedario.
     let abecedario = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     let string = cadena.toLowerCase().split("")
@@ -37,9 +37,9 @@ function is_pangrama(cadena) {
     return string.length == abecedario.length
 }
 
-console.log(is_heterograma("hola")); // true
-console.log(is_isograma("hoaa")); // false
-console.log(is_heterograma("aaaaaaaaaa")); // false
-console.log(is_isograma("hola")); // true
-console.log(is_pangrama("Abcde fghijkl mnñopq rstuvwx yz")); // true
-console.log(is_pangrama("cde fghijkl mnñopq rstuvwx yz")); // false
+console.log(heterograma("hola")); // true
+console.log(isograma("hoaa")); // false
+console.log(heterograma("aaaaaaaaaa")); // false
+console.log(isograma("hola")); // true
+console.log(pangrama("Abcde fghijkl mnñopq rstuvwx yz")); // true
+console.log(pangrama("cde fghijkl mnñopq rstuvwx yz")); // false
