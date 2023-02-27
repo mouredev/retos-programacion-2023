@@ -6,9 +6,9 @@ fun main() {
 }
 
 fun evaluateText(text: String): String {
-    val isHeterogram = isHeterogram(text)
-    val isIsogram = isIsogram(text)
-    val isPangram = isPangram(text)
+    val isHeterogram = isHeterogram(text.lowercase())
+    val isIsogram = isIsogram(text.lowercase())
+    val isPangram = isPangram(text.lowercase())
 
     if (!isHeterogram && !isIsogram && !isPangram) {
         return "No es ni heterograma, isograma ni pangrama."
