@@ -37,7 +37,8 @@ function isPrime($number, $debug = false)
 {
     $i = 2;
     $prime = true;
-    while ($i<=($number**0.5) && $prime) {
+    //while ($i<=($number**0.5) && $prime) {
+    while ($i<=sqrt($number) && $prime) {
         if (($number % $i)==0) {
             $prime = false;
         }
@@ -51,7 +52,7 @@ function isPrime($number, $debug = false)
 }
 
 $test = new Fibonacci();
-$numbers = [2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 20, 33, 34, 55];
+$numbers = [2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 20, 33, 34, 55, 89];
 foreach ($numbers as $number) {
     $odd = $number % 2;
     $prime = isPrime($number);
