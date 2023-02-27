@@ -33,29 +33,28 @@ class Fibonacci
     }
 }
 
-function isDivisible($number, $debug = false)
+function isPrime($number, $debug = false)
 {
     $i = 2;
-    $div = false;
-    while ($i<($number**0.5) && (!$div)) {
-        if ($debug) {
-            printf("probando %d\n", $i);
-        }
+    $prime = true;
+    while ($i<=($number**0.5) && $prime) {
         if (($number % $i)==0) {
-            $div = true;
+            $prime = false;
+        }
+        if ($debug) {
+            printf("Para %d, probando %d, resultado %s\n", $number, $i, ($prime?'true':'false'));
         }
         $i++;
     }
 
-    return $div;
+    return $prime;
 }
 
 $test = new Fibonacci();
-$numbers = [2, 3, 4, 5, 6, 7, 8, 11, 13, 20, 33, 34, 55];
+$numbers = [2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 20, 33, 34, 55];
 foreach ($numbers as $number) {
     $odd = $number % 2;
-    // El 2 es primo
-    $div = ($odd?isDivisible($number):$number!=2);
+    $prime = isPrime($number);
     $fibo = $test->checkFibonacci($number);
-    printf("%d:%s es primo,%s fibonacci y es %s\n", $number, ($div?' no':''), ($fibo?'':' no'), ($odd?'impar':'par'));
+    printf("%d:%s es primo,%s fibonacci y es %s\n", $number, ($prime?'':' no'), ($fibo?'':' no'), ($odd?'impar':'par'));
 }
