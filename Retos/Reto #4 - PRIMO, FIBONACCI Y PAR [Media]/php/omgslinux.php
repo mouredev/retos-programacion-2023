@@ -37,7 +37,6 @@ function isPrime($number, $debug = false)
 {
     $i = 2;
     $prime = true;
-    //while ($i<=($number**0.5) && $prime) {
     while ($i<=sqrt($number) && $prime) {
         if (($number % $i)==0) {
             $prime = false;
