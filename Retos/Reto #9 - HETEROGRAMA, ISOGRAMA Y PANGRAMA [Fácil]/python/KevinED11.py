@@ -30,14 +30,15 @@ def is_isogram(text: str) -> bool:
 
 def is_pangram(text: str) -> bool:
     text = set("".join(text.lower().split()))
+    abc = list(ascii_lowercase)
 
     if "ñ" in text:
-        abc = tuple(ascii_lowercase + "ñ")
-        return len(text) == len(abc)
+        abc.append("ñ")
 
-    abc = tuple(ascii_lowercase)
+    if any(l not in text for l in abc):
+        return False
 
-    return len(text) == len(abc)
+    return True
 
 
 if __name__ == "__main__":
