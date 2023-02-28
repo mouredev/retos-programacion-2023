@@ -10,19 +10,11 @@ class SortingHat():
         }
 
         self.questions = [
-            "¿Cuál de las siguientes opciones odiaría más que la gente lo llamara?",
-            "¿Qué poción preferirías inventar?",
-            "¿Qué tipo de instrumento agrada más a tu oído?",
-            "¿Cuál preferirías ser?",
-            "Entras en un jardín encantado, ¿Qué sería lo más curioso de examinar primero?"
-        ]
-        
-        self.alternatives = [
-            ["Ordinario", "Ignorante", "Cobarde", "Egoista"],
-            ["Gloria", "Sabiduria", "Amor", "Poder"],
-            ["Violin", "Tambores", "Piano", "Trompeta"],
-            ["De confianza", "Querido", "Imitado", "Alabado"],
-            ["El arbol de hojas de plata con manzanas doradas", "Las setas rojas gordas que parecen estar hablando entre si", "El estanque burbujeante en cuyas profundidades se arremolina algo luminoso", "La estatua del viejo mago con un raro centelleo en los ojos"]
+            ["¿Cuál de las siguientes opciones odiaría más que la gente lo llamara?", ("Ordinario", "Ignorante", "Cobarde", "Egoista")],
+            ["¿Qué poción preferirías inventar?", ("Gloria", "Sabiduria", "Amor", "Poder")],
+            ["¿Qué tipo de instrumento agrada más a tu oído?", ("Violin", "Tambores", "Piano", "Trompeta")],
+            ["¿Cuál preferirías ser?", ("De confianza", "Querido", "Imitado", "Alabado")],
+            ["Entras en un jardín encantado, ¿Qué sería lo más curioso de examinar primero?", ("El arbol de hojas de plata con manzanas doradas", "Las setas rojas gordas que parecen estar hablando entre si", "El estanque burbujeante en cuyas profundidades se arremolina algo luminoso", "La estatua del viejo mago con un raro centelleo en los ojos")]
         ]
 
         self.answers = {
@@ -33,12 +25,12 @@ class SortingHat():
         }
 
 
-    def get_questions(self):
-        return self.questions
+    def get_question(self, index):
+        return self.questions[index][0]
 
 
-    def get_alternatives(self):
-        return self.alternatives
+    def get_alternative(self, index):
+        return self.questions[index][1]
 
 
     def get_house(self):
@@ -60,26 +52,24 @@ class SortingHat():
 
 def select_house():
     hat = SortingHat()
-    questions = hat.get_questions()
-    alternatives = hat.get_alternatives()
-
-    option = 0
     answer = ""
+    option = 0
 
-    for i, question in enumerate(questions):
-        print(f"{question}:", end="\n"*2)
+    for i, question in enumerate(hat.questions):
+        print(f"{hat.get_question(i)}:\n")
 
-        for j, alternative in enumerate(alternatives[i]):
+        for j, alternative in enumerate(hat.get_alternative(i)):
             print(f"{j+1}. {alternative}")
 
         print()
 
         option = int(input("Seleccione una opción: "))
-        answer = alternatives[i][option-1]
-        hat.add_point(answer)
         print()
+        
+        answer = hat.get_alternative(i)[option-1]
+        hat.add_point(answer)
     
-    print(hat.get_house())
+    print(f"Tu casa es... ¡{hat.get_house()}!")
 
 
 select_house()
