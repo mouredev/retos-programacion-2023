@@ -29,6 +29,7 @@ const piedraPapelTijerasLagartoSpock = (game: [Hand, Hand][]) => {
     return points
   }, [0, 0])
 
+  if (playerPoints[0] === playerPoints[1]) return 'Tie'
   return `Player 1: ${playerPoints[0]} - Player 2: ${playerPoints[1]}`
 }
 
