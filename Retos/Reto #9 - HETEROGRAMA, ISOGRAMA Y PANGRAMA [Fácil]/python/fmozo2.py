@@ -72,11 +72,6 @@ def get_pangrama(word): # Ejemplo de panagrama "Fabio me exige, sin tapujos, que
     return pangrama
 
 
-
-
-
-
-
 palabra = input("Introduzca una palabra o frase para determinar si es heterograma, isograma y pangrama: " )
 
 if get_heterograma(palabra) == False:
