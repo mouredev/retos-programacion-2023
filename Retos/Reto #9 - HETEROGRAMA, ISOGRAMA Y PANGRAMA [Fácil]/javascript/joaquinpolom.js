@@ -16,16 +16,53 @@ function isHeterograma(word) {
   for (let i = 0; i < word.Length; i++) {
     let letter = word[i];
     console.log(letter);
+    if (isInArray(letter,letters)) {
+      // Is not Heterograma
+      console.log("No es un Heterograma");
+      return FALSE;
+    } else {
+      // Add the leter to the array
+      letters = letters + letter;
+      console.log(letters);
+    }
+  }
+  // Es un Heterograma
+  console.log("Es un Heterograma");
+  return TRUE;
 }
 
 function isIsograma(word) {
-  var letters = [];
+  var letters = new Map();
+  for (let i = 0; i < word.Length; i++) {
+    let letter = word[i];
+    console.log(letter);
+    if (letters.has(letter)) {
+      // If the letter has already appeared, increase the account
+      letters.set(letter, (letters.get(letter) + 1));
+    } else {
+      // if the letter has not appeared include in the array
+      letters.set(letter, 1);
+    }
+  }
+  // Check if letters appears the same qty
+  const iterator = letters.values();
+  let a = iterator.next().value;
+  for (iterator) {
+    let a = iterator.value;
+  }
 }
 
 function isPangrama(word) {
   var letters = [];
 }
 
+function isInArray(element, array) {
+  for (let i = 0; i < array.length; i++) {
+    if (element === array[i]) return TRUE;
+  }
+  return FALSE;
+}
+  
 isHeterograma("yuxtaponer");
 isIsograma("yuxtaponer");
 isPangrama("yuxtaponer");
