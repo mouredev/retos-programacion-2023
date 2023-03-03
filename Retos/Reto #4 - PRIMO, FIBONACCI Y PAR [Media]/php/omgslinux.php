@@ -6,18 +6,20 @@
  * - Con el número 7, nos dirá: "7 es primo, no es fibonacci y es impar"
  */
 
-class fibonacci
+class Fibonacci
 {
     private $debug;
 
-    public function __construct($debug=false)
+    public function __construct($debug = false)
     {
         $this->debug = $debug;
     }
-    
+
     public function checkFibonacci($number): bool
     {
-        $prev = 0; $next = 1; $result=1;
+        $prev = 0;
+        $next = 1;
+        $result = 1;
         while ($result<=$number) {
             $result = $prev + $next;
             $prev = $next;
@@ -31,28 +33,28 @@ class fibonacci
     }
 }
 
-function isDivisible($number, $debug=false)
+function isPrime($number, $debug = false)
 {
     $i = 2;
-    $div = false;
-    while ($i<($number**0.5) && (!$div)) {
-        if ($debug) {
-            printf ("probando %d\n", $i);
-        }
+    $prime = true;
+    while ($i<=sqrt($number) && $prime) {
         if (($number % $i)==0) {
-            $div = true;
+            $prime = false;
+        }
+        if ($debug) {
+            printf("Para %d, probando %d, resultado %s\n", $number, $i, ($prime?'true':'false'));
         }
         $i++;
     }
 
-    return $div;
+    return $prime;
 }
 
-$test = new fibonacci();
-$numbers = [5, 6, 7, 8, 11, 13, 20, 33, 34, 55];
-foreach($numbers as $number) {
-    $div = isDivisible($number);
-    $fibo = $test->checkFibonacci($number);
+$test = new Fibonacci();
+$numbers = [2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 20, 33, 34, 55, 89];
+foreach ($numbers as $number) {
     $odd = $number % 2;
-    printf("%d:%s es primo,%s fibonacci y es %s\n", $number, ($div?' no':''), ($fibo?'':' no'), ($odd?'impar':'par'));
+    $prime = isPrime($number);
+    $fibo = $test->checkFibonacci($number);
+    printf("%d:%s es primo,%s fibonacci y es %s\n", $number, ($prime?'':' no'), ($fibo?'':' no'), ($odd?'impar':'par'));
 }
