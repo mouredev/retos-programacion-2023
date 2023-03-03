@@ -6,9 +6,11 @@ fun main() {
 }
 
 fun evaluateText(text: String): String {
-    val isHeterogram = isHeterogram(text.lowercase())
-    val isIsogram = isIsogram(text.lowercase())
-    val isPangram = isPangram(text.lowercase())
+    val textFormatted = text.filterNot { it.isWhitespace() }.trim().lowercase()
+
+    val isHeterogram = isHeterogram(textFormatted)
+    val isIsogram = isIsogram(textFormatted)
+    val isPangram = isPangram(textFormatted)
 
     if (!isHeterogram && !isIsogram && !isPangram) {
         return "No es ni heterograma, isograma ni pangrama."
@@ -24,19 +26,7 @@ fun evaluateText(text: String): String {
 }
 
 fun isHeterogram(text: String): Boolean {
-    var isRepeated = false
-    val characters = mutableListOf<Char>()
-
-    text.forEach { character ->
-        if (!characters.contains(character)) {
-            characters.add(character)
-        } else {
-            isRepeated = true
-            return@forEach
-        }
-    }
-
-    return !isRepeated
+    return text.length == text.toSet().size
 }
 
 fun isIsogram(text: String): Boolean {
