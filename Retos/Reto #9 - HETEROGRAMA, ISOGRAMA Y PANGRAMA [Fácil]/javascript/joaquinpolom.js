@@ -47,9 +47,17 @@ function isIsograma(word) {
   // Check if letters appears the same qty
   const iterator = letters.values();
   let a = iterator.next().value;
+  console.log("isIsograma a: " + a);
   for (iterator) {
+    console.log("isIsograma iterator: " + iterator);
+    if (iterator.value !== a) {
+      // Is diferent. Is not Isograma
+      console.log("No es un Isograma");
+      return FALSE
     let a = iterator.value;
+    console.log("isIsograma a: " + a);
   }
+  // Is a Isograma
 }
 
 function isPangrama(word) {
