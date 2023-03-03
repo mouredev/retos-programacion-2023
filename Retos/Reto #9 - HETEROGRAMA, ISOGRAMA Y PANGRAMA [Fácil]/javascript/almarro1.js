@@ -25,7 +25,7 @@ function isogram(word) {
 }
 
 function findFrequencies(text) {
-  return text.replace(' ', '')
+  return text.replace(/[ !"$%&/()=?¿¡|@.,-_<>ç+*{}[\]\\]/, '')
     .replace(/[áäà]/, 'a')
     .replace(/[éèë]/, 'e')
     .replace(/[íìï]/, 'i')
@@ -51,5 +51,5 @@ function test(str) {
 
 
 test('Mi hijo degustó en el festival de bayas una extraña pizza de kiwi con queso');
-test('yoyo');
+test('yoyó');
 test('murciélago');
