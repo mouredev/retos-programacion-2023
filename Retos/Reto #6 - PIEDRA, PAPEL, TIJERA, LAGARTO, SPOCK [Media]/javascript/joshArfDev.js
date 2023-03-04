@@ -1,37 +1,45 @@
-const gamet = (games) => {
-  const rules = {
-    "🗿": ["✂️", "🦎"],
-    "🧻": ["🗿", "🖐"],
-    "✂️": ["🧻", "🦎"],
-    "🦎": ["🖐", "🧻"],
-    "🖐": ["✂️", "🗿"],
-  };
 
+
+const gamePSLS = ( plays ) => {
+
+  const scenarios = {
+
+      "🗿": ["✂️", "🦎"],
+      "📄": ["🗿", "🖖"],
+      "✂️": ["📄", "🦎"],
+      "🦎": ["📄", "🖖"],
+      "🖖": ["🗿", "✂️"],
+  }
+
+  //Saving our counters
   let playerOne = 0;
   let playerTwo = 0;
 
-  for (const game of games) {
-    const playerOneGame = game[0];
-    const playerTwoGame = game[1];
+  for( const play of plays  ) {
 
-    if (rules[playerOneGame].includes(playerTwoGame)) {
-        playerOne++;
-    } else {
-        playerTwo++;
+    const playerOnePlay = play[0]
+    const playerTwoPlay = play[1]
+
+    if( scenarios[playerOnePlay].includes(playerTwoPlay) ) {
+
+      playerOne++
+
+    }else {
+      
+      playerTwo++
     }
   }
 
-  return playerOne === playerTwo
-    ? "Tie"
-    : playerOne > playerTwo
-    ? "Player 1 Won!! ✔ "
-    : "Player 2 Won!! ✔ ";
-};
+  return playerOne === playerTwo ? "Tie"
+                                 : playerOne > playerTwo
+                                 ? "Player 1 won! 🙂 "
+                                 : "Player 2 won! 🙂 "
+}
 
-console.log(
-  gamet([
-    ["🗿", "✂️"],
+console.log( gamePSLS([
+
+  ["🗿", "✂️"],
     ["🖖", "🦎"],
-    ["🧻", "🗿"],
-  ])
-);
+    ["📄", "🗿"],
+
+]))
