@@ -10,41 +10,96 @@
 # aparecen todas las letras del abecedario.
 
 # TestString checks if string is an heterogram, isogram or pangram
-class TestStrings
-  def initialize(str)
-    @string = str
-    @unique_characters = count_chars
-  end
+# class TestStrings
+#   def initialize(str)
+#     @string = str
+#     @unique_characters = count_chars
+#   end
 
-  def count_chars
-    @string.downcase
-           .tr('áéíóúüñ', 'aeiouun')
-           .tr('.,;:\-\" ', '')
-           .chars
-           .each_with_object(Hash.new(0)) do |value, key|
-      key[value] += 1
-    end
+#   def count_chars
+#     @string.downcase
+#            .tr('áéíóúüñ', 'aeiouun')
+#            .tr('.,;:\-\" ', '')
+#            .chars
+#            .each_with_object(Hash.new(0)) do |value, key|
+#       key[value] += 1
+#     end
+#   end
+
+#   def heterogram?
+#     return false if @unique_characters.empty?
+
+#     @unique_characters.values.all?(1)
+#   end
+
+#   def isogram?
+#     return false if @unique_characters.empty?
+
+#     @unique_characters.values.all?(@unique_characters.values.min)
+#   end
+
+#   def pangram?
+#     alphabet = ('a'..'z').to_a
+#     @unique_characters.keys.sort == alphabet
+#   end
+
+#   def string_features
+#     [heterogram?, isogram?, pangram?]
+#   end
+# end
+
+# Solutions provided in #code-review Ruby discord channel. (2023-03-02)
+class TestStrings
+  ALPHABET = [*'a'..'z'].freeze
+
+  attr_reader :string_features
+
+  def initialize(input_string)
+    @tally = tally(input_string)
+    @heterogram = heterogram
+    @isogram = isogram
+    @pangram = pangram
+    @string_features = features
   end
 
   def heterogram?
-    return false if @unique_characters.empty?
-
-    @unique_characters.values.all?(1)
+    @heterogram
   end
 
   def isogram?
-    return false if @unique_characters.empty?
-
-    @unique_characters.values.all?(@unique_characters.values.min)
+    @isogram
   end
 
   def pangram?
-    alphabet = ('a'..'z').to_a
-    @unique_characters.keys.sort == alphabet
+    @pangram
   end
 
-  def string_features
-    [heterogram?, isogram?, pangram?]
+  private
+
+  def tally(chars)
+    chars.delete('.,;:\-\"\' ')
+         .downcase
+         .tr('áéíóúüñ', 'aeiouun')
+         .grapheme_clusters
+         .tally
+  end
+
+  def heterogram
+    @tally.any? && @tally.values.all?(1)
+  end
+
+  def isogram
+    # @tally.values.sum > @tally.size
+    @tally.any? && @tally.values.all?(@tally.values.min)
+  end
+
+  def pangram
+    puts @tally
+    @tally.keys.sort == ALPHABET
+  end
+
+  def features
+    [@heterogram, @isogram, @pangram]
   end
 end
 
