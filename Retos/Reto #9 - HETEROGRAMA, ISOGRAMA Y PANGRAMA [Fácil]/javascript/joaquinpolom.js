@@ -13,11 +13,9 @@
 
 function isHeterograma(word) {
   console.log("isHeterograma word: " + word);
-  //console.log("isHeterograma word length: " + word.length);
   var letters = [];
   for (let i = 0; i < word.length; i++) {
     let letter = word[i];
-    //console.log("isHeterograma letter: " + letter);
     if (isInArray(letter,letters)) {
       // Is not Heterograma
       console.log("No es un Heterograma");
@@ -25,7 +23,6 @@ function isHeterograma(word) {
     } else {
       // Add the leter to the array
       letters = letters + letter;
-      //console.log(letters);
     }
   }
   // Es un Heterograma
@@ -38,34 +35,23 @@ function isIsograma(word) {
   var letters = new Map();
   for (let i = 0; i < word.length; i++) {
     let letter = word[i];
-    //console.log("isIsograma letter: " + letter);
-    //console.log("isIsograma word letters.has(letter): " + letters.has(letter));
     if (letters.has(letter)) {
       // If the letter has already appeared, increase the account
       letters.set(letter, (letters.get(letter) + 1));
-      //console.log("isIsograma letters[letter]: " + letters.get(letter));
     } else {
       // if the letter has not appeared include in the array
       letters.set(letter, 1);
-      //console.log("isIsograma letters[letter]: " + letters.get(letter));
     }
   }
-  //console.log("isIsograma letters: " + letters);
   // Check if letters appears the same qty
   let a = 0;
-  //console.log("isIsograma a: " + a);
   for (const value of letters.values()) {
-    //console.log("isIsograma value:" + value);
     if (a == 0) {
       // Is the first value
-      //console.log("a==0");
       a = value;
-      //console.log("isIsograma a: " + a);
     }
-    //console.log("a: " + a + " value: " + value);
     if (a != value) {
       // Is diferent. Is not Isograma
-      //console.log("a != value");
       console.log("No es un Isograma");
       return false;
     }
@@ -81,16 +67,12 @@ function isPangrama(word) {
   // Count the letters
   for (let i = 0; i < word.length; i++) {
     let letter = word[i];
-    //console.log("isPangrama letter: " + letter);
-    //console.log("isPangrama word letters.has(letter): " + letters.has(letter));
     if (letters.has(letter)) {
       // If the letter has already appeared, increase the account
       letters.set(letter, (letters.get(letter) + 1));
-      //console.log("isPangrama letters[letter]: " + letters.get(letter));
     } else {
       // if the letter has not appeared include in the array
       letters.set(letter, 1);
-      //console.log("isPangrama letters[letter]: " + letters.get(letter));
     }
   }
   // Alphabet
@@ -98,7 +80,6 @@ function isPangrama(word) {
   // Check if all the letter of the alphabet are in the map with the letters of the word
   for (const l of alphabet) {
     // if l is in letters
-    //console.log("isPangrama l: " + l);
     if (!letters.get(l)) {
       console.log("No es un Pangrama");
       return false
@@ -115,7 +96,6 @@ function isInArray(element, array) {
   }
   return false
 }
-
 
 isHeterograma("yuxtaponer");
 isIsograma("yuxtaponer");
