@@ -28,7 +28,8 @@ def heterograma(frase):
             if cantidad==1:
                 es_heterograma=True
             elif cantidad!=1:
-                es_heterograma=False   
+                es_heterograma=False
+                break   
         else:
             letra
     return 'La cadena de texto es un heterograma' if es_heterograma else 'La cadena de texto no es heterograma'
