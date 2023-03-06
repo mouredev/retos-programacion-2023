@@ -22,28 +22,48 @@ def contar_letras(frase):
     return alfabeto
 
 def heterograma(frase):
+    es_heterograma=False
     for letra, cantidad in contar_letras(frase).items():
-        if cantidad>1:
-            return 'La cadena de texto no es heterograma'
+        if cantidad>=1:
+            if cantidad==1:
+                es_heterograma=True
+            elif cantidad!=1:
+                es_heterograma=False
+                break   
         else:
-            return 'La cadena de texto es heterograma'
+            letra
+    return 'La cadena de texto es un heterograma' if es_heterograma else 'La cadena de texto no es heterograma'
         
 def isograma(frase):
+    max=0
+    es_isograma=False
     for letra, cantidad in contar_letras(frase).items():
-        if cantidad>1:
-            return 'La cadena de texto es un isograma'
+        if cantidad>=1:
+            max=cantidad
+            break
+    
+    for letra, cantidad in contar_letras(frase).items():
+        if cantidad>=1: 
+            if cantidad == max:
+                es_isograma=True
+            elif cantidad!=max:
+                es_isograma=False
         else:
-            return 'La cadena de texto no es un isograma'
+            letra
+    return 'La cadena de texto es un isograma' if es_isograma else 'La cadena de texto no es un isograma'
         
 def pangrama(frase):
-     for letra, cantidad in contar_letras(frase).items():
+    es_pangrama=False
+    for letra, cantidad in contar_letras(frase).items():
         if cantidad>=1:
-            return 'La cadena de texto es un pangrama'
+            es_pangrama=True
         else: 
-            return 'La cadena de texto no es un pangrama'
-
+            es_pangrama=False
+    return 'La cadena de texto es un pangrama' if es_pangrama else 'La cadena de texto no es un pagrama'
 
 print(isograma('caminantes nocturnos'))
+print(isograma('Rara'))
 print(heterograma('Centrifugadlos'))
+print(heterograma('Hoola'))
 print(pangrama('Benjamín pidió una bebida de kiwi y fresa. Noé, sin vergüenza, la más exquisita champaña del menú.'))
-
+print(pangrama('Hola'))
