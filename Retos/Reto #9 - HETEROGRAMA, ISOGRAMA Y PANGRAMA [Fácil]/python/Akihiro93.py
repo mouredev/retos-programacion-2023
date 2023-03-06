@@ -30,7 +30,6 @@ def limpia_texto(texto):
 
 def heterograma(palabra):
     letras = []
-    palabra = limpia_texto(palabra)
     for letra in palabra:
         if letra in letras:
             print("No es un eterograma")
@@ -41,8 +40,8 @@ def heterograma(palabra):
 
 # Isograma
 def isograma(palabra):
-    palabra = limpia_texto(palabra)
     lista_isograma = [i for i in palabra]
+    lista_isograma = lista_isograma.lower
     i = ""
     for i in lista_isograma:
         if lista_isograma.count(i) != 1:
