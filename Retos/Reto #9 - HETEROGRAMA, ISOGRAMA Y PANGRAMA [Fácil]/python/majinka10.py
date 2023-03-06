@@ -60,11 +60,9 @@ def pangrama(frase):
             es_pangrama=False
     return 'La cadena de texto es un pangrama' if es_pangrama else 'La cadena de texto no es un pagrama'
 
-
 print(isograma('caminantes nocturnos'))
 print(isograma('Rara'))
 print(heterograma('Centrifugadlos'))
 print(heterograma('Hoola'))
 print(pangrama('Benjamín pidió una bebida de kiwi y fresa. Noé, sin vergüenza, la más exquisita champaña del menú.'))
 print(pangrama('Hola'))
-
