@@ -11,27 +11,37 @@ public class Qv1ko {
 
     private static void heterogram(String str) {
         boolean isHeterogram=true;
-        for(int i=0;i<str.length();i++) {
-            if(Character.isLetter(str.charAt(i))) {
-                for(int j=i+1;j<str.length();j++) {
-                    if(Character.isLetter(str.charAt(j))) {
-                        isHeterogram=(str.charAt(i)==str.charAt(j))? false:true;
-                        if(!isHeterogram) {
-                            break;
-                        }
-                    }
-                }
-            }
-            if(!isHeterogram) {
+        for(int letterNumber:lettersCounter(str).values()) {
+            if(letterNumber!=1) {
+                isHeterogram=false;
                 break;
-            }
+            } 
         }
-        System.out.println(isHeterogram? "The string \""+str+"\" is a heterogram":"The string \""+str+"\" is not a heterogram");
+        System.out.println((isHeterogram)? "The string \""+str+"\" is a heterogram":"The string \""+str+"\" is not a heterogram");
     }//heterogram
 
     private static void isogram(String str) {
-        Map<Character,Integer> letters=new HashMap<Character,Integer>();
         boolean isIsogram=true;
+        int lettersValue=0;
+        for(int letterNumber:lettersCounter(str).values()) {
+            lettersValue=(lettersValue==0)? letterNumber:lettersValue;
+            if(letterNumber!=lettersValue) {
+                isIsogram=false;
+                break;
+            } 
+        }
+        System.out.println((isIsogram)? "The string \""+str+"\" is an isogram":"The string \""+str+"\" is not an isogram");
+    }//isogram
+
+    private static void pangram(String str) {
+        boolean isPangram=true;
+        isPangram=(lettersCounter(str).size()!=26)? false:true;
+        System.out.println((isPangram)? "The string \""+str+"\" is a pangram":"The string \""+str+"\" is not a pangram");
+    }//pangram
+
+    private static Map<Character,Integer> lettersCounter(String str) {
+        str=str.toLowerCase();
+        Map<Character,Integer> letters=new HashMap<Character,Integer>();
         for(int i=0;i<str.length();i++) {
             if(Character.isLetter(str.charAt(i))) {
                 if(letters.containsKey(str.charAt(i))) {
@@ -41,34 +51,7 @@ public class Qv1ko {
                 }
             }
         }
-        for(int i=0;i<str.length()-1;i++) {
-            if(Character.isLetter(str.charAt(i))) {
-                if(!(letters.get(str.charAt(i))>1&&letters.get(str.charAt(i))==letters.get(str.charAt(i+1)))) {
-                    isIsogram=false;
-                    break;
-                }
-            }
-        }
-        System.out.println(isIsogram? "The string \""+str+"\" is an isogram":"The string \""+str+"\" is not an isogram");
-    }//isogram
-
-    private static void pangram(String str) {
-        String alphabet="abcdefghijklmnopqrstuvwxyz",letters="";
-        boolean addLetter=true;
-        for(int i=0;i<str.length();i++) {
-            if(Character.isLetter(str.charAt(i))) {
-                for(int j=0;j<letters.length();j++) {
-                    if(str.toLowerCase().charAt(i)==letters.charAt(j)) {
-                        addLetter=false;
-                        break;
-                    } else {
-                        addLetter=true;
-                    }
-                }
-                letters+=(addLetter)? str.toLowerCase().charAt(i):"";
-            }
-        }
-        System.out.println((alphabet.length()==letters.length())? "The string \""+str+"\" is a pangram":"The string \""+str+"\" is not a pangram");
-    }//pangram
+        return letters;
+    }//lettersCounter
 
 }//class
