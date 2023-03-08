@@ -1,12 +1,13 @@
 """
-Un heterograma es una palabra que no contiene letras repetidas. Es decir, todas las letras de la palabra son diferentes. 
+Un heterograma es una palabra que no contiene letras repetidas. Es decir, todas las letras de la palabra son diferentes.
 
-Un isograma es una palabra o frase en la que todas las letras se repiten el mismo número de veces. Es decir, no hay letras repetidas más veces que otras. 
+Un isograma es una palabra o frase en la que todas las letras se repiten el mismo número de veces. Es decir, no hay letras repetidas más veces que otras.
 
-Un pangrama es una frase que contiene todas las letras del alfabeto al menos una vez. 
+Un pangrama es una frase que contiene todas las letras del alfabeto al menos una vez.
 
 """
 
+from collections import Counter
 from string import ascii_lowercase
 
 
@@ -21,11 +22,10 @@ def is_heterogram(text: str) -> bool:
 
 
 def is_isogram(text: str) -> bool:
+    count_letters: dict[str, int] = dict(
+        Counter(text.lower().replace(" ", "")))
 
-    u_letters = set("".join(text.lower().split()))
-    text = "".join(text.lower().split())
-
-    return len(u_letters) == len(text)
+    return all(count == list(count_letters.values())[0] for count in count_letters.values())
 
 
 def is_pangram(text: str) -> bool:
