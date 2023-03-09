@@ -93,7 +93,7 @@ class TenisGame
         return $resultado;
     }
 }
-echo 'Juego tenis.;
+echo 'Juego tenis.';
 echo "\n";
 $juego = new TenisGame(['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1']);
-echo  'Resultado : ' . $juego->showPoints();
+echo  "Resultado : " .  $juego->showPoints();
