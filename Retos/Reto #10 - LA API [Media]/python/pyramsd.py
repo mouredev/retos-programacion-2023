@@ -3,7 +3,7 @@ from datetime import datetime
 
 # he creado un api key para este reto de OpenWeather
 user_api = "3d182119ac77b2a38debc1aa430ea0e3"
-location = input("Enter the city name: ")
+location = input("Introduzca nombre de la ciudad: ")
 
 complete_api_link = f"https://api.openweathermap.org/data/2.5/weather?q={location}&appid={user_api}"
 
@@ -29,4 +29,3 @@ else:
     print("Descripción del tiempo  :", weather_desc)
     print("Humedad actual          :", hmdt, "%")
     print("Velocidad del viento    :", wind_spd, "kmph")
-    
