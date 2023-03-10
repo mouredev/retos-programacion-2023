@@ -29,3 +29,4 @@ else:
     print("Descripción del tiempo  :", weather_desc)
     print("Humedad actual          :", hmdt, "%")
     print("Velocidad del viento    :", wind_spd, "kmph")
+    
