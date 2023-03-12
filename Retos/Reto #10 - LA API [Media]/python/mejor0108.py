@@ -43,7 +43,6 @@ class Weather_BA(object):
     def __str__(self)-> str:
         
         json_text       =  self.get_location()
-        print(json_text)
         city_name       =  f'Ubicación : {json_text["LocalizedName"]}'
         
         
