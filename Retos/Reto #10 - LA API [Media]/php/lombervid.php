@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-function request(string $url, string $method = 'GET', array $data = []): string|bool
+function request(string $url, string $method = 'GET'): string|bool
 {
     return file_get_contents($url, false, stream_context_create([
         'http' => [
