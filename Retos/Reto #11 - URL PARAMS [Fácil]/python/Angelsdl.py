@@ -20,3 +20,4 @@ def obtenerValoresURL(url: str):
 
 
 obtenerValoresURL("https://www.google.com/") 
+obtenerValoresURL("https://retosdeprogramacion.com?year=2023&challenge=0")
