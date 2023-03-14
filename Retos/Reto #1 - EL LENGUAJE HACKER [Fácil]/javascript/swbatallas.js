@@ -12,29 +12,40 @@ let dicLet = {
     b: "I3",
     c: "[",
     d: ")",
+    e: "3",
     f: "|=",
     g: "&",
     h: "#",
     i: "1",
-    j:",_|",
-    k:">|",
-    l:"1",
-    m:"^^^^",
-    n:"^/",
-    o:"0",
-    p:"|*",
-    q:"(_,)",
-    r:"I2",
-    s:"5",
-    t:"7",
-    u:"(_)",
-    v:"\/",
-    w:"\/\/",
-    x:"><",
-    y:"j",
-    z:"2"
+    j: ",_|",
+    k: ">|",
+    l: "1",
+    m: "^^^^",
+    n: "^/",
+    o: "0",
+    p: "|*",
+    q: "(_,)",
+    r: "I2",
+    s: "5",
+    t: "7",
+    u: "(_)",
+    v: "\/",
+    w: "\/\/",
+    x: "><",
+    y: "j",
+    z: "2"
 }
 
 function toLeet(texto) {
-
+    let caracteresDelString = []
+    let textoEnLeet = []
+    for (let i = 0; i < texto.length; i++) {
+        let caracter = texto.charAt(i).toLowerCase()
+        caracteresDelString.push(caracter)
+    }
+    for (let i = 0; i < caracteresDelString.length; i++) {
+        textoEnLeet.push(dicLet[caracteresDelString[i]])
+    }
+    return (textoEnLeet)
 }
+console.log(toLeet("ecuador"))
