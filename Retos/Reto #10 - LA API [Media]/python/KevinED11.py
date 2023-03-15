@@ -2,7 +2,6 @@ import requests  # pip3 install requests
 from datetime import datetime
 
 BASE_URL: str = "https://rickandmortyapi.com/api"
-ENDPOINT: str = "/character"
 
 
 def call_rick_and_morty_api(endpoint: str = "/character") -> dict:
