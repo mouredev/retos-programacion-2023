@@ -17,21 +17,44 @@
  * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
  */
 
-const Resultados = ["love", 15, 30, 40, "deuce", "ventaja"]
-let Jugador1 = 0;
-let Jugador2 = 0;
+let Jugador1 = 0
+let Jugador2 = 0
 
-const SumarPuntos = (set) => {
-    if (secuencia === "P1") {
-        Jugador1 = Jugador1 + 15;
-    } else if (secuencia === "P2") {
-        Jugador2 = Jugador2 + 15;
+const SumarPuntos = ({ jugador }) => {
+    if (jugador === ("P1" | "P2")) {
     }
 };
 
-const JugarSet = (secuencia) => {
-    secuencia.map((set) => {
-        SumarPuntos(set)
-    })
-    if (jugador)
+const CalcularResultado = (jugador) => {
+    const ResultadoSegunPuntos = {
+        0: "love",
+        15: 15,
+        30: 30,
+        40: 40,
+        "empate": "deuce",
+        "ventaja": "ventaja"
+    }
+    for (resultado in ResultadoSegunPuntos) {
+        if (jugador === resultado.key) {
+        }
+        else ("resultado no valido")
+    }
 }
+
+const JugarSet = (secuencia) => {
+
+    secuencia.map((set) => {
+        if (set === "P1") {
+            Jugador1 = Jugador1 + 15
+
+        }
+        else if (set === "P2") {
+            Jugador2 = Jugador2 + 15
+        }
+        else throw new Error("set no valido")
+        CalcularResultado(Jugador1)
+    })
+}
+
+
+console.log(JugarSet(["P1", "P1"]))
