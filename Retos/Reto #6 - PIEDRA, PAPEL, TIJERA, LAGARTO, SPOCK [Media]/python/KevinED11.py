@@ -22,7 +22,7 @@ def match(moves: list[tuple[str, str]]) -> str:
             points['player1'] += 0
             points['player2'] += 0
 
-        if mov1 == 'PIEDRA' and mov2 == 'TIJERA' or mov1 == 'TIJERA' and mov2 == 'PAPEL' or mov1 == 'PAPEL' and mov2 == 'PIEDRA' or mov1 == 'LAGARTO' and mov2 == 'PAPEL' or mov1 == 'PAPEL' and mov2 == 'SPOCK' or mov1 == 'SPOCK' and mov2 == 'SPOCK' or mov1 == 'TIJERAS' and mov2 == 'LAGARTO' or mov1 == 'LAGARTO' and mov2 == 'SPOCK' or mov1 == 'PIEDRA' and mov2 == 'LAGARTO':
+        if mov1 == 'PIEDRA' and mov2 == 'TIJERA' or mov1 == 'TIJERA' and mov2 == 'PAPEL' or mov1 == 'PAPEL' and mov2 == 'PIEDRA' or mov1 == 'LAGARTO' and mov2 == 'PAPEL' or mov1 == 'PAPEL' and mov2 == 'SPOCK' or mov1 == 'SPOCK' and mov2 == 'PAPEL' or mov1 == 'TIJERAS' and mov2 == 'LAGARTO' or mov1 == 'LAGARTO' and mov2 == 'SPOCK' or mov1 == 'PIEDRA' and mov2 == 'LAGARTO' or mov1 == 'PAPEL' and mov2 == 'SPOCK':
             points['player1'] += 1
         else:
             points['player2'] += 1
@@ -35,6 +35,6 @@ def match(moves: list[tuple[str, str]]) -> str:
 
 if __name__ == '__main__':
     match1 = match([('Piedra', 'Tijera'), ('Papel', 'Tijera'),
-                    ('Lagarto', 'Spock'), ('Spock', 'Tijera')])
+                    ('Lagarto', 'Spock'), ('papel', 'spock')])
 
     print(match1)
