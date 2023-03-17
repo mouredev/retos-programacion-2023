@@ -41,6 +41,29 @@ const isHeterogram = (word) => {
     return response
 }
 
+const isIsogram = (word) => {
+    word = replaceAccents(word).toLowerCase();
+    objectOfLetters = {}
+    response = ""
+    for (let index = 0; index < word.length; index++) {
+        if (word[index] in objectOfLetters) {
+            objectOfLetters[word[index]] += 1
+        }
+        else{
+            objectOfLetters[word[index]] = 1
+        }
+    }
+    for (const letter in objectOfLetters) {
+        if (objectOfLetters[letter] > 1) {
+            response += "No es un isograma"
+            return response
+        }
+    }
+    response += "Es un isograma"
+    return response
+}
+
+
 
 console.log(isHeterogram("Víctima"))
 console.log(isHeterogram("Wágner"))
