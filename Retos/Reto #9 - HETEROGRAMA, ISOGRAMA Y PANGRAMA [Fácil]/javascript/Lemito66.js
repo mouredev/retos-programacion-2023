@@ -1,7 +1,7 @@
 /*
 
  * Crea 3 funciones, cada una encargada de detectar si una cadena de
- * texto es un isHeterogram, un isHeterogram o un pangrama.
+ * texto es un isHeterogram, un isHeterogram o un isPangram+.
  * - Debes buscar la definición de cada uno de estos términos.
 
 */
@@ -90,7 +90,7 @@ const isPangram = (word) => {
 
 
 
-console.log(isHeterogram("Víctima"))
+/* console.log(isHeterogram("Víctima"))
 console.log(isHeterogram("Wágner"))
 console.log(isHeterogram("Queso"))
 console.log(isHeterogram("Néctar"))
@@ -102,9 +102,11 @@ console.log(isHeterogram("Políglota"))
 console.log(isHeterogram("Abstemio"))
 console.log(isHeterogram("Desoxirribonucleico"))
 console.log(isHeterogram("Hipopótamo"))
-console.log(isHeterogram("Benzodiacepina"))
+console.log(isHeterogram("Benzodiacepina")) */
 
 
-print(pangrama("El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja"))
-print(pangrama("Jovencillo emponzoñado de whisky, qué figurota exhibe. Cadáveres de ñus, paz y asombro, ¿qué más añadir?"))
-print(pangrama("El pingüino Wenceslao hizo kilómetros bajo exhaustiva lluvia y frío, añoraba a su querido cachorro."))
+console.log(isPangram("El veloz murciélago hindú comía feliz cardillo y kiwi. La cigüeña tocaba el saxofón detrás del palenque de paja"))
+console.log(isPangram("Jovencillo emponzoñado de whisky, qué figurota exhibe. Cadáveres de ñus, paz y asombro, ¿qué más añadir?"))
+console.log(isPangram("El pingüino Wenceslao hizo kilómetros bajo exhaustiva lluvia y frío, añoraba a su querido cachorro"))
+
+console.log(isPangram("pajarito"))
