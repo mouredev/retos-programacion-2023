@@ -1,4 +1,3 @@
-from collections import Counter
 
 
 def url_params(url: str) -> list[str] | str:
@@ -13,7 +12,7 @@ def url_params(url: str) -> list[str] | str:
             case _:
                 params: str = [None if param.split("=")[1] == ""
                                else param.split("=")[1] for param in url.split("?")[1].split("&")]
-    except (IndexError, Exception) as error:
+    except (IndexError) as error:
         print(f"revisa bien tu url: {error}")
         return []
 
