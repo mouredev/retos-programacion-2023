@@ -10,7 +10,7 @@ def is_friday_thirteen(year: int, month: int) -> bool:
 
 
 def print_all_friday_thirteens_to_year(to_year: int = datetime.date.today().year):
-    for year in range(1970, to_year):
+    for year in range(1970, to_year+1):
         for month in range(1, 12):
             if is_friday_thirteen(year, month):
                 print(
