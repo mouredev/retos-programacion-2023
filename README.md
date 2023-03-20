@@ -29,7 +29,7 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#9** - 27/02/23 | Fácil | [`HETEROGRAMA, ISOGRAMA Y PANGRAMA`](./Retos/Reto%20%239%20-%20HETEROGRAMA,%20ISOGRAMA%20Y%20PANGRAMA%20%5BFácil%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/hkWsjk0VG7c)] [[MI SOLUCIÓN](./Retos/Reto%20%239%20-%20HETEROGRAMA,%20ISOGRAMA%20Y%20PANGRAMA%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%239%20-%20HETEROGRAMA,%20ISOGRAMA%20Y%20PANGRAMA%20%5BFácil%5D/)]
 * **#10** - 06/03/23 | Media | [`LA API`](./Retos/Reto%20%2310%20-%20LA%20API%20%5BMedia%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/AGWWns_KHP8)] [[MI SOLUCIÓN](./Retos/Reto%20%2310%20-%20LA%20API%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2310%20-%20LA%20API%20%5BMedia%5D/)]
 * **#11** - 13/03/23 | Fácil | [`URL PARAMS`](./Retos/Reto%20%2311%20-%20URL%20PARAMS%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2311%20-%20URL%20PARAMS%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2311%20-%20URL%20PARAMS%20%5BFácil%5D/)]
-* **#12** - 20/03/23 | Fácil | [`VIERNES 13`](./Retos/Reto%20%2312%20-%20Viernes%2013%20%5BFácil%5D/ejercicio.md) | Último reto publicado
+* **#12** - 20/03/23 | Fácil | [`VIERNES 13`](./Retos/Reto%20%2312%20-%20VIERNES%2013%20%5BFácil%5D/ejercicio.md) | Último reto publicado
 
 > **Corrección y Publicación próximo reto - 27/03/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1087061077705117819) en [Twitch](https://twitch.tv/mouredev)**
 
