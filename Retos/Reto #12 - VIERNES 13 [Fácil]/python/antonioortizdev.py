@@ -9,7 +9,7 @@ def is_friday_thirteen(year: int, month: int) -> bool:
     return weekday == FRIDAY
 
 
-def print_all_friday_thirteens_from_today(to_year: int = datetime.date.today().year):
+def print_all_friday_thirteens_to_year(to_year: int = datetime.date.today().year):
     for year in range(1970, to_year):
         for month in range(1, 12):
             if is_friday_thirteen(year, month):
@@ -18,7 +18,7 @@ def print_all_friday_thirteens_from_today(to_year: int = datetime.date.today().y
 
 
 def main():
-    print_all_friday_thirteens_from_today(2077)
+    print_all_friday_thirteens_to_year(2077)
 
 
 main()
