@@ -10,9 +10,7 @@
 public class JaumeViBU {
 
     public static void main(String[] args) {
-
         System.out.println(leetTranslate("Hello World"));
-
     }
 
     public static String leetTranslate(String str) {
