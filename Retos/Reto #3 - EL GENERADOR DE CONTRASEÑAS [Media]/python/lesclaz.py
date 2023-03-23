@@ -21,90 +21,45 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-import secrets
-import string
 import random
+import string
 
 
-_characters = []
+def generate_password(length=8, uppercase=True, numbers=True, specials=0):
+    """
+    Genera una contraseña aleatoria de la longitud especificada con opciones para incluir letras mayúsculas, números y caracteres especiales.
 
+    Parámetros:
+    length (int): La longitud de la contraseña. El valor por defecto es 8.
+    uppercase (bool): Indica si la contraseña puede tener letras mayúsculas o no. El valor por defecto es True.
+    numbers (bool): Indica si la contraseña puede tener números o no. El valor por defecto es True.
+    specials (int): Indica el número exacto de caracteres especiales que debe tener la contraseña. El valor por defecto es 0.
 
-def __calculate_pws_lenght(
-        spesific_lenght: int,
-        lower_count: int,
-        upper_count: int,
-        digits_count: int,
-        symbols_count: int
-) -> int:
-    count = 0
-    if lower_count:
-        count += lower_count
-    if upper_count:
-        count += upper_count
-    if digits_count:
-        count += digits_count
-    if symbols_count:
-        count += symbols_count
-    
-    return spesific_lenght if spesific_lenght and spesific_lenght > count else count
+    Retorna:
+    str: Una contraseña aleatoria generada.
 
-
-def main(
-        lenght: int = 8,
-        lower: tuple[bool, int] = (True, 2),
-        upper: tuple[bool, int] = (True, 2),
-        digits: tuple[bool, int] = (True, 2),
-        symbols: tuple[bool, int] = (True, 2)
-) -> str:
-    _use_lower, _lower_count = lower
-    pwd_content = []
-    if _use_lower:
-        _characters.extend(string.ascii_lowercase)
-        if not _lower_count or type(_lower_count) != int:
-            _lower_count = 2
-        for _ in range(_lower_count):
-            pwd_content.append(secrets.choice(string.ascii_lowercase))
-    _use_upper, _upper_count = upper
-    if _use_upper:
-        _characters.extend(string.ascii_uppercase)
-        if not _upper_count or type(_upper_count) != int:
-            _upper_count = 2
-        for _ in range(_upper_count):
-            pwd_content.append(secrets.choice(string.ascii_uppercase))
-    _use_digits, _digits_count = digits
-    if _use_digits:
-        _characters.extend(string.digits)
-        if not _digits_count or type(_digits_count) != int:
-            _digits_count = 2
-        for _ in range(_digits_count):
-            pwd_content.append(secrets.choice(string.digits))
-    _use_symbols, _symbols_count = symbols
-    if _use_symbols:
-        _characters.extend(string.punctuation)
-        if not _symbols_count or type(_symbols_count) != int:
-            _symbols_count = 2
-        for _ in range(_symbols_count):
-            pwd_content.append(secrets.choice(string.punctuation))
-
-    pwd_lenght = __calculate_pws_lenght(
-        spesific_lenght=lenght,
-        lower_count=_lower_count,
-        upper_count=_upper_count,
-        digits_count=_digits_count,
-        symbols_count=_symbols_count
-    )
-
-    if len(pwd_content) < pwd_lenght:
-        for _ in range(pwd_lenght - len(pwd_content)):
-            pwd_content.append(secrets.choice(_characters))
-    pwd = ''
-    for _ in range(pwd_lenght):
-        _index = random.randint(0, len(pwd_content) - 1)
-        pwd += pwd_content[_index]
-        pwd_content.pop(_index)
-
-    return pwd
+    Ejemplo:
+    >>> generate_password(length=12, uppercase=True, numbers=True, specials=2)
+    '#AZV[98LzCBW'
+    """
+    if length < 8 or length > 16:
+        raise ValueError("La longitud debe estar entre 8 y 16 caracteres.")
+    characters = string.ascii_lowercase
+    if uppercase:
+        characters += string.ascii_uppercase
+    if numbers:
+        characters += string.digits
+    specials = min(specials, length)
+    special_chars = random.sample(string.punctuation, specials)
+    password_chars = random.sample(characters, length - specials)
+    password_chars.extend(special_chars)
+    random.shuffle(password_chars)
+    password = "".join(password_chars)
+    return password
 
 
 if __name__ == '__main__':
-    print(main(lenght=12))
+    print(generate_password(
+        length=12,
+        specials=2
+    ))
