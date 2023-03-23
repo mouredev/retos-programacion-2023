@@ -1,0 +1,4 @@
+PROGRAM HOLA_MUNDO;
+BEGIN
+   WRITELN('Hola mundo');
+END.

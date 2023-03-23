@@ -1,0 +1,1 @@
+SELECT 'Hola Mundo!' AS saludo;
