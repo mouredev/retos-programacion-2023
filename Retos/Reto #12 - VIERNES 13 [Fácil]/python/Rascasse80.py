@@ -6,6 +6,8 @@
 
 import datetime
 
+mes=int(input("Introduce el mes a comprobar: "))
+año=int(input("Introduce el año: "))
 
 def viernes13(año, mes):
 
@@ -16,4 +18,4 @@ def viernes13(año, mes):
     else:
         return False
     
-print(viernes13(2023, 10))
+print(viernes13(año,mes))
