@@ -21,8 +21,8 @@ const isFibonacci = (num) => {
 const isPrime = (num) => {
 
   if (num < 2) return false;
-  if (isEven(num)) return true;
-  if (num % 2 === 0) return false;
+  if (num === 2) return true;
+  if (isEven(num)) return false;
 
   for (let i = 3; i * i <= num; i += 2) {
     if (num % i === 0) return false;
@@ -37,6 +37,9 @@ const checkNumber = (num) => {
 };
 
 console.log(checkNumber(2));
+console.log(checkNumber(4));
 console.log(checkNumber(7));
 console.log(checkNumber(13));
 console.log(checkNumber(27644437));
+console.log(checkNumber(27644439));
+console.log(checkNumber(479001599));
