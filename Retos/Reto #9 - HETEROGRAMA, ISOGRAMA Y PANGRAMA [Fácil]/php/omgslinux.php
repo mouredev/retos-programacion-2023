@@ -9,9 +9,9 @@
 class CheckHIP // Heterograma Isograma Pangrama
 {
     private $text;
-    private $isIso=false;
-    private $isHet=false;
-    private $isPan=false;
+    private $isIso;
+    private $isHet;
+    private $isPan;
     private $counter=[];
 
     public function setText($text): self
@@ -29,12 +29,14 @@ class CheckHIP // Heterograma Isograma Pangrama
 
     public function init(): void
     {
-        //print("Inicializando...");
+        // Inicializamos las propiedades para cada texto
+        // Almacenamos en un array asociativo con las minúsculas como clave
         $this->counter = [];
         for ($i=ord('a'); $i<=ord('z'); $i++) {
             $this->counter[chr($i)] = 0; //Contador
         }
-        $this->counter[chr(195)] = 0;
+        $this->counter[chr(195)] = 0; // Para la ñ
+        // Y las variables de cada texto y su comprobación
         $this->text = null;
         $this->isIso = $this->isHet = $this->isPan = null;
     }
@@ -45,10 +47,12 @@ class CheckHIP // Heterograma Isograma Pangrama
             $this->setText($text);
         }
 
-        // Cambiamos los acentos a sus correspondientes
+        // Cambiamos los acentos y alguna más a sus correspondientes
         $search = ['á', 'Á', 'é', 'É', 'í', 'Í', 'ó', 'Ó', 'ú', 'Ú', 'ü', 'Ü', 'Ñ'];
         $replace = ['a', 'a', 'e', 'e', 'i', 'i', 'o', 'o','u','u','u','u', 'ñ'];
         $stripped = str_replace($search, $replace, strtolower($this->text));
+
+        // Finalmente, analizamos el resultado (stripped) y almacenamos el contaje
         for ($i=0; $i<strlen($stripped); $i++) {
             if (isset($this->counter[$stripped[$i]])) {
                 $this->counter[$stripped[$i]]++;
@@ -149,8 +153,7 @@ $texts = [
     'Benjamín pidió una bebida de kiwi y fresa. Noé, sin vergüenza, la más exquisita champaña del menú.'
 ];
 foreach ($texts as $text) {
-    $test->setText($text);
-    $test->analyze();
+    $test->analyze($text);
     //$test->dumpCounter(false);
     printf("Evaluando %s:\n", $text);
     print($test->isIsogram()?"Es isograma":"No es isograma") . "\n";
