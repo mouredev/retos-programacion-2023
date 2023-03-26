@@ -4,96 +4,72 @@
  */
 import 'dart:io';
 
-enum Months {
-  jan,
-  feb,
-  mar,
-  apr,
-  may,
-  jun,
-  jul,
-  aug,
-  sep,
-  oct,
-  nov,
-  dec,
-}
-
-extension MonthsNumber on Months {
-  int getMonthNumber() {
-    switch (this) {
-      case Months.jan:
-        return 1;
-      case Months.feb:
-        return 2;
-      case Months.mar:
-        return 3;
-      case Months.apr:
-        return 4;
-      case Months.may:
-        return 5;
-      case Months.jun:
-        return 6;
-      case Months.jul:
-        return 7;
-      case Months.aug:
-        return 8;
-      case Months.sep:
-        return 9;
-      case Months.oct:
-        return 10;
-      case Months.nov:
-        return 11;
-      case Months.dec:
-        return 12;
-    }
-  }
-}
-
 const List<String> strMonths = [
-  'JAN = 1',
+  'ENE = 1',
   'FEB = 2',
   'MAR = 3',
-  'APR = 4',
+  'ABR = 4',
   'MAY = 5',
   'JUN = 6',
   'JUL = 7',
-  'AUG = 8',
+  'AGO = 8',
   'SEP = 9',
   'OCT = 10',
   'NOV = 11',
-  'DEC = 12',
+  'DIC = 12',
 ];
 
 void main() {
-  late final String? monthStr;
-  late final String? yearStr;
+  late String? monthStr;
+  late String? yearStr;
   late final int month;
   late final int year;
+  bool monthIsReady = false;
 
   while (true) {
-    // Month
-    print(
-        "Type the month's NUMBER you want to consult, here are the options $strMonths\n ${monthStr = stdin.readLineSync()}");
-    if (monthStr != null && int.tryParse(monthStr) != null) {
-      month = int.parse(monthStr);
-    } else {
+    // If month was already asignned, don't ask for it again.
+    if (monthIsReady) {
+      // Year
       print(
-          '$strMonths:\n Please, enter the number between 1 and 12 of the month you want to check');
-      continue;
-    }
-    // Year
-    print(
-        "Type the year's NUMBER you want to consult, here are the options ${yearStr = stdin.readLineSync()}");
-    if (yearStr != null && int.tryParse(yearStr) != null) {
-      year = int.parse(yearStr);
-    } else {
-      print('Please, enter the year you want to check in numbers');
-      continue;
-    }
+          "Escribe el año que deseas consultar en números: (por ejemplo: 1999)\n");
+      yearStr = stdin.readLineSync();
+      if (yearStr != null && int.tryParse(yearStr) != null) {
+        year = int.parse(yearStr);
+      } else {
+        print('ERROR: Escribe un año en números..');
+        continue;
+      }
 
-    fridayThirteen(month: month, year: year);
-    break;
+      // Friday thirteen check
+      bool thereIsThirteenFriday = fridayThirteen(month: month, year: year);
+      if (thereIsThirteenFriday) {
+        print('¡Si hay un viernes 13!');
+      } else {
+        print('No se encontró un viernes 13 :(');
+      }
+      break;
+    } else {
+      // Month
+      print(
+          "Escribe el NÚMERO que representa al mes que deseas verificar, acá está la lista de opciones: \n$strMonths\n");
+      monthStr = stdin.readLineSync();
+      if (monthStr != null && int.tryParse(monthStr) != null) {
+        int checkValidMonth = int.parse(monthStr);
+        if (checkValidMonth > 0 && checkValidMonth < 13) {
+          month = checkValidMonth;
+          monthIsReady = true;
+          continue;
+        } else {
+          print(
+              'ERROR: Debes escoger un número entre el 1 y el 12 para escoger un mes válido.');
+          continue;
+        }
+      } else {
+        print(
+            'ERROR: Debes escoger un número entre el 1 y el 12 para escoger un mes válido de esta lista: \n$strMonths');
+        continue;
+      }
+    }
   }
 }
 
