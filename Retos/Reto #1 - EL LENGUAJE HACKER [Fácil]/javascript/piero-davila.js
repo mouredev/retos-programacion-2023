@@ -7,12 +7,7 @@
  *   (Usa la primera opción de cada transformación. Por ejemplo "4" para la "a")
  */
 
-// Clase dictionary
 class HackerDictionary {
-  letter = "";
-
-  constructor() {}
-
   alphabet = {
     a: "4",
     b: "I3",
@@ -41,13 +36,8 @@ class HackerDictionary {
     y: "j",
     z: "2",
   };
-
-  getLetter(letter) {
-    return this.alphabet[letter];
-  }
 }
 
-//Clase Hacker speak encargada de brindarme la palabra transformada
 class HackerSpeak extends HackerDictionary {
   word = "";
 
@@ -59,10 +49,10 @@ class HackerSpeak extends HackerDictionary {
   transform() {
     return this.word
       .split("")
-      .map((l) => this.getLetter(l))
+      .map((l) => this.alphabet[l])
       .join("");
   }
 }
 
-const hola = new HackerSpeak("hola");
-console.log(hola.transform());
+const leet = new HackerSpeak("leet").transform();
+console.log(leet);
