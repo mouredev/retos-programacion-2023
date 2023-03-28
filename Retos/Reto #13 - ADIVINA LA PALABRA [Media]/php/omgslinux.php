@@ -58,6 +58,18 @@ class WordGuesser
         return $this->guessed;
     }
 
+    public function getMinLength(): int
+    {
+        return $this->minLength;
+    }
+
+    public function setMinLength(int $int)
+    {
+        if ($int > 0) {
+            $this->minLength = $int;
+        }
+    }
+
     public function getResults(): string
     {
         if ($this->isFinished()) {
@@ -66,7 +78,7 @@ class WordGuesser
             if (!$winner) {
                 $resultText="Lástima, perdiste. La palabra era ". $this->word;
             } else {
-                $resultText="¡¡¡Enhorabuena, adivinaste la palabra en ". $this->tries." intentos!!!";
+                $resultText="¡¡¡Enhorabuena, adivinaste la palabra (". $this->word.") en ". $this->tries." intentos!!!";
             }
         } else {
             $resultText="¡¡La partida no ha terminado!!";
@@ -128,7 +140,7 @@ class WordGuesser
         $result = null;
         while (null == $result) {
             $result = json_decode($this->request(self::URL), true);
-            //print(__LINE__ . ":" . $result[0] . "\n");
+            // Evitar que haya algún espacio en la palabra
             if (stripos($result[0], ' ')) {
                 $result = null;
             }
@@ -162,6 +174,10 @@ $game = new WordGuesser();
 $answer = readline('¿Quieres jugar (s/n) ');
 $total = $wins = 0;
 while ($answer == 's') {
+    $value = readline('Pon longitud mínima de la palabra: ('.$game->getMinLength().') ');
+    if (!empty($value)) {
+        $game->setMinLength(intval($value));
+    }
     $game->init();
     $total++;
     while (!$game->isFinished()) {
