@@ -74,7 +74,7 @@ func RestIntens() {
 	}
 }
 
-// mensajes de ganador
+// mensajes cuando adivina la palabra
 func Winner(word string) {
 	fmt.Printf("Answer: %s\n", word)
 	fmt.Println("congratulations you guessed the word")
