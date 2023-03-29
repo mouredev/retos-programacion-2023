@@ -20,29 +20,27 @@ options = "hl:cnso:z"
 long_options = ["help","length","case","numbers","symbols","output"]
 
 helpMenu = """Description:
-    This sc
-Options:
+    This script creates a random password.
 
-python3 jaliagag.py [-hlcnso]
+    Options:
+        -h,--help
+            displays help menu
+        -l,--length
+            decide how long the password is - it has to be between 8 and 16
+        -c,--ignore-case
+            if this options is included, NO upper case will be included on the password
+        -n,--numbers
+            if this options is included, NO numbers will be included on the password
+        -s,--symbols
+            if this options is included, NO symbols will be included on the password
+        -z,--surprise
+            if this options is included, you'll be surpised!
+        -o,--output
+            output to a file
 
-    -h,--help
-        displays help menu
-    -l,--length
-        decide how long the password is - it has to be between 8 and 16
-    -c,--ignore-case
-        if this options is included, NO upper case will be included on the password
-    -n,--numbers
-        if this options is included, NO numbers will be included on the password
-    -s,--symbols
-        if this options is included, NO symbols will be included on the password
-    -z,--surprise
-        if this options is included, you'll be surpised!
-    -o,--output
-        output to a file
-
-Example usage:
-    - no options: create a random password between 8 and 16 with upper and lower case letters, numbers, and symbols
-        python3 jaliagag.py
+    Example usage:
+        - no options: create a random password between 8 and 16 with upper and lower case letters, numbers, and symbols
+            python3 jaliagag.py
 """
 
 flags = {
@@ -157,6 +155,4 @@ def make_random(letras, mayus, numeros, simbolos):
 
 if __name__ == '__main__':
     create_password(flags)
-#    setup_threads()
-#    export_data()
 
