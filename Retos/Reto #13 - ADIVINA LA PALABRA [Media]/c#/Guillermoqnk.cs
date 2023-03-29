@@ -97,11 +97,7 @@
             wordToGuess = word;
             wordToShow = word;
 
-<<<<<<< HEAD
             float hiddenWordPercentage = new Random().Next(4, 6);
-=======
-            float hiddenWordPercentage = new Random().Next(6, 8);
->>>>>>> main
 
             int hiddenWords = (int)Math.Round((double)((float)word.Length / 100) * (hiddenWordPercentage * 10), 0);
 
@@ -138,11 +134,8 @@
             {
                 Console.WriteLine("\n\nOps! That letter isn't in the word, someone is going to dead if you keep doing that...");
 
-<<<<<<< HEAD
                 Thread.Sleep(1500);
 
-=======
->>>>>>> main
                 regardingTries--;
             }
             else
@@ -153,11 +146,7 @@
 
                     if (indexToChange != -1)
                     {
-<<<<<<< HEAD
                         wordToShow = wordToShow!.Remove(indexToChange, 1).Insert(indexToChange, Convert.ToString(guessedLetter));
-=======
-                        wordToShow = wordToShow.Remove(indexToChange, 1).Insert(indexToChange, Convert.ToString(guessedLetter));
->>>>>>> main
 
                         positionToStartChecking = indexToChange+1;
                     }
@@ -180,11 +169,7 @@
         {
             Thread.Sleep(500);
 
-<<<<<<< HEAD
             Console.Write("\n.");
-=======
-            Console.Write(".");
->>>>>>> main
 
             Thread.Sleep(500);
 
@@ -225,11 +210,7 @@
                 {
                     startGame= true;
 
-<<<<<<< HEAD
                     Console.WriteLine("\n\nStarting game");
-=======
-                    Console.WriteLine("\n\n Starting game");
->>>>>>> main
 
                     Thread.Sleep(1000);
                 }
@@ -251,7 +232,6 @@
 
                     Console.Write("\n\nType a letter: ");
 
-<<<<<<< HEAD
                     Console.WriteLine(wordToGuess);
 
                     string input = Console.ReadLine();
@@ -259,13 +239,6 @@
                     try
                     {
                         char res = Convert.ToChar(input.ToLower());
-=======
-                    string inputLetter = Console.ReadLine();
-
-                    try
-                    {
-                        char res = Convert.ToChar(inputLetter.ToLower());
->>>>>>> main
                          
                         if (Char.IsLetter(res))
                         {
@@ -293,7 +266,6 @@
                     {
                         Charging();
 
-<<<<<<< HEAD
                         if(input != wordToGuess)
                         {
                             Console.WriteLine("\nThat's not the word, you've condemned the hangman :v");
@@ -307,13 +279,6 @@
                             wordToShow = wordToGuess;
                         }
 
-=======
-                        Console.WriteLine("\nThat's  not a word, you've condemned the hangman :v");
-
-                        Thread.Sleep(1500);
-
-                        regardingTries--;
->>>>>>> main
                     };
 
                     if(wordToGuess == wordToShow)
@@ -322,11 +287,7 @@
 
                         Console.Clear();
 
-<<<<<<< HEAD
                         Console.WriteLine($"\nHey!!! You guessed the word, that's amazing\n\nThe word was: {wordToGuess}");
-=======
-                        Console.WriteLine($"\nHey!!! You guessed the word, that's amazing, the word was: {wordToGuess}");
->>>>>>> main
 
                         Thread.Sleep(5000);
 
@@ -346,11 +307,7 @@
             }
         }
 
-<<<<<<< HEAD
         static string[] words = { "apple", "bread", "chair", "drink", "empty", "field", "grape", "house", "iguana", "jelly", "kite", "lemon", "money", "night", "orange", "party", "queen", "river", "spoon", "table", "uncle", "voice", "water", "xerox", "yacht", "zebra", "amber", "beach", "candy", "denim", "elbow", "fossil", "ghost", "happy", "igloo", "jolly", "kitten", "laptop", "melon", "napkin", "oyster", "peanut", "quack", "rabbit", "salmon", "turtle", "umbrella", "valley", "window", "xyloid", "yogurt", "zipper", "apron", "banner", "carrot", "dragon", "effort", "feather", "goblin", "harvest", "insect", "jester", "kitten", "lizard", "mustard", "necklace", "oxygen", "potato", "quiver", "raptor", "saddle", "thunder", "unicorn", "vampire", "walnut", "xylene", "yellow", "zodiac", "anchor", "bonnet", "cricket", "diamond", "elephant", "feather", "goggles", "hammock", "island" };
-=======
-        string[] words = { "apple", "bread", "chair", "drink", "empty", "field", "grape", "house", "iguana", "jelly", "kite", "lemon", "money", "night", "orange", "party", "queen", "river", "spoon", "table", "uncle", "voice", "water", "xerox", "yacht", "zebra", "amber", "beach", "candy", "denim", "elbow", "fossil", "ghost", "happy", "igloo", "jolly", "kitten", "laptop", "melon", "napkin", "oyster", "peanut", "quack", "rabbit", "salmon", "turtle", "umbrella", "valley", "window", "xyloid", "yogurt", "zipper", "apron", "banner", "carrot", "dragon", "effort", "feather", "goblin", "harvest", "insect", "jester", "kitten", "lizard", "mustard", "necklace", "oxygen", "potato", "quiver", "raptor", "saddle", "thunder", "unicorn", "vampire", "walnut", "xylene", "yellow", "zodiac", "anchor", "bonnet", "cricket", "diamond", "elephant", "feather", "goggles", "hammock", "island" };
->>>>>>> main
 
     }
 }
