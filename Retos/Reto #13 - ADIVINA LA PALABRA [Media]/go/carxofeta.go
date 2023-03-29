@@ -1,67 +1,76 @@
 /*
- * Crea un pequeño juego que consista en adivinar palabras en un número máximo de intentos:
- * - El juego comienza proponiendo una palabra aleatoria incompleta
- *   - Por ejemplo "m_ur_d_v", y el número de intentos que le quedan
- * - El usuario puede introducir únicamente una letra o una palabra (de la misma longitud que
- *   la palabra a adivinar)
- *   - Si escribe una letra y acierta, se muestra esa letra en la palabra. Si falla, se resta
- *     uno al número de intentos
- *   - Si escribe una resolución y acierta, finaliza el juego, en caso contrario, se resta uno
- *     al número de intentos
- *   - Si el contador de intentos llega a 0, el jugador pierde
- * - La palabra debe ocultar de forma aleatoria letras, y nunca puede comenzar ocultando más del 60%
- * - Puedes utilizar las palabras que quieras y el número de intentos que consideres
+ * Pues me he venido un poco arriba...
+ * No es la mejor implementación, pero me ha hecho gracia dejarla así...
+ * Salen palabras un poco raras consultando la página...
+ * No me lo tengáis muy en cuenta... :P
  */
 
 package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"net/http"
+	"os"
 	"strings"
 	"time"
 )
 
 func selectWord() (string, string) {
 	rand.Seed(time.Now().UnixNano())
-	//Ten random words to play with
-	words := [10]string{"caracola", "caballo", "silla", "telefono", "chubasquero", "violin", "zapatilla", "pelota", "canasta", "almohada"}
 
-	selectedWord := words[rand.Intn(9)]
+	// Find a word (in spanish) by consulting a public API
+	resp, err := http.Get("https://random-word-api.herokuapp.com/word?lang=es")
+	if err != nil {
+		fmt.Println("No response from request")
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+
+	//Response returned in this format ["word"].
+	// Remove special char in the formatWord func to format the string
+	selectedWord := formatWord(body)
+
+	// Split the string into its chars
 	letters := strings.Split(selectedWord, "")
+	// Creates a map to add char by char the hidden word
 	hidden := make([]string, len(letters))
-
+	// Maximum of chars we're going to hide
 	maxHidden := int(float64(len(letters)) * 0.6)
 
-	//recorremos la palabra letra a letra y decidimos aleatoriamente si ocultamos dicha letra
+	//We move through the word letter by letter and then randomly decide whether to hide that letter
 	hiddenCount := 0
 	for i := 0; i < len(letters); i++ {
-		if rand.Float64() < 0.5 && hiddenCount < maxHidden {
+		//if rand.Float64() < 0.5 && hiddenCount < maxHidden {
+		if rand.Intn(2) == 0 && hiddenCount < maxHidden {
 			hidden[i] = "_"
 			hiddenCount++
 		} else {
 			hidden[i] = letters[i]
 		}
 	}
-
 	return strings.Join(hidden, ""), selectedWord
+}
+
+func formatWord(input []byte) string {
+	//Replace special character we found in the API call
+	word := strings.ToLower(strings.NewReplacer("á", "a", "é", "e", "í", "i", "ó", "o", "ú", "u", "\"", "", "]", "", "[", "").Replace(string(input)))
+	return word
 }
 
 func main() {
 	chances := 5
-	fmt.Println("Guess the word!!")
 	hiddenWord, clearWord := selectWord()
-	// fmt.Println("Puedes introducir una letra o la palabra completa.")
-	// fmt.Println("Si la letra está, aparecerá en la palabra buscada, si por")
-	// fmt.Println("el contrario no está, perderás un oportunidad. Si las")
-	// fmt.Println("oportunidades llegan a 0 (tienes 5 oportunidades), pierdes.")
-	// fmt.Println("Si sabes la palabra, puedes introducirla completamente.")
-	fmt.Println("Esta es la palabra que tienes que adivinar: ", hiddenWord)
-	fmt.Println("Y esta la respuesta: ", clearWord)
+
+	fmt.Println("Guess the word!!")
+	fmt.Println("This is the word you have to guess: \n", hiddenWord)
 	for {
 		var input string
-		fmt.Print("Enter a letter (or a word if you're brave): ")
+		fmt.Print("\nEnter a letter or a word (", chances, " attempts remaining): ")
 		fmt.Scanln(&input)
+		// If we enter a word, let's see if it's correct...
 		if len(input) > 1 {
 			if input == clearWord {
 				fmt.Println("Wow! You guessed the word! Congrats")
@@ -69,38 +78,36 @@ func main() {
 			} else {
 				fmt.Println("This is not the word you are looking for...")
 				chances--
-				if chances == 0 {
-					fmt.Println("You haven't more chances... You lose")
-					break
-				}
 				fmt.Println("You have", chances, "chances more. Be careful!")
 				continue
 			}
 		}
-		//recorremos la palabra letra a letra y si la letra introducida está, vemos su posicion
-		// si esa posición en la palabra oculta es un "_", lo sustituimos por la letra.
-		for i := 0; i < len(clearWord); i++ {
-			if input == string(clearWord[i]) && string(hiddenWord[i]) == "_" {
-				hiddenWord = strings.Replace(hiddenWord, "_", input, 1)
-				if hiddenWord == clearWord {
-					fmt.Println("Yeah! You guessed the word! Well done!")
-					fmt.Println(hiddenWord)
-					break
+		//We move through the word letter by letter and if the letter exists, we look at its position
+		// If that position in the hidden word is a "_", we replace it with the letter.
+		if strings.Contains(clearWord, input) {
+			for i := 0; i < len(clearWord); i++ {
+				if input == string(clearWord[i]) && string(hiddenWord[i]) == "_" {
+					prefix := hiddenWord[:i]
+					suffix := hiddenWord[i+1:]
+					hiddenWord = strings.Join([]string{prefix, input, suffix}, "")
+					if hiddenWord == clearWord {
+						fmt.Println("Yeah! You guessed the word! Well done!")
+						fmt.Println(hiddenWord)
+						os.Exit(0)
+					}
+					continue
 				}
-				fmt.Println(hiddenWord)
-				continue
 			}
-			// else {
-			// 	fmt.Println("This letter is not hidden...")
-			// 	chances--
-			// 	if chances == 0 {
-			// 		fmt.Println("You haven't more chances... You lose")
-			// 		break
-			// 	}
-			// 	fmt.Println("You have", chances, "chances more. Be careful!")
-			// 	continue
-			// }
+			fmt.Println(hiddenWord)
+		} else {
+			chances--
+			fmt.Println("Ups! Incorrect...")
+			fmt.Println(hiddenWord)
 		}
-
+		if chances == 0 {
+			fmt.Println("You haven't more chances... You lose")
+			fmt.Println("The word is", clearWord)
+			os.Exit(0)
+		}
 	}
 }
