@@ -48,7 +48,7 @@ func ReplaceLetters(wor string) string {
 	return wor
 }
 
-// reamplazar un _ por una letra
+// reamplazar un _ por una letra y retornar frase
 func ReplaceLetter(wor, se, ne string) string {
 	for ind, l := range wor {
 		if string(l) == se {
