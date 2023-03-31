@@ -34,7 +34,7 @@ def hidde_character():
     random_position = randrange(0, len(secred_word))
     character = unfinished_word[random_position:random_position+1]
 
-    if character != '_' and character != ' ':
+    if character != '_' or character != ' ':
         unfinished_word = unfinished_word[:random_position] + '_' + unfinished_word[random_position+1:]
     else:
         hidde_character()
