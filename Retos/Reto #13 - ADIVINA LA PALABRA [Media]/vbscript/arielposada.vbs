@@ -19,6 +19,8 @@
 ' Forzar la consola CScript: 
 ' https://stackoverflow.com/questions/4388879/vbscript-output-to-console
 
+Dim oWSH, vbsInterpreter
+
 Set oWSH = CreateObject("WScript.Shell")
 vbsInterpreter = "cscript.exe"
 
