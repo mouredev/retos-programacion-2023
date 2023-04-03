@@ -15,4 +15,4 @@ Function PseudoAleatorio(min,max)
     PseudoAleatorio = min + CInt((CurrentTimeMilliseconds/1000)*(max-min))
 End Function
 
-WScript.Echo PseudoAleatorio(1,10)
+WScript.Echo PseudoAleatorio(0,100)
