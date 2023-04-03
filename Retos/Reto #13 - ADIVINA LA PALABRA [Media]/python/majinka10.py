@@ -19,6 +19,8 @@ def comprobador(palabra, incompleta, attempts): #Palabra = lista de la palabra c
     palabra_incompleta=''
     for c in palabra:
         palabra_correcta+=c
+    for c in incompleta:
+        palabra_incompleta+=c
     while attempts!=0:
         print(f'Tienes {attempts} intentos')
         intento=input('Ingresa una letra o palabra\n')
@@ -28,20 +30,28 @@ def comprobador(palabra, incompleta, attempts): #Palabra = lista de la palabra c
         if intento == palabra_correcta:
             return print('Has ganado')
         else:
-            for n,_ in enumerate(palabra):
-                if intento==_:
+            bien=True
+            for n, letter in enumerate(palabra):
+                if intento==letter:
                     incompleta[n]=intento
-            palabra_incompleta=''
+            new_palabra_incompleta=''
             for c in incompleta:
-                palabra_incompleta+=c
+                new_palabra_incompleta+=c
+            if new_palabra_incompleta==palabra_incompleta:
+                bien=False
+                print('Intenta de nuevo')
+            else:
+                palabra_incompleta=new_palabra_incompleta
+                print('¡Has acertado una letra!')
             print(palabra_incompleta)
             if palabra_incompleta==palabra_correcta:
                 return print('Has ganado')
-        attempts-=1
+        if not bien:
+            attempts-=1
     print(f'Has perdido, la palabra era {palabra_correcta}')
 
-def ahorcado():
-    print('¡Bienvenido al juego del ahorcado!\n')
+def juego():
+    print('¡Bienvenido a adivina la palabra!\n')
     attempts=6
     word=normalize(random.choice(words).lower())
     lista_completa=list(word)
@@ -60,4 +70,4 @@ def ahorcado():
     print('Tu palabra es:', w)
     comprobador(lista_completa, lista_incompleta, attempts)
 
-ahorcado()
+juego()
