@@ -5,7 +5,10 @@
 
 ```
 /*
- * Crea una función que reciba un número decimal y lo trasforme a Octal y Hexadecimal.
+ * Crea una función que reciba un número decimal y lo trasforme a Octal
+ * y Hexadecimal.
+ * - No está permitido usar funciones propias del lenguaje de programación que
+ * realicen esas operaciones directamente.
  */
 ```
 #### Tienes toda la información extendida sobre los retos de programación semanales en **[retosdeprogramacion.com/semanales2023](https://retosdeprogramacion.com/semanales2023)**.
