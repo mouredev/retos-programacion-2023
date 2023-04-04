@@ -12,11 +12,11 @@ const decimalToOctal = (decimal) => {
     array_response.push(decimal % 8);
     decimal = Math.floor(decimal / 8);
   }
-  for (const i in array_response) {
+  for (const i in array_response.reverse()) {
     octal += array_response[i];
   }
     
-  return octal.split("").reverse().join("");
+  return octal;
 };
 
 const decimalToHexadecimal = (decimal) => {
@@ -26,14 +26,15 @@ const decimalToHexadecimal = (decimal) => {
         array_response.push(decimal % 16);
         decimal = Math.floor(decimal / 16);
     }
-    for (const i in array_response) {
+    for (const i in array_response.reverse()) {
         hexadecimal += array_response[i];
     }
-    return hexadecimal.split("").reverse().join("");
+    return hexadecimal;
 };
 
+const decimalToHexadecimalAndOctal = (decimal) => {
+    return `Hexadecimal: ${decimalToHexadecimal(decimal)} Octal: ${decimalToOctal(decimal)}`;
+};
 
-
-console.log(decimalToOctal(500)); 
-console.log(decimalToHexadecimal(500));
+console.log(decimalToHexadecimalAndOctal(500));
 
