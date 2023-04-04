@@ -41,8 +41,6 @@ const getIndexLists = (word, nchars) => {
         indexSet.add(getRandom(word.length));
     }
 
-    indexSet
-
     let notShownIndex = [];
     for (let i=0; i<word.length; i++) {
         if (![...indexSet].includes(i)) {
