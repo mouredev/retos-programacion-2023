@@ -6,12 +6,34 @@
  */
 
 const decimalToOctal = (decimal) => {
+  let array_response = [];
   let octal = "";
   while (decimal > 0) {
-    octal = (decimal % 8) + octal;
+    array_response.push(decimal % 8);
     decimal = Math.floor(decimal / 8);
   }
-  return octal;
+  for (const i in array_response) {
+    octal += array_response[i];
+  }
+    
+  return octal.split("").reverse().join("");
 };
 
-console.log(decimalToOctal(500)); // 12
+const decimalToHexadecimal = (decimal) => {
+    let array_response = [];
+    let hexadecimal = "";
+    while (decimal > 0) {
+        array_response.push(decimal % 16);
+        decimal = Math.floor(decimal / 16);
+    }
+    for (const i in array_response) {
+        hexadecimal += array_response[i];
+    }
+    return hexadecimal.split("").reverse().join("");
+};
+
+
+
+console.log(decimalToOctal(500)); 
+console.log(decimalToHexadecimal(500));
+
