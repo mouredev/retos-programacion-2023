@@ -5,6 +5,7 @@ from dataclasses import dataclass,field
  tanto para octal o hexadecimal solo le proporcionamos la base a dividir 8 para octal y 16 para hexadecimal
  dividimos el numero a convertir y obtenemo el residuo de la division ojo no es el resultado la lista de residuos nos da el resultado
  solo hay que invertir esta lista y listo.
+ 
 """
 
 @dataclass
