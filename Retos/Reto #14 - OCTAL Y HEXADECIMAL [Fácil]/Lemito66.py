@@ -6,11 +6,27 @@
 """
 
 def to_hexadecimal(number: int):
-    response = []
-    number_hexadecimal = []
+    list_response = []
+    response = ''
     while number > 0:
-        response.append(number % 16)
+        list_response.append(number % 16)
         number = number // 16
-    return number_hexadecimal
-    #return response[::-1]
-print(to_hexadecimal(500))
+    for i in list_response:
+        response += str(i)
+    return int(response[::-1])
+
+def to_octal(number: int):
+    list_response = []
+    response = ''
+    while number > 0:
+        list_response.append(number % 8)
+        number = number // 8
+    for i in list_response:
+        response += str(i)
+    return int(response[::-1])
+
+def to_hexadecimal_and_to_octal(number: int):
+    return f'Hexadecimal: {to_hexadecimal(number)}, Octal: {to_octal(number)}'
+
+
+print(to_hexadecimal_and_to_octal(500))
