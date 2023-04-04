@@ -42,5 +42,6 @@ def decimal_a_hexadecimal(numero: int):
     return f'EL numero octal es: {hexadecimal} '
 
     
-    
-main(255)
+
+if __name__ == 'main': 
+    main(255)
