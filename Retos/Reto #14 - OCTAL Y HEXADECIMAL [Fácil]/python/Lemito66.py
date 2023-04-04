@@ -49,5 +49,4 @@ def to_hexadecimal_and_to_octal(number: int):
     return f'Hexadecimal: {to_hexadecimal(number)}, Octal: {to_octal(number)}'
 
 
-#print(to_hexadecimal_and_to_octal(4321))
-print(to_hexadecimal(1500))
+print(to_hexadecimal_and_to_octal(4321))
