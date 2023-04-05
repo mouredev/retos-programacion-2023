@@ -41,8 +41,8 @@ function DecimalToHex(decimal) {
         return result
         }
 function main(decimal) {
-   console.log("Decimal: " + decimal);
-   console.log("Octal: "+ DecimalToOctal(decimal));
-   console.log("Hexadecimal: "+ DecimalToHex(decimal));   
+   console.log("En Decimal: " + decimal);
+   console.log("En Octal: "+ DecimalToOctal(decimal));
+   console.log("En Hexadecimal: "+ DecimalToHex(decimal));   
 }
 main(987)
