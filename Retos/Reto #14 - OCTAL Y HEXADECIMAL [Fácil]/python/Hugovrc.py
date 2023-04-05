@@ -41,6 +41,6 @@ def octal_y_hexadecimal(num):
 
 
 
-octal_y_decimal(1000)
-octal_y_decimal(345)
-octal_y_decimal(298)
+octal_y_hexadecimal(1000)
+octal_y_hexadecimal(345)
+octal_y_hexadecimal(298)
