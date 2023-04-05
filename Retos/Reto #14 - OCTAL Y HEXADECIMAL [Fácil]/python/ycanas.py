@@ -6,13 +6,13 @@ class Convertion():
     
     def sdivision(self, divisor):
         number = self.decimal
-        binary = ""
+        convertion = ""
 
         while number >= 1:
-            binary = str((number % divisor)) + binary
+            convertion = str((number % divisor)) + convertion
             number = int(number / divisor)
 
-        return binary
+        return convertion
 
 
     def to_hexadecimal(self):
