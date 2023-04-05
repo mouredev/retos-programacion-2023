@@ -1,6 +1,6 @@
 /*
  * Author: Sergio Flor https://github.com/balath
- * Run it on Scastie: https://scastie.scala-lang.org/RuUlq8OMQ5WUyLxNj7zQyQ
+ * Run it on Scastie: https://scastie.scala-lang.org/FcVv61h5SpWSbOOxUiMQuQ
  */
 case class MultiBaseNumber(decimal: String, octal: String, hex: String) {
 
