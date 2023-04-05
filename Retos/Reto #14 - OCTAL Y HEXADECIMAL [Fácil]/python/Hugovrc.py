@@ -1,5 +1,5 @@
 
-def octal_y_decimal(num):
+def octal_y_hexadecimal(num):
     print(f"Numero Decimal = {num}")
     numero = num
     octal = 8
