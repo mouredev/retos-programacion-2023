@@ -24,11 +24,11 @@ object MultiBaseNumber {
     else -output
   }
 
-  def decimalToBase(input: Int, base: Int, mapper: Int => String): String = {
-    val remainder = littleDecToHex(input % base)
+  def decimalToBase(input: Int, base: Int, toBaseString: Int => String): String = {
+    val remainder = toBaseString(input % base)
     val quotient = input / base
-    if (quotient == 0) s"$remainder"
-    else s"${decimalToBase(quotient, base, n => littleDecToHex(n))}$remainder"
+    if (quotient == 0) remainder
+    else s"${decimalToBase(quotient, base, toBaseString)}$remainder"
   }
 
   def littleDecToHex(n: Int) = n match {
