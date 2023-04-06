@@ -20,5 +20,4 @@ function fizzbuzz(limit = 100){
     console.log(i);
   }
 }
-
 }
