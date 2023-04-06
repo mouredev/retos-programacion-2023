@@ -1,5 +1,4 @@
 /*
-* reto programación 1
  * Escribe un programa que muestre por consola (con un print) los
  * números de 1 a 100 (ambos incluidos y con un salto de línea entre
  * cada impresión), sustituyendo los siguientes:
@@ -8,16 +7,14 @@
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
 
-function fizzbuzz(limit = 100){
-  for (let i = 1; i <= limit; i++) {
-  if (i % 3 === 0 && i % 5 === 0) {
-    console.log("FizzBuzz");
-  } else if (i % 3 === 0) {
-    console.log("Fizz");
-  } else if (i % 5 === 0) {
-    console.log("Buzz");
-  } else {
-    console.log(i);
-  }
-}
+for (var i = 1; i <= 100; i++) {
+	if (i % 15 == 0) {
+		console.log("fizzBuzz");
+	} else if (i % 3 == 0) {
+		console.log("fizz");
+	} else if (i % 5 == 0) {
+		console.log("buzz");
+	} else {
+		console.log(i);
+	}
 }
