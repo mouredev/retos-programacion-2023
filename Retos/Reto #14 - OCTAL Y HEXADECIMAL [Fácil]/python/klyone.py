@@ -44,7 +44,7 @@ def get_max_exponent(number, base):
     acc = 1
     exp = 0
 
-    while acc < number:
+    while acc <= number:
         exp = exp + 1
         acc = base ** exp
 
@@ -81,10 +81,14 @@ def convert_integer_to_hex(number):
 def convert_integer_to_oct(number):
     return convert_integer(number, octal_table)
 
+print(convert_integer_to_hex(16))
+print(convert_integer_to_hex(-32))
 print(convert_integer_to_hex(-34))
 print(convert_integer_to_hex(1234))
 print(convert_integer_to_hex(344))
 print(convert_integer_to_hex(123456789))
+print(convert_integer_to_oct(16))
+print(convert_integer_to_oct(-32))
 print(convert_integer_to_oct(-34))
 print(convert_integer_to_oct(1234))
 print(convert_integer_to_oct(344))
