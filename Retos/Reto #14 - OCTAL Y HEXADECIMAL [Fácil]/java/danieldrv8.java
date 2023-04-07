@@ -34,29 +34,47 @@ public class danieldrv8 {
     }
     public static String convertDec2Hex(int n) {
         if (n < 15) {
-            if (n < 10) {
-                return ""+n;
-            } else {
-                switch (n) {
-                    case 10:
-                        return "A";
-                    case 11:
-                        return "B";
-                    case 12:
-                        return "c"; 
-                    case 13:
-                        return "D";
-                    case 14:
-                        return "E";
-                    case 15:
-                        return "F";               
-                    default:
-                        return "";
-                }
-            }     
+            return chngUnit(n);
         } else {
-            return "";
+            int[] restArr = new int[0];
+            int rest = 0;
+            int quotient = n;
+            while (quotient > 15) {
+                rest = quotient % 16;
+                quotient = quotient / 16;
+                restArr = Arrays.copyOf(restArr, restArr.length + 1);
+                restArr[restArr.length - 1] = rest;
+            }
+            restArr = Arrays.copyOf(restArr, restArr.length + 1);
+            restArr[restArr.length - 1] = quotient;
+            String str = "";
+            for (int i = 0; i < restArr.length; i++) {
+                str += chngUnit(restArr[restArr.length - 1 - i]);
+            }
+            return str;
         }
+    }
+    public static String chngUnit(int n) {
+        if (n < 10) {
+            return ""+n;
+        } else {
+            switch (n) {
+                case 10:
+                    return "A";
+                case 11:
+                    return "B";
+                case 12:
+                    return "C"; 
+                case 13:
+                    return "D";
+                case 14:
+                    return "E";
+                case 15:
+                    return "F";               
+                default:
+                    return "";
+            }
+        } 
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
