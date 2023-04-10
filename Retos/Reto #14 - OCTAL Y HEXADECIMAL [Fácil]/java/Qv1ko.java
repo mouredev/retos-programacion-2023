@@ -8,30 +8,19 @@ public class Qv1ko {
         int number=decimal;
         String octal="";
         String hex="";
+        char[] hexCharacters={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
         while(number>0) {
-            octal=(int)(number%8)+octal;
+            octal=number%8+octal;
             number/=8;
         }
-        if(octal.equals("")) {
-            octal="0";
-        }
+        octal=(octal.equals(""))? "0":octal;
         System.out.println(decimal+" in octal is "+octal);
         number=decimal;
         while(number>0) {
-            switch((int)(number%16)) {
-                case 10 -> hex="A"+hex;
-                case 11 -> hex="B"+hex;
-                case 12 -> hex="C"+hex;
-                case 13 -> hex="D"+hex;
-                case 14 -> hex="E"+hex;
-                case 15 -> hex="F"+hex;
-                default -> hex=(int)(number%16)+hex;
-            }
+            hex=hexCharacters[number%16]+hex;
             number/=16;
         }
-        if(hex.equals("")) {
-            hex="0";
-        }
+        hex=(hex.equals(""))? "0":hex;
         System.out.println(decimal+" in hex is 0x"+hex);
     }//decimalConverter
 
