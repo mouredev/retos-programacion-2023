@@ -28,4 +28,3 @@ headers = curl_slist_append(headers, "Content-Type: application/json");
   curl_slist_free_all(headers);
   return 0;
 }
-
