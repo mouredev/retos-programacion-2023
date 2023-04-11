@@ -47,30 +47,33 @@ class adivinarPalabra:
         word = self.palabraRandom()
         list_element = self.cantidadEliminar(word)
         word_end = self.palabra(word, list_element)
-        print(f"Juego de Adivinar Palabra\n * Solo tendras 10 intentos para ganar\nTu palabra es:\n{word_end}")
+        intentos = 5
+        print("Juego de Adivinar Palabra")
         
-        for i in range(10):
+        while intentos > 0:
+            print(f"* Tienes {intentos} intentos\n* Tu palabra es: {word_end}")
             word_input = str(input("Ingrese una letra o palabra: "))
             if len(word_input) > 1:
                 if word_input == word:
-                    print(f"WOW Ganaste el juego...\nPalabra Correcta: {word}")
+                    print(f"¡WOW Ganaste el juego!... Palabra Correcta: {word}")
                     break
-                elif i == 9:
-                    print(f'Perdiste el juego :(\nLa palabra correcta: {word}')
                 else:
-                    print(f'Palabra incorrecta\n{word_end}')
+                    print(f'Palabra incorrecta')
+                    intentos -= 1
             else:
                 word_end_new = self.check_word(word, word_end, list_element, word_input)
                 if word_end_new == word:
-                    print(f"WOW Ganaste el juego...\nPalabra Correcta: {word}")
+                    print(f"¡WOW Ganaste el juego!...Palabra Correcta: {word}")
                     break
                 elif word_end != word_end_new:
                     word_end = word_end_new    
-                    print(f"Letra Correcta\n{word_end}")
-                elif i == 9:
-                    print(f'Perdiste el juego :(\nLa palabra correcta: {word}')
+                    print(f"Letra Correcta")
                 else:
-                    print(f"Letra Incorrecta\n{word_end}")
+                    print(f"Letra Incorrecta")
+                    intentos -= 1
+
+        if intentos == 0:
+            print(f"¡Perdiste el juego :(! Te quedaste sin intentos\nLa palabra correcta: {word}")
 
 adivina = adivinarPalabra()
 adivina.star_game()
