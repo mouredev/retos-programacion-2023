@@ -33,6 +33,12 @@ def get_response(question):
             break
     return response.lower() == "y"
 
+def shuffle(text):
+    character_list = list(text)
+    random.shuffle(character_list)
+    return "".join(character_list)
+
+
 def get_password(parameters):
     password = ""
     characters = []
@@ -51,9 +57,9 @@ def get_password(parameters):
     while len(password) < parameters[0]:
         password += str(random.choice(characters))
 
-    return password
+    return shuffle(password)
+
 
 print("Welcome to the password generator.")
 parameters = get_parameters()
-
-print("Your password is:",get_password(parameters))
+print("Your new password is:",get_password(parameters))
