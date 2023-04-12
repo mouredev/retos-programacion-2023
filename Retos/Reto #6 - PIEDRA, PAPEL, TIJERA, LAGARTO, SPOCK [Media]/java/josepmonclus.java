@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import aronracso.Jugada;
-
 public class josepmonclus {
 
     private enum Play{PIEDRA,PAPEL,TIJERA,LAGARTO,SPOCK};

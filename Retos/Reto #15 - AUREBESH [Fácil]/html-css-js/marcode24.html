@@ -1,0 +1,299 @@
+<!--
+  Crea una función que sea capaz de transformar Español al lenguaje básico del universo Star Wars: el "Aurebesh".
+  - Puedes dejar sin transformar los caracteres que no existan en "Aurebesh".
+  - También tiene que ser capaz de traducir en sentido contrario.
+  ¿Lo has conseguido? Nómbrame en twitter.com/mouredev y escríbeme algo en Aurebesh.
+
+  ¡Que la fuerza os acompañe!
+-->
+
+ <!-- Visita mi repo en GitHub para ver y correr los tests de este código --> https://github.com/marcode24/weekly-challenges -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurebesh translator</title>
+  <style>
+    @font-face {
+      font-family: 'Aurebesh';
+      src: url(./fonts/Aurebesh.otf);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #394856;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-top: 1rem;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .translator {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 5rem;
+    }
+
+    .toAurebesh, .fromAurebesh {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input {
+      width: 300px;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      padding: 0 10px;
+      font-size: 1.2rem;
+      margin: 10px 0;
+      background-color: #e7e7e7;
+    }
+
+    input:is(:focus, :active) {
+      outline: none;
+    }
+
+    input#preview-text {
+      font-family: 'Aurebesh';
+    }
+
+    input:disabled {
+      background-color: #e7e7e7 !important;
+      color: #070707 !important;
+    }
+
+    button {
+      width: 300px;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      padding: 0 10px;
+      font-size: 1.2rem;
+      margin: 10px 0;
+      background-color: #5DBFFF;
+      color: #e7e7e7;
+      cursor: pointer;
+      transition: 0.35s ease;
+    }
+
+    button:hover {
+      background-color: #44b4ff;
+    }
+
+    .output {
+      width: 300px;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      padding: 0 10px;
+      font-size: 1.2rem;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .output-to {
+      font-family: 'Aurebesh';
+    }
+
+    .keyboard {
+      width: 300px;
+      border: none;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .keyboard .row {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .keyboard .row .key {
+      width: 50px;
+      height: 50px;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.35s ease;
+      text-transform: lowercase;
+    }
+
+    .keyboard .row .key:not(.special) {
+      font-family: 'Aurebesh';
+    }
+
+    .keyboard .row .key.special {
+      flex: 1;
+      justify-content: center;
+      width: 100%;
+      text-transform: uppercase;
+    }
+
+    .keyboard .row .key::selection {
+      color: #fff;
+    }
+
+    .keyboard .row .key:hover {
+      background-color: #5DBFFF;
+    }
+
+    @media (max-width: 768px) {
+      .translator {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Aurebesh translator</h1>
+    <div class="translator">
+      <div class="toAurebesh">
+        <input type="text" class="input" id="input" placeholder="Enter text to translate">
+        <button class="btn" id="btn-to">Translate</button>
+        <div class="output">
+          <div class="output-to"></div>
+        </div>
+      </div>
+      <div class="fromAurebesh">
+        <div class="keyboard">
+          <div class="row">
+            <div class="key" onclick="addValue('A')">A</div>
+            <div class="key" onclick="addValue('B')">B</div>
+            <div class="key" onclick="addValue('C')">C</div>
+            <div class="key" onclick="addValue('D')">D</div>
+            <div class="key" onclick="addValue('E')">E</div>
+          </div>
+          <div class="row">
+            <div class="key" onclick="addValue('F')">F</div>
+            <div class="key" onclick="addValue('G')">G</div>
+            <div class="key" onclick="addValue('H')">H</div>
+            <div class="key" onclick="addValue('I')">I</div>
+            <div class="key" onclick="addValue('J')">J</div>
+          </div>
+          <div class="row">
+            <div class="key" onclick="addValue('K')">K</div>
+            <div class="key" onclick="addValue('L')">L</div>
+            <div class="key" onclick="addValue('M')">M</div>
+            <div class="key" onclick="addValue('N')">N</div>
+            <div class="key" onclick="addValue('O')">O</div>
+          </div>
+          <div class="row">
+            <div class="key" onclick="addValue('P')">P</div>
+            <div class="key" onclick="addValue('Q')">Q</div>
+            <div class="key" onclick="addValue('R')">R</div>
+            <div class="key" onclick="addValue('S')">S</div>
+            <div class="key" onclick="addValue('T')">T</div>
+          </div>
+          <div class="row">
+            <div class="key" onclick="addValue('U')">U</div>
+            <div class="key" onclick="addValue('V')">V</div>
+            <div class="key" onclick="addValue('W')">W</div>
+            <div class="key" onclick="addValue('X')">X</div>
+            <div class="key" onclick="addValue('Y')">Y</div>
+            <div class="key" onclick="addValue('Z')">Z</div>
+          </div>
+          <div class="row">
+            <div class="key special" onclick="backspaceValue()">BACKSPACE</div>
+            <div class="key special" onclick="addValue(' ')">SPACE</div>
+            <div class="key special" onclick="clearValue()">CLEAR</div>
+          </div>
+        </div>
+        <input type="text" disabled class="input" id="preview-text" placeholder="preview">
+        <button class="btn" id="btn-from">Translate</button>
+        <div class="output">
+          <div class="output-from"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById('input');
+    const btnTo = document.getElementById('btn-to');
+    const outputTo = document.querySelector('.output-to');
+    const btnFrom = document.getElementById('btn-from');
+    const outputFrom = document.querySelector('.output-from');
+
+    const translate = () => {
+      outputTo.textContent = input.value;
+    }
+
+    btnTo.addEventListener('click', translate);
+
+    const previewText = document.getElementById('preview-text');
+
+    const addValue = (value) => {
+      previewText.value += value;
+      checkIfPreviewTextIsNotEmpty();
+    }
+
+    const clearValue = () => {
+      previewText.value = '';
+      checkIfPreviewTextIsNotEmpty();
+    }
+
+    const backspaceValue = () => {
+      previewText.value = previewText.value.slice(0, -1);
+      checkIfPreviewTextIsNotEmpty();
+    }
+
+    const checkIfPreviewTextIsNotEmpty = () => {
+      if (previewText.value === '') {
+        previewText.style.fontFamily = 'Segoe UI, Tahoma, Geneva, Verdana, sans-serif';
+      } else {
+        previewText.style.fontFamily = 'Aurebesh';
+      }
+    }
+
+    checkIfPreviewTextIsNotEmpty();
+
+    const translateFrom = () => {
+      outputFrom.textContent = previewText.value;
+    }
+
+    btnFrom.addEventListener('click', translateFrom);
+
+  </script>
+</body>
+</html>
+
+ <!-- Visita mi repo en GitHub para ver y correr los tests de este código --> https://github.com/marcode24/weekly-challenges -->
