@@ -6,27 +6,40 @@
  */
 
 void main() {
-  print(decimalToOctal(245));
+  print(decimalToOctal(5487));
+  print(decimalToHexa(5487));
 }
 
 decimalToOctal(num number) {
-  final hasDecimals = number.toString().contains('.');
-  List numToList = number.toString().split('.');
-  num dividendo = hasDecimals ? num.parse(numToList[0]) : number;
-  num decimales = hasDecimals ? num.parse('0.${numToList[1]}') : 0;
-  int divisor = 8;
-  List resultado = [];
+  String resultado = '';
 
   do {
-    resultado.add(dividendo % divisor);
-    dividendo = dividendo ~/ divisor;
-  } while (dividendo > 0);
+    resultado = '${(number % 8)}$resultado';
+    number = number ~/ 8;
+  } while (number > 0);
 
-  if (hasDecimals) {
-    decimales = (decimales * divisor).toInt();
-  }
+  return resultado;
+}
 
-  return hasDecimals
-      ? '${resultado.reversed.join()}.$decimales'
-      : resultado.reversed.join();
+decimalToHexa(num number) {
+  const numToLetter = {
+    '10': 'A',
+    '11': 'B',
+    '12': 'C',
+    '13': 'D',
+    '14': 'E',
+    '15': 'F'
+  };
+  List rests = [];
+
+  do {
+    rests.add(number % 16);
+    number = number ~/ 16;
+  } while (number > 0);
+
+  rests = rests.map((number) {
+    return number > 9 ? numToLetter['$number'] : number;
+  }).toList();
+
+  return rests.join();
 }
