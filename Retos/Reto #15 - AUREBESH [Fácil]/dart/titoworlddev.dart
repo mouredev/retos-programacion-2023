@@ -10,47 +10,11 @@
  */
 
 void main() {
-  print(traduceAurebesh('Hola mundo!'));
+  print(traduceAurebesh('hola mundo'));
+//   print(traduceAurebesh('HerfOskLethAurek MernUskNernDornOsk'));
 }
 
 traduceAurebesh(String textFromTranslate) {
-  const dictionaryToAurebesh = {
-    'a': 'Aurek',
-    'ae': 'Enth',
-    'b': 'Besh',
-    'c': 'Cresh',
-    'ch': 'Cherek',
-    'd': 'Dorn',
-    'e': 'Esk',
-    'eo': 'Onith',
-    'f': 'Forn',
-    'g': 'Grek',
-    'h': 'Herf',
-    'i': 'Isk',
-    'j': 'Jenth',
-    'k': 'Krill',
-    'kh': 'Krenth',
-    'l': 'Leth',
-    'm': 'Mern',
-    'n': 'Nern',
-    'ng': 'Nen',
-    'ñ': 'Ñem',
-    'o': 'Osk',
-    'oo': 'Orenth',
-    'p': 'Peth',
-    'q': 'Qek',
-    'r': 'Resh',
-    's': 'Senth',
-    'sh': 'Shen',
-    't': 'Trill',
-    'th': 'Thesh',
-    'u': 'Usk',
-    'v': 'Vev',
-    'w': 'Wesk',
-    'x': 'Xesh',
-    'y': 'Yirt',
-    'z': 'Zerek',
-  };
   const dictionaryToSpanish = {
     'Aurek': 'a',
     'Besh': 'b',
@@ -80,25 +44,56 @@ traduceAurebesh(String textFromTranslate) {
     'Yirt': 'y',
     'Zerek': 'z',
   };
+  const dictionaryToAurebesh = {
+    'a': 'Aurek',
+    'ae': 'Enth',
+    'b': 'Besh',
+    'c': 'Cresh',
+    'd': 'Dorn',
+    'e': 'Esk',
+    'f': 'Forn',
+    'g': 'Grek',
+    'h': 'Herf',
+    'i': 'Isk',
+    'j': 'Jenth',
+    'k': 'Krill',
+    'l': 'Leth',
+    'm': 'Mern',
+    'n': 'Nern',
+    'ñ': 'Ñem',
+    'o': 'Osk',
+    'p': 'Peth',
+    'q': 'Qek',
+    'r': 'Resh',
+    's': 'Senth',
+    't': 'Trill',
+    'u': 'Usk',
+    'v': 'Vev',
+    'w': 'Wesk',
+    'x': 'Xesh',
+    'y': 'Yirt',
+    'z': 'Zerek',
+  };
 
   bool isAurebesh = dictionaryToAurebesh.values
-          .any((value) => textFromTranslate.startsWith(value)) &&
+          .any((value) => textFromTranslate.startsWith(value)) ||
       dictionaryToAurebesh.values
           .any((value) => textFromTranslate.endsWith(value));
 
-  String textTranslated = textFromTranslate.toLowerCase();
-  if (isAurebesh) {
-    for (String key in dictionaryToSpanish.keys) {
-      textTranslated =
-          textTranslated.replaceAll(key, dictionaryToAurebesh[key]!);
+  String textTranslated = textFromTranslate;
+  textFromTranslate.split(' ').forEach((word) {
+    if (isAurebesh) {
+      for (String key in dictionaryToSpanish.keys) {
+        textTranslated =
+            textTranslated.replaceAll(key, dictionaryToSpanish[key]!);
+      }
+    } else {
+      for (String key in dictionaryToAurebesh.keys) {
+        textTranslated =
+            textTranslated.replaceAll(key, dictionaryToAurebesh[key]!);
+      }
     }
-  } else {
-    for (String key in dictionaryToAurebesh.keys) {
-      textTranslated =
-          textTranslated.replaceAll(key, dictionaryToAurebesh[key]!);
-    }
-  }
+  });
 
-  print(isAurebesh);
   return textTranslated;
 }
