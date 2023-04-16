@@ -1,3 +1,12 @@
+import sys
+import os
+try:
+    from PIL import Image, ImageDraw, ImageFont
+except ImportError:
+    print('Instala la libreria python Pillow\n'
+          'pip install Pillow\n')
+    sys.exit(1)
+
 ###############################################################################
 MANIFEST = {
     'name': 'Reto #15',
@@ -5,10 +14,6 @@ MANIFEST = {
     'github': 'https://github.com/percevaq',
 }
 ###############################################################################
-import sys
-import os
-
-
 WELLCOME = """
 *******************************************************************************
                   _                                      
@@ -89,17 +94,13 @@ def translate(_word='percevaq', _language='A'):
 
 
 def generate_imagen(_translation):
-    try:
-        from PIL import Image, ImageDraw, ImageFont
-    except ImportError:
-        print('Instala la libreria python Pillow\n'
-              'pip install Pillow\n')
-        sys.exit(1)
     image = Image.new("RGB", (1920, 1080), "black")
     font = ImageFont.truetype(os.path.join(
-        os.path.dirname(__file__), 'Aurebesh.ttf'), size=36)
+        os.path.dirname(__file__), 'Aurebesh.ttf'), size=72)
     draw = ImageDraw.Draw(image)
-    draw.text((100, 300), _translation, font=font, align='center')
+    x = 960 - (len(_translation) * 70) / 2
+    y = 520
+    draw.text((x, y), _translation, font=font, align='center')
     image.show()
 
 
