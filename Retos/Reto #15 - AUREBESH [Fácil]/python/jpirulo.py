@@ -71,4 +71,4 @@ if __name__ == '__main__':
     texto_traducido = traductor.traducir_espanol_a_aurebesh(texto_a_traducir)
     print(f"El texto traducido al alfabeto Aurebesh es: {texto_traducido}")
     texto_original = traductor.traducir_aurebesh_a_espanol(texto_traducido)
-    print(f"El texto traducido de regreso al español es: {texto_original}")
+    print(f"El texto traducido de regreso al español es:: {texto_original}")
