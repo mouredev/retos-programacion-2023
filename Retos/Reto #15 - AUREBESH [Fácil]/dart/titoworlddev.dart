@@ -10,43 +10,13 @@
  */
 
 void main() {
-  print(traduceAurebesh('hola mundo'));
-//   print(traduceAurebesh('HerfOskLethAurek MernUskNernDornOsk'));
+  print(aurebeshTranslator('¡Hola mundo!'));
+  print(aurebeshTranslator('¡HerfOskLethAurek MernUskNernDornOsk!'));
 }
 
-traduceAurebesh(String textFromTranslate) {
-  const dictionaryToSpanish = {
-    'Aurek': 'a',
-    'Besh': 'b',
-    'Cresh': 'c',
-    'Dorn': 'd',
-    'Esk': 'e',
-    'Forn': 'f',
-    'Grek': 'g',
-    'Herf': 'h',
-    'Isk': 'i',
-    'Jenth': 'j',
-    'Krill': 'k',
-    'Leth': 'l',
-    'Mern': 'm',
-    'Nern': 'n',
-    'Ñem': 'ñ',
-    'Osk': 'o',
-    'Peth': 'p',
-    'Qek': 'q',
-    'Resh': 'r',
-    'Senth': 's',
-    'Trill': 't',
-    'Usk': 'u',
-    'Vev': 'v',
-    'Wesk': 'w',
-    'Xesh': 'x',
-    'Yirt': 'y',
-    'Zerek': 'z',
-  };
-  const dictionaryToAurebesh = {
+aurebeshTranslator(String textFromTranslate) {
+  const dictionary = {
     'a': 'Aurek',
-    'ae': 'Enth',
     'b': 'Besh',
     'c': 'Cresh',
     'd': 'Dorn',
@@ -74,26 +44,22 @@ traduceAurebesh(String textFromTranslate) {
     'y': 'Yirt',
     'z': 'Zerek',
   };
+  bool isAurebesh =
+      dictionary.values.any((value) => textFromTranslate.contains(value));
 
-  bool isAurebesh = dictionaryToAurebesh.values
-          .any((value) => textFromTranslate.startsWith(value)) ||
-      dictionaryToAurebesh.values
-          .any((value) => textFromTranslate.endsWith(value));
-
-  String textTranslated = textFromTranslate;
-  textFromTranslate.split(' ').forEach((word) {
-    if (isAurebesh) {
-      for (String key in dictionaryToSpanish.keys) {
-        textTranslated =
-            textTranslated.replaceAll(key, dictionaryToSpanish[key]!);
-      }
-    } else {
-      for (String key in dictionaryToAurebesh.keys) {
-        textTranslated =
-            textTranslated.replaceAll(key, dictionaryToAurebesh[key]!);
-      }
+  String textTranslated = '';
+  if (isAurebesh) {
+    textTranslated = textFromTranslate;
+    for (String value in dictionary.values) {
+      textTranslated = textTranslated.replaceAll(value,
+          dictionary.entries.singleWhere((elem) => elem.value == value).key);
     }
-  });
+  } else {
+    for (String char in textFromTranslate.split('')) {
+      textTranslated += dictionary[char.toLowerCase()] ?? char;
+    }
+  }
 
-  return textTranslated;
+  return textTranslated.replaceFirstMapped(
+      RegExp(r'\w'), (m) => m[0]!.toUpperCase());
 }
