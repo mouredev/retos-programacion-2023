@@ -8,8 +8,11 @@ public class Qv1ko {
     }//main
 
     private static boolean isFridayThirteenth(int month,int year) {
-        month=(month<1||month>12)? LocalDate.now().getMonthValue():month;  
-        return LocalDate.of(year,month,13).getDayOfWeek()==DayOfWeek.FRIDAY;
+        try {
+            return LocalDate.of(year,month,13).getDayOfWeek()==DayOfWeek.FRIDAY;
+        } catch(Exception exc) {
+            return false;
+        }
     }//isFridayThirteenth
 
 }//class
