@@ -43,7 +43,7 @@ def cambio_de_base (n_decimal, base):
         
     elif base==16:
         divisor = 16
-        num_final = '0h'
+        num_final = '0x'
     else:
         return ("Error con en la base de conversion, valores posibles 8 y 16")
 
