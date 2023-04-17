@@ -30,10 +30,11 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#10** - 06/03/23 | Media | [`LA API`](./Retos/Reto%20%2310%20-%20LA%20API%20%5BMedia%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/AGWWns_KHP8)] [[MI SOLUCIÓN](./Retos/Reto%20%2310%20-%20LA%20API%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2310%20-%20LA%20API%20%5BMedia%5D/)]
 * **#11** - 13/03/23 | Fácil | [`URL PARAMS`](./Retos/Reto%20%2311%20-%20URL%20PARAMS%20%5BFácil%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/hUX46tEpc2A)] [[MI SOLUCIÓN](./Retos/Reto%20%2311%20-%20URL%20PARAMS%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2311%20-%20URL%20PARAMS%20%5BFácil%5D/)]
 * **#12** - 20/03/23 | Fácil | [`VIERNES 13`](./Retos/Reto%20%2312%20-%20VIERNES%2013%20%5BFácil%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/UBDO-z5rYfg)] [[MI SOLUCIÓN](./Retos/Reto%20%2312%20-%20VIERNES%2013%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2312%20-%20VIERNES%2013%20%5BFácil%5D/)]
-* **#13** - 27/03/23 | Media | [`ADIVINA LA PALABRA`](./Retos/Reto%20%2313%20-%20ADIVINA%20LA%20PALABRA%20%5BMedia%5D/ejercicio.md) | [[MI SOLUCIÓN](./Retos/Reto%20%2313%20-%20ADIVINA%20LA%20PALABRA%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2313%20-%20ADIVINA%20LA%20PALABRA%20%5BMedia%5D/)]
-* **#14** - 03/04/23 | Fácil | [`OCTAL Y HEXADECIMAL`](./Retos/Reto%20%2314%20-%20OCTAL%20Y%20HEXADECIMAL%20%5BFácil%5D/ejercicio.md) | Último reto publicado
+* **#13** - 27/03/23 | Media | [`ADIVINA LA PALABRA`](./Retos/Reto%20%2313%20-%20ADIVINA%20LA%20PALABRA%20%5BMedia%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/t5UHiXcYD8Y)] [[MI SOLUCIÓN](./Retos/Reto%20%2313%20-%20ADIVINA%20LA%20PALABRA%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2313%20-%20ADIVINA%20LA%20PALABRA%20%5BMedia%5D/)]
+* **#14** - 03/04/23 | Fácil | [`OCTAL Y HEXADECIMAL`](./Retos/Reto%20%2314%20-%20OCTAL%20Y%20HEXADECIMAL%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2314%20-%20OCTAL%20Y%20HEXADECIMAL%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2314%20-%20OCTAL%20Y%20HEXADECIMAL%20%5BFácil%5D/)]
+* **#15** - 10/04/23 | Fácil | [`AUREBESH`](./Retos/Reto%20%2315%20-%20AUREBESH%20%5BFácil%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 03/04/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1092353788326719608) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 17/04/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1094856908109795371) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
