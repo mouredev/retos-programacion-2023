@@ -14,8 +14,8 @@ def aurebesh_translator(text: str, aurebesh: bool = True) -> str:
     }
 
     text = text.lower()
-    translate = str()
     length = len(text)
+    translate = ""
 
     if aurebesh:
         to_spanish = {value: key for key, value in to_aurebesh.items()}
@@ -35,9 +35,9 @@ def aurebesh_translator(text: str, aurebesh: bool = True) -> str:
                 search = text[index]
                 index = index - 1
 
-            translate = translate + to_aurebesh[search] if search in to_aurebesh else translate + search
+            translate += to_aurebesh.get(search, search)
             index = index + 2
-            search = ""
+            search = None
 
     return translate
 
