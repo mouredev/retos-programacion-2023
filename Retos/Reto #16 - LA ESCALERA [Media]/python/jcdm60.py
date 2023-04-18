@@ -26,7 +26,7 @@ class Ladder:
         ladder = ""
         if self.steps > 0:
             for step in range(self.steps + 1):
-                ladder += (" " * (self.steps - step) * 2) + "_|" * bool(step) + "_\n"
+                ladder += " " * (self.steps - step) * 2 + "_|" * bool(step) + "_" * (1 - bool(step)) + "\n"
         elif self.steps < 0:
             for step in range(abs(self.steps) + 1):
                 ladder += " " * step * 2 + "|_\n" * bool(step)
