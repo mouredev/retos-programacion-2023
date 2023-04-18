@@ -31,14 +31,14 @@ drawLadder(int stairsNum) {
     if (stairsNum.isNegative) {
       final spaces = ' ' * (2 * i);
       if (i == 0) {
-        ladder += ' $finalStair\n';
+        ladder += '\n $finalStair\n';
       } else {
         ladder += '$spaces$downStair\n';
       }
     } else {
       final spaces = ' ' * ((2 * stairsNum) - (i * 2));
       if (i == 0) {
-        ladder += '$spaces$finalStair\n';
+        ladder += '\n$spaces$finalStair\n';
       } else {
         ladder += '$spaces$upStair\n';
       }
