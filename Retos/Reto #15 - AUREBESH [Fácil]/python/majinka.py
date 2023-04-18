@@ -90,6 +90,6 @@ def traductor(original, texto):
 
     return texto_traducido.capitalize()
             
-a= traductor('Español', 'Chingada madre ñ.')
+a= traductor('Español', 'Qué buen reto. Nos vemos mañana!')
 print(a)
 print(traductor('Aurebesh',a))
