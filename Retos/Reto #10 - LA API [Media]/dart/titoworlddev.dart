@@ -11,10 +11,11 @@
 // Usare la api de fakerapi.it para crear personas aleatorias
 // y mostrarlas en la terminal
 
+// ignore_for_file: uri_does_not_exist
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-void main() async {
+void main() {
   getAndPrintPersons();
 }
 
