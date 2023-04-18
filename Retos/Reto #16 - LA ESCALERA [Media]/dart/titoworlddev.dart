@@ -14,7 +14,9 @@
  */
 
 void main() {
-  print(drawLadder(4));
+  print(drawLadder(10));
+  print(drawLadder(-10));
+  print(drawLadder(0));
 }
 
 drawLadder(int stairsNum) {
@@ -23,11 +25,13 @@ drawLadder(int stairsNum) {
   const finalStair = '_';
   String ladder = '';
 
-  for (int i = 0; i <= stairsNum; i++) {
+  if (stairsNum == 0) return '__';
+
+  for (int i = 0; i <= stairsNum.abs(); i++) {
     if (stairsNum.isNegative) {
       final spaces = ' ' * (2 * i);
       if (i == 0) {
-        ladder += '$finalStair\n';
+        ladder += ' $finalStair\n';
       } else {
         ladder += '$spaces$downStair\n';
       }
