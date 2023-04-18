@@ -54,16 +54,12 @@ impl Staircase {
             )
         }
 
-        // Reverse lines order if is not bottom-up
-        if self.bottom_up_direction {
-            for line in line_list.iter_mut() {
-                line.push('\n');
-            }
-        } else {
-            for line in line_list.iter_mut() {
+        // Add new-line characters and reverse lines order if stair is not bottom-up
+        for line in line_list.iter_mut() {
+            if !self.bottom_up_direction {
                 *line = line.chars().rev().collect();
-                line.push('\n');
             }
+            line.push('\n');
         }
 
         // return
