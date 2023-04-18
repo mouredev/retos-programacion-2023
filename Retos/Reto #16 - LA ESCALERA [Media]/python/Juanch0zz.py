@@ -3,7 +3,6 @@ number = int(input("Enter a number: "))
 contador = number * 2
 contador2 = -1
 
-
 if number < 0:
     print("_")
 
@@ -12,12 +11,6 @@ if number < 0:
 
         print(" "*contador2 + "|_")
         
-    
-        
-    
-
-
-
 
 if number > 0:
     print(" "*contador + "_")
@@ -26,12 +19,6 @@ if number > 0:
 
         print(" "*contador + "_|")
         
-
-
-
-
-
-
 
 else:
     print("__")
