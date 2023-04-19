@@ -26,16 +26,16 @@ def ladder(number: int) -> str:
         str: ladder: a string representing the ladder.
     """
     result = ''
+    UNDERSCORE = '_'
     if number == 0:
         result += '__'
     elif number > 0:
-        result += f"{' '*(number+2)}_\n"
+        result += f"{' '*(number+2)}{UNDERSCORE}\n"
         for i in range(number):
-            result += ' '*(number-i) + '_|\n'
+            result += f"{' '*(number-i)}_|\n"
     else:
-
         for i in range(abs(number)):
-            result += ' '*i + '|_\n'
+            result += f"{' '*i}|_\n"
         result += f"{' '*(abs(number)+1)}|"
     return result
 
