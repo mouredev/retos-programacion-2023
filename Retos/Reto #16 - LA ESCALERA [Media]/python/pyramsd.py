@@ -24,7 +24,6 @@ def escalera(num):
     else:
         print("__")
 
-
-num = eval(input("Enter number of stairs: "))
+num = int(input("Enter number of stairs: "))
 
 escalera(num)
