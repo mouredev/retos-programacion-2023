@@ -25,21 +25,19 @@ def ladder(number: int) -> str:
     Returns:
         str: ladder: a string representing the ladder.
     """
-    greather_than_0 = ''
-    less_than_0 = ''
+    result = ''
+    UNDERSCORE = '_'
     if number == 0:
-        return '__'
+        result += '__'
     elif number > 0:
-        greather_than_0 += f"{' '*(number+2)}_\n"
+        result += f"{' '*(number+2)}{UNDERSCORE}\n"
         for i in range(number):
-            greather_than_0 += ' '*(number-i) + '_|\n'
-        return greather_than_0
+            result += f"{' '*(number-i)}_|\n"
     else:
-
         for i in range(abs(number)):
-            less_than_0 += ' '*i + '|_\n'
-        less_than_0 += f"{' '*(abs(number)+1)}|"
-        return less_than_0
+            result += f"{' '*i}|_\n"
+        result += f"{' '*(abs(number)+1)}|"
+    return result
 
 
 print(ladder(-3))
