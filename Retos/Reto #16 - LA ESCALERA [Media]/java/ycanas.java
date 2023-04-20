@@ -3,25 +3,15 @@ public class ycanas {
         if (steps > 0) {
             for (int i = 0; i < steps + 1; i++) {
                 String draw = (i == 0) ? "_" : "_|";
-                int decrement = ((steps * 2) + 1) - (2 * i);
-
-                for (int j = 0; j < decrement - 1; j++){
-                    System.out.print(" ");
-                }
-
-                System.out.println(draw);
+                int spaces = (steps * 2) - (2 * i);
+                System.out.println(" ".repeat(spaces) + draw);
             }
         }
 
         else if (steps < 0) {
             for (int i = 0; i < (steps * (- 1)) + 1; i++) {
                 String draw = (i == 0) ? " _" : "|_";
-
-                for (int j = 0; j < 2 * i; j++){
-                    System.out.print(" ");
-                }
-
-                System.out.println(draw);
+                System.out.println(" ".repeat((2 * i)) + draw);
             }
         }
 
