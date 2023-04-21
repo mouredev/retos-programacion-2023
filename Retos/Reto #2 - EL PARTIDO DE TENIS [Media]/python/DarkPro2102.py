@@ -25,20 +25,20 @@ def points(tenis_match : list[str]):
             points_P2 = "Love"
         
         if deuce:
-                if (points_P1 > points_P2) and not adin:
-                    print("Ventaja para P1")
-                    adin = True
-                    continue
-                elif (points_P1 > points_P2) and adin:
-                    print("El ganador es el jugador 1")
-                    break
-                if (points_P2 > points_P1) and not adin:
-                    print("Ventaja para P2")
-                    adin = True
-                    continue
-                elif (points_P2 > points_P1) and adin:
-                    print("El ganador es el jugador 2")
-                    break
+            if (points_P1 > points_P2) and not adin:
+                print("Ventaja para P1")
+                adin = True
+                continue
+            elif (points_P1 > points_P2) and adin:
+                print("El ganador es el jugador 1")
+                break
+            if (points_P2 > points_P1) and not adin:
+                print("Ventaja para P2")
+                adin = True
+                continue
+            elif (points_P2 > points_P1) and adin:
+                print("El ganador es el jugador 2")
+                break
         
         if (points_P1 == points_P2) and (points_P1 >= 40 or points_P2 >= 40):
             print("Deuce")
