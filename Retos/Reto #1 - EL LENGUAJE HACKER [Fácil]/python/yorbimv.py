@@ -23,12 +23,12 @@ def leet_traductor(abecedario):
     leet_textNuevo = ""
 
     for letra in abecedario:
-        if letra.upper() in dict_leet.keys():
-            leet_textNuevo += dict_leet[letra.upper()]
+        if letra.upper() in dict_leet.keys():               # Transforma en mayus las letras en dict_leet
+            leet_textNuevo += dict_leet[letra.upper()]      # Se agrega la equivalencia de letra en mayus
         else:
-            leet_textNuevo += letra
+            leet_textNuevo += letra                         # Si no encuentra, inserta la letra sin traducir
 
-    return leet_textNuevo
+    return leet_textNuevo                                   # Regresa resultado
 
 
 # print("Leet:",leet_traductor("Leet"))           # 1337
