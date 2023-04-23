@@ -5,10 +5,7 @@ import static java.lang.Math.abs;
 public class Jcabo88 {
 
     private static String createStep(int steps, String step) {
-        for (int i=steps; i>0; i--) {
-            step = " ".concat(step);
-        }
-        return step;
+        return " ".repeat(steps).concat(step);
     }
 
     private static String downstairs(int steps) {
