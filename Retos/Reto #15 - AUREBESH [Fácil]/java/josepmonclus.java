@@ -32,13 +32,16 @@ public class josepmonclus {
         Map<String, String> dictAurebesh = getDictAurebesh();
         StringBuilder translated = new StringBuilder();
 
+        int index = 0;
+
         if(aurebesh) {
             // Translate from aurebesh
-
+            while (index < toTranslate.length()) {
+                boolean done = false;
+                //for
+            }
         } else {
             // Translate to aurebesh
-            int index = 0;
-
             while (index < toTranslate.length()) {
                 if(index + 2 < toTranslate.length() && dictAurebesh.containsKey(toTranslate.substring(index, index + 2))) {
                     translated.append(dictAurebesh.get(toTranslate.substring(index, 2)));
