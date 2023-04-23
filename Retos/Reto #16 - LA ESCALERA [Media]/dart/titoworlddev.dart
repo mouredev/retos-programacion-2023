@@ -23,20 +23,21 @@ drawLadder(int stairsNum) {
   const upStair = '_|';
   const downStair = '|_';
   const finalStair = '_';
+  String spaces = ' ';
   String ladder = '';
 
   if (stairsNum == 0) return '__';
 
   for (int i = 0; i <= stairsNum.abs(); i++) {
     if (stairsNum.isNegative) {
-      final spaces = ' ' * (2 * i);
+      spaces = ' ' * (2 * i);
       if (i == 0) {
         ladder += '\n $finalStair\n';
       } else {
         ladder += '$spaces$downStair\n';
       }
     } else {
-      final spaces = ' ' * ((2 * stairsNum) - (i * 2));
+      spaces = ' ' * ((2 * stairsNum) - (i * 2));
       if (i == 0) {
         ladder += '\n$spaces$finalStair\n';
       } else {
