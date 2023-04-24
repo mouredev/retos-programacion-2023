@@ -18,17 +18,3 @@
 Sigue las **[instrucciones](../../README.md)**, consulta las correcciones y aporta la tuya propia utilizando el lenguaje de programación que quieras.
 
 > Recuerda que cada semana se publica un nuevo ejercicio y se corrige el de la semana anterior en directo desde **[Twitch](https://twitch.tv/mouredev)**. Tienes el horario en la sección "eventos" del servidor de **[Discord](https://discord.gg/mouredev)**.
-
-public static void FizzBuzz() {
-	Console.WriteLine("Reto Fizz Buzz: ");
-	for (int i = 1; i <= 100; i++) {
-		if (i % 3 == 0 && i % 5 == 0)
-			Console.WriteLine("fizzbuzz" + "\r\n");
-		else if (i % 3 == 0)
-			Console.WriteLine("fizz" + "\r\n");
-		else if (i % 5 == 0)
-			Console.WriteLine("buzz" + "\r\n");
-		else
-			Console.WriteLine(i + "\r\n");
-	}
-}
