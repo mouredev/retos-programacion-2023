@@ -16,9 +16,11 @@ public class Qv1ko {
                 System.out.println("The word is \""+misteryWord+"\"");
                 System.out.print("Attempt ("+(i+1)+"/"+keyWord.length()+"): ");
                 attemp=sc.nextLine();
-                if(attemp.equalsIgnoreCase(keyWord)) {
-                    guessed=true;
-                    break;
+                if(attemp.length()==keyWord.length()) {
+                    if(attemp.equalsIgnoreCase(keyWord)) {
+                        guessed=true;
+                        break;
+                    }
                 } else if(attemp.length()==1) {
                     for(int j=0;j<misteryWord.length();j++) {
                         if(keyWord.toCharArray()[j]==attemp.charAt(0)) {
@@ -38,7 +40,7 @@ public class Qv1ko {
                     break;
                 }
             }
-            System.out.println((guessed)? "\nYou guessed the word "+keyWord+"\n":"\nYou didn't guess\n");
+            System.out.println((guessed)? "\nYou guessed the word\n":"\nYou finished your attempts, the word was "+keyWord+"\n");
             sc.close();
         } else {
             System.out.println("Choose a keyword");
