@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 
 /*
@@ -19,13 +20,39 @@ public class josepmonclus {
     public static void main(String[] args) {
         josepmonclus josepmonclus = new josepmonclus();
 
-        String toTranslate = "The"; //josepmonclus.getTextToTranslate();
-        boolean aurebesh = false; //josepmonclus.getLanguageOfText();
+        boolean test = true;
 
-        String translated = josepmonclus.transalteText(toTranslate.toLowerCase(), aurebesh);
+        if(!test) {
+            String toTranslate = josepmonclus.getTextToTranslate();
+            boolean aurebesh = josepmonclus.getLanguageOfText();
 
-        System.out.println("Texto traducido:");
-        System.out.println(translated);
+            String translated = josepmonclus.transalteText(toTranslate.toLowerCase(), aurebesh);
+
+            System.out.println("Texto traducido:");
+            System.out.println(translated);
+        } else {
+            String toTranslate = "The Mouredev";
+            String translated = josepmonclus.transalteText(toTranslate.toLowerCase(), false);
+
+            System.out.println("Texto traducido:");
+            System.out.println(translated);
+
+            translated = josepmonclus.transalteText(translated, true);
+
+            System.out.println("Texto tranducido:");
+            System.out.println(translated);
+
+            toTranslate = "Qué te ha parecido el reto? A mí me ha gustado mucho! Mañana sigue practicando.";
+            translated = josepmonclus.transalteText(toTranslate.toLowerCase(), false);
+
+            System.out.println("Texto traducido:");
+            System.out.println(translated);
+
+            translated = josepmonclus.transalteText(translated, true);
+
+            System.out.println("Texto tranducido:");
+            System.out.println(translated);
+        }
     }
 
     private String transalteText(String toTranslate, boolean aurebesh) {
@@ -37,14 +64,33 @@ public class josepmonclus {
         if(aurebesh) {
             // Translate from aurebesh
             while (index < toTranslate.length()) {
+                int i = 6;
                 boolean done = false;
-                //for
+                while(!done) {
+                    if(index + i < toTranslate.length() && dictAurebesh.containsValue(toTranslate.substring(index, index + i))) {
+                        for(Entry<String, String> e : dictAurebesh.entrySet()) {
+                            if(e.getValue().equals(toTranslate.substring(index, index + i))) {
+                                translated.append(e.getKey());
+                                done = true;
+                                break;
+                            }
+                        }
+                    }
+                    
+                    if(i == 1 && !done) {
+                        translated.append(toTranslate.substring(index, index + i));
+                        done = true;
+                    }
+                    if(!done) i--;
+                }
+
+                index = index + i;
             }
         } else {
             // Translate to aurebesh
             while (index < toTranslate.length()) {
                 if(index + 2 < toTranslate.length() && dictAurebesh.containsKey(toTranslate.substring(index, index + 2))) {
-                    translated.append(dictAurebesh.get(toTranslate.substring(index, 2)));
+                    translated.append(dictAurebesh.get(toTranslate.substring(index, index + 2)));
                     index = index + 2;
                 } else if(dictAurebesh.containsKey(Character.toString(toTranslate.charAt(index)))) {
                     translated.append(dictAurebesh.get(Character.toString(toTranslate.charAt(index))));
