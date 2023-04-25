@@ -49,7 +49,7 @@ def gitHubCommitsReader():
     
         for i, commit in enumerate( commits ):
             # Se da formato a Información obtenida que lo necesite
-            msj = str( commit['commit']['message'] ).replace( "\n", "." ).replace( "..", " | " ) # Se reemplazan saltos de línea del Mensaje si los tuviera por un guión con espacios (' - '), usualmente son dos saltos de línea
+            msj = str( commit['commit']['message'] ).replace( "\n", "." ).replace( "..", " | " ) # Se reemplazan saltos de línea del Mensaje si los tuviera por un caracter de separación con espacios (' | '), usualmente son dos saltos de línea
             fechaHora = datetime.strptime( str( commit['commit']['committer']['date'] ), "%Y-%m-%dT%H:%M:%SZ" ).strftime( "%d/%m/%Y - %H:%M" ) # Se aplica Formato de Fecha y hora user friendly
         
             print( f"\n** Commit #{ i + 1 } **" )
