@@ -8,7 +8,7 @@ package com.cursosant.android.retosprogramacion2223
  */
 
 
-fun main(args: Array<String>) {
+fun main() {
 
     println("Introduce un numero")
     val input = readlnOrNull()?.toInt()?:0
