@@ -19,8 +19,8 @@ class GetAPI
     commits.map.with_index do |commit, index|
       hash = commit['sha'][0, 6]
       author = commit['author'].nil? ? commit['commit']['author']['name'] : commit['author']['login']
-      message = commit['commit']['message'] || ''
-      date = Time.parse(commit['commit']['author']['date']).localtime.strftime('%d/%m/%Y %H:%M:%S %p')
+      message = commit['commit']['message'].gsub(/\n\n/, ' - ')
+      date = Time.parse(commit['commit']['author']['date']).localtime.strftime('%d/%m/%Y %H:%M:%S')
       "Commit #{index + 1} | #{hash} | #{author} | #{message} | #{date}"
     end
   end
