@@ -31,7 +31,9 @@ const getAPI = (uri) => {
           let date = new Date(commit.commit.author.date).toLocaleString(
             "es-PE"
           );
-          return `${index + 1} | ${hash} | ${author} | ${message} | ${date}`;
+          return `Commit ${
+            index + 1
+          } | ${hash} | ${author} | ${message} | ${date}`;
         });
         console.log(processed_commits.join("\n"));
       });
