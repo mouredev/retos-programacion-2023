@@ -1,4 +1,3 @@
-
 """# Reto #2: EL PARTIDO DE TENIS
 #### Dificultad: Media | Publicación: 09/01/23 | Corrección: 16/01/23
        
@@ -29,7 +28,6 @@ def partido(scores):
     print("<P1 - P2>")
 
     for score in scores:
-
         if score=="P1":
             score_p1+=1
         elif score=="P2":
@@ -41,27 +39,23 @@ def partido(scores):
         if score_p1 == score_p2 and score_p1 > 0:
             print("Deuce")
         elif score_p1>3 or score_p2>3:
-
             if score_p1 == score_p2 - 2:
                 print("Ganador P2 \n")
                 return()
-
             elif score_p2 == score_p1 - 2:
                 print("Ganador P1 \n")
                 return()  
-
             elif score_p1 == score_p2 - 1:
                 print("Ventaja P2") 
                 continue               
-
             elif score_p2 == score_p1 - 1:
                 print("Ventaja P1")                 
                 continue                              
-
         else:                 
             print(f'{points[score_p1]} - {points[score_p2]}')
 
 if __name__ == '__main__':
+    
     print("Primer partido")
     partido(["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1", "P1"])
     print("Segundo partido")
