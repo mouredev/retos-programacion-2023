@@ -35,7 +35,7 @@
 				'method' => 'GET',
 				'header' => [
 						'User-Agent: PHP',
-                        'Authorization: Bearer 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',
+                        'Authorization: Bearer ' . $token,
                         'X-GitHub-Api-Version: 2022-11-28',
 						'Content-type: application/x-www-form-urlencoded',
                 ],
