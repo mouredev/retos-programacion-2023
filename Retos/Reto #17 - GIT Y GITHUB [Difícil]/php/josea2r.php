@@ -25,7 +25,7 @@
     //Código creado a partir del GIST de travstoll ubicado en esta página -> https://gist.github.com/travstoll/d6d72855b4184fbfc30f3a20a9adbb4c
 
 	//Auth Token para hacer uso del API (Añadir el tuyo creado previamente)
-	$token = "Introduce tu Token de Acceso Personal";
+	$token = "Añade tu Access Personal Token que puedes crear desde GitHub";
 	
 	$url = "https://api.github.com/repos/mouredev/retos-programacion-2023/commits?per_page=10";
 
@@ -58,7 +58,7 @@
 
         $commit_number['commit'] = $commit_number['commit'] + 1;
 
-        $sha = $commit['sha'];
+        $sha = substr($commit['sha'], 0, 7);
         $author_name = $commit['commit']['author']['name'];
         $message = str_replace("\n", '', $commit['commit']['message']);
         $time = date_format(date_create($commit['commit']['author']['date']), 'd/m/Y H:i');
