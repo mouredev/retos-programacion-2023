@@ -8,7 +8,7 @@ def LastCommits(limit,repo):
     html = response.text
     soup = bs4.BeautifulSoup(html, 'html.parser')
     listadecommits = soup.find_all("li", {"class": "Box-row Box-row--focus-gray mt-0 d-flex js-commits-list-item js-navigation-item"})
-    for x in range(limit): #for commit in listadecommits:cls
+    for x in range(limit):
 
             author = listadecommits[x].find(class_="commit-author user-mention")
             txtauthor = author.get_text()
