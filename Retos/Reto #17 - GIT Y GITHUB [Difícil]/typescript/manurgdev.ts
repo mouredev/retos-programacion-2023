@@ -34,20 +34,20 @@ getLastCommits();
 
 /** Types */
 
-export type CommitsInfo = {
+type CommitsInfo = {
     hash: string,
     author: string,
     message: string,
     date: string
 };
 
-export type getLastCommitsParams = {
+type getLastCommitsParams = {
     repositoryName?: string,
     numberOfCommits?: number
 };
 
 /** START Types extracted from QuickType */
-export type GithubApiCommit = {
+type GithubApiCommit = {
     sha: string;
     node_id: string;
     commit: Commit;
@@ -59,7 +59,7 @@ export type GithubApiCommit = {
     parents: Parent[];
 }
 
-export type GithubAuthor = {
+type GithubAuthor = {
     login: string;
     id: number;
     node_id: string;
@@ -80,11 +80,11 @@ export type GithubAuthor = {
     site_admin: boolean;
 }
 
-export enum Type {
+enum Type {
     User = "User",
 }
 
-export type Commit = {
+type Commit = {
     author: CommitAuthor;
     committer: CommitAuthor;
     message: string;
@@ -94,30 +94,30 @@ export type Commit = {
     verification: Verification;
 }
 
-export type CommitAuthor = {
+type CommitAuthor = {
     name: string;
     email: string;
     date: Date;
 }
 
-export type Tree = {
+type Tree = {
     sha: string;
     url: string;
 }
 
-export type Verification = {
+type Verification = {
     verified: boolean;
     reason: Reason;
     signature: null | string;
     payload: null | string;
 }
 
-export enum Reason {
+enum Reason {
     Unsigned = "unsigned",
     Valid = "valid",
 }
 
-export type Parent = {
+type Parent = {
     sha: string;
     url: string;
     html_url: string;
