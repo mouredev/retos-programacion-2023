@@ -7,3 +7,4 @@ if __name__ == '__main__':
     for i in range(len(commits)):
         to_print = "Commit " + str(i + 1) + " : " + commits[i].hexsha + " \n Autor: " + commits[i].author.name + " \n Mensaje: " + commits[i].message.splitlines()[0] + " \n Fecha y hora: " + str(commits[i].committed_datetime) + "\n"
         print(to_print)
+        
