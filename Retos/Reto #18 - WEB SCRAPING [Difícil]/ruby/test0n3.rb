@@ -1,3 +1,8 @@
+# Ruby app, requires to have installed the following gems:
+# - URI
+# - net/http
+# - nokogiri
+
 # frozen_string_literal: true
 
 require 'uri'
@@ -5,21 +10,23 @@ require 'net/http'
 require 'nokogiri'
 
 # class GetSchedule, get on date schedule
-class GetSchedule
+class ScheduleHolaMundoDay
   HOLAMUNDO_URL = 'https://holamundo.day/'
 
   def pick_data
     uri = URI(HOLAMUNDO_URL)
     res = Net::HTTP.get_response(uri)
-    print_schedule(res.body) if res.is_a?(Net::HTTPSuccess)
+    show_schedule(res.body) if res.is_a?(Net::HTTPSuccess)
   end
 
-  def print_schedule(response)
+  def show_schedule(response)
     doc = Nokogiri::HTML(response)
-    schedule = find_schedules(doc)[0]
+    schedules = find_schedules(doc)[0]
 
-    clean_html_snip(schedule).drop(8).map(&:content)
+    clean_html_snip(schedules).drop(8).map(&:content)
   end
+
+  private
 
   def find_schedules(html_body)
     html_body.css('article.notion-page-content-inner').select do |article|
@@ -32,4 +39,4 @@ class GetSchedule
   end
 end
 
-puts GetSchedule.new.pick_data
+puts ScheduleHolaMundoDay.new.pick_data
