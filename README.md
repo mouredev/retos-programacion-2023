@@ -34,9 +34,10 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#14** - 03/04/23 | Fácil | [`OCTAL Y HEXADECIMAL`](./Retos/Reto%20%2314%20-%20OCTAL%20Y%20HEXADECIMAL%20%5BFácil%5D/ejercicio.md) | Correcciones: [[EN VÍDEO](https://youtu.be/T8qY1nUCHkM)] [[MI SOLUCIÓN](./Retos/Reto%20%2314%20-%20OCTAL%20Y%20HEXADECIMAL%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2314%20-%20OCTAL%20Y%20HEXADECIMAL%20%5BFácil%5D/)]
 * **#15** - 10/04/23 | Fácil | [`AUREBESH`](./Retos/Reto%20%2315%20-%20AUREBESH%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2315%20-%20AUREBESH%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2315%20-%20AUREBESH%20%5BFácil%5D/)]
 * **#16** - 17/04/23 | Media | [`LA ESCALERA`](./Retos/Reto%20%2316%20-%20LA%20ESCALERA%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2316%20-%20LA%20ESCALERA%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2316%20-%20LA%20ESCALERA%20%5BMedia%5D/)]
-* **#17** - 24/04/23 | Difícil | [`GIT Y GITHUB`](./Retos/Reto%20%2317%20-%20GIT%20Y%20GITHUB%20%5BDifícil%5D/ejercicio.md) | Último reto publicado
+* **#17** - 24/04/23 | Difícil | [`GIT Y GITHUB`](./Retos/Reto%20%2317%20-%20GIT%20Y%20GITHUB%20%5BDifícil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2317%20-%20GIT%20Y%20GITHUB%20%5BDifícil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2317%20-%20GIT%20Y%20GITHUB%20%5BDifícil%5D/)]
+* **#18** - 01/05/23 | Difícil | [`WEB SCRAPING`](./Retos/Reto%20%2318%20-%20WEB%20SCRAPING%20%5BDifícil%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 01/05/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1100104369787109496) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 11/05/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1102500650471936050) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
