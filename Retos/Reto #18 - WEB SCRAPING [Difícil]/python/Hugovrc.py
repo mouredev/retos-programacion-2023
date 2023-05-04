@@ -6,6 +6,7 @@ url = "https://holamundo.day"
 page = urlopen(url)
 html = page.read().decode("utf-8")
 soup = BeautifulSoup(html, "html.parser")
+
 box = soup.find_all("blockquote", class_= "BlockquoteElement___StyledBlockquote-sc-1dtx4ci-0 slate-BlockquoteElement notion-quote unset-width")
 list = []
 

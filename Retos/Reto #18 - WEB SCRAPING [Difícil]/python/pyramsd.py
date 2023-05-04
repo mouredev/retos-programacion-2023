@@ -6,7 +6,7 @@ page = requests.get(url)
 soup = BeautifulSoup(page.content, "html.parser")
 
 main = soup.find_all("blockquote", class_="BlockquoteElement___StyledBlockquote-sc-1dtx4ci-0 slate-BlockquoteElement notion-quote unset-width")
-print(main)
+
 eventos = []
 
 for i in main:
