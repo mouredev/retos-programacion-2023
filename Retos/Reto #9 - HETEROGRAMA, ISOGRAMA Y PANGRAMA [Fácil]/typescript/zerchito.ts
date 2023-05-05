@@ -11,7 +11,7 @@ class StringChecker {
    */
   isHeterograma(phrase: string): boolean {
     phrase = phrase.toLowerCase();
-    const lettersSet = new Set<string>();
+    const lettersSet = new Set();
     let isHeterogram = true;
     for(let index = 0; index < phrase.length; index++){
       const letter = phrase.charAt(index);
