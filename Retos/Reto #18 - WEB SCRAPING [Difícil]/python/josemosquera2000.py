@@ -13,8 +13,6 @@
 
 from bs4 import BeautifulSoup
 import requests
-import re
-import pandas as pd
 url = "https://holamundo.day"
 response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
