@@ -35,10 +35,8 @@ def hexadecimal(n):
     while d >= 16:
         m = d % 16
         d = d // 16
-        print(m)
         if m >= 10 and m < 16:
             result_2 = result_2 + hexadecimal_dict[m]
-            print(f"if: {m}")
         else:
             result_2 = result_2 + str(m)
         

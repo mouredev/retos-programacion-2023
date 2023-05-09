@@ -25,7 +25,8 @@ def traductor(texto):
         "w": "N/",
         "x": "><",
         "y": "\|/",
-        "z": "%"
+        "z": "%",
+        " ":" "
     }
     resultado = ""
     for i in texto:
