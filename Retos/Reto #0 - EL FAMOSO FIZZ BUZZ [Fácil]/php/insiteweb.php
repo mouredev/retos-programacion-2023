@@ -15,5 +15,5 @@ function NumerosFizzBuzz ($Inicio, $Final) {
     }
 }   
 
-NumerosFizzBuzz ($Inicio, $Final);   
+NumerosFizzBuzz (1,100);   
 ?>
