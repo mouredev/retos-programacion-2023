@@ -1,4 +1,4 @@
-# Reto #15: La escalera
+# Reto #16: La escalera
 #### Dificultad: Media | Publicación: 17/04/23 | Corrección: 24/04/23
 
 ## Enunciado
