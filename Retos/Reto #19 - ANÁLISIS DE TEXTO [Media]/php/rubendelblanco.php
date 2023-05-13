@@ -9,7 +9,7 @@
  * Todo esto utilizando un único bucle.
  */
  
-$texto_1 ="Vamos a probar este ejercicio. Tengo que poner un texto un poco largo ". 
+$texto ="Vamos a probar este ejercicio. Tengo que poner un texto un poco largo ". 
 "porque si no, esto no vale para nada. El caso es que no se me ocurre qué poner. ".
 "Estoy escribiendo la primera parida que me pasa por la cabeza, qué le vamos a ".
 "hacer no soy Cervantes.";
