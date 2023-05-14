@@ -1,25 +1,36 @@
-import requests
-from lxml import html
+"""
+ * Crea un programa que analice texto y obtenga:
+ * - Número total de palabras.
+ * - Longitud media de las palabras.
+ * - Número de oraciones del texto (cada vez que aparecen un punto).
+ * - Encuentre la palabra más larga.
+ *
+ * Todo esto utilizando un único bucle.
+"""
+longitud_palabra = 0
+oracion = 0
+longitud_mas_larga = 0
 
-encabezados = {
-    "user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
-}
 
-url = "https://holamundo.day/"
+texto = 'Al contrario del pensamiento popular, el texto de Lorem Ipsum no es simplemente texto aleatorio. Tiene sus raices en una pieza cl´sica de la literatura del Latin, que data del año 45 antes de Cristo, haciendo que este adquiera mas de 2000 años de antiguedad. Richard McClintock, un profesor de Latin de la Universidad de Hampden-Sydney en Virginia, encontró una de las palabras más oscuras de la lengua del latín, "consecteur", en un pasaje de Lorem Ipsum, y al seguir leyendo distintos textos del latín, descubrió la fuente indudable. Lorem Ipsum viene de las secciones 1.10.32 y 1.10.33 de "de Finnibus Bonorum et Malorum" (Los Extremos del Bien y El Mal) por Cicero, escrito en el año 45 antes de Cristo. Este libro es un tratado de teoría de éticas, muy popular durante el Renacimiento. La primera linea del Lorem Ipsum, "Lorem ipsum dolor sit amet..", viene de una linea en la sección 1.10.32. El trozo de texto estándar de Lorem Ipsum usado desde el año 1500 es reproducido debajo para aquellos interesados. Las secciones 1.10.32 y 1.10.33 de "de Finibus Bonorum et Malorum" por Cicero son también reproducidas en su forma original exacta, acompañadas por versiones en Inglés de la traducción realizada en 1914 por H. Rackham.'
 
-respuesta = requests.get(url, headers=encabezados) ### Pasamos la petición
+palabras_texto = texto.split()
 
-parser= html.fromstring(respuesta.text) ### pasamos todo el contenido para parsearlo
+#print(palabras_texto)
 
+numero_palabras = len(palabras_texto)
 
-texto_horario_8_mayo = parser.xpath("//blockquote[position()>7 and position()<23]/span[*]/span//text()") ### nos quedamos con la parte del 8 de mayo
+for i in range(numero_palabras):
+    longitud_palabra += len(palabras_texto[i])
+    if palabras_texto[i][-1]==".":
+        oracion += 1
+    if i>=1 and len(palabras_texto[i])>=len(palabras_texto[i-1]):
+        longitud_mas_larga = len(palabras_texto[i])
+        palabra_mas_larga = palabras_texto[i]
 
-### Vamos con un bucle a imprimir la información
-i = 0
+longitud_media = longitud_palabra / numero_palabras
 
-while i<len(texto_horario_8_mayo):
-    if texto_horario_8_mayo[i][0]!="1" and texto_horario_8_mayo[i][0]!="2": ### imprimo normal (sin saltos de línea a no ser que empiece por 1 o por 2
-        print(texto_horario_8_mayo[i],end="")
-    else:
-        print(f"\n{texto_horario_8_mayo[i]}", end="") ### imprimo un salto de línea previo si empieza por 1 o por 2
-    i+=1
+print (f"El numero total de palabras del texto es: {numero_palabras}")
+print(f"La longitud media de las palabras es: {round(longitud_media,2)} letras")
+print (f"La cantidad de oraciones en el texto son: {oracion}")
+print(f"El número de letras de la palabra más larga es: {longitud_mas_larga} y es: '{palabra_mas_larga}'")
