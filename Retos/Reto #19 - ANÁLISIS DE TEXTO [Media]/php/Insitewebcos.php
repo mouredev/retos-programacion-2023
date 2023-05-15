@@ -1,5 +1,5 @@
 <?php
-
+//reto 19
 /*
  * Crea un programa que analice texto y obtenga:
  * - Número total de palabras.
