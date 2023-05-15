@@ -34,7 +34,7 @@ foreach ($palabras as $palabra) {
 
         // Calcular la longitud de la palabra y agregarla al total
         $longitudPalabra = strlen($palabra);
-        $longitudTotal += $longitudPalabra;
+        $longitudTotal += $longitudPalabra; 
 
         // Verificar si la palabra es la más larga hasta ahora
         if ($longitudPalabra > strlen($palabraMasLarga)) {
