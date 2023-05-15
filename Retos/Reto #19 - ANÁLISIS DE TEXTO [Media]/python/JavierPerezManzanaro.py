@@ -6,8 +6,7 @@
  * - Encuentre la palabra más larga.
  *
  * Todo esto utilizando un único bucle.
-
- """
+"""
 
 import os
 
@@ -26,8 +25,8 @@ if __name__ == '__main__':
     palabras_ordenadas = dict(sorted(palabras.items(), key=lambda item:item[1], reverse=True))
     palabras_ordenadas = list(palabras_ordenadas.keys())
     print()
-    print('Resultados')
-    print('----------')
+    print('Resultado')
+    print('---------')
     print(f'Número total de palabras: {numero_palabras}')
     print(f'Longitud media de las palabras: {longuitud_media}')
     print(f'Número de oraciones del texto: {numero_frases}')
