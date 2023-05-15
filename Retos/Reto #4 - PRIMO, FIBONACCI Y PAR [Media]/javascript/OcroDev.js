@@ -16,8 +16,8 @@ function fibonacci(fibonacci = 0) {
       return find ? ", es fibonacci" : null;
     }
   }
-  return !find ? ", no es fibonacci" : null;
-}
+  return !find ? ", no es  fibonacci" : null;
+} 
 
 function primeNumber(primeNumber) {
   let prime = 0,
@@ -27,7 +27,7 @@ function primeNumber(primeNumber) {
     if (!prime) {
       primeCounter++;
     }
-  }
+  }  
   return primeCounter === 2 ? ", es primo" : ", no es primo";
 }
 
