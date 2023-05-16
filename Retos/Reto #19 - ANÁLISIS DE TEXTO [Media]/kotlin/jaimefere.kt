@@ -1,5 +1,5 @@
 fun analyzeText(text: String) {
-    val symbols = arrayOf(' ', '.', ',', ':', ';', '-', '¡', '¡', '¿', '?', '(', ')', '[', ']', '"', '"', '\t', '\n')
+    val symbols = arrayOf(' ', '.', ',', ':', ';', '-', '¡', '!', '¿', '?', '(', ')', '[', ']', '"', '\t', '\n')
     var wordLengths = arrayOf<Int>()
     var pointsCounter = 0
     var largestWord = ""
