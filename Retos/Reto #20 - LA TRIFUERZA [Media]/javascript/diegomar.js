@@ -18,7 +18,7 @@ function trifuerza(number){
     }
 }
 function trifuerza123(number, a, espacios23, espacios_inicio){
-    let linea="";
+    let linea=""; 
     if(a<number){
         for (var i = 0; i < espacios_inicio; i++) {
             linea += espacio;
