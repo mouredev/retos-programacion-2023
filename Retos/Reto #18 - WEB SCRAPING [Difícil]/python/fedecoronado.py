@@ -45,4 +45,5 @@ for linea in lineas:
             dia = 9
     if "Agenda 8 de mayo" in linea:
         dia = 8
+driver.quit()
     
