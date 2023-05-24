@@ -1,8 +1,6 @@
 import java.util.Collections;
 import java.util.Scanner;
 
-import org.jsoup.internal.StringUtil;
-
 /*
  *	¡El nuevo "The Legend of Zelda: Tears of the Kingdom" ya está disponible! 
  *
