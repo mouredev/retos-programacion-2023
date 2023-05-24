@@ -6,6 +6,7 @@
  * - Múltiplos de 5 por la palabra "buzz".
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
+
 for(var i=1; i<=100; i++){
     let result = 'fizz'
     if(i%3==0){
