@@ -58,6 +58,6 @@ function PrimeNumber(input) {
   });
 }
 
-console.log(new PrimeNumber(1).twinPrimes);
-console.log(new PrimeNumber(3).twinPrimes);
-console.log(new PrimeNumber(14).twinPrimes);
+// console.log(new PrimeNumber(1).twinPrimes);
+// console.log(new PrimeNumber(3).twinPrimes);
+// console.log(new PrimeNumber(14).twinPrimes);
