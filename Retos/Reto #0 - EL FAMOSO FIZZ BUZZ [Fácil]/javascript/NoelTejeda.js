@@ -7,7 +7,13 @@
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
 
-let numeros = Array.from({length: 100}, (_, i) => i + 1);
+//let numeros = Array.from({length: 100}, (_, i) => i + 1);
+
+let numeros = [ ]
+
+for (let i = 1 ; i<=100 ; i++){
+    numeros.push(i)
+}
 
 numeros.forEach(numero => {
     if (numero % 3 === 0 && numero % 5 === 0) {
