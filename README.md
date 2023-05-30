@@ -38,9 +38,10 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#18** - 01/05/23 | Difícil | [`WEB SCRAPING`](./Retos/Reto%20%2318%20-%20WEB%20SCRAPING%20%5BDifícil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2318%20-%20WEB%20SCRAPING%20%5BDifícil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2318%20-%20WEB%20SCRAPING%20%5BDifícil%5D/)]
 * **#19** - 11/05/23 | Media | [`ANÁLISIS DE TEXTO`](./Retos/Reto%20%2319%20-%20ANÁLISIS%20DE%20TEXTO%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2319%20-%20ANÁLISIS%20DE%20TEXTO%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2319%20-%20ANÁLISIS%20DE%20TEXTO%20%5BMedia%5D/)]
 * **#20** - 15/05/23 | Media | [`LA TRIFUERZA`](./Retos/Reto%20%2320%20-%20LA%20TRIFUERZA%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2320%20-%20LA%20TRIFUERZA%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2320%20-%20LA%20TRIFUERZA%20%5BMedia%5D/)]
-* **#21** - 22/05/23 | Media | [`NÚMEROS PRIMOS GEMELOS`](./Retos/Reto%20%2321%20-%20NÚMEROS%20PRIMOS%20GEMELOS%20%5BMedia%5D/ejercicio.md) | Último reto publicado
+* **#21** - 22/05/23 | Media | [`NÚMEROS PRIMOS GEMELOS`](./Retos/Reto%20%2321%20-%20NÚMEROS%20PRIMOS%20GEMELOS%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2321%20-%20NÚMEROS%20PRIMOS%20GEMELOS%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2321%20-%20NÚMEROS%20PRIMOS%20GEMELOS%20%5BMedia%5D/)]
+* **#22** - 29/05/23 | Media | [`LA ESPIRAL`](./Retos/Reto%20%2322%20-%20LA%20ESPIRAL%20%5BMedia%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 29/05/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1110117577830699018) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 06/06/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1112777023081938981) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
