@@ -14,7 +14,7 @@
  *   (3, 5), (5, 7), (11, 13)
  */
 
-int isPrime(int n)
+int isPrime(int n) 
 {
     if (n < 3 || n == 4)
         return 0;
@@ -28,11 +28,11 @@ int isPrime(int n)
     return 1;
 }
 
-int main(int args, char **argv)
+int main(int args, char** argv)
 {
     int rg, diff, ant = 0;
 
-    if (args != 2)
+    if (args != 2) 
     {
         printf("Debe introducir el rango máximo.");
         return 1;
@@ -48,10 +48,10 @@ int main(int args, char **argv)
 
             if (diff == 2)
                 printf("%s(%d, %d)", (i != 5 ? ", " : ""), ant, i);
-
+            
             ant = i;
         }
     }
-
+    
     return 0;
 }
