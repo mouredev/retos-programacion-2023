@@ -1,37 +1,30 @@
-const dibujarTrifuerza = (n) => {
-    let espacio;
-    let espacio_mitad;
-    let asterisco_fila;
-    let fila_actual;
+/**
+ * Comprueba si el número es primo.
+ * @param numero - El número que se va a comprobar si es primo o no.
+ **/
 
-    // Se controla que el número de filas sea un entero positivo.
-    if (n > 0 && typeof n === "number") {
+const es_primo = (numero) => {
+    if (numero <= 1) return false;
 
-        // Se dibujará un triángulo con el doble de las filas que se han introducido.
-        for (let fila = 0; fila < n * 2; fila++) {
-
-            // La mitad superior dibujará un triángulo de X filas con espacios a los
-            // lados.
-            if (fila < n) {
-                espacio = " ".repeat(((2 * n) - 1) - fila)
-                asterisco_fila = "*".repeat((2 * (fila + 1)) - 1);
-                console.log(espacio + asterisco_fila + espacio);
-            }
-            // La mitad inferior dibujarán los espacios de los lados y el espacio del
-            // medio.
-            else {
-                fila_actual = fila - n;
-                espacio = " ".repeat((n - fila_actual) - 1);
-                espacio_mitad = " ".repeat((2 * (n - fila_actual)) - 1)
-                asterisco_fila = "*".repeat((2 * (fila_actual + 1)) - 1);
-                console.log(espacio + asterisco_fila + espacio_mitad + asterisco_fila);
-            }
+    for (let indice = 2; indice < numero; indice++) {
+        if (numero % indice === 0) {
+            return false; 
         }
-        // Se muestra un mensaje de error si se introduce una cadena de texto o un
-        // número negativo.
-    } else {
-        console.error("¡ERROR! Sólo puedes introducir números positivos para dibujar la Trifuerza.");
+    }
+
+    return true;
+}
+
+/**
+ *  Función que imprime los números gemelos.
+ *  @param rango - El rango máximo que se va a iterar.
+ **/
+const buscarPrimosGemelos = (rango) => {
+    for (let n = 2; n <= rango; n++) {
+        if (n + 2 < rango && es_primo(n) && es_primo(n + 2)) {
+            console.log(`(${n}, ${n+2})`);
+        }
     }
 }
 
-dibujarTrifuerza(10);
+buscarPrimosGemelos(44);
