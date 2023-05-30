@@ -16,7 +16,7 @@ fun main() {
     *
     */
 
-    val lado = pideNumero( "el tamñao del lado")
+    val lado = pideNumero( "el tamaño del lado")
 
     dibujaEspiral(lado)
 
