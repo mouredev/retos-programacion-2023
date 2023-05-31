@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 /*
  * Crea una función que dibuje una espiral como la del ejemplo.
  * - Únicamente se indica de forma dinámica el tamaño del lado.
