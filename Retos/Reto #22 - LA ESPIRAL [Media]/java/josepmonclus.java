@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /*
@@ -16,8 +14,6 @@ import java.util.Scanner;
  */
 
 public class josepmonclus {
-
-    Scanner entrada = new Scanner(System.in);
 
     private static final String horizontal = "═";
     private static final String vertical = "║";
