@@ -8,6 +8,8 @@ class Bramenn {
     public static void main(String[] args) {
 
         List<String> tennisSets = Arrays.asList("P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1");
+        // List<String> tennisSets = Arrays.asList("P1", "P2", "P2", "P2", "P1", "P2", "P1", "P1");
+        // List<String> tennisSets = Arrays.asList("P1", "P2", "P2", "P2", "P1", "P2", "P1", "P2");
 
         Player player_1 = new Player("P1");
         Player player_2 = new Player("P2");
@@ -126,7 +128,11 @@ class TennisMatch {
             }
         }
 
-        System.out.println("Ha ganado el " + this.getWinner().getName());
+        try {
+            System.out.println("Ha ganado el " + this.getWinner().getName());
+        } catch (Exception e) {
+            System.out.println("Deuce");
+        }
     }
 
     public Player getPlayerWithHighestScore() {
