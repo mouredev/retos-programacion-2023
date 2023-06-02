@@ -13,7 +13,7 @@
 
 import java.util.Scanner;
 
-public class izan {
+public class lz4n {
     public static void main(String[] agrs) {
         int longitudLado;
 
