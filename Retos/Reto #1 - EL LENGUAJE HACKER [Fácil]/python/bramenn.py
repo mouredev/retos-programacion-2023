@@ -1,4 +1,4 @@
-hacker_dictironary = {
+hacker_dictionary = {
     "a":"4",
     "b":"I3",
     "c":"[",
@@ -29,7 +29,7 @@ hacker_dictironary = {
 }
 
 def main(text: str):
-    return "".join(letter.replace(letter, hacker_dictironary.get(letter, letter)) for letter in text.lower())
+    return "".join(letter.replace(letter, hacker_dictionary.get(letter, letter)) for letter in text.lower())
 
 
 print(main("Hola mi amor que mas pues?"))
