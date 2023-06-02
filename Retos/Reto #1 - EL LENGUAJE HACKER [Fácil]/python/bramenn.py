@@ -32,4 +32,4 @@ def main(text: str):
     return "".join(letter.replace(letter, hacker_dictionary.get(letter, letter)) for letter in text.lower())
 
 
-print(main("Hola mi amor que mas pues?"))
+print(main("leet"))
