@@ -26,7 +26,6 @@ const alfabeto = new Map([
     ['y','j'],
     ['z','2']
 ])
-const simbolos = /^a-z/
 let traduccion = [];
 
 function traducir(texto) { 
