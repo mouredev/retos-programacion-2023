@@ -16,22 +16,21 @@
  */
 
 function drawTriforce(rows) {
-    let totalRows = 2 * rows;
-    let firstSpaces = 2 * rows - 1;
-    let triforce = '';
-    for (let i=1; i<=totalRows; i++) {
-        if (i === 1) {
-            triforce += `${' '.repeat(firstSpaces)}*\n`;
-            firstSpaces--;
-        } else if (i % 2 === 0) {
-            triforce += `${' '.repeat(firstSpaces)}` + '*** '.repeat(i / 2) + '\n';
-            firstSpaces--;
-        } else if (i % 2 !== 0) {
-            triforce += `${' '.repeat(firstSpaces)}` + ('*' + ' '.repeat(3)).repeat((i + 1) / 2) + '\n';
-            firstSpaces--;
-        }
+    let result = '';
+    let leftSpace = 2 * rows - 1;//?
+
+    for (let i=1; i<=rows; i++) {
+        result += ' '.repeat(leftSpace) + '*'.repeat(2 * i - 1) + '\n'
+        leftSpace--;
     }
-    console.log(triforce);
+
+    for (let i=1; i<=rows; i++) {
+        result += `${' '.repeat(leftSpace) + '*'.repeat(2 * i - 1) + ' '.repeat(leftSpace + 1)}`.repeat(2) + '\n';
+        leftSpace--;
+    }
+
+    console.log(result);
 }
 
-drawTriforce(2);
+
+drawTriforce(4);
