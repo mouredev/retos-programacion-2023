@@ -32,8 +32,8 @@ try:
     rows = cursor.fetchall()
 
     for row in rows:
-        challenge_id, name, dificulty, date = row
-        print(f"{challenge_id}: {name} ({dificulty}) - {date}")
+        challenge_id, name, difficulty, date = row
+        print(f"{challenge_id}: {name} ({difficulty}) - {date}")
 
 except mysql.connector.Error as err:
     print("Error while connecting to Database", err)
