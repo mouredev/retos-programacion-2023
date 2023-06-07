@@ -17,15 +17,20 @@ function startConnection() {
 function getInformation() {
   try {
     const connection = startConnection();
+
     let sql = "SELECT * FROM challenges";
+
     connection.query(sql, (err, row) => {
       if (err) {
         console.log(err);
+        return;
       } else {
-        console.table(row);        
+        console.table(row);
+        return;
       }
     });
-    return    
+
+    connection.end();
   } catch (error) {
     console.log(error);
   }
