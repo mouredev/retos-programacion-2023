@@ -31,10 +31,14 @@ class MoureDevDB
   end
 
   def connect_db
-    connect = Mysql2::Client.new(host: @db_host, username: @db_user, password: @db_pass, database: @db_name)
-    connect.query('SELECT * FROM challenges')
-  rescue Mysql2::Error => _e
-    nil
+    begin
+      connect = Mysql2::Client.new(host: @db_host, username: @db_user, password: @db_pass, database: @db_name)
+      query_result = connect.query('SELECT * FROM challenges')
+      connect.close
+    rescue Mysql2::Error => _e
+      query_result = nil
+    end
+    query_result
   end
 
   def require_pass
