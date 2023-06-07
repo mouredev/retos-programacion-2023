@@ -22,6 +22,10 @@ import java.util.List;
  */
 
 public class josepmonclus {
+
+    private static final String MYSQL_URL = "jdbc:mysql://mysql-5707.dinaserver.com:3306/moure_test";
+    private static final String MYSQL_USER = "mouredev_read";
+    private static final String MYSQL_PASS = "mouredev_pass";
     
     public static void main(String[] args) {
         josepmonclus josepmonclus = new josepmonclus();
@@ -39,9 +43,9 @@ public class josepmonclus {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                "jdbc:mysql://mysql-5707.dinaserver.com:3306/moure_test",
-                "mouredev_read",
-                "mouredev_pass");
+                MYSQL_URL,
+                MYSQL_USER,
+                MYSQL_PASS);
 
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM `challenges`");
