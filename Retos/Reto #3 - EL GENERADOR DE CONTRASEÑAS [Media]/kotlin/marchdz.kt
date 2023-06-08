@@ -1,7 +1,4 @@
-import kotlin.Boolean
-import kotlin.Int
 import kotlin.random.Random
-
 
 fun passwordGenerator(
     passwordLength: Int,
