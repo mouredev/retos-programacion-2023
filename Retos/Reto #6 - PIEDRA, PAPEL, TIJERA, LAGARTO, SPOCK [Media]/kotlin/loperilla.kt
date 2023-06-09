@@ -35,21 +35,18 @@ data class PLAY(val player1Move: MOVEMENTS, val player2Movie: MOVEMENTS) {
 }
 
 private fun match(vararg plays:PLAY) {
-    var player1CountWins = 0
-    var player2CountWins = 0
-    var tiesCount = 0
-    plays.forEach {
-        if(it.checkEquals()) 
-            tiesCount++
-        else 
-            if(checkPlayer1Win(it)) {
-                player1CountWins++
-            } else {
-                player2CountWins++
-            }
+    var player1Wins = 0
+    var playsToCheck = plays.asList().filter { !it.checkEquals() }
+    playsToCheck.forEach {
+        if(checkPlayer1Win(it)) {
+            player1Wins++
+        } else {
+            player1Wins--
+        }
+        println(player1Wins)
     }
 
-    println(calculateWinnerMessage(player1CountWins, player2CountWins, tiesCount))
+    println(calculateWinnerMessage(player1Wins))
 }
 
 /*
@@ -61,19 +58,9 @@ private fun checkPlayer1Win(play: PLAY): Boolean {
     return counters.contains(play.player2Movie)
 }
 
-private fun calculateWinnerMessage(player1Wins: Int, player2Wins: Int, tieCount: Int): String {
-    println(player1Wins)
-    println(player2Wins)
-    println(tieCount)
-    return when {
-        player1Wins > player2Wins -> {
-            "Gana player 1"
-        }
-        player2Wins > player1Wins -> {
-            "Gana player 2"
-        }
-        else -> {
-            "Empate"
-        }
+private fun calculateWinnerMessage(player1CountWins: Int): String {
+    if(player1CountWins == 0) {
+        return "Empate"
     }
+    return "Gana el jugador ${if(player1CountWins > 0) 1 else { 2 }}"
 } 
