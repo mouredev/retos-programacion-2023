@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
   database: "moure_test",
 });
 
-// Funcion que utilizaremos para conectarnos a la BD, en caso de error
+// Funcion que utilizaremos para conectarnos a la base de datos, en caso de error
 // nos enviara un mensaje.
 function conectar() {
   connection.connect((error) => {
