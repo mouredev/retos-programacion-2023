@@ -9,8 +9,21 @@
 # * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
 # */
 
-numero_inicial=0
-numero_final=100
+#Rango:
+NUMERO_INICIAL=1
+NUMERO_FINAL=100
 
-lista=range(numero_inicial,numero_final,1)
-print(lista)
+for i in range(NUMERO_INICIAL, NUMERO_FINAL+1,1):
+    MUL3=i%3
+    MUL5=i%5
+
+    if MUL3==0:
+        if MUL5==0:
+            print("fizzbuzz")
+        else:
+            print("fizz")
+    else:
+        if MUL5==0:
+            print("buzz")
+        else:
+            print(i)
