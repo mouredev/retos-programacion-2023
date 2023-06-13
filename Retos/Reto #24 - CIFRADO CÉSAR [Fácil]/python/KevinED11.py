@@ -21,6 +21,7 @@ class IAlphabet(ABC):
 
 
 class IDecrypter(ABC):
+    @property
     @abstractmethod
     def decrypt(self) -> str:
         pass
@@ -85,7 +86,8 @@ class CesarCipherDecrypter(IDecrypter):
     def __init__(self, cesar_text: str, conversor: IConversor) -> None:
         self.__cesar_text = cesar_text.upper()
         self.__conversor = conversor.get
-
+    
+    @property
     def decrypt(self) -> str:
         conversor = {v: k for k, v in self.__conversor.items()}
 
@@ -108,7 +110,7 @@ class Main:
         return self.__cipher.cipher
     
     def decrypt(self) -> str:
-        return self.__decrypter.decrypt()
+        return self.__decrypter.decrypt
 
 
 if __name__ == "__main__":
