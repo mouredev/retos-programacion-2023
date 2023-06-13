@@ -29,7 +29,6 @@ static string CifrarCesar(string texto, int desplazamiento)
             textoCifrado += c;
         }
     }
-
     return textoCifrado;
 }
 
