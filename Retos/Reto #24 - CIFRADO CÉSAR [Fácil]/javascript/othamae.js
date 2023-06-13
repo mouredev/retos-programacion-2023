@@ -9,12 +9,12 @@
 function cesarCipher (text, number){
     let cipher = ''
     for (let i = 0; i < text.length; i++){
-        let char = text.charCodeAt(i);
+        let char = text.charCodeAt(i)     
         if (char >= 65 && char <= 90){
-            char = ((char - 65 + number) % 26) + 65
+            char = ((char - 65 + number+26) % 26) + 65
         }
         else if (char >= 97 && char <= 122){
-            char = ((char - 97 + number) % 26) + 97
+           char = ((char - 97 + number+26) % 26) + 97
         }
         cipher += String.fromCharCode(char)
     }
@@ -22,8 +22,12 @@ function cesarCipher (text, number){
 }
 
 function cesarDecipher (text, number){
-    return cesarCipher(text, -number)
+    return cesarCipher(text, - number)
 }
 
 console.log(cesarCipher('Hola mundo!', 3))
 console.log(cesarDecipher('Krod pxqgr!', 3))
+
+console.log(cesarCipher('Hola mundo!', 9))
+console.log(cesarDecipher('Qxuj vdwmx!', 9))
+
