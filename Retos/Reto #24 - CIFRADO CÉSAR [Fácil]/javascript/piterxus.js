@@ -23,4 +23,3 @@ function caesarCipher(textToEncrypt, displacement, decode) {
 }
 
 
-console.log(caesarCipher("mi mama me mima", 2, true))
