@@ -20,9 +20,9 @@ def ObtenerRot():
 def MensajeTraducido(mensaje, rot):
     traduccion = ""
 
-    for simbolo in mensaje:
-        if simbolo.isalpha():
-            num = ord(simbolo)
+    for letra in mensaje:
+        if letra.isalpha():
+            num = ord(letra)
             num += rot
 
             if num > ord("z"):
@@ -32,7 +32,7 @@ def MensajeTraducido(mensaje, rot):
 
             traduccion += chr(num)
         else:
-            traduccion += simbolo
+            traduccion += letra
 
     print(f"Traduccion: {traduccion}")
 
