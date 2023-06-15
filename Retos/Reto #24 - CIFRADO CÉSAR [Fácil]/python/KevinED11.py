@@ -55,7 +55,7 @@ class CesarCipherConversor(IConversor):
     def get(self) -> dict[str, str]:
         letters = self.__alphabet
         cesar = {}
-
+        
         for i, letter in enumerate(letters):
             cesar_position = (i + self.__shift) % len(letters)
             cesar_letter = letters[cesar_position]
