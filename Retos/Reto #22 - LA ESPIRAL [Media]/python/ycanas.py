@@ -3,7 +3,7 @@ import math
 def draw_spiral(n):
     half = math.ceil(n / 2)
     
-    for i in range(math.ceil(n / 2)):
+    for i in range(half):
         if i == 0:
             print('═' * (n - 1)  + '╗')
         
