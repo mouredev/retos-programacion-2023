@@ -12,3 +12,24 @@
 #  *
 #  * Se pueden usar librerías para realizar la lógica de conexión a la base de datos.
 #  */
+
+import mysql.connector
+
+mydb=mysql.connector.connect(
+    host = "mysql-5707.dinaserver.com",
+    port="3306",
+    user="mouredev_read",
+    password="mouredev_pass",
+    database="moure_test"
+)
+
+cursor=mydb.cursor()
+
+cursor.execute("SELECT*FROM `challenges`")
+results=cursor.fetchall()
+
+for each in results:
+    print(each)
+
+cursor.close()
+mydb.close()
