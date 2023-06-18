@@ -7,7 +7,7 @@
  */
 
 function caesarCipher(textToEncrypt, displacement, decode) {
-    let originalAlphabet = "abcdefghijklmnñopqrstuvwxyz".repeat(2 * displacement);
+    let originalAlphabet = "abcdefghijklmnñopqrstuvwxyz".repeat(2);
     let lowercaseEncryptedText = textToEncrypt.toLowerCase()
     let cipherText = "";
 
