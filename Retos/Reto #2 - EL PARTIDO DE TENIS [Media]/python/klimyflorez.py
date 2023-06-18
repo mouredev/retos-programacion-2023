@@ -39,7 +39,6 @@ def tennis_game(points: list):
             else:
                 print("Ha ganado el P2")
                 return
-
 # Example usage
 points = ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"]
 tennis_game(points)

@@ -6,6 +6,12 @@ class InvalidCharacterError(Exception):
     def __init__(self, message: str) -> None:
         super().__init__(message)
 
+class InvalIdCipherError(Exception):
+    pass
+
+class InvalidDecrypterError(Exception):
+    pass
+
 
 class ICipher(ABC):
     @property
@@ -65,6 +71,17 @@ class CesarCipherConversor(IConversor):
 
 
 # M
+
+def convert_text(text: str, conversor: dict[str, str]) -> str:
+    conversion = ""
+    for letter in text:
+           if letter not in conversor:
+                raise InvalidCharacterError(f"Invalid character: {letter}")
+           conversion += conversor[letter]
+
+    return conversion
+
+
 class CesarCipher(ICipher):
     def __init__(self, text: str, conversor: IConversor) -> None:
         self.__text = text.upper()
@@ -72,14 +89,9 @@ class CesarCipher(ICipher):
     
     @property
     def cipher(self) -> str:
-        cesar_text = ""
-        for letter in self.__text:
-            if letter not in self.__conversor:
-                raise InvalidCharacterError(f"Invalid character: {letter}")
-            
-            cesar_text += self.__conversor[letter]
+        converted_text = convert_text(text=self.__text, conversor=self.__conversor)
         
-        return cesar_text
+        return converted_text
 
 
 class CesarCipherDecrypter(IDecrypter):
@@ -90,21 +102,23 @@ class CesarCipherDecrypter(IDecrypter):
     @property
     def decrypt(self) -> str:
         conversor = {v: k for k, v in self.__conversor.items()}
-
-        natural_text = ""
-        for letter in self.__cesar_text:
-            if letter not in conversor:
-                raise InvalidCharacterError(f"Invalid character: {letter}")
-            
-            natural_text += conversor[letter]
+        converted_text = convert_text(text=self.__cesar_text, conversor=conversor)
         
-        return natural_text
+        return converted_text
 
 
 class Main:
     def __init__(self, cipher: ICipher, decrypter: IDecrypter) -> None:
         self.__cipher = cipher
         self.__decrypter = decrypter
+        self.__post_init__()
+    
+    def __post_init__(self) -> None:
+        if not issubclass(type(self.__cipher), ICipher):
+            raise InvalidDecrypterError("Invalid cipher")
+        if not issubclass(type(self.__decrypter), IDecrypter):
+            raise InvalidDecrypterError("Invalid decrypter")
+
         
     def cipher(self) -> str:
         return self.__cipher.cipher
@@ -123,7 +137,9 @@ if __name__ == "__main__":
         program = Main(cipher, decrypter)
         print(program.cipher())
         print(program.decrypt())
-    except InvalidCharacterError as err:
+    except (InvalidCharacterError,
+            InvalIdCipherError,
+            InvalidDecrypterError) as err:
         print(err)
 
 
