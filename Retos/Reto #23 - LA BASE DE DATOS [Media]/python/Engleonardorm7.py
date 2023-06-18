@@ -10,7 +10,7 @@
 #  * Una vez realices la conexión, lanza la siguiente consulta e imprime el resultado:
 #  * - SELECT * FROM `challenges`
 #  *
-#  * Se pueden usar librerías para realizar la lógica de conexión a la base de datos.
+#  * Se pueden usar librerías para realizar la lógica de conexión a la base de datos
 #  */
 
 import mysql.connector
