@@ -14,7 +14,7 @@ def restore_stdin(stdin_settings):
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, stdin_settings)
 
 def check_konami_code(key, partial_code):
-    konami_code = ["up", "up", "down", "down", "left", "right", "left", "right"]
+    konami_code = ["up", "up", "down", "down", "left", "right", "left", "right", "B", "A"]
 
     partial_code.append(key)
 
