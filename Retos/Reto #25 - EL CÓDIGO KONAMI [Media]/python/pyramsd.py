@@ -1,4 +1,5 @@
 # escribir sin espacios
+# Para las flechas usar las flechas del teclado
 # en caso de presionar una tecla no correspondiente se saltará a otra línea
 # Mejoren este código pe, le veo futuro jasjajs :)
 # si lo prueban en pycharm los simbolos se imprimen al momento de apretarlas, en VSCode no sé porque no
