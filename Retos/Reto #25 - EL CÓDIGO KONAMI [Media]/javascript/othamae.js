@@ -7,7 +7,7 @@
 
 const readline = require('readline')
 
-const KonamiCode = ['u', 'u', 'd', 'd', 'l', 'r', 'r', 'b', 'a']
+const KonamiCode = ['u', 'u', 'd', 'd', 'l', 'r', 'l', 'r', 'b', 'a']
 
 const rl = readline.createInterface({
         input: process.stdin,
