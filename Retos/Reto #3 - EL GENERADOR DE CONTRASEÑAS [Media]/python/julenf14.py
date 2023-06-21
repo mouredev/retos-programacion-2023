@@ -1,11 +1,3 @@
-# Escribe un programa que sea capaz de generar contraseñas de forma aleatoria.
-# Podrás configurar generar contraseñas con los siguientes parámetros:
-# - Longitud: Entre 8 y 16.
-# - Con o sin letras mayúsculas.
-# - Con o sin números.
-# - Con o sin símbolos.
-# (Pudiendo combinar todos estos parámetros entre ellos)
-
 import random
 
 __letters_lower = "abcdefghijklmnopqrstuvwxyz"
@@ -30,7 +22,7 @@ def PasswordGenerator(length: int, uppercase: bool = False, numbers: bool = Fals
 
     if uppercase:
         characters += __letters_upper
-    
+
     if numbers:
         characters += __numbers
 
