@@ -32,8 +32,7 @@ def is_fibonacci(number):
 
   is_in_fibo = False
 
-  while number > n2:
-    # print(n1, n2, end=" ")
+  while number > n2:    
     n1 = n1 + n2
     n2 = n1 + n2
 
