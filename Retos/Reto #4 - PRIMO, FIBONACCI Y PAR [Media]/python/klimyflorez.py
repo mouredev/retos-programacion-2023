@@ -1,6 +1,5 @@
 """
 Reto 4: Primo, Fibonacci y Par
-
 Escribe un programa que, dado un número, compruebe y muestre si es primo,
 fibonacci y par.
 Ejemplos:
@@ -41,7 +40,6 @@ def is_fibonacci(number):
 
     else:
       is_in_fibo = False
-
   return is_in_fibo
 
 if __name__ == "__main__":
