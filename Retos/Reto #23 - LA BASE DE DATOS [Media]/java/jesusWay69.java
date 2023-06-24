@@ -24,8 +24,12 @@ import java.sql.*;
  * Se pueden usar librerías para realizar la lógica de conexión a la base de datos.
  */
 public class jesusWay {
+    
+    
 
     public static void main(String[] args) {
+        
+        
         String url = "jdbc:mysql://mysql-5707.dinaserver.com:3306/moure_test";
         String usuario = "mouredev_read";
         String clave = "mouredev_pass";
@@ -61,4 +65,55 @@ public class jesusWay {
         }
 
     }
+    
 }
+
+ class Model {
+    
+       private int id;
+        private String name;
+        private String difficulty;
+        private String date;
+        
+        public Model(int id, String name , String difficulty, String date){
+            this.id =id;
+            this.name= name;
+            this.difficulty=difficulty;
+            this.date=date;
+            
+        }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+ }
+    
