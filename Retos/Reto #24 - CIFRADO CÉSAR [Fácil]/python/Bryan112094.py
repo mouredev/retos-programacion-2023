@@ -4,9 +4,14 @@ class encryptionCesar :
         self.displace = displace
 
     def encodeC(self, text: str, option: int):
-        if option == 2:
-            print("numero")
-        print(text, option)
+        texto = ''
+        for letra in text:
+            if letra in self.alfabeto:
+                ubicacion = (self.alfabeto.index(letra) + (self.displace if option == 1 else - self.displace)) % len(self.alfabeto)
+                texto += self.alfabeto[ubicacion]
+            else:
+                texto += letra
+        return texto
 
     def main(self):
         close = True
@@ -15,7 +20,8 @@ class encryptionCesar :
             option = input("Escoja una opción (1, 2 ó 3): ")
             if int(option) == 1 or int(option) == 2 :
                 text = input("Ingrese texto: ")
-                self.encodeC(text, int(option))
+                rpta = self.encodeC(text.lower(), int(option))
+                print(rpta)
                 close = False
             if int(option) == 3 :
                 close = False
