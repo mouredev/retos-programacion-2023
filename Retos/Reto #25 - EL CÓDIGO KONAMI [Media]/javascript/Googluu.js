@@ -17,7 +17,7 @@ document.addEventListener("keydown", (e) => {
     keys_entered_user.push(e.key);
 
     if (code_konami.length === keys_entered_user.length) {
-      console.log("Código Konami");
+      console.log("Código Konami!");
     } else {
       console.log(keys_entered_user);
     }
