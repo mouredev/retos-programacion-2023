@@ -1,0 +1,27 @@
+{
+  "name": "retos-programacion-2023",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest ."
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^28.0.1",
+    "ts-jest": "^28.0.0",
+    "typescript": "^4.8.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
+  },
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
