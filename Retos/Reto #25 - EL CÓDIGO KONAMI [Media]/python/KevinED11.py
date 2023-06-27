@@ -3,7 +3,7 @@ from functools import lru_cache
 
 
 @lru_cache(maxsize=100)
-def konami_sequence() -> list[Key]:
+def konami_sequence() -> list[Key | KeyCode]:
     return [
     Key.up, Key.up, Key.down, Key.down,
     Key.left, Key.right, Key.left, Key.right,
@@ -28,7 +28,6 @@ def show(key: Key) -> bool:
     if key in (Key.esc,):
         print("Adiós, nos vemos pronto")
         return False
-        
         
 def main() -> None:
     print("--- Intenta adivinar la secuencia konami ---")
