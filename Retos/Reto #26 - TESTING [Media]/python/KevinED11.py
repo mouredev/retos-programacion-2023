@@ -21,7 +21,7 @@ class TestFriday13(unittest.TestCase):
         self.assertIsInstance(self.valid_friday_13, bool)
 
     def test_valid_friday_13(self):
-      self.assertIs(self.valid_friday_13, True)
+        self.assertIs(self.valid_friday_13, True)
 
     def test_invalid_fryday_13(self):
         self.assertIsNot(self.invalid_friday_13, True)
