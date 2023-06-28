@@ -4,7 +4,7 @@ from datetime import date
 
 def is_friday_13(year: int, month: int) -> bool:
     if not isinstance(year, int) or not isinstance(month, int):
-        raise TypeError("Invalid type, enter a valid integer number")
+        raise TypeError("Invalid year or month, enter a valid integer number")
 
     return date(year=year,
                 month=month,
