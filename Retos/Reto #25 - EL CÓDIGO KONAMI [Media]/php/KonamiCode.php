@@ -1,4 +1,8 @@
 <?php
+/*
+    Para ejecutarlo revisar el repositorio:
+    https://github.com/EjemplosADSI/konami-code
+*/
 require "vendor\autoload.php";
 
 use Zenithies\Toolkit\ReadKey\Interceptor;
