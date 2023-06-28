@@ -11,7 +11,7 @@ def is_friday_13(year: int, month: int) -> bool:
                 day=13).weekday() == 4
 
 
-class TestFriday13(unittest.TestCase):
+class TestIsFriday13(unittest.TestCase):
     def setUp(self):
         self.valid_friday_13 = is_friday_13(year=2023, month=1)
         self.invalid_friday_13 = is_friday_13(year=2023, month=2)
@@ -22,7 +22,7 @@ class TestFriday13(unittest.TestCase):
     def test_valid_friday_13(self):
         self.assertIs(self.valid_friday_13, True)
 
-    def test_invalid_fryday_13(self):
+    def test_invalid_friday_13(self):
         self.assertIsNot(self.invalid_friday_13, True)
 
     def test_expected_error(self):
