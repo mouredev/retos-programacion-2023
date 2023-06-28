@@ -40,7 +40,6 @@ class ISSLocationFetcher:
             self.fetch_data()
         return self.velocity
 
-
 location_fetcher = ISSLocationFetcher()
 try:
     location_fetcher.fetch_data()
