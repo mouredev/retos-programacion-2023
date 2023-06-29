@@ -19,9 +19,13 @@ def on_press(key):
 
     if key == KONAMI_CODE[key_position]:
         key_position += 1
-    elif key == KONAMI_CODE[1] and last_key == KONAMI_CODE[0]:
-        # Se controla que se escriba varias veces la primera tecla válida
-        key_position = 2
+    elif key == KONAMI_CODE[0]:
+        # Se controla que se falle con la primera tecla válida
+        if last_key == KONAMI_CODE[0]:
+            # Se controla que se escriba varias veces la primera tecla válida
+            key_position = 2
+        else:
+            key_position = 1
     else:
         key_position = 0
 
