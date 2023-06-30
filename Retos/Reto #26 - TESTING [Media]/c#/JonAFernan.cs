@@ -35,14 +35,13 @@ public class TestReto13
 
             foreach (int month in months)  Assert.InRange(month, 1 , 12);
             foreach (int year in years) Assert.InRange(year, 1 , 9999);
-            
         }
 
 
         public static bool IsFriday13(int month, int year)
-    {
-        DateTime dateToCheck = new DateTime(year, month, 13);
+        {
+            DateTime dateToCheck = new DateTime(year, month, 13);
 
-        return dateToCheck.DayOfWeek == DayOfWeek.Friday;
-    }
+            return dateToCheck.DayOfWeek == DayOfWeek.Friday;
+        }
     }
