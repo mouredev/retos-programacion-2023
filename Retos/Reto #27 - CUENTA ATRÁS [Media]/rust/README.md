@@ -22,22 +22,22 @@ Es importante que la ejecución se haga donde se encuentre el archivo 'retos.exe
 $ cargo build --release
 ```
 
-En el sistema operativo que se requiera y se genera en la carpeta: ./target/releases/retos.
+En el sistema operativo que se requiera y se genera en la carpeta: ./target/releases/retos. En este caso, se renombro a mouredev por los requerimientos del PR, al crearlo, se puede usar como retos decrementar tiempo 10 2 o si se renombra como biene los comandos de abajo.
 
 ### Comandos
 ```bash
 # Ayuda para comando principal
-$ retos --help
+$ mouredev --help
 
 # Ayuda para comando decrementar
-$ retos decrementar --help
+$ mouredev decrementar --help
 
 # Ayuda para subcomando de decrementar, en este caso tiempo
-$ retos decrementar tiempo --help
+$ mouredev decrementar tiempo --help
 
 # Ejecutar Reto 27
-$ retos decrementar tiempo <comienza> <segundos>
-$ retos decrementar tiempo 10 2
+$ mouredev decrementar tiempo <comienza> <segundos>
+$ mouredev decrementar tiempo 10 2
 ```
 
 ### Modo Desarrollo
