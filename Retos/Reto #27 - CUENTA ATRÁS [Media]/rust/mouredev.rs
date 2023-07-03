@@ -1,5 +1,3 @@
-use std::{thread, time};
-
 pub fn decrementar(comienza: u8, segundos: u64) {
   for i in (0..=comienza).rev() {
     println!("{:?}", i);
