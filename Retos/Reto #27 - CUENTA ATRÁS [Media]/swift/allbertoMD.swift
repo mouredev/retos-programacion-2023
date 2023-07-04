@@ -3,7 +3,7 @@ import Foundation
 
 func countdown(from: UInt32, withIntervals intervals: UInt32) {
     
-    for number in (0..<from).reversed() {
+    for number in (0...from).reversed() {
         print(number)
         if number == 0 {
             break
@@ -14,4 +14,5 @@ func countdown(from: UInt32, withIntervals intervals: UInt32) {
 }
 
 countdown(from: 3, withIntervals: 4)
+
 
