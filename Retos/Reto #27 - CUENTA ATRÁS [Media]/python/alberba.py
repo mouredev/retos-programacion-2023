@@ -14,7 +14,11 @@ def temporizador(numInicio, intervalo = 1):
         time.sleep(intervalo)
 
 # Recolección de datos
-numInicio = int(input("Introduce el número de inicio: "))
-intervalo = int(input("Introduce el intervalo del temporizador: "))
+try:
+    numInicio = int(input("Introduce el número de inicio: "))
+    intervalo = int(input("Introduce el intervalo del temporizador: "))
+except ValueError:
+    print("Error. Solo se puede escribir un número")
+    
 # Llamada a la función
 temporizador(numInicio, intervalo)
