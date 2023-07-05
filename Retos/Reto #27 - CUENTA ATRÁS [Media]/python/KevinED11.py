@@ -10,7 +10,7 @@ def countdown(initial_count: int = 10, pause_duration: int = 1) -> None:
     if not isinstance(initial_count, int) or not isinstance(pause_duration, int):
         raise TypeError("Only integers numbers are allowed")
     
-    if initial_count < 0 or pause_duration < 0:
+    if initial_count <= 0 or pause_duration <= 0:
         raise NegativeNumberError("Negative numbers are not allowed")
 
     while initial_count >= 0:
