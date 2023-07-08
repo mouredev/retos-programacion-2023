@@ -1,21 +1,23 @@
 import random
+
+
 texto_1 = "python"
 
-temp =""
+temp = ""
 numbers = []
 
 for i in range(0, 3):
     n = random.randint(0, 5)
     while str(n) in temp:
         n = random.randint(0, 5)
-    temp= temp + str(n)
+    temp = temp + str(n)
     numbers.append(int(n))
 
 
 faltantes = []
 for i in numbers:
     faltantes.append(texto_1[i])
-    texto_1 = texto_1[:i] + "_" + texto_1[i+1:] 
+    texto_1 = texto_1[:i] + "_" + texto_1[i+1:]
 
 
 numero_intentos = 2

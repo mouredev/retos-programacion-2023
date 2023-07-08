@@ -36,3 +36,4 @@ const getCommits = ({ user, repo, limit = 10 }) => {
 };
 
 // Visita mi repo en GitHub para ver y correr los tests de este código --> https://github.com/marcode24/weekly-challenges
+getCommits("mouredev", "retos-programacion-2023")
