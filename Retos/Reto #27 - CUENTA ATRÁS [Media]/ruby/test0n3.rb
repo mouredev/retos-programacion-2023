@@ -34,7 +34,7 @@ class CountDown
 end
 
 CountDown.new(5, 3).start_countdown
-# CountDown.new(5, -1).start_countdown
-# CountDown.new(-4, 3).start_countdown
-# CountDown.new(0, 3).start_countdown
-# CountDown.new(3, 10).start_countdown
+CountDown.new(5, -1).start_countdown
+CountDown.new(-4, 3).start_countdown
+CountDown.new(0, 3).start_countdown
+CountDown.new(3, 10).start_countdown
