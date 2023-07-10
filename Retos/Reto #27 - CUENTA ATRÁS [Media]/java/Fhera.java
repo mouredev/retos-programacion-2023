@@ -1,6 +1,6 @@
 import java.util.concurrent.TimeUnit;
 
-public class fhera {
+public class Fhera {
 
     public static void main(String[] args) {
         countDown(5, 2);
