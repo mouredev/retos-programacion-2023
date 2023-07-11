@@ -34,6 +34,8 @@ function mathCheck(expression) {
 }
 
 
+
+
 console.log(mathCheck("2 + 4 - 3 - 2 / 2 * 7")); // true
 console.log(mathCheck("2 + 4 - 3 - 2 / 2 7")); // false
 console.log(mathCheck("5.25 + 10 / 3")); // true
