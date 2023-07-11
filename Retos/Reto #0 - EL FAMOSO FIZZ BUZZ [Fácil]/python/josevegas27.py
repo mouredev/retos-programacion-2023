@@ -19,6 +19,3 @@ for i in range(1,101):
         print('fizz')
     else:
         print(i)
-
-for i in range(1,101):
-    a = 

@@ -21,7 +21,3 @@ def pseudo_random(start=0,finish=100, size=1):
 
 randoms = int(input('Introduzca cuantos numeros aleatorios quiere. \n--> '))
 pseudo_random(size=randoms)
-
-# usando hash
-#num = abs(hash('0123456789'))
-#print(num % 101)
