@@ -13,6 +13,7 @@
  */
 
 
+
 function mathCheck(expression) {
   if (typeof expression !== "string") {
     return false;
