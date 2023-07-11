@@ -1,0 +1,23 @@
+const cuentaAtras = (numero, segundos) => {
+
+    if (numero > 0 && segundos > 0) {
+        let num = numero;
+
+        const temporizador = setInterval(() => {
+            console.log(num);
+
+            if (num === 0) {
+                console.log("¡¡¡PATAPÚM!!!");
+                clearInterval(temporizador);
+            }
+
+            num--;
+        }, (segundos * 1000))
+    } else if (typeof numero !== "number" && typeof segundos !== "number") {
+        console.error("¡ERROR! Sólo se admiten números positivos. NO cadenas de texto.")
+    } else {
+        console.error("¡ERROR! Sólo se pueden introducir números positivos");
+    }
+}
+
+cuentaAtras(10, 1);
