@@ -9,5 +9,4 @@ def is_expression(expression: str) -> bool:
 print(is_expression("6+5+43"))
 print(is_expression("6 +5"))
 print(is_expression("6 + 555487"))
-print(is_expression("6 +"))
-    
+print(is_expression("6 +")) 
