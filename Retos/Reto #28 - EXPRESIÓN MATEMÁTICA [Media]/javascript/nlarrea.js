@@ -54,7 +54,6 @@ function checkExpression(expression) {
     
     for (let element of expressionArray) {
         // if two operators together (no space between them) -> NOK
-        console.log(element);
         if (element.length > 1 && !/^\d+$/.test(element)) {
             console.log('This expression has more than one operator without spacing.');
             return false;
