@@ -15,9 +15,9 @@
 import mysql.connector
 
 
-def connection_with_mysql(host, user, password, database, query):
+def connection_with_mysql(config, query):
     try:
-        connection = mysql.connector.connect(host=host, user=user, password=password, database=database)
+        connection = mysql.connector.connect(**config)
         cursor = connection.cursor()
 
         cursor.execute(query)
@@ -41,5 +41,12 @@ def connection_with_mysql(host, user, password, database, query):
 print("Connection with MySQL")
 
 query = "SELECT * FROM challenges"
-for i in connection_with_mysql("mysql-5707.dinaserver.com", "mouredev_read", "mouredev_pass", "moure_test", query):
+config = {
+    "host": "mysql-5707.dinaserver.com",
+    "port": "3306",
+    "database": "moure_test",
+    "user": "mouredev_read",
+    "password": "mouredev_pass" 
+}
+for i in connection_with_mysql(config, query):
     print(i)
