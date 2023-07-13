@@ -8,7 +8,7 @@ def temporizador(numInicio, intervalo = 1):
         intervalo = int(input("Error al introducir el intervalo de tiempo.\n Debes introducir un número mayor a 0: "))
 
     # Bucle hasta que el temporizador llegue a 0
-    while numInicio >= 0:
+    while numInicio > 0:
         print(numInicio)
         numInicio -= 1
         time.sleep(intervalo)
