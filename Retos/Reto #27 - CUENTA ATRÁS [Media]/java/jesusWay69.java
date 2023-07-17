@@ -14,9 +14,7 @@ package reto_27;
 public class jesusWay69 {
 
     public static void main(String[] args) {
-        //int cantidad = 0;
-        //int segundos = 0;
-
+  
         intervalo(5, 1);
     }
 
