@@ -3,7 +3,7 @@ function mathExpression(operation) {
     `type of: the operation ${operation} is false`;
 
   let lengthOperation = operation.trim().split(/\s+/);
-  if (lengthOperation < 3) return `length: the operation ${operation} is false`;
+  if (lengthOperation.length < 3) return `length: the operation ${operation} is false`;
 
   let regex =
     /^-?(\d+\.?\d*|\.\d+)\s[+\-*/%]\s-?(\d+\.?\d*|\.\d+)(\s[+\-*/%]\s-?(\d+\.?\d*|\.\d+))*$/;
