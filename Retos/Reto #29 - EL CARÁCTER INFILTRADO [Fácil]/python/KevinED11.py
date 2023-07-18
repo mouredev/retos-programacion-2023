@@ -8,7 +8,7 @@ def difference_between_strings(first_text: str, second_text: str) -> list[str]:
     if len(first_text) != len(second_text):
         raise InvalidLengthError("The length of the texts must be equal")
     
-    return [second_text[i] for i in range(len(first_text)) if second_text[i] != first_text[i]]
+    return [b for a, b in zip(first_text, second_text) if a != b]
 
 
 def main() -> None:
