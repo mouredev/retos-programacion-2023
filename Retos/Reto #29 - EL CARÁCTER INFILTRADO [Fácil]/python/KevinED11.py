@@ -1,9 +1,12 @@
+from functools import lru_cache
+
 
 class InvalidLengthError(Exception):
     def __init__(self, message: str) -> None:
         super().__init__(message)
 
 
+@lru_cache()
 def difference_between_strings(first_text: str, second_text: str) -> list[str]:
     if len(first_text) != len(second_text):
         raise InvalidLengthError("The length of the texts must be equal")
