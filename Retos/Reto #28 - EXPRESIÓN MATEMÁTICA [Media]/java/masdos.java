@@ -1,6 +1,19 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/*
+ * Crea una función que reciba una expresión matemática (String)
+ * y compruebe si es correcta. Retornará true o false.
+ * - Para que una expresión matemática sea correcta debe poseer
+ *   un número, una operación y otro número separados por espacios.
+ *   Tantos números y operaciones como queramos.
+ * - Números positivos, negativos, enteros o decimales.
+ * - Operaciones soportadas: + - * / %
+ *
+ * Ejemplos:
+ * "5 + 6 / 7 - 4" -> true
+ * "5 a 6" -> false
+ */
 public class masdos {
 
   public static void main(String[] args) {
@@ -10,9 +23,6 @@ public class masdos {
   }
 
   public static boolean isValidMathOperation(String operation) {
-    Pattern pattern =
-            Pattern.compile("^(\\-?\\d(\\.\\d)?)+(\\s[\\+\\-\\*\\/%]\\s(\\-?\\d(\\.\\d)?)+)+$");
-    Matcher matcher = pattern.matcher(operation);
-    return matcher.matches();
+    return operation.matches("^(-?\\d(.\\d)?)+(\\s[-+*/%]\\s(-?\\d(.\\d)?)+)+$");
   }
 }
