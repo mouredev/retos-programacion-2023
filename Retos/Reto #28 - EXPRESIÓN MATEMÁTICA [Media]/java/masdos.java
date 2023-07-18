@@ -1,6 +1,3 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /*
  * Crea una función que reciba una expresión matemática (String)
  * y compruebe si es correcta. Retornará true o false.
