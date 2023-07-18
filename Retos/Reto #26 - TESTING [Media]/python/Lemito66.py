@@ -16,4 +16,11 @@ def friday_thirteen(year: int, month: int) -> bool:
     except: 
         return False
 
-print(friday_thirteen(2023,10))
+def test_one_friday_thirteen():
+        assert friday_thirteen(2022, 5) == True
+        
+def test_two_friday_thirteen():
+    assert friday_thirteen(2022, 4) == False
+    
+def test_three_friday_thirteen():
+    assert friday_thirteen(-1, 5) == False
