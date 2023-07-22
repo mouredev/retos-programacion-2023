@@ -28,5 +28,7 @@ def print_numero(numero: int) -> None:
         print("fizz \n")
     elif numero % 5 == 0:
         print("buzz \n")
+    else:
+        print(f"{numero} \n")
 
 np.vectorize(print_numero)(np.arange(101))
