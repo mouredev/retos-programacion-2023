@@ -44,9 +44,11 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#24** - 12/06/23 | Fácil | [`CIFRADO CÉSAR`](./Retos/Reto%20%2324%20-%20CIFRADO%20CÉSAR%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2324%20-%20CIFRADO%20CÉSAR%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2324%20-%20CIFRADO%20CÉSAR%20%5BFácil%5D/)]
 * **#25** - 19/06/23 | Media | [`EL CÓDIGO KONAMI`](./Retos/Reto%20%2325%20-%20EL%20CÓDIGO%20KONAMI%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2325%20-%20EL%20CÓDIGO%20KONAMI%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2325%20-%20EL%20CÓDIGO%20KONAMI%20%5BMedia%5D/)]
 * **#26** - 26/06/23 | Media | [`TESTING`](./Retos/Reto%20%2326%20-%20TESTING%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2326%20-%20TESTING%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2326%20-%20TESTING%20%5BMedia%5D/)]
-* **#27** - 03/07/23 | Media | [`CUENTA ATRÁS`](./Retos/Reto%20%2327%20-%20CUENTA%20ATRÁS%20%5BMedia%5D/ejercicio.md) | Último reto publicado
+* **#27** - 03/07/23 | Media | [`CUENTA ATRÁS`](./Retos/Reto%20%2327%20-%20CUENTA%20ATRÁS%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2327%20-%20CUENTA%20ATRÁS%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2327%20-%20CUENTA%20ATRÁS%20%5BMedia%5D/)]
+* **#28** - 10/07/23 | Media | [`EXPRESIÓN MATEMÁTICA`](./Retos/Reto%20%2328%20-%20EXPRESIÓN%20MATEMÁTICA%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2328%20-%20EXPRESIÓN%20MATEMÁTICA%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2328%20-%20EXPRESIÓN%20MATEMÁTICA%20%5BMedia%5D/)]
+* **#29** - 17/07/23 | Fácil | [`EL CARÁCTER INFILTRADO`](./Retos/Reto%20%2329%20-%20EL%20CARÁCTER%20INFILTRADO%20%5BFácil%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 10/07/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1125365648546091049) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 24/07/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/fbzqkYRn?event=1130430781714608168) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
