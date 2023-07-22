@@ -21,7 +21,7 @@
 
 import numpy as np
 
-def print_numero(numero: int):
+def print_numero(numero: int) -> None:
     if numero % 3 == 0 and numero % 5 == 0:
         print("fizzbuzz \n")
     elif numero % 3 == 0:
