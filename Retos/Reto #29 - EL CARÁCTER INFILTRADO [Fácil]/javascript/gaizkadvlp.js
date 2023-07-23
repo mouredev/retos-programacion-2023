@@ -18,9 +18,10 @@ const cadena3 = "Me llamo.Brais Moure";
 const cadena4 = "Me llamo brais moure";
 
 const buscaDif = (str1, str2) => {
+	console.log("\n");
 	console.log(str1);
 	console.log(str2);
-	if (str1.length !== str2.length) return
+	if (str1.length !== str2.length) return "No tienen la misma longitud\n"
 	let i = 0;
 	let arr = [];
 	while (i < str1.length) {
@@ -30,6 +31,7 @@ const buscaDif = (str1, str2) => {
 	return arr
 }
 
-console.log(buscaDif(cadena1, cadena2));
-console.log(buscaDif(cadena3, cadena4));
+console.log(buscaDif(cadena1, cadena2)); //["e","o"]
+console.log(buscaDif(cadena3, cadena4)); //[" ", "b", "m"]
+console.log(buscaDif(cadena1, cadena4)); //No tienen la misma longitud
 
