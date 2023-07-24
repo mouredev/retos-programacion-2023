@@ -22,17 +22,14 @@ import sys
 def find_differences(str1, str2):
     return [str2[index] for index in range(len(str1)) if str1[index] != str2[index]]
 
-def main(args):
-    if len(args) != 2:
-        raise ValueError("You need to pass two strings as arguments")
 
-    str1 = args[0]
-    str2 = args[1]
+def main(str1, str2):
     if len(str1) != len(str2):
-        raise ValueError("Strings must have same length")
+        raise ValueError(f"Strings must have same length, but first string length is {len(str1)} and second string length is {len(str2)}")
 
     differences_list = find_differences(str1, str2)
     print(f"The list of different characters is: {differences_list}")
+
 
 def test_find_difference():
     str1 = "Me llamo mouredev"
@@ -46,10 +43,11 @@ def test_find_difference():
     assert difference_2 == [" ", "b", "m"]
     print("Tests successfully executed!")
 
+
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        raise ValueError("Unexpected number of arguments.")
-    elif sys.argv[1] == "test":
+    if sys.argv[1] == "test":
         test_find_difference()
+    elif len(sys.argv[1:]) == 2:
+        main(sys.argv[1], sys.argv[2])
     else:
-        main(sys.argv[1:])
+        raise ValueError("Unexpected arguments.")
