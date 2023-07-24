@@ -25,12 +25,12 @@ def find_differences(str1, str2):
 
 def main(str1, str2):
     if len(str1) != len(str2):
-        raise ValueError(f"Strings must have same length, but first string length is {len(str1)} and second string length is {len(str2)}")
+        raise ValueError(f"Strings must have same length, however first string length is {len(str1)} and second string length is {len(str2)}")
 
     differences_list = find_differences(str1, str2)
     print(f"The list of different characters is: {differences_list}")
 
-
+# Better in a separate file, but to accomplish rules for Pull Request :-)
 def test_find_difference():
     str1 = "Me llamo mouredev"
     str2 = "Me llemo mouredov"
