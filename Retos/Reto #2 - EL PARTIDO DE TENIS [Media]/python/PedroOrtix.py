@@ -41,4 +41,5 @@ def estado_juego(lista_puntos):
             print(f"{puntuacion_p1_str} - {puntuacion_p2_str}")
 
 # Probamos el código con la secuencia proporcionada
-estado_juego(['P1', 'P1', 'P1', 'P1', 'P1', 'P2', 'P1', 'P2'])
+# [P1, P1, P2, P2, P1, P2, P1, P1]
+estado_juego(['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1'])
