@@ -4,7 +4,9 @@
   se caracteriza por sustituir caracteres alfanuméricos.
   - Utiliza esta tabla (https://www.gamehouse.com/blog/leet-speak-cheat-sheet/) con el alfabeto y los números en "leet".
   (Usa la primera opción de cada transformación. Por ejemplo "4" para la "a")
-```
+
+  Ejecución:
+  python -m fjgonzalezbarea
 """
 dictionary: dict[str, str] = {
     "A":"4",
