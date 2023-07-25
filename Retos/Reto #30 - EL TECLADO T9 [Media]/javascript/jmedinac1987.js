@@ -11,7 +11,7 @@ function validateNumberBlock(numberBlock) {
 
   arrayNumberBlock = numberBlock.trim().split("-");
 
-  arrayNumberBlock.some((element) => {
+  arrayNumberBlock.forEach((element) => {
     let arrayElement = element.split("");
     if (arrayElement.length >= 2) {
       for (let i = 0; i < arrayElement.length; i++) {
@@ -56,7 +56,7 @@ function decodeMessage(numberBlock) {
     }    
   });
 
-  return message;
+  return message.toUpperCase();
 }
 
 console.log(decodeMessage("6-666-88-777-33-3-33-888"));
