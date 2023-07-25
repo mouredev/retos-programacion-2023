@@ -33,7 +33,7 @@ function normalizeT9Entry(t9entry){
 
 console.log(normalizeT9Entry(example)); // obtenido: mouredev
 console.log(normalizeT9Entry(example2)); // obtenido: npminitdev
-console.log(normalizeT9Entry(example3)); // obtenido: mouredev
+console.log(normalizeT9Entry(example3)); // obtenido: abcdefghijklmnopqrstuvwxyz
 
 // Nota: esta solucion asume que las entradas siempre son validas, la serie 6666 imprimira 'p' que pertenece al numero 7 del teclado T9
 // Mi idea era utilizar la minima cantidad de variables posibles pero para clarificar use mas de las esperadas
