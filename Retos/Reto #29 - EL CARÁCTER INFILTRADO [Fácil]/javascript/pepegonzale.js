@@ -22,8 +22,16 @@ const caracter_infiltrado = (primera_palabra, segunda_palabra) => {
     const caracteres = []
 
     if (primera_palabra.length === segunda_palabra.length) {
-        console.log("Welcome")
+      for (var i = 0; i < primera_palabra.length; i++) {
+        if (primera_palabra[i] !== segunda_palabra[i]) {
+          caracteres.push(segunda_palabra[i])
+        }
+      }
+        
     }
+  else {
+    return "La longitud de ambas cadenas tiene que ser la misma"
+  }
 
     return caracteres;
 }
@@ -31,3 +39,4 @@ const caracter_infiltrado = (primera_palabra, segunda_palabra) => {
 
 
 console.log(caracter_infiltrado("Hola mundo", "hola.Mundo"))
+console.log(caracter_infiltrado('Me llamo.Brais Moure', 'Me llamo brais moure'));
