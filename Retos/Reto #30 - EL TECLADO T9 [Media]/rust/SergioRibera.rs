@@ -127,14 +127,25 @@ fn char_to_usize(c: char) -> Option<usize> {
 }
 
 //
+// **********************************************
+// *                                            *
+// *        No Relevante, puede ignorar         *
+// *                                            *
+// **********************************************
+//
+
+//
 // In application usage example
 //
 fn main() {
     let keys = vec![
         //       0
-        " ", // 1      2     3
-        ",.?!", "ABC", "DEF", // 4      5     6
-        "GHI", "JKL", "MNO", // 7      8     9
+                " ",
+        // 1      2     3
+        ",.?!", "ABC", "DEF",
+        // 4      5     6
+        "GHI", "JKL", "MNO",
+        // 7      8     9
         "PQRS", "TUV", "WXYZ",
     ];
 
