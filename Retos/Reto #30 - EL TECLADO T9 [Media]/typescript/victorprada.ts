@@ -1,4 +1,4 @@
-const t9ToText = keystrokes => {
+const t9ToText = (keystrokes: string): string => {
   const t9Mappings = {
     '2': 'ABC',
     '3': 'DEF',
