@@ -13,20 +13,18 @@
      Salida: MOUREDEV
 """
 
-
 t9_keyboard = [' ', ',.?!', 'ABC', 'DEF', 'GHI', 'JKL', 'MNO', 'PQRS', 'TUV', 'WXYZ']
 
 
 def validate_block_content(block: str) -> bool:
-    characters_set = set(block) # Remove duplicated. Therefore, there should be just 1 element
-    all_numeric = all(character.isnumeric() for character in characters_set) # Check all are numeric
+    characters_set = set(block)  # Remove duplicated. Therefore, there should be just 1 element
+    all_numeric = all(character.isnumeric() for character in characters_set)  # Check all are numeric
     return len(characters_set) == 1 and all_numeric
 
 
-def validate_chain(chain: str) -> bool:
-    return all(validate_block_content(block) for block in chain.split("-"))
-
 def translate_block_to_letter(block: str) -> str:
+    if not validate_block_content(block):
+        raise ValueError(f"Wrong block. Each block should contain 1 single number that may be repeated 1 or more times. Received {block}")
     t9_number = int(block[0])
     letters_for_number = t9_keyboard[t9_number]
 
@@ -34,12 +32,11 @@ def translate_block_to_letter(block: str) -> str:
     number_of_clicks = len(block) % len(letters_for_number)
     return letters_for_number[number_of_clicks - 1]
 
+
 def main(chain: str):
-    if not validate_chain(chain):
-        raise ValueError(f"Wrong input. Expected a '-' separated chain of blocks, with each blocks containing one single "
-                         f"number repeated 1 or more times, but received {chain}")
     translated_text = "".join([translate_block_to_letter(block) for block in chain.split("-")])
     print(f"Translated text: {translated_text}")
+
 
 """
 Examples:
@@ -52,4 +49,3 @@ Examples:
 if __name__ == '__main__':
     t9_input = input("Please, introduce a t9 valid chain: ")
     main(t9_input)
-
