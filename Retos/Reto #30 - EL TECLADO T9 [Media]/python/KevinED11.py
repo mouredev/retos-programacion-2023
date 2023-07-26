@@ -15,8 +15,7 @@ def get_t9_keyboard() -> T9Keyboard:
 
 
 def convert_t9_key_to_character(key: str) -> str:
-   num_pressed = key[0]
-   if not num_pressed in get_t9_keyboard():
+   if (num_pressed := key[0]) not in get_t9_keyboard():
         raise InvalidT9Key("Enter a valid t9 key")
 
    return get_t9_keyboard()[num_pressed][len(key) - 1]
@@ -31,8 +30,11 @@ def t9_to_text(keys: str) -> str:
 
 
 def main() -> None:
-    mouredev = t9_to_text("6-666-88-777-33-3-33-888")
-    print(mouredev)
+    try:
+      mouredev = t9_to_text("6-666-88-777-33-3-33-888")
+      print(mouredev)
+    except (ValueError, InvalidT9Key) as err:
+       print(err)
 
 
 if __name__ == "__main__":
