@@ -5,8 +5,6 @@
 #   con el alfabeto y los números en "leet".
 #   (Usa la primera opción de cada transformación. Por ejemplo "4" para la "a")
 
-#from string import maketrans
-
 LEETCODE = {
     "a": "4",
     "b": "I3",
