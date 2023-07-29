@@ -10,10 +10,7 @@ def game(plays: list[tuple]) -> str:
     p1_points = 0
     p2_points = 0
     
-    for play in plays:
-        p1_play = play[0]
-        p2_play = play[1]
-        
+    for p1_play, p2_play in plays:
         if p2_play in BEATINGS[p1_play]:
             p1_points += 1
         elif p1_play in BEATINGS[p2_play]:
