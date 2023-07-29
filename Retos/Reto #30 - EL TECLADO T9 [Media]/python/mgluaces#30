@@ -1,0 +1,28 @@
+import time
+
+def cuenta_atras():
+    numero_inicial = int(input("Introduce el número inicial de la cuenta atrás: "))
+    segundos_entre_cuentas = int(input("Introduce los segundos entre cada cuenta: "))
+
+    if numero_inicial <= 0 or segundos_entre_cuentas <= 0:
+        raise ValueError("Ambos parámetros deben ser números enteros positivos.")
+
+    while numero_inicial > 0:
+        print(numero_inicial)
+        numero_inicial -= 1
+        time.sleep(segundos_entre_cuentas)
+
+    print("¡Cuenta atrás finalizada!")
+
+# Ejemplo de uso
+cuenta_atras()
+
+
+'''
+En este código, la función cuenta_atras solicita al usuario que introduzca el número inicial de la cuenta atrás y los segundos entre cada 
+cuenta mediante la función input. Luego, se realiza la validación para asegurarse de que ambos valores sean números enteros positivos.
+Después, se ejecuta el bucle while de manera similar al código anterior, imprimiendo el número actual de la cuenta atrás, disminuyendo en 1 
+el valor de numero_inicial y pausando la ejecución durante la cantidad de segundos indicada por segundos_entre_cuentas utilizando time.sleep().
+Finalmente, se imprime un mensaje indicando que la cuenta atrás ha finalizado.
+De esta manera, el usuario puede introducir los valores deseados para personalizar la cuenta atrás.
+'''
