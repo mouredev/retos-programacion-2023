@@ -1,5 +1,4 @@
 from termcolor import colored
-
 def uppercase_decorator(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
