@@ -4,7 +4,6 @@ def draw_ladder(steps: int):
         return
 
     left_to_right = steps > 0
-    range_step = -1 if left_to_right else 1
 
     # Imprimir último escalón
     if left_to_right:
@@ -13,10 +12,10 @@ def draw_ladder(steps: int):
         print('_')
 
     if left_to_right:
-        for i in range(steps, 0, range_step):
+        for i in range(steps, 0, -1):
             print(f"{'_|' : >{i * 2}}")
     else:
-        for i in range(0, abs(steps), range_step):
+        for i in range(0, abs(steps), 1):
             print(f"{'|_' : >{((i * 2) + 3)}}")
 
 
