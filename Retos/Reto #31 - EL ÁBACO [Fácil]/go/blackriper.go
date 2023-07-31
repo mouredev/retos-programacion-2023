@@ -90,6 +90,7 @@ func Draw(n int) string {
 	return co
 }
 
+// implemtacion de interface
 func main() {
 	var abaco Abaco = &Data{}
 	abaco.ReadNumber()
