@@ -18,14 +18,13 @@ ROWS_WEIGHTING = [
 
 
 def read_abacus(abacus_sequence: list[str]) -> int:
-    # Yep
-    #if not abacus_sequence or len(abacus_sequence) != 7 or any([(not "---" in row or row.count("O") != 9) for row in abacus_sequence]):
-    if not abacus_sequence or len(abacus_sequence) != 7:
+    #if not abacus_sequence or len(abacus_sequence) != 7:
+    if not abacus_sequence or len(abacus_sequence) != 7 or any([(not "---" in row or row.count("O") != 9) for row in abacus_sequence]):
         raise ValueError("Introduce un ábaco válido")
     
-    for row in abacus_sequence:
-        if not "---" in row or row.count("O") != 9:
-            raise ValueError("Introduce un ábaco válido")
+    #for row in abacus_sequence:
+    #    if not "---" in row or row.count("O") != 9:
+    #        raise ValueError("Introduce un ábaco válido")
 
     return sum((len(row.split("---")[0]) * ROWS_WEIGHTING[i]) for i, row in enumerate(abacus_sequence))
 
