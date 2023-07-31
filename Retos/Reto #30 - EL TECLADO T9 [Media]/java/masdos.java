@@ -18,6 +18,10 @@ import java.util.stream.Collectors;
  */
 public class masdos {
 
+  public static void main(String[] args) {
+    System.out.println(translateT9Code("6-666-88-777-33-3-33-888"));
+  }
+
   public static String translateT9Code(String t9Code) {
     if (!t9Code.matches(
         "^(0|([2-58])\\2{0,2}|([679])\\3{0,3})(-(0|([2-58])\\6{0,2}|([679])\\7{0,3}))*$")) {
