@@ -1,12 +1,13 @@
-from typing import Protocol
+from typing import Protocol, Iterable
 
 
 class Counter(Protocol):
     def start(self) -> str:
         ...
 
+
 class AbacoCounter:
-    def __init__(self, secuence: list[str]) -> None:
+    def __init__(self, secuence: Iterable[str]) -> None:
         self.__secuence = secuence
     
     def __format_result(self, result: str) -> str:
