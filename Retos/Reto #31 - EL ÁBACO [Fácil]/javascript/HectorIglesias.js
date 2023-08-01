@@ -23,10 +23,15 @@ function abaco(array){
     let cad_split= ""
     for(let i=0; i<array.length; i++){
         cad_split= array[i].split("---")
-        
+
+        if(cad_split[0] == ""){
+            numero += "0"
+        }
+        else{
+            numero += cad_split[0].length
+        }
     }
-    
-    return numero
+    return numero  
 }
 
 console.log(abaco(["O---OOOOOOOO",
