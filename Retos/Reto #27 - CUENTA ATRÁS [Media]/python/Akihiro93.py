@@ -10,7 +10,7 @@ def count (start:  int, delay: int):
 while True:
     try:
         number = int(input("En numero de empiezo: "))
-        delay = int(input("Tiempo de retrazo: "))
+        delay = int(input("Tiempo de retraso: "))
     except ValueError as e:
         print(f"Error: {e}")
     else:
