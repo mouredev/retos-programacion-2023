@@ -7,7 +7,7 @@ import java.util.*;
  * - Elegir si se quiere que tenga números
  * - Elegir si se quiere que tenga simbolos
  */
-public class vandresc {
+public class vandresca {
 
     private static final String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
     private static final String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
