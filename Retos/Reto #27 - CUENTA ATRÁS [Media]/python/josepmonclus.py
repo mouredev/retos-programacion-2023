@@ -11,11 +11,14 @@
 import time
 
 def cuenta_atras(inicio: int, segundos: int):
-    for s in range(inicio, 0, -1):
-        print(s)
-        time.sleep(segundos)
-    print('¡Cuenta atrás terminada!')
-
+    
+    if type(inicio) == int and type(segundos) == int and inicio > 0 and segundos > 0:
+        for s in range(inicio, 0, -1):
+            print(s)
+            time.sleep(segundos)
+        print('¡Cuenta atrás terminada!')
+    else:
+        raise Exception('Los parámetros deben ser enteros positivos')
 
 cuenta_atras(10, 1)
 cuenta_atras(5, 3)
