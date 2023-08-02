@@ -47,7 +47,7 @@ print(decode_abacus([
     "OOOOOOOOO---",
     "O---OOOOOOOO",
     "OOO---OOOOOO",
-    "O---OOOOOOO",
+    "O---OOOOOOOO",
     "OOOOOOOOO---",
     "OO---OOOOOOO"]
 ))
