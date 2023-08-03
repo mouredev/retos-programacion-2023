@@ -40,13 +40,27 @@ class Aurebesh
     'Y' => 'yirt',
     'Z' => 'zerek',
     ];
+    const CHARS2 = [
+        'ae' => "enth",
+        'ch' => 'cherek',
+        'eo' => 'onith',
+        'kh' => 'krenth',
+        'ng' => 'nen',
+        'oo' => 'orenth',
+        'sh' => 'shen',
+        'th' => 'thesh'
+    ];
 
-    private $reverse = [];
+    private $_reverse = [];
+    private $_reverse2 = [];
 
     public function __construct()
     {
         foreach (self::CHARS as $letter => $v) {
-            $this->reverse[$v] = strtolower($letter);
+            $this->_reverse[$v] = strtolower($letter);
+        }
+        foreach (self::CHARS2 as $letter => $v) {
+            $this->_reverse2[$v] = strtolower($letter);
         }
     }
 
@@ -55,9 +69,17 @@ class Aurebesh
         $sentence = "";
         $i = 0;
         while ($i<strlen($text)) {
-            $sentence = $sentence . (!empty(self::CHARS[strtoupper($text[$i])])?self::CHARS[strtoupper($text[$i])]:' ');
+            $double = ($i+1<strlen($text)?strtolower($text[$i] . $text[$i+1]):null);
+            if (null != $double && !empty(self::CHARS2[$double])) {
+                $sentence = $sentence . self::CHARS2[$double];
+                $i++;
+                //printf("double: %s, sentence: %s\n", $double, $sentence);
+
+            } else {
+                $sentence = $sentence . (!empty(self::CHARS[strtoupper($text[$i])])?self::CHARS[strtoupper($text[$i])]:$text[$i]);
+                //printf("i: %s, sentence: %s\n", $i, $sentence);
+            }
             $i++;
-            //printf("i: %s, sentence: %s\n", $i, $sentence);
         }
 
         return $sentence;
@@ -65,16 +87,35 @@ class Aurebesh
  
     public function toText($aurebesh): string
     {
-        $sentence = "";
+        $sentence = $search = "";
         $i = 0;
-        $search = "";
         while ($i<strlen($aurebesh)) {
+            $found = null;
             $search = $search . $aurebesh[$i];
-            foreach ($this->reverse as $au => $l) {
-                if ($search == $au) {
-                    $sentence = $sentence . $l;
-                    $search = "";
-                    break;
+            foreach ($this->_reverse2 as $au => $l) {
+                if (strtolower($search) == $au) {
+                    $found = $l;
+                }
+            }
+            foreach ($this->_reverse as $au => $l) {
+                if (strtolower($search) == $au) {
+                    $found = strtolower($l);
+                }
+            }
+            if ($found) {
+                $sentence = $sentence . $found;
+                //printf("Se encontro parcial %s, total %s\n", $search, $sentence);
+                $search = "";
+            } else {
+                // Comprobamos que sea un caracter
+                if (strlen($search)==1) {
+                    $s=ord(strtoupper($search));
+                    if ($s<ord('A') || $s>ord('Z')) {
+                        // No es un caracter conocido, por lo que lo añadimos
+                        $sentence = $sentence . $search;
+                        //printf("NO Se encontro parcial %s, total %s\n", $search, $sentence);
+                        $search = "";
+                    }
                 }
             }
             $i++;
@@ -86,9 +127,8 @@ class Aurebesh
 
 $test = new Aurebesh();
 
-printf("Traduccion: %s\n", $test->toAurebesh("hola"));
-printf("Traduccion: %s\n", $test->toText("hierbaosklethaurek"));
-printf("Traduccion: %s\n", $test->toText("hierbaoskleth"));
+printf("Traduccion: %s\n", $test->toAurebesh("hola, paella"));
+printf("Traduccion: %s\n", $test->toText("hola, paella"));
 
 $answer = readline('¿Quieres jugar (s/n) ');
 
