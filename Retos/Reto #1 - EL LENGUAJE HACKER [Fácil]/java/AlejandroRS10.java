@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.util.Hashtable;
-public class alejandrors10_1 {
+public class AlejandroRS10 {
     public static void main(String[] args) {
 
         String texto = JOptionPane.showInputDialog("Mensaje a encriptar:").toUpperCase();
