@@ -45,5 +45,5 @@ def abaco_counter(text):
 
     return abaco_text
 
-print(("\n\n Bienvenidos al ábaco de Laura\n"), ("\n Introduzca sus números para obtener las secuencias en el ábaco  \n\n"))
+print(("\n\n Bienvenidos al ábaco de Symbolitos\n"), ("\n Introduzca sus números para obtener las secuencias en el ábaco  \n\n"))
 print(abaco_counter(input("Solución en el ábaco de: ")))
