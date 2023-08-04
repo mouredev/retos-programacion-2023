@@ -1,5 +1,7 @@
 package vandresca;
 
+import java.text.NumberFormat;
+
 /*
  * Crea una función que sea capaz de leer el número representado por el ábaco.
  * - El ábaco se representa por un array con 7 elementos.
@@ -21,34 +23,39 @@ package vandresca;
  *  Resultado: 1.302.790
  */
 public class vandresca {
-    
-    static String[] abaco={
+
+    static String[] abacus = {
         "O---OOOOOOOO",
-         "OOO---OOOOOO",
+        "OOO---OOOOOO",
         "---OOOOOOOOO",
         "OO---OOOOOOO",
         "OOOOOOO---OO",
         "OOOOOOOO0---",
         "---OOOOOOOOO"
-    }; 
-    
-    public static void main(String[] args) {
+    };
 
-       StringBuilder stringBuilder = new StringBuilder();
-       for(String cipher: abaco ){
-            String[] cipherArray = cipher.split("---");
-            int cipherNumeric = Integer.valueOf(cipherArray[0].length());
-            stringBuilder.append(cipherNumeric);
-       };
-       System.out.println("Este es el ábaco: ");
-       for(String cipher: abaco){
-            System.out.println("\t"+cipher);
-       }
-       System.out.println();
-       int number = Integer.valueOf(stringBuilder.toString());
-       String formattedNumber = String.format("%,d", number);
-       formattedNumber = formattedNumber.replace(",",".");
-       System.out.println("Resultado: "+ formattedNumber);
-       
+    public static void main(String[] args) {
+        print("Este es el ábaco: ");
+        Arrays.stream(abacus).forEach(line -> print("\t" + line));
+        print("\nResultado: " + formatNumber(extractNumberFromAbacus(abacus)));
+    }
+
+    public static String extractNumberFromAbacus(String[] abacus){
+        StringBuilder stringBuilder = new StringBuilder();
+        Arrays.stream(abacus).forEach(line -> {
+            stringBuilder.append(line.indexOf("---"));
+        });
+        return stringBuilder.toString();
+    }
+
+    public static String formatNumber(String number){
+        Locale locale = new Locale.Builder().setLanguage("es").
+            setRegion("ES").build();
+        NumberFormat formatter = NumberFormat.getInstance(locale);
+        return formatter.format(Long.valueOf(number.toString()));
+    }
+
+    public static void print(String text) {
+        System.out.println(text);
     }
 }
