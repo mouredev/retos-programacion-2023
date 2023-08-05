@@ -15,6 +15,12 @@ function decodeAbacusNumber(arrayAbacusNumber) {
   let isTheStructureCorrect = true;
 
   for (let abacusNumber of arrayAbacusNumber) {
+    
+    if (abacusNumber.length > 12 || abacusNumber.length < 12){
+      isTheStructureCorrect = false;
+      break;
+    }
+
     let newArray = abacusNumber.split("---");
     
     if (newArray.length < 2 || newArray.length > 2) {
