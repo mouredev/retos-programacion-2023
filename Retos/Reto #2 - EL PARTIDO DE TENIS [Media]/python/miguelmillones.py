@@ -1,5 +1,4 @@
 # Reto #2: EL PARTIDO DE TENIS
-#### Dificultad: Media | Publicación: 09/01/23 | Corrección: 16/01/23
 ## Enunciado
 # * Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado.
 # * El programa recibirá una secuencia formada por "P1" (Player 1) o "P2" (Player 2), según quien
