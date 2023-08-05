@@ -11,7 +11,7 @@ fun main() {
     println("El número representado es: $numero")
 }
 
-// Función que calcula el valor de un ábaco
+// Función que calcula el valor de un ábaco.
 private fun calcularValorAbaco(abaco: List<String>): Int {
     var numero = 0 // numero a representar
     var multiplicador = 1 // multiplicador
