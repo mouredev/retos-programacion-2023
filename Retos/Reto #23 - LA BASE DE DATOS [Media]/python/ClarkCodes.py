@@ -21,7 +21,7 @@ MEDIA | Publicación: 06/06/23 | Resolución: 12/06/23
 # Fecha de Resolución: 07/06/2023
 
 # NOTA: Para ejecutar este Script debes tener instalado MySQL Connector/Python 8.0.33, 
-# el cual lo puedes descargar de la página oficial dev.mysql.com
+# el cual lo puedes descargar de la página oficial dev.mysql.com o instalarlo vía pip
 
 # Imports
 import mysql.connector
@@ -45,29 +45,17 @@ CONFIG = {
 
 def data_retriever():
     query = "SELECT * FROM `challenges`"
-
+    # Se prepara la tabla para mostrar los datos
+    data_table = Table( "[green]ID", "[green]Nombre", "[green]Dificultad", "[green]Fecha", title="[bold yellow]** Datos Obtenidos: Challenges **", title_justify="center", box=box.ROUNDED )
+    
     try:
         db_connection = mysql.connector.connect( **CONFIG )
-
-        with Progress( SpinnerColumn(), TextColumn( "[progress.description]{task.description}" ) ) as progress:
-            progress.add_task( description="[light_sky_blue1]Recuperando datos del servidor...", total=None )
-
         cursor = db_connection.cursor()
         cursor.execute( query ) # Se ejecuta la query
-
         rows = cursor.fetchall() # Se obtienen los registros
-
-        cursor.close() # Se cierra la conexión
-        db_connection.close()
-        
-        # Se prepara la tabla para mostrar los datos
-        data_table = Table( "[green]ID", "[green]Nombre", "[green]Dificultad", "[green]Fecha", title="[bold yellow]** Datos Obtenidos: Challenges **", title_justify="center", box=box.ROUNDED )
-
-        for row in rows:
+        # Se recorren los registros(filas) obtenidos de la BD y se los agrega como filas en la tabla
+        for row in rows: # Cada campo de cada registro en la columna correspondiente según la estructura de la tabla de la línea 49
             data_table.add_row( str( row[0] ), row[1], row[2], row[3].strftime( "%d/%m/%Y" ) )
-
-        print( "" )
-        return data_table
 
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -77,15 +65,16 @@ def data_retriever():
             print( "La Base de Datos no existe." )
 
         else:
-            print(err)
+            print( err )
 
-    else:
-        cursor.close()
+    finally: # Se cierran el cursor y la conexión
+        cursor.close() 
         db_connection.close()
+
+    return data_table
     
 def main():
     print( "[bold green]\n*** Reto #23: LA BASE DE DATOS - By @ClarkCodes ***" )
-
     print( "[green]\n¡Bienvenidos!, a continuación nos conectaremos a la Base de Datos Remota y mostraremos los datos en una tabla." )
 
     while True:
@@ -98,11 +87,10 @@ def main():
 
         try:
             print( "" )
-            with Progress( SpinnerColumn(), TextColumn( "[progress.description]{task.description}" ) ) as progress:
-                progress.add_task( description="[light_sky_blue1]Estableciendo conexión con el servidor... un momento por favor...", total=None )
+            with Progress( SpinnerColumn(), TextColumn( "[progress.description]{task.description}" ), transient = True ) as progress:
+                progress.add_task( description="[light_sky_blue1]Estableciendo conexión con el servidor... obteniendo datos... un momento por favor...", total=None )
             
-            print( "" )
-            print( data_retriever() ) # Se llama a la función para obtener los datos y se los muestra por pantalla
+                print( data_retriever() ) # Se llama a la función para obtener los datos y se los muestra por pantalla
 
         except Exception as ex:
             print( "\n❌ Oops... algo no ha salido bien, revise nuevamente por favor." )
