@@ -50,6 +50,6 @@ abacus = [
     "---OOOOOOOOO"
 ]
 
-resultado = read_abacus(abacus)
+result = read_abacus(abacus)
 
-print(resultado)
+print(result)
