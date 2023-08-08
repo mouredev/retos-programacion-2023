@@ -2,7 +2,7 @@
 // Hay que ejecutar el fichero y pasarle dos argumentos,
 // el primero, desde donde iniciamos la cuenta atrás;
 // el segundo, el intervalo. Por ejemplo:
-// node gaizka.js 5 3
+// node gaizkadvlp.js 5 3
 // Por defecto coge 3 y 1
 
 const inicio = isNaN(+process.argv[2]) ? 3 : +process.argv[2]
