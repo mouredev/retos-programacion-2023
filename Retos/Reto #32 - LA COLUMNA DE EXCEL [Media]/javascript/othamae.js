@@ -18,5 +18,5 @@ function column(name){
 
 console.log(column('AA')) // 27
 console.log(column('CA')) // 79
-console.log(column('AAA')) // 
+console.log(column('AAA')) // 703
 console.log(column('GHE')) // 4945
