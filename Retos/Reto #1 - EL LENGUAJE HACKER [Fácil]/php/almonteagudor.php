@@ -1,8 +1,5 @@
 <?php
 
-$years = 54;
-$days = 13;
-
 $inputMessage = readline("Introduzca el mensaje a traducir: \n");
 
 echo(translate($inputMessage) ."\n");
