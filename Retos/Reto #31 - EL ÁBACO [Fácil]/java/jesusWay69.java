@@ -34,7 +34,7 @@ public class jesusWay69 {
 
     private static void translator(String[] abacus) {
         StringBuilder sum = new StringBuilder();
-        NumberFormat num = NumberFormat.getInstance();
+        NumberFormat num = NumberFormat.getNumberInstance();
         for (String row : abacus) {
 
             for (int index = 0; index < row.length(); index += 1) {
@@ -51,7 +51,7 @@ public class jesusWay69 {
 
         }
 
-        System.out.println(num.format(Integer.valueOf(sum.toString())));
+        System.out.println(num.format(Integer.parseInt(sum.toString())));
     }
 
 }
