@@ -4,7 +4,7 @@ $inputMessage = readline("Introduzca el mensaje a traducir: \n");
 
 $outputMessage = $inputMessage ? translate($inputMessage) ."\n" : "Mensaje no introducido";
 
-echo($outputMessage);
+echo($outputMessage . "\n");
 
 function translate(string $message): string
 {
