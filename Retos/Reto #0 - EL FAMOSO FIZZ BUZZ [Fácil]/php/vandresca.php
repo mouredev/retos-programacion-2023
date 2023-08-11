@@ -9,18 +9,67 @@
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
 
+ interface IRule {
+    public function check(int $number): bool;
+    public function getValue(): string;
+} 
 
-for($i=1; $i<=100; $i++){
-    println(fizz_buzz($i));
+class FizzRule implements IRule{
+    public function check(int $number):bool{
+        return $number%3 == 0;
+    }
+
+    public function getValue():string{
+        return "fizz";
+    }
 }
 
-function fizz_buzz($number){
-    if($number%15==0) return "fizzbuzz";
-    if($number%5==0) return "buzz";
-    if($number%3==0) return "fizz";
-    return $number;
+class BuzzRule implements IRule{
+    public function check(int $number):bool{
+        return $number%5 == 0;
+    }
+
+    public function getValue():string{
+        return "buzz";
+    }
 }
 
-function println($text){
-    echo $text."\n";
+// Clase principal que genera y muestra los resultados de FizzBuzz
+class FizzBuzz {
+    private $rules = [];
+
+
+    public function __construct(array $rules) {
+        $this->rules = $rules;
+    }
+
+    public function generate(int $n): array {
+        $result = [];
+        for ($i = 1; $i <= $n; $i++) {
+            $value = '';
+            foreach ($this->rules as $rule) {
+                if ($rule->check($i)) {
+                    $value .= $rule->getValue();
+                }
+            }
+            
+            $result[] = ($value !== '') ? $value : (string)$i;
+        }
+        return $result;
+    }
+
+    // Muestra los resultados en la consola
+    public function printResult(int $n): void {
+        $result = $this->generate($n);
+        foreach ($result as $item) {
+            echo $item . "\n";
+        }
+    }
 }
+
+
+echo "Reto #0: EL FAMOSO \"FIZZ BUZZ\"\n";
+$fizzBuzz = new FizzBuzz([new FizzRule(), new BuzzRule()]);
+$fizzBuzz->printResult(100);
+
+?>
