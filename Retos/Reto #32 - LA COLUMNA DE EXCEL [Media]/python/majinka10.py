@@ -1,8 +1,11 @@
 def columna(nombre:str):
     nombre=nombre.upper()
+    letras='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     numero=0
-    for char in nombre:
-        numero = numero * 26 + (ord(char) - ord('A')) + 1
+    for char in range(len(nombre)):
+        for i in letras:
+            if i == nombre[char]:
+                numero = numero * 26 + (letras.index(i)) + 1
     return numero
 
 print(columna('A'))
@@ -12,3 +15,5 @@ print(columna('CA'))
 print(columna('IK'))
 print(columna('ZZ'))
 print(columna('ABN'))
+
+# print(ord('Z')-ord('A'))
