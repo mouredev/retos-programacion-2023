@@ -11,3 +11,4 @@ def convert_to_t9(texto:str):
     return print(text_t9)
 
 convert_to_t9('44-666-555-2-0-555-444-66-3-88-777-2-1111')
+convert_to_t9('6-6a6-88-777-33-3-33-888')
