@@ -15,5 +15,3 @@ print(columna('CA'))
 print(columna('IK'))
 print(columna('ZZ'))
 print(columna('ABN'))
-
-# print(ord('Z')-ord('A'))
