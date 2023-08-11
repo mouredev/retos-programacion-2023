@@ -36,21 +36,6 @@ class Player
         $this->score = $score;
     }
 
-    /**
-     * @throws Exception
-     */
-    public function addPoint(): void
-    {
-        $this->score = match ($this->score) {
-            Score::LOVE => Score::FIFTEEN,
-            Score::FIFTEEN => Score::THIRTY,
-            Score::THIRTY => Score::FORTY,
-            Score::FORTY => Score::ADVANTAGE,
-            Score::ADVANTAGE => Score::WINNER,
-            Score::WINNER => throw new Exception("El jugador ya había ganado, se han jugado puntos de más")
-        };
-    }
-
     public function __toString(): string
     {
         return $this->score->value();
@@ -99,35 +84,52 @@ class ScoreBoard
             throw new Exception("El jugador indicado no existe");
         }
 
-        $pointedPlayer = $player === self::P1 ? $this->players[self::P1] : $this->players[self::P2];
-        $unpointedPlayer = $player === self::P1 ? $this->players[self::P2] : $this->players[self::P1];
+        $this->score[] = $this->addPoint($player);
+    }
 
-        $pointedPlayer->addPoint();
+    /**
+     * @throws Exception
+     */
+    private function addPoint(string $player): string
+    {
+        $pointedPlayer = $this->players[$player];
+        $unpointedPlayer = $this->players[$player === self::P1 ? self::P2 : self::P1];
 
-        if ($pointedPlayer->getScore() === Score::ADVANTAGE && $unpointedPlayer->getScore() === Score::ADVANTAGE
-            || $pointedPlayer->getScore() === Score::FORTY && $unpointedPlayer->getScore() === Score::FORTY) {
-            $pointedPlayer->setScore(Score::FORTY);
+        if ($pointedPlayer->getScore() === Score::FORTY && $unpointedPlayer->getScore() === Score::FORTY) {
+            $pointedPlayer->setScore(Score::ADVANTAGE);
+            return $pointedPlayer . " " . $player;
+        }
+
+        if ($pointedPlayer->getScore() === Score::FORTY && $unpointedPlayer->getScore() === Score::ADVANTAGE) {
             $unpointedPlayer->setScore(Score::FORTY);
-            $this->score[] = "Deuce";
-            return;
+            return "Deuce";
         }
 
-        if ($pointedPlayer->getScore() === Score::ADVANTAGE && $unpointedPlayer->getScore() !== Score::FORTY) {
-            $pointedPlayer->setScore(Score::WINNER);
-            $this->score[] = $this->players[$player] . " " . $player;
-            return;
+        if ($pointedPlayer->getScore() === Score::THIRTY && $unpointedPlayer->getScore() === Score::FORTY) {
+            $pointedPlayer->setScore(Score::FORTY);
+            return "Deuce";
         }
 
-        if ($pointedPlayer->getScore() === Score::ADVANTAGE || $pointedPlayer->getScore() === Score::WINNER) {
-            $this->score[] = $this->players[$player] . " " . $player;
-            return;
+        $pointedPlayer->setScore(
+            match ($pointedPlayer->getScore()) {
+                Score::LOVE => Score::FIFTEEN,
+                Score::FIFTEEN => Score::THIRTY,
+                Score::THIRTY => Score::FORTY,
+                Score::FORTY, Score::ADVANTAGE => Score::WINNER,
+                Score::WINNER => throw new Exception("El jugador ya había ganado, se han jugado puntos de más")
+            }
+        );
+
+        if ($pointedPlayer->getScore() === Score::WINNER) {
+            return $pointedPlayer . " " . $player;
         }
 
-        $this->score[] = $this->players[self::P1] . " - " . $this->players[self::P2];
+        return $this->players[self::P1] . " - " . $this->players[self::P2];
     }
 }
 
-function play(string $name, array $pointsWon) {
+function play(string $name, array $pointsWon)
+{
     $scoreBoard = new ScoreBoard();
 
     try {
