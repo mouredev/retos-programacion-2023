@@ -12,13 +12,13 @@ def excel_2(letter:str):
     count = 1
     result = 0
     if len(letter) <= 1:
-        result = list_vaule.index(letter)+1
+        result = list_vaule.index(letter.upper())+1
     elif len(letter) >= 2:
         for index in letter:
             while count < len(letter):
-                result += (list_vaule.index(index) + 1) * 26
+                result += (list_vaule.index(index.upper()) + 1) * 26
                 count += 1
                 break
-        result += list_vaule.index(index) + 1
+        result += list_vaule.index(index.upper()) + 1
     return result
 print(excel_2("CBA"))
