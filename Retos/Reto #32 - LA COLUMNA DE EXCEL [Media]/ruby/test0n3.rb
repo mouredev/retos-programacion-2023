@@ -23,11 +23,15 @@ class ColumnCounter
   def to_position
     return 'invalid input' unless valid_input?
 
-    accum = 0
-    @input.each_char.with_index do |digit, index|
-      accum += (26**(@input.length - 1 - index) * CELL_VALUES[digit])
-    end
-    accum.to_s
+    # accum = 0
+    # @input.each_char.with_index do |digit, index|
+    #   accum += (26**(@input.length - 1 - index) * CELL_VALUES[digit])
+    # end
+    # accum.to_s
+
+    @input.reverse.each_char.with_index.reduce(0) do |total, (digit, index)|
+      total + (digit.ord - 64) * (26**index)
+    end.to_s
   end
 
   def valid_input?
