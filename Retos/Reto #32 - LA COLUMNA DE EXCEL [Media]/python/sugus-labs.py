@@ -8,6 +8,7 @@ def calculate_excel_column(column_name: str):
 
     #idx_value = ord("A") - 1
     alphabet_list = [c for c in string.ascii_uppercase]
+    print(alphabet_list)
     column_pos = 0
     column_name = column_name.upper()
     column_name_prep = column_name[::-1]
