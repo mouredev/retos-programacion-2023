@@ -20,6 +20,6 @@ public class masdos {
   }
 
   public static boolean isValidMathOperation(String operation) {
-    return operation.matches("^(-?\\d(.\\d)?)+(\\s[-+*/%]\\s(-?\\d(.\\d)?)+)+$");
+    return operation.matches("^(-?\\d(\.\\d)?)+(\\s[-+*/%]\\s(-?\\d(\.\\d)?)+)+$");
   }
 }

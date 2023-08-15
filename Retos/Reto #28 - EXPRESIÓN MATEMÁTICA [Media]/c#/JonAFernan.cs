@@ -27,6 +27,6 @@ class Program
 
     static bool IsMathematicalExpressions(string input)
     {   
-        return Regex.IsMatch(input,@"\A(-?\d*\.{0,1}\d+)(\s[+]\s\-?\d*\.{0,1}\d+)+");
+        return Regex.IsMatch(input,@"^\A(-?\d*\.{0,1}\d+)(\s[+,\-,*,/,%]\s\-?\d*\.{0,1}\d+)+$");
     }
 }
