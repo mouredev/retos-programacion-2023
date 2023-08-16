@@ -1,13 +1,16 @@
+import pygame as pg
 from enum import Enum
-from os import system
-import platform
+
+BLACK = (0, 0, 0)
+GREEN = (0, 255, 0)
 
 WIDTH = HEIGHT = 10
 
+SCREEN_WIDTH = SCREEN_HEIGHT = 600
+SCREEN_SIZE = (SCREEN_HEIGHT, SCREEN_WIDTH)
+
 ROW = 0
 COL = 1
-
-CLEAN = 'cls' if platform.system() == 'Windows' else 'clear'
 
 
 class Orientation(Enum):
@@ -18,21 +21,15 @@ class Orientation(Enum):
 
 
 class Board:
-  def __init__(self) -> None:
+  def __init__(self, window) -> None:
     
-    self.map = [[ 0 for _ in range( WIDTH ) ] for _ in range( HEIGHT ) ]
     self.T_center = [1,1]
     self.T_shape = [[0,1], [1,0], [1,1], [1,2]]
     self.T_orientation = Orientation.TOP
-    self.update()
-  
-  # Check moves
-  def can_move_top (self) -> bool:
-    if self.T_orientation == Orientation.DOWN:
-      return self.T_center[ROW] - 1 >= 0
 
-    return self.T_center[ROW] - 2 >= 0
+    self.window = window
   
+  # Check moves  
   def can_move_down (self) -> bool:
     if self.T_orientation == Orientation.TOP:
       return self.T_center[ROW] + 1 < HEIGHT
@@ -52,8 +49,8 @@ class Board:
     return self.T_center[COL] + 2 < WIDTH
   
   def can_rotate(self) -> bool:
-    return self.T_center[COL] not in [0, WIDTH] and \
-      self.T_center[ROW] not in [0, HEIGHT]
+    return self.T_center[COL] not in [0, WIDTH-1] and \
+      self.T_center[ROW] not in [0, HEIGHT-1]
   
   
   # Moves
@@ -61,13 +58,7 @@ class Board:
     self.T_center[DEST] += MOVE
     
     for coord in self.T_shape:
-      coord[DEST] += MOVE
-    
-    self.update()
-  
-  def move_top (self) -> None:
-    if self.can_move_top():
-      self.__make_move(ROW, -1)
+      coord[DEST] += MOVE 
   
   def move_down (self) -> None:
     if self.can_move_down():
@@ -122,50 +113,50 @@ class Board:
       }
       
       rotation[self.T_orientation]()
-      self.update()
-  
-  def update(self) -> None:
-    
-    self.map = [ [ 0 for _ in range(WIDTH) ] for _ in range(HEIGHT) ]
-    
-    for row, col in self.T_shape:
-      self.map[row][col] = 1
+
   
   def draw(self) -> None:
-    system(CLEAN)
-    outline = '🟢'
-    print( outline * ( WIDTH + 2 ) )
-    for row in self.map:
-      print(outline, end='')
-      for value in row:
-        data = '🟪' if value == 1 else '⬛'
-        print(data, end='')
-      print(outline)
-    print( outline * ( WIDTH + 2 ) )
-
-
-
-def game( key: str ):
-  movement = {
-    'w': board.move_top,
-    'a': board.move_left,
-    's': board.move_down,
-    'd': board.move_right,
-    'r': board.rotate
-  }
-  
-  movement.get(key, lambda : print('Not valid key!'))()
-  board.draw()
+    
+    self.window.fill((0,0,0))
+    
+    for y, x in self.T_shape:
+      pg.draw.rect(self.window, GREEN, pg.Rect( x * SCREEN_WIDTH / WIDTH, y * SCREEN_HEIGHT / HEIGHT, SCREEN_WIDTH / WIDTH - 2, SCREEN_HEIGHT / HEIGHT -2 ))
+    
+    pg.display.flip()
 
 
 if __name__ == '__main__':
   
-  board = Board()
+  pg.init()
+  pg.display.set_caption('Tetris')
+  
+  clock = pg.time.Clock
+  window = pg.display.set_mode( (600, 600), vsync=1 )
+  
+  board = Board(window)
   board.draw()
   
-  key = input("[w,a,s,d,r] para mover o 'q' para salir: ")
-  while key != 'q':
+  moves = {
+    pg.K_UP: board.rotate,
+    pg.K_DOWN: board.move_down,
+    pg.K_LEFT: board.move_left,
+    pg.K_RIGHT: board.move_right
+  }
+  
+  end = False
+  while not end:
     
-    game(key)
-    key = input("[w,a,s,d,r] para mover o 'q' para salir: ")
+    for event in pg.event.get():
+      if event.type == pg.QUIT:
+        end = True
+      
+      if event.type == pg.KEYDOWN:
+        
+        if event.key == pg.K_ESCAPE:
+          end = True
+
+        if event.key in moves.keys():
+          moves[event.key]()
+    
+    board.draw()
     
