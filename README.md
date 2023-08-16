@@ -47,9 +47,12 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#27** - 03/07/23 | Media | [`CUENTA ATRÁS`](./Retos/Reto%20%2327%20-%20CUENTA%20ATRÁS%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2327%20-%20CUENTA%20ATRÁS%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2327%20-%20CUENTA%20ATRÁS%20%5BMedia%5D/)]
 * **#28** - 10/07/23 | Media | [`EXPRESIÓN MATEMÁTICA`](./Retos/Reto%20%2328%20-%20EXPRESIÓN%20MATEMÁTICA%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2328%20-%20EXPRESIÓN%20MATEMÁTICA%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2328%20-%20EXPRESIÓN%20MATEMÁTICA%20%5BMedia%5D/)]
 * **#29** - 17/07/23 | Fácil | [`EL CARÁCTER INFILTRADO`](./Retos/Reto%20%2329%20-%20EL%20CARÁCTER%20INFILTRADO%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2329%20-%20EL%20CARÁCTER%20INFILTRADO%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2329%20-%20EL%20CARÁCTER%20INFILTRADO%20%5BFácil%5D/)]
-* **#30** - 24/07/23 | Media | [`EL TECLADO T9`](./Retos/Reto%20%2330%20-%20EL%20TECLADO%20T9%20%5BMedia%5D/ejercicio.md) | Último reto publicado
+* **#30** - 24/07/23 | Media | [`EL TECLADO T9`](./Retos/Reto%20%2330%20-%20EL%20TECLADO%20T9%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2330%20-%20EL%20TECLADO%20T9%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2330%20-%20EL%20TECLADO%20T9%20%5BMedia%5D/)]
+* **#31** - 31/07/23 | Fácil | [`EL ÁBACO`](./Retos/Reto%20%2331%20-%20EL%20ÁBACO%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2331%20-%20EL%20ÁBACO%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2331%20-%20EL%20ÁBACO%20%5BFácil%5D/)]
+* **#32** - 07/08/23 | Media | [`LA COLUMNA DE EXCEL`](./Retos/Reto%20%2332%20-%20LA%20COLUMNA%20DE%20EXCEL%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2332%20-%20LA%20COLUMNA%20DE%20EXCEL%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2332%20-%20LA%20COLUMNA%20DE%20EXCEL%20%5BMedia%5D/)]
+* **#33** - 14/08/23 | Difícil | [`TETRIS`](./Retos/Reto%20%2333%20-%20TETRIS%20%5BDifícil%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 31/07/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/aYbJWd9t?event=1133085330262736989) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 21/08/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/EYKECqVG?event=1140572326937767976) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
