@@ -1,8 +1,9 @@
+from typing import List
 import pygame as pg
 from enum import Enum
 
 BLACK = (0, 0, 0)
-GREEN = (0, 255, 0)
+GREEN = (0, 0xFF, 0)
 
 WIDTH = HEIGHT = 10
 
@@ -26,6 +27,13 @@ class Board:
     self.T_center = [1,1]
     self.T_shape = [[0,1], [1,0], [1,1], [1,2]]
     self.T_orientation = Orientation.TOP
+
+    self.rotation = {
+        Orientation.TOP: self.__from_top,
+        Orientation.RIGHT: self.__from_right,
+        Orientation.DOWN: self.__from_down,
+        Orientation.LEFT: self.__from_left
+      }
 
     self.window = window
   
@@ -74,50 +82,35 @@ class Board:
   
   
   # Rotation
-  def __from_top(self) -> None:
+  def __make_rotation ( self, configs: List[tuple] ) -> None:
     self.T_shape = [self.T_center.copy()]
-    self.T_shape.append([self.T_center[ROW], self.T_center[COL]+1])
-    self.T_shape.append([self.T_center[ROW]+1, self.T_center[COL]])
-    self.T_shape.append([self.T_center[ROW]-1, self.T_center[COL]])
+    
+    for row, col in configs:
+      self.T_shape.append([self.T_center[ROW]+row, self.T_center[COL]+col])
+  
+  def __from_top(self) -> None:
+    self.__make_rotation( [(0,1), (1,0), (-1,0)] )
     self.T_orientation = Orientation.RIGHT
     
   def __from_right(self) -> None:
-    self.T_shape = [self.T_center.copy()]
-    self.T_shape.append([self.T_center[ROW]+1, self.T_center[COL]])
-    self.T_shape.append([self.T_center[ROW], self.T_center[COL]+1])
-    self.T_shape.append([self.T_center[ROW], self.T_center[COL]-1])
+    self.__make_rotation( [(1,0), (0,1), (0,-1)] )
     self.T_orientation = Orientation.DOWN
     
   def __from_down(self) -> None:
-    self.T_shape = [self.T_center.copy()]
-    self.T_shape.append([self.T_center[ROW], self.T_center[COL]-1])
-    self.T_shape.append([self.T_center[ROW]+1, self.T_center[COL]])
-    self.T_shape.append([self.T_center[ROW]-1, self.T_center[COL]])
+    self.__make_rotation( [(0,-1), (1,0), (-1,0)] )
     self.T_orientation = Orientation.LEFT
     
   def __from_left(self) -> None:
-    self.T_shape = [self.T_center.copy()]
-    self.T_shape.append([self.T_center[ROW]-1, self.T_center[COL]])
-    self.T_shape.append([self.T_center[ROW], self.T_center[COL]+1])
-    self.T_shape.append([self.T_center[ROW], self.T_center[COL]-1])
+    self.__make_rotation( [(-1,0), (0,1), (0,-1)] )
     self.T_orientation = Orientation.TOP
   
   def rotate(self) -> None:
     if self.can_rotate():
-      
-      rotation = {
-        Orientation.TOP: self.__from_top,
-        Orientation.RIGHT: self.__from_right,
-        Orientation.DOWN: self.__from_down,
-        Orientation.LEFT: self.__from_left
-      }
-      
-      rotation[self.T_orientation]()
+      self.rotation[self.T_orientation]()
 
-  
   def draw(self) -> None:
     
-    self.window.fill((0,0,0))
+    self.window.fill(BLACK)
     
     for y, x in self.T_shape:
       pg.draw.rect(self.window, GREEN, pg.Rect( x * SCREEN_WIDTH / WIDTH, y * SCREEN_HEIGHT / HEIGHT, SCREEN_WIDTH / WIDTH - 2, SCREEN_HEIGHT / HEIGHT -2 ))
@@ -129,9 +122,8 @@ if __name__ == '__main__':
   
   pg.init()
   pg.display.set_caption('Tetris')
-  
-  clock = pg.time.Clock
-  window = pg.display.set_mode( (600, 600), vsync=1 )
+
+  window = pg.display.set_mode( SCREEN_SIZE )
   
   board = Board(window)
   board.draw()
