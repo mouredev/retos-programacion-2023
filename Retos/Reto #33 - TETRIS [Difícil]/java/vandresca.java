@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -227,13 +226,6 @@ class Piece {
             return isPermitedDown();
         }else{
             return isPermitedRight();
-        }
-    }
-
-
-    public void print() {
-        for (int i = 0; i < piece.length; i++) {
-            System.out.println(Arrays.toString(piece[i]));
         }
     }
 }
