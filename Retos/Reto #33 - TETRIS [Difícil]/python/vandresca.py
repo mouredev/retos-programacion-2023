@@ -19,161 +19,159 @@
  *   recibiendo una acción cada vez que se llame, mostrando cómo se visualiza en la pantalla  de juego.
  * - Las acciones que se pueden aplicar a la pieza son: derecha, izquierda, abajo, rotar.
  * - Debes tener en cuenta los límites de la pantalla de juego.
- *
+ *   
  *
  * Autor: Víctor Andrés
  * Fecha: 18-8-2023
- * Instrucciones: Instala la libreria pynput
+ * Instrucciones: 
+ *      - Instala la libreria tkinter ->  brew install python-tk@3.11
  * Mueve la pieza con las flechas y rotla con la tecla de espacio
  * Para salir de la aplicación utiliza la tecla Ctrl
  """
-import os
-from pynput.keyboard import Key, Listener
 
-def show_screen(screen, piece):   
-    screen = initial_screen()
-    screen = set_piece(screen, piece)
-    print_screen(screen)
+import tkinter as tk
+import sys
 
-def initial_screen()->[]:
-    val = [0] * 10
-    for x in range (10):
-        val[x] = ["🔲"] * 10
-    return val
+class Piece:
+    piece = []
 
-def set_piece(screen, piece)->[]:
-    for element in list(piece):
-        screen[element[0]][element[1]] = "🔳"
-    return screen
+    positionX=0;
+    positionY=0;
 
-def check_grid(piece, x, y):
-    aux = list(piece)
-    for element in list(piece):
-         if (element[0] in list(range(x,(x+3)))) and (element[1] in list(range(y,(y+3)))):
-            aux.remove(element)
-    return len(aux)==0               
+    def __init__(self):
+        self.piece = [[1, 0, 0],[1, 1, 1]]
 
-def get_x_y_from_grid(piece):
-    for x in range(0,8):
-        for y in range(0,8):
-            if check_grid(piece, x, y):
-                return x, y
-    return 0, 0 
+    def rotate(self):
+        self.piece = list(zip(*self.piece))[::-1]
+                
+    def getValues(self) ->[]:
+        return self.piece
+    
+    def getPositionX(self)->int:
+        return self.positionX
+    
+    def getPositionY(self) -> int:
+        return self.positionY;
+    
+    def setPositionX(self, x):
+        self.positionX = x;
+    
+    def setPositionY(self, y):
+        self.positionY = y;
 
-def translate_to_matrix(piece, x, y)->[]:
-    val = [0] * 3
-    for k in range(3):
-        val[k] = [0] * 3
+    def getPieceWidth(self)->int:
+        return len(self.piece[0]);
 
-    for element in list(piece):
-        val[element[0]-x][element[1]-y] = 1
-    return val
-
-def rotate90(matrix)->[]:
-    val = [[0,0,0],[0,0,0],[0,0,0]]
-    for i in range(3):
-        for j in range(3):
-            val[i][j] = matrix[2-j][i]
-    return val
-
-def translate_to_piece(matrix, x, y)->[]:
-    val = []
-    for i in range(0,3):
-        for j in range(0,3):
-            if matrix[i][j] == 1:
-                val.append([(i+x), (j+y)])
-    return val
-
-def rotate(piece)->[]:
-    x,y =get_x_y_from_grid(piece)
-
-
-def up(piece)->[]:
-    aux = list(piece)
-    for element in list(piece):        
-        if(element[0]==0):
-            return piece
-
-    for element in aux:
-            element[0] = element[0] - 1 
-    return aux
-
-def down(piece)->[]:
-    aux =list(piece)
-    for element in list(piece):        
-        if(element[0]==9):
-            return piece
-
-    for element in aux:
-            element[0] = element[0] + 1        
-    return aux
-
-def left(piece)->[]:
-    aux =list(piece)
-    for element in list(piece):        
-        if(element[1]==0):
-            return piece
-
-    for element in aux:
-            element[1] = element[1] - 1        
-    return aux
-
-
-def right(piece)->[]:
-    aux =list(piece)
-    for element in list(piece):        
-        if(element[1]==9):
-            return piece
-
-    for element in aux:
-        element[1] = element[1] + 1        
-    return aux
+    def getPieceHeight(self)->int:
+        return len(self.piece);
+    
+    def isPermitedTop(self)->bool:
+        return self.getPositionY()-1 >= 0;
+    
+    def isPermitedDown(self)->bool:
+        return (self.getPieceHeight()+self.getPositionY()+1)<= 10;
+    
+    def isPermitedLeft(self)->bool:
+        return self.getPositionX()-1 >= 0;
+    
+    def isPermitedRight(self)->bool:
+        return (self.getPieceWidth()+self.getPositionX()+1)<= 10;
+    
+    def isPermitedRotate(self)->bool:
+        if (self.getPieceWidth()> self.getPieceHeight()):
+            return self.isPermitedDown()
+        else:
+            return self.isPermitedRight()
  
-     
-def print_screen(screen):
-    os.system("clear")
-    print("Mueve las pieza con el cursor o rotala con la tecla espacio")
-    print("Para salir del programa pulsa la tecla 'ctrl'")
-    print()
-    for row  in range(0, 10):
-        for col in range(0,10):
-            print(screen[row][col], end="")
-        print()
-      
-def on_press(key):
+
+def on_press(event):
     global piece
-    global screen
+    global paned_window
+    if event.keysym == "Down":
+        if(piece.isPermitedDown()):
+            piece.setPositionY(piece.getPositionY()+1);
+            resetGrid(paned_window)
+            setPiece(paned_window, piece)
+    elif event.keysym == "Up":
+        if(piece.isPermitedTop()):
+            piece.setPositionY(piece.getPositionY()-1);
+            resetGrid(paned_window)
+            setPiece(paned_window, piece)
+    elif event.keysym == "Left":
+        if(piece.isPermitedLeft()):
+            piece.setPositionX(piece.getPositionX()-1);
+            resetGrid(paned_window)
+            setPiece(paned_window, piece)
+    elif event.keysym == "Right":
+        if(piece.isPermitedRight()):
+            piece.setPositionX(piece.getPositionX()+1);
+            resetGrid(paned_window)
+            setPiece(paned_window, piece)
+    elif event.keysym == "space":
+       if(piece.isPermitedRotate()):
+            piece.rotate();
+            resetGrid(paned_window)
+            setPiece(paned_window, piece)
+    elif event.keysym == "Escape":
+        sys.exit()
 
-    if key is Key.down:
-        piece = down(piece)
-        show_screen(screen, piece)
-    elif key is Key.up:
-        piece = up(piece)
-        show_screen(screen, piece)
-    elif key is Key.left:
-        piece = left(piece)
-        show_screen(screen, piece)
-    elif key is Key.right:
-        piece = right(piece)
-        show_screen(screen, piece)
-    elif key is Key.space:
-        x, y = get_x_y_from_grid(piece)
-        matrix = translate_to_matrix(piece, x, y)
-        matrix = rotate90(matrix)
-        piece = translate_to_piece(matrix, x, y)
-        show_screen(screen, piece)
-    elif key is Key.ctrl:
-        global end 
-        end = True                                                
-                         
+def resetGrid(paned_window):       
+    for i in range(1,101):
+        if i == 1:
+            card = ''
+        else:
+            card = i
+        label_by_id = paned_window.nametowidget(f".!panedwindow.!label{card}")
+        label_by_id.config(background="#ffffff")
+    
+def setPiece(paned_window, piece):
+    pValues = piece.getValues();
+    x = piece.getPositionX();
+    y = piece.getPositionY();
+    for i in range(0, len(pValues)):
+        for j in range(0, len(pValues[i])):
+            if pValues[i][j]==1 :
+                row = y + i
+                col = x + j
+                position = (row*10)+col + 1
+                if position == 1:
+                    card = ''
+                else:
+                    card = position
+                label_by_id = paned_window.nametowidget(f".!panedwindow.!label{card}")
+                label_by_id.config(background="#ff0000")
 
-listener = Listener(on_press=on_press)
-listener.start()
+if __name__ == "__main__":
+    window = tk.Tk()
+    window.wm_title("Tetris")
+    window.geometry("370x460")
+    label = tk.Label(window, text="Bienvenido al juego del Tetris!!")
+    label.pack()
+    label = tk.Label(window, text="Mueve la pieza con los cursores")
+    label.pack()
+    label = tk.Label(window, text="Rota la pieza con la tecla espacio")
+    label.pack()
+    label = tk.Label(window, text="Sal de la aplicación con la tecla escape")
+    label.pack()
+    paned_window = tk.PanedWindow(window)
+    paned_window.pack()
+    for i in range(10):
+        for j in range(10):
+            card = tk.Label(paned_window, text="", borderwidth=1, relief="solid", background="#FFFFFF", width=3, height=2)
+            card.grid(row=i, column=j)
+            card.id = f"label-{i}-{j}"
 
-end = False
-screen = initial_screen()
-piece = [[8,7],[9,7],[9,8],[9,9]]
-show_screen(screen, piece)
+    end = False
+    piece = Piece()
+    resetGrid(paned_window)
+    setPiece(paned_window, piece)
 
-while not end:
-    pass
+    window.bind("<Up>", on_press)
+    window.bind("<Down>", on_press)
+    window.bind("<Left>", on_press)
+    window.bind("<Right>", on_press)
+    window.bind("<space>", on_press)
+    window.bind("<Escape>", on_press)
+
+    window.mainloop()
+
