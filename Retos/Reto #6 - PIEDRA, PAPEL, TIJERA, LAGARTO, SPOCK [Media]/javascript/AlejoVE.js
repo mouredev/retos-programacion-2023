@@ -13,13 +13,15 @@ const game = (gameSequence) => {
 	const winningPoints = 3;
 
 	for (const play of gameSequence) {
-		if (player1 < winningPoints && player2 < winningPoints) {
-			const [inputPlayer1, inputPlayer2] = play;
-			console.log(`${inputPlayer1} | ${inputPlayer2}`);
-			rules[inputPlayer1].includes(inputPlayer2) ? player1++ : player2++;
-		} else {
-			break;
-		}
+		const [inputPlayer1, inputPlayer2] = play;
+
+		if (player1 >= winningPoints || player2 >= winningPoints) break;
+
+		console.log(`${inputPlayer1} | ${inputPlayer2}`);
+
+		if (inputPlayer1 === inputPlayer2) continue;
+
+		rules[inputPlayer1].includes(inputPlayer2) ? player1++ : player2++;
 	}
 
 	if (player1 === player2) {
@@ -35,6 +37,9 @@ const gameSequence = [
 	['🗿', '✂️'],
 	['✂️', '🗿'],
 	['📄', '✂️'],
+	['🗿', '✂️'],
+	['✂️', '🗿'],
+	['📄', '✂️'],
 ];
 
-game(gameSequence); // Winner is player 2
+game(gameSequence); //Winner player 2
