@@ -225,43 +225,11 @@ export class App implements OnInit, OnDestroy {
   control$!: Observable<any>;
   sub!: Subscription;
 
-  btSubject: Subject<number[]> = new Subject<any>();
+  btSubject: Subject<{rotation:number,posX:number,posY:number}> = new Subject<{rotation:number,posX:number,posY:number}>();
 
+  //checkPiece
+  checkPiece=0;
   ngOnInit() {
-    //Todos los observables devuelven un array con los nuevos valores de [rotation,posX,posY]
-
-    //Observable botones
-    const buttons$ = this.btSubject as Observable<number[]>;
-
-    //Observable teclado
-    const keyboard$ = fromEvent(document, 'keydown').pipe(
-      filter((x: any) => x.keyCode >= 37 && x.keyCode <= 40),
-      map((x: any) => {
-        const code = x.keyCode;
-        if (code == 37) return [this.rotation, this.posX - 1, this.posY];
-        if (code == 39) return [this.rotation, this.posX + 1, this.posY];
-        if (code == 40) return [this.rotation, this.posX, this.posY + 1];
-        const rotation = (this.rotation + 7) % 4;
-        return [rotation, this.posX, this.posY];
-      })
-    );
-    //Observable de tiempo
-    const timer$ = timer(0, 100).pipe(
-      filter(
-        (_) =>
-          this.interval == 0 ||
-          new Date().getTime() - this.timeActual > this.interval
-      ),
-      map((_) => [this.rotation, this.posX, this.posY + 1]),
-      tap((_) => {
-        this.timeActual = new Date().getTime();
-      })
-    );
-      
-    //Un único observable que devuelve caso de que pase cualquiera de los tres casos anteriores
-    this.control$ = merge(timer$, buttons$, keyboard$);
-    
-    //Iniciamos el juego
     setTimeout(() => {
       this.newGame();
     });
@@ -270,19 +238,42 @@ export class App implements OnInit, OnDestroy {
   newGame() {
     this.board = emptyBoard.map((x) => [...x]);
   }
+  getObservable():Observable<{rotation:number,posX:number,posY:number}>
+  {
+    //Observable botones
+    const buttons$ = this.btSubject as Observable<{rotation:number,posX:number,posY:number}>;
 
+    //Observable teclado
+    const keyboard$ = fromEvent(document, 'keydown').pipe(
+      filter((x: any) => x.keyCode >= 37 && x.keyCode <= 40),
+      map((x: any) => {
+        const code = x.keyCode;
+        if (code == 37) return {rotation:this.rotation,posX:this.posX - 1, posY:this.posY};
+        if (code == 39) return {rotation:this.rotation, posX:this.posX + 1, posY:this.posY};
+        if (code == 40) return {rotation:this.rotation, posX:this.posX, posY:this.posY + 1};
+        const rotation = (this.rotation + 7) % 4;
+        return {rotation:rotation, posX:this.posX, posY:this.posY};
+      })
+    );
+    //Observable de tiempo
+    const timer$ = timer(0, this.interval).pipe(
+      map((_) => ({rotation:this.rotation, posX:this.posX, posY:this.posY + 1})),
+    );
+    return merge(timer$, buttons$, keyboard$);
+  }
+  
   startGame() {
-    this.newPiece();
     this.status = 0;
     this.points = 0;
-    this.interval = 1000;
+    this.interval=1000;
+    this.newPiece();
 
+  }
+  subscribe(){
     this.sub && this.sub.unsubscribe();
-    this.timeActual = new Date().getTime();
-
     //Nos subscribimos al observable
-    this.sub = this.control$.subscribe(
-      ([rotation, posX, posY]: [number, number, number]) => {
+    this.sub = this.getObservable().subscribe(
+      ({rotation, posX, posY}) => {
         if (this.status) return;
         this.removeBoard(); //limpiamos el "board" con la pieza en el estado actual
         if (this.check(rotation, posX, posY)) {
@@ -367,7 +358,7 @@ export class App implements OnInit, OnDestroy {
 
   private newPiece() {
     this.interval -= 10;
-    if (this.interval < 0) this.interval = 0;
+    if (this.interval < 100) this.interval = 100;
 
     this.piece = this.nextPiece;
     this.nextPiece =
@@ -375,12 +366,12 @@ export class App implements OnInit, OnDestroy {
     this.posX = 5+this.piece.posIni[0];
     this.posY = this.piece.posIni[1];
     this.rotation = 0;
-    console.log(this.check(this.rotation, this.posX, this.posY))
     if (!this.check(this.rotation, this.posX, this.posY)) {
       this.sub && this.sub.unsubscribe();
       this.status = 2;
     } else {
       this.fillBoard();
+      this.subscribe()
     }
   }
 
