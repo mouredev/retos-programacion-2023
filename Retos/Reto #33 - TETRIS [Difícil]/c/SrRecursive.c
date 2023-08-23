@@ -92,10 +92,14 @@ char	**createTable(void)
 {
 	char	**table;
 
-	table = (char **)malloc(ROWS * sizeof(char *));
-	for (int index = 0; index < ROWS; index ++)
+	table = (char **)malloc((ROWS + 1) * sizeof(char *));
+	if (table == NULL)
 	{
-		table[index] = (char *)malloc(COLS * sizeof(char));
+		return (NULL);
+	}
+	for (int index = 0; index < ROWS; index++)
+	{
+		table[index] = (char *)malloc((COLS + 1) * sizeof(char));
 		if (table[index] == NULL)
 		{
 			full_free(table, index);
@@ -103,16 +107,11 @@ char	**createTable(void)
 		}
 		for (int index2 = 0; index2 < COLS; index2++)
 		{
-			if (index2 == COLS)
-			{
-				table[index][index2] = '\0';
-			}
-			else
-			{
-				table[index][index2] = '-';
-			}
+			table[index][index2] = '-';
 		}
+		table[index][COLS] = '\0';
 	}
+	table[ROWS] = NULL;
 	return (table);
 }
 
