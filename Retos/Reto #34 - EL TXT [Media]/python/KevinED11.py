@@ -2,6 +2,12 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from pathlib import Path
 from functools import cached_property
+from enum import StrEnum
+
+
+class ExitWords(StrEnum):
+    EXIT = "exit"
+    ADIOS = "adios"
 
 
 class IReader(ABC):
@@ -51,19 +57,18 @@ class Main:
     writer: IWriter
 
     @cached_property
-    def __get_exit_words(self) -> list[str]:
-        return ["exit", "adios"]
+    def __get_exit_words(self) -> list[ExitWords]:
+        return list(ExitWords)
+
+    @property
+    def __check_file_existence(self) -> bool:
+        return writer.output_path.exists()
 
     def read_input(self) -> None:
-        while True:
-            user_input = input(
-                "Ingresa el contenido a escribir en el archivo: ")
+        while (user_input := input(
+                "Ingresa el contenido a escribir en el archivo: ")) not in self.__get_exit_words:
 
-            if user_input in self.__get_exit_words:
-                print("\n¡Adiós espero volver a verte pronto!")
-                break
-
-            if writer.output_path.exists():
+            if self.__check_file_existence:
                 print(
                     "El archivo ya existe, ¿continuo escribiendo donde esta o inicio desde el principio?")
 
@@ -73,9 +78,12 @@ class Main:
                 if new_input == "1":
                     self.writer.write(text="\n" + user_input, mode="a")
                     print(self.reader.read())
+
                     continue
 
             self.writer.write(text=user_input, mode="w")
+
+        print("\n¡Adiós espero volver a verte pronto!")
 
 
 if __name__ == "__main__":
