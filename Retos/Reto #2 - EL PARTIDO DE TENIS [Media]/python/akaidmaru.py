@@ -48,6 +48,6 @@ def tennis_match(sequence):
                 finished = True
 
     if count_p1 > count_p2:
-        return 'Player 1 has won!'
+        return print('Player 1 has won!')
     elif count_p1 < count_p2:
-        return 'Player 2 has won!'
+        return print('Player 2 has won!')
