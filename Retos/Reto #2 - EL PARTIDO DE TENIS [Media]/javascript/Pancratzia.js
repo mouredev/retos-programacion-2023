@@ -22,6 +22,7 @@
  *
  */
 
+const validValues = ["P1", "P2"];
 const game = ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"];
 
 const points = ["Love", 15, 30, 40];
@@ -33,10 +34,13 @@ const startGame = (game) => {
     P2: 0,
   };
 
+  if(!game.includes("P1") || !game.includes("P2")) return console.log("Error. El juego debe contener P1 y P2");
+  if (!game.every(round => validValues.includes(round))) return console.log("Error. El juego debe contener solo P1 y P2");
+  
+  
 
   game.forEach((round) => {
     round === "P1" ? rank.P1++ : rank.P2++;
-
     (rank.P1 < 3 && rank.P2 < 3) ||
     (rank.P1 === 3 && rank.P2 < rank.P1) ||
     (rank.P2 === 3 && rank.P1 < rank.P2)
