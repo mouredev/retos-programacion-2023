@@ -1,5 +1,5 @@
 ' Ejemplo de uso: 
-' cscript arielposada.vbs 6-666-88-777-33-3-33-888
+' cscript arielposada.vbs "6-666-88-777-33-3-33-888"
 ' Los primeros dispositivos móviles tenían un teclado llamado T9
 ' con el que se podía escribir texto utilizando únicamente su
 ' teclado numérico (del 0 al 9).
