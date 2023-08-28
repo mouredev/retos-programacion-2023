@@ -120,7 +120,7 @@ class FileWriter(IFileWriter):
 class FileReaderAndWriter:
     reader: IReader
     file_writer: IFileWriter
-
+    
     @cached_property
     def __get_exit_words(self) -> list[ExitWords]:
         return list(ExitWords)
