@@ -82,7 +82,6 @@ def tetris():
             if key == 'flecha abajo' or key == 'flecha izquierda' or key == 'flecha derecha' or key == 'flecha arriba':
                 screen = draw_piece(screen, piece[rotation], position)
                 print_screen(screen)
-                pass
 
 def draw_piece(screen, piece, position):
     screen = generate_empty_screen()
