@@ -17,7 +17,6 @@ namespace reto;
  *   el texto que ya posee el fichero.  
  */
 
-
 class Program
 {
     static void Main(string[] args)
