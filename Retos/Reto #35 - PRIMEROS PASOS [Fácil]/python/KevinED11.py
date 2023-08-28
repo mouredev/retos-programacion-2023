@@ -54,11 +54,11 @@ class Person:
         self.age = age
       
 # Exceptions
-def is_person(person: dict) -> dict:
+def print_person(person: dict) -> None:
     if not isinstance(person, dict):
         raise TypeError("solo debes pasar diccionarios")
     
-    return person
+    print(person)
 
 
 try:
