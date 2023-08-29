@@ -1,0 +1,7 @@
+setup.cfg
+setup.py
+bs4.egg-info/PKG-INFO
+bs4.egg-info/SOURCES.txt
+bs4.egg-info/dependency_links.txt
+bs4.egg-info/requires.txt
+bs4.egg-info/top_level.txt
