@@ -1,2 +1,4 @@
 ./venv
 ./Retos
+poetry.lock
+pyproject.toml
