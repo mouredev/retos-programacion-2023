@@ -1,0 +1,6 @@
+SaludoPersonalizado =
+VAR Nombre = "Kerry Berga"   // Elige un nombre
+RETURN
+    "!Hola, " & Nombre & "!"
+
+
