@@ -180,4 +180,73 @@ int32 UMyMathLibrary::Sumar(int32 A, int32 B)
 }
 
  * - Crea una clase.
- * - Muestra el control de excepciones.
+
+//Crear una clase
+//Aun que se puede crear una clase directamente en Visual Studio, por comodidad en cuanto a generar automaticamente los archivos .h y cpp y q Unreal los coloque
+//en sus respectivas carpetas es preferible crear la clase desde Unreal
+//El primer paso es elegir de que clase va a heredar todas las clases de Unreal dependen de Object como clase más abstracta, no obstante es raro que tengamos que crear
+//una clase derivada de Object, lo más comun es derivar de Actor, Character etc
+//En .h
+//Unreal es bastante estricto con algunas cuestiones 1 añade un prefijo segun el tipo de clase por ejemplo a Actor le añade A
+//La ultima linea de referencias a librerias no puede ser modificada de orden, siempre debe ser la ultima #include "MiActorPersonalizado.generated.h"
+//Obliga a tener una macro UCLASS como definidor de clase aunque declare class antes de la definición
+//Debe tener un constructor definido aunque no tenga nada implementado
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "MiActorPersonalizado.generated.h"
+
+UCLASS()
+class PROYECTOUNREAL_API AMiActorPersonalizado : public AActor
+{
+    GENERATED_BODY()
+
+public:
+    // Constructor
+    AMiActorPersonalizado();
+
+protected:
+    virtual void BeginPlay() override;
+
+public:
+    virtual void Tick(float DeltaTime) override;
+};
+//En el .cpp
+#include "MiActorPersonalizado.h"
+
+// Constructor
+AMiActorPersonalizado::AMiActorPersonalizado()
+{
+    // Establecer cualquier configuración específica del actor aquí.
+}
+
+void AMiActorPersonalizado::BeginPlay()
+{
+    Super::BeginPlay();
+    // Lógica a realizar al comienzo del juego.
+}
+
+void AMiActorPersonalizado::Tick(float DeltaTime)
+{
+    Super::Tick(DeltaTime);
+    // Lógica a realizar cada frame.
+}
+
+//Control de excepciones
+//Quiza la mas utilizada es controlar que un objeto sea nulo
+if (ActorPtr.IsValid())
+{
+   
+    ActorPtr->HaceAlgo();
+}
+else
+{
+    // El puntero es nulo, manejar la situación de manera adecuada
+    UE_LOG(LogTemp, Warning, TEXT("El puntero al actor es nulo."));
+}
+// Unreal tiene problemas con los try catch asi que usa libreria de asserts
+ checkf(Value > 0, TEXT("El valor proporcionado (%d) debe ser positivo."), Value);
+//En vez de recoger excepciones recoge "Alarmas" cuando algo no esta bien, salta la alarma.
+
