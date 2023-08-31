@@ -82,8 +82,8 @@ class Tetris
   end
 
   def rotate_posible?
-    return false if @user_input == 'rotate' && @board[9].any?(1)
-    return false if @user_input == 'rotate' && @board.transpose[9].any?(1)
+    return false if @board[9].any?(1)
+    return false if @board.transpose[9].any?(1)
 
     true
   end
