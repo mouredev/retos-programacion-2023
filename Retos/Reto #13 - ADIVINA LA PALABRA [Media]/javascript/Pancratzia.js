@@ -56,13 +56,16 @@ const ocultarLetras = (palabra) => {
       Math.random() > 0.5 &&
       letra !== "_"
     ) {
-      for (let i = 0; i < aux.length; i++) {
-        if (aux[i] === letra) {
-          aux = aux.replaceAt(i, "_");
-          ocultas++;
 
-          if (ocultas < maxLetrasAOcultarPermitidas) {
-            break;
+      if(contarPresenciaDeLetra(palabra, letra) <= (maxLetrasAOcultarPermitidas - ocultas)){ 
+        for (let i = 0; i < aux.length; i++) {
+          if (aux[i] === letra) {
+            aux = aux.replaceAt(i, "_");
+            ocultas++;
+  
+            if (ocultas < maxLetrasAOcultarPermitidas) {
+              break;
+            }
           }
         }
       }
@@ -72,16 +75,55 @@ const ocultarLetras = (palabra) => {
   return aux;
 };
 
+const destaparLetra = (palabra, palabraOculta, letra) =>{
+  for (let i = 0; i < palabra.length; i++) {
+    if (palabra[i] === letra) {
+      palabraOculta = palabraOculta.replaceAt(i, letra);
+    }
+  }
+  return palabraOculta;
+}
+
+const contarPresenciaDeLetra = (palabra, letra) => {
+  let contador = 0;
+  for (let i = 0; i < palabra.length; i++) {
+    if (palabra[i] === letra) {
+      contador++;
+    }
+  }
+
+  return contador;
+}
+
 const imprimirMensaje = (palabraOculta, intentos) => {
   console.log(`Palabra a adivinar: ${palabraOculta}`);
   console.log(`Intentos restantes : ${intentos}`);
 };
 
-const leerString = () => {
-  return "leyendo...";
-}
+const leerString = (palabra) => {
+  return new Promise((resolve, reject) => {
+    rl.question("Ingresa una letra o palabra: ", (input) => {
+      if (input.trim() === "") {
+        console.log("¡Debes ingresar algo!");
+        leerString(palabra).then(resolve).catch(reject);
+        return;
+      }
 
-const main = () => {
+      if (input.length !== 1 && input.length !== palabra.length) {
+        console.log("La entrada debe tener 1 caracter o tener la misma longitud que la palabra a adivinar.");
+        leerString(palabra).then(resolve).catch(reject);
+        return;
+      }
+
+      resolve(input);
+    });
+  });
+};
+
+
+
+
+const main = async () => {
   let palabra = palabras[Math.floor(Math.random() * palabras.length)];
   palabra = palabra.toLowerCase();
   let palabraOculta = ocultarLetras(palabra);
@@ -90,11 +132,33 @@ const main = () => {
   console.log("---- ADIVINA LA PALABRA ----");
   imprimirMensaje(palabraOculta, intentos);
 
-  for (let i = 0; i < intentos; i++) {
-    leerString();
-  }
+  let input;
 
-  
+  do{
+    do{
+    input =  await leerString(palabraOculta);
+    console.log(input);
+    } while(input.length != 1 && input.length != palabraOculta.length);
+
+    if (input === palabra) {
+      palabraOculta = input;
+      break;
+    }else if(palabra.includes(input)){
+      palabraOculta = destaparLetra(palabra, palabraOculta, input);
+    }else{
+      intentos--;
+      console.log(`¡Has fallado! La ${input.length===1 ? "letra" : "palabra"} no es correcta.`);
+    }
+
+    if(palabraOculta === palabra)break;
+    if (intentos === 0) break;
+    imprimirMensaje(palabraOculta, intentos);
+    
+  }while(intentos > 0);
+
+  rl.close();
+
+  palabraOculta === palabra ? console.log("¡Has ganado!") : console.log("¡Has perdido!");
 };
 
 main();
