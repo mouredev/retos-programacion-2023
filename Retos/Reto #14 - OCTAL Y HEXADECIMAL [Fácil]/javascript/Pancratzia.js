@@ -3,6 +3,9 @@
  * y Hexadecimal.
  * - No está permitido usar funciones propias del lenguaje de programación que
  * realicen esas operaciones directamente.
+ * 
+ * 
+ * Hecho por LAURA ORTEGA - 30/08/2023
  */
 function decimalToOctal(decimalNumber) {
     if (decimalNumber === 0) {
