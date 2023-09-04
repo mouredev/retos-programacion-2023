@@ -7,7 +7,7 @@
  *   (Usa la primera opción de cada transformación. Por ejemplo "4" para la "a")
  */
 
- fun main(args: Array<String>) {
+fun main(args: Array<String>) {
     menu()
 }
 
