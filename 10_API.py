@@ -65,16 +65,3 @@ def obtener_canciones_top(client_id, client_secret, playlist_tracks, cantidad_ca
 
     # Imprime la tabla formateada
     print(table)
-
-# Definir Credenciales
-client_id = 'ef88e9a32a404785832d31c18e69a633'
-client_secret = '02651a5f4ac94a89a8eaf12c265a078c'
-playlist_tracks = '37i9dQZEVXbMDoHDwVN2tF'
-
-# LLamar la funcion
-obtener_canciones_top(
-  client_id,
-  client_secret,
-  playlist_tracks,
-  cantidad_canciones=5
-)
