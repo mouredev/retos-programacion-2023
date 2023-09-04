@@ -8,49 +8,73 @@
  *
  * Aquí tienes un listado de posibles APIs: 
  * https://github.com/public-apis/public-apis
+
+ API que utlice.
+ * https://spotipy.readthedocs.io/en/2.22.1/
+ 
  */
  
 """
-
-# Paso 1: Configurar tu aplicación en el Panel de Desarrolladores de Spotify
-  # - Ve al Panel de Desarrolladores de Spotify: https://developer.spotify.com/dashboard/
-  # - Inicia sesión con tu cuenta de Spotify o crea una nueva si no tienes una.
-  # - Haz clic en "Crear una aplicación" y sigue las instrucciones para registrar tu aplicación.
-  # - Una vez que hayas registrado la aplicación, obtendrás un Cliente ID y un Cliente Secreto. Guárdalos en un lugar seguro, ya que los necesitarás en tu código.
-
-# Paso 2: Instalar la biblioteca spotipy
-  # pip install spotipy
-
-# Paso 3: Autenticación y autorización
-   # Importa la biblioteca spotipy y configure las credenciales de tu aplicación.abs
-
+# Importar librerias
 import spotipy
-from spotipy.oauth2 import SpotifyOAuth
+from spotipy.oauth2 import SpotifyClientCredentials
+from prettytable import PrettyTable
 
-SPOTIPY_CLIENT_ID = 'ef88e9a32a404785832d31c18e69a633'
-SPOTIPY_CLIENT_SECRET = '02651a5f4ac94a89a8eaf12c265a078c'
-SPOTIPY_REDIRECT_URI = 'http://localhost:8888/callback'  # Cambia esto si es necesario
-scope = 'user-library-read user-modify-playback-state' # Tipos de funcionalidades que podre realizar con la API
+def obtener_canciones_top(client_id, client_secret, playlist_tracks, cantidad_canciones=None):
+    """
+    Obtiene y muestra las canciones y artistas de una lista de reproducción de Spotify.
 
-sp = spotipy.Spotify(
-                      auth_manager=SpotifyOAuth(
-                                               client_id=SPOTIPY_CLIENT_ID,
-                                               client_secret=SPOTIPY_CLIENT_SECRET,
-                                               redirect_uri=SPOTIPY_REDIRECT_URI,
-                                               scope=scope
-                                            )
-                    )
+    Args:
+        client_id (str): El ID de la aplicación de Spotify.
+        client_secret (str): El secreto de la aplicación de Spotify.
+        playlist_tracks (str): La URL o el ID de la lista de reproducción de Spotify a consultar.
+        cantidad_canciones (int, opcional): La cantidad de canciones a mostrar (por defecto, todas).
 
+    Returns:
+        None: La función imprime las canciones y artistas en la consola.
 
+    Ejemplo de uso:
+        obtener_canciones_top('TU_CLIENT_ID', 'TU_CLIENT_SECRET', '37i9dQZEVXbMDoHDwVN2tF')
+        
+    """
+  
+    # Paso 1: Configura tus credenciales de la aplicación de Spotify
+    client_credentials_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
+    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
-# Realiza una búsqueda para obtener las 10 primeras canciones del "Top 10 Global"
-results = sp.playlist_tracks('4pXpF6wSZP6EiQYc2ZXxdR', limit=10)  # '37i9dQZEVXbMDoHDwVN2tF' es el ID de la lista de reproducción del Top 10 Global de Spotify
+    # Paso 2: Obtiene las canciones del Top Global
+    top_global_tracks = sp.playlist_tracks(playlist_tracks)
 
-# Itera a través de las canciones y muestra la información de cada una
-for track_info in results['items']:
-    track = track_info['track']
-    print(f"Nombre de la canción: {track['name']}")
-    print(f"Artista(s): {', '.join([artist['name'] for artist in track['artists']])}")
-    print(f"Álbum: {track['album']['name']}")
-    print(f"URL de la canción: {track['external_urls']['spotify']}")
-    print("\n")
+    # Paso 3: Crea una tabla para mostrar las canciones y artistas con un índice
+    table = PrettyTable()
+    table.field_names = ["Índice", "Nombre de la canción", "Artistas"]
+
+    if cantidad_canciones is None:
+        cantidad_canciones = len(top_global_tracks['items'])
+
+    for index, track in enumerate(top_global_tracks['items'][:cantidad_canciones], start=1):
+        # Obtiene el nombre de la canción
+        track_name = track['track']['name']
+
+        # Obtiene los nombres de los artistas y los convierte en una cadena separada por comas
+        artists = [artist['name'] for artist in track['track']['artists']]
+        artists_str = ', '.join(artists)
+
+        # Agrega una fila a la tabla con el índice
+        table.add_row([index, track_name, artists_str])
+
+    # Imprime la tabla formateada
+    print(table)
+
+# Definir Credenciales
+client_id = 'ef88e9a32a404785832d31c18e69a633'
+client_secret = '02651a5f4ac94a89a8eaf12c265a078c'
+playlist_tracks = '37i9dQZEVXbMDoHDwVN2tF'
+
+# LLamar la funcion
+obtener_canciones_top(
+  client_id,
+  client_secret,
+  playlist_tracks,
+  cantidad_canciones=5
+)
