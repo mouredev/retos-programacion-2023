@@ -1,45 +1,64 @@
 package com.retos.ej09;
 
-import java.util.Set;
+import java.text.Normalizer;
+import java.util.Collection;
+import java.util.Locale;
+import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class jorgenavarroenamoradotokio {
 
 	public static void main(String[] args) {
-		System.out.println(isHeterogram("hiperblanduzcos"));
-		System.out.println(isHeterogram("hiperblanduzcós    !!w"));
-		System.out.println(isIsogram("anna"));
-		System.out.println(isPangram("Benjamín pidió una bebida de kiwi y fresa. Noé, sin vergüenza, la más exquisita champaña del menú"));
-	}
-	
-	
-	private static boolean isHeterogram(String palabra) {
-		return Stream.of(palabra.split(""))
-				.map(String::toLowerCase)
-				.filter(letra -> !letra.equals(" "))
-				.collect(Collectors.groupingBy(letra -> letra, Collectors.counting()))
-				.values()
-				.stream().allMatch(cantidad -> cantidad == 1);
+
+		boolean heterograma = isHeterogram("yuxtaponer");
+		System.out.println(heterograma ? "es un heterograma": "no es un heterograma");
+		
+		boolean isograma = isIsogram("acondicionar ");
+		System.out.println(isograma ? "es un isograma": "no es un isograma");
+		
+		boolean pangram = isPangram("Benjamín pidió una bebida de kiwi y fresa. Noé, sin vergüenza, la más exquisita champaña del menú");
+		System.out.println(pangram ? "es un pangrama": "no es un pangrama");
+		
 	}
 
-	private static boolean isIsogram(String palabra) {
-		return Stream.of(palabra.split(""))
-				.map(String::toLowerCase)
-				.filter(letra -> !letra.equals(" "))
-				.collect(Collectors.groupingBy(letra -> letra, Collectors.counting()))
-				.values()
-				.stream().allMatch(cantidad -> cantidad == 1);
+	public static Map<Character, Long> contarLetras(String cadena) {
+		 cadena = Normalizer.normalize(cadena, Normalizer.Form.NFD)
+	                .replaceAll("\\p{InCombiningDiacriticalMarks}+", "")
+	                .replaceAll("[.¡!¿?\"']", "")
+	                .replaceAll("\\s+", "")
+	                .toLowerCase(Locale.ROOT);
+		
+		
+		return cadena.toLowerCase().replaceAll("\\+s", "").chars()
+				.mapToObj(c -> (char) c)
+				.filter(Character::isLetter)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 	}
-	
-	public static boolean isPangram(String frase) {
-        String fraseLimpia = frase.toLowerCase().replaceAll("\\s+", "");
-        
-        Set<Character> letrasUnicas = fraseLimpia.chars()
-                .mapToObj(c -> (char) c)
-                .collect(Collectors.toSet());
-        
-        return letrasUnicas.size() == 26;
-    }
+
+	private static boolean isHeterogram(String texto) {
+		Collection<Long> contadores = contarLetras(texto).values();
+		for (Long contador : contadores) {
+			if (contador > 1)
+				return false;
+		}
+		return true;
+	}
+
+	private static boolean isIsogram(String texto) {
+		Collection<Long> contadores = contarLetras(texto).values();
+		int contadorExterno = 0;
+		for (Long contador : contadores) {
+			if (contadorExterno == 0)
+				contadorExterno = contador.intValue();
+			if (contador != contador.intValue())
+				return false;
+		}
+		return true;
+	}
+
+	public static boolean isPangram(String texto) {
+		return contarLetras(texto).keySet().size() == 26;
+	}
 
 }
