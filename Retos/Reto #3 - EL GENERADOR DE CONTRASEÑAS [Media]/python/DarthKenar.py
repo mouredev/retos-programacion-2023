@@ -26,7 +26,7 @@ class Passwords():
         All = "".join(self.characters[self.selected_characters[i]] for i in self.selected)
         password = "".join(random.choice(All) for i in range(self.length))
         self.password = password
-        print(self.password)
+        return self.password
 
 contraseña = Passwords(10,"13")
-contraseña.generate()
+print(contraseña.generate())
