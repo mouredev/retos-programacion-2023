@@ -13,34 +13,17 @@ let word2 = 'miercoles'
 let word3 = 'camisetas'
 let permutations = new Set()
 
-/* una funcion que ordene alfabeticamente las palabras antes de procesarlas nos garantiza no tener combinaciones duplicadas */
-const orderWordLetter = (word) => {
-  let newWord = [...word]
-  newWord.sort((a, b) => a.localeCompare(b))
-  return newWord.join('')
-}
-
 function getPermutations(targetWord, inBuildWord, permutations) {
   if(!targetWord.length) {
     permutations.add(inBuildWord)
-    return
+    console.log(inBuildWord)
   }
   
-  for(let i = 0; i < targetWord.length; i++) {
-    let prevValues = [targetWord, inBuildWord]
-    inBuildWord += targetWord.slice(i, i + 1)
-    targetWord = [...targetWord]
-    targetWord.splice(i, 1)
-    targetWord = targetWord.join('')
-    getPermutations(targetWord, inBuildWord, permutations)
-    targetWord = prevValues[0]
-    inBuildWord = prevValues[1]
-  }
+  for(let i = 0; i < targetWord.length; i++) 
+    getPermutations(targetWord.slice(0, i) + targetWord.slice(i + 1), 
+      inBuildWord + targetWord.slice(i, i + 1), 
+    permutations)
 }
-
-word = orderWordLetter(word)
-word2 = orderWordLetter(word2)
-word3 = orderWordLetter(word3)
 
 console.time()
 getPermutations(word, '', permutations)
