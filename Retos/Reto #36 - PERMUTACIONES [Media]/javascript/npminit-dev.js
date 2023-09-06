@@ -14,10 +14,7 @@ let word3 = 'camisetas'
 let permutations = new Set()
 
 function getPermutations(targetWord, inBuildWord, permutations) {
-  if(!targetWord.length) {
-    permutations.add(inBuildWord)
-    console.log(inBuildWord)
-  }
+  if(!targetWord.length) permutations.add(inBuildWord)
   
   for(let i = 0; i < targetWord.length; i++) 
     getPermutations(targetWord.slice(0, i) + targetWord.slice(i + 1), 
