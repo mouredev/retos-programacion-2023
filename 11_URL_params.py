@@ -6,6 +6,10 @@
  *
  * Ejemplo: En la url https://retosdeprogramacion.com?year=2023&challenge=0
  * los parámetros serían ["2023", "0"]
+
+ Link para aprender sobre parametros de uan URL:
+ https://es.semrush.com/blog/parametros-url/
+ 
  */
 
 """
