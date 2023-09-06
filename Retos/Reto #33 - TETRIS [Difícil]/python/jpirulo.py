@@ -81,7 +81,9 @@ def play():
     row = 0
     col = 0
     piece_height = len(piece)
+    print(piece_height)
     piece_width = len(piece[0])
+    print(piece_width)
 
     show(piece, row, col)
 
