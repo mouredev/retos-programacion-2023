@@ -8,10 +8,17 @@
 
 /* Algoritmo de Heap */
 
-const word = 'holas'
-const word2 = 'miercoles'
-const word3 = 'camisetas'
+let word = 'holas'
+let word2 = 'miercoles'
+let word3 = 'camisetas'
 let permutations = new Set()
+
+/* una funcion que ordene alfabeticamente las palabras antes de procesarlas nos garantiza no tener combinaciones duplicadas */
+const orderWordLetter = (word) => {
+  let newWord = [...word]
+  newWord.sort((a, b) => a.localeCompare(b))
+  return newWord.join('')
+}
 
 function getPermutations(targetWord, inBuildWord, permutations) {
   if(!targetWord.length) {
@@ -30,6 +37,10 @@ function getPermutations(targetWord, inBuildWord, permutations) {
     inBuildWord = prevValues[1]
   }
 }
+
+word = orderWordLetter(word)
+word2 = orderWordLetter(word2)
+word3 = orderWordLetter(word3)
 
 console.time()
 getPermutations(word, '', permutations)
