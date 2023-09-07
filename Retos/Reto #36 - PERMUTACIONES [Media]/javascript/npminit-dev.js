@@ -8,27 +8,18 @@
 
 /* Algoritmo de Heap */
 
-const word = 'holas'
-const word2 = 'miercoles'
-const word3 = 'camisetas'
+let word = 'holas'
+let word2 = 'miercoles'
+let word3 = 'camisetas'
 let permutations = new Set()
 
 function getPermutations(targetWord, inBuildWord, permutations) {
-  if(!targetWord.length) {
-    permutations.add(inBuildWord)
-    return
-  }
+  if(!targetWord.length) permutations.add(inBuildWord)
   
-  for(let i = 0; i < targetWord.length; i++) {
-    let prevValues = [targetWord, inBuildWord]
-    inBuildWord += targetWord.slice(i, i + 1)
-    targetWord = [...targetWord]
-    targetWord.splice(i, 1)
-    targetWord = targetWord.join('')
-    getPermutations(targetWord, inBuildWord, permutations)
-    targetWord = prevValues[0]
-    inBuildWord = prevValues[1]
-  }
+  for(let i = 0; i < targetWord.length; i++) 
+    getPermutations(targetWord.slice(0, i) + targetWord.slice(i + 1), 
+      inBuildWord + targetWord.slice(i, i + 1), 
+    permutations)
 }
 
 console.time()
