@@ -8,7 +8,7 @@
  * permutaciones disponibles formadas por las letras de una palabra.
  * - Las palabras generadas no tienen por qué existir.
  * - Deben usarse todas las letras en cada permutación.
- * - Ejemplo: sol, slo, ols, osl, los, lso 
+ * - Ejemplo: sol, slo, ols, osl, los, lso. 
 '''
 
 
