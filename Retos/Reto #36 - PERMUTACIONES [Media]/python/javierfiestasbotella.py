@@ -10,7 +10,7 @@
  * - Deben usarse todas las letras en cada permutación.
  * - Ejemplo: sol, slo, ols, osl, los, lso 
 '''
-import random
+
 
 def permuta(word):
     if len(word)<=1: 
