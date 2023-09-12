@@ -3,14 +3,14 @@ This module contains the implementation of the `permutations`
 function using different integrated libraries.
 """
 import itertools
-from typing import TypeAlias
+from typing import TypeAlias, Iterable
 import numpy as np
 import functools
 
 
-ListStr: TypeAlias = list[str]
-PermutationList: TypeAlias = ListStr
-CharacterList: TypeAlias = ListStr
+StrList: TypeAlias = list[str]
+PermutationList: TypeAlias = StrList
+CharacterList: TypeAlias = StrList
 
 
 @functools.lru_cache()
@@ -21,6 +21,13 @@ def generate_list_of_characters(word: str) -> CharacterList:
     return list(word)
 
 
+def join_characters(text: Iterable) -> str:
+    """
+    Join a list of characters into a single string.
+    """
+    return "".join(text)
+
+
 @functools.lru_cache()
 def permutations(word: str) -> PermutationList:
     """
@@ -28,8 +35,9 @@ def permutations(word: str) -> PermutationList:
     word using the itertools library.
     """
     word_list = generate_list_of_characters(word=word)
-    permutations_list = ["".join(word)
-                         for word in itertools.permutations(word_list)]
+    permutations_list = [
+        join_characters(text=word) for word in itertools.permutations(word_list)
+    ]
     return permutations_list
 
 
@@ -41,7 +49,7 @@ def random_permutation(word: str) -> str:
     word_list = generate_list_of_characters(word=word)
     rand_permutation = np.random.permutation(word_list)
 
-    return "".join(rand_permutation)
+    return join_characters(text=rand_permutation)
 
 
 def main() -> None:
