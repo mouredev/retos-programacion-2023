@@ -12,9 +12,6 @@
 #
 
 
-from itertools import permutations
-
-
 class WordPermuter:
     def __init__(self, word):
         self.word = word
