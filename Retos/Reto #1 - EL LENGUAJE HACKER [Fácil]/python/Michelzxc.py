@@ -10,6 +10,19 @@
 import unittest
 
 
+def main():
+    print('###  Traductor Hack  ###')
+    print('# Escribe exit() para  #')
+    print('# terminar o <Ctrl-C>  #')
+    print('########################')
+    while True:
+        entrada_usuario = input('< ')
+        if entrada_usuario == 'exit()':
+            break
+        else:
+            print(f'> {traduce(entrada_usuario)}\n')
+
+
 def traduce(texto: str) -> str:
     '''Traduce el argumento "texto" desde Lenguaje Natural a Lenguaje Hack.'''
     MAPA_DE_CARACTERES = {
@@ -44,4 +57,5 @@ class TestLenguajeHack(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    # unittest.main()
+    main()
