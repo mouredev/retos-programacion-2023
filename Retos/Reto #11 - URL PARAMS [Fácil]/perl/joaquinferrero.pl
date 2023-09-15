@@ -18,11 +18,7 @@ say for parametros($URL);
 
 
 sub parametros($url) {
-    my @parametros;
-    while ($url =~ /=(.+?)(?:&|$)/g) {
-        push @parametros, $1;
-    }
-    return @parametros;
+    $url =~ /=(.+?)(?:&|$)/g;
 }
 
 __END__
