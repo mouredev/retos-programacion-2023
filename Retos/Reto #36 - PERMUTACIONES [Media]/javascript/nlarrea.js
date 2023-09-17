@@ -27,9 +27,9 @@ function getPermutationQuantity(word){
     const charsQty = Object.entries(charsQtyObj);
     
     const n = word.length;
-    const fact_of_chars_qty = charsQty.reduce((total, current) => total * factorial(current[1]), 1);
+    const factOfCharsQty = charsQty.reduce((total, current) => total * factorial(current[1]), 1);
 
-    return parseInt(factorial(n) / fact_of_chars_qty);
+    return parseInt(factorial(n) / factOfCharsQty);
 }
 
 
