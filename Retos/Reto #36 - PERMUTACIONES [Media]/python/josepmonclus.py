@@ -11,7 +11,6 @@ def do_permute(permutes_list, permuted, to_permute):
         permutes_list.append(permuted + to_permute)
     else:
         for pos in range(0, len(to_permute)):
-            # print(to_permute[pos], ' ', to_permute[:pos] + to_permute[pos + 1:])
             do_permute(permutes_list, permuted + to_permute[pos], to_permute[:pos] + to_permute[pos + 1:])
     
         
