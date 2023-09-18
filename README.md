@@ -53,9 +53,10 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#33** - 14/08/23 | Difícil | [`TETRIS`](./Retos/Reto%20%2333%20-%20TETRIS%20%5BDifícil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2333%20-%20TETRIS%20%5BDifícil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2333%20-%20TETRIS%20%5BDifícil%5D/)]
 * **#34** - 21/08/23 | Media | [`EL TXT`](./Retos/Reto%20%2334%20-%20EL%20TXT%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2334%20-%20EL%20TXT%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2334%20-%20EL%20TXT%20%5BMedia%5D/)]
 * **#35** - 04/09/23 | Fácil | [`PRIMEROS PASOS`](./Retos/Reto%20%2335%20-%20PRIMEROS%20PASOS%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2335%20-%20PRIMEROS%20PASOS%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2335%20-%20PRIMEROS%20PASOS%20%5BFácil%5D/)]
-* **#36** - 18/09/23 | Media | [`PERMUTACIONES`](./Retos/Reto%20%2336%20-%20PERMUTACIONES%20%5BMedia%5D/ejercicio.md) | Último reto publicado
+* **#36** - 18/09/23 | Media | [`PERMUTACIONES`](./Retos/Reto%20%2336%20-%20PERMUTACIONES%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2336%20-%20PERMUTACIONES%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2336%20-%20PERMUTACIONES%20%5BMedia%5D/)]
+* **#37** - 25/09/23 | Media | [`COLORES HEX Y RGB`](./Retos/Reto%20%2337%20-%20COLORES%20HEX%20Y%20RGB%20%5BMedia%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 18/09/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1148239735169495100) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 25/09/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/z38bBVSN?event=1153246705660211210) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
