@@ -1,0 +1,85 @@
+/* Reto #37: Colores HEX y RGB
+* Dificultad: Media | Publicación: 18/09/23 | Corrección: 25/09/23
+* Enunciado
+ * Crea las funciones capaces de transformar colores HEX
+ * a RGB y viceversa.
+ * Ejemplos:
+ * RGB a HEX: r: 0, g: 0, b: 0 -> #000000
+ * HEX a RGB: hex: #000000 -> (r: 0, g: 0, b: 0)
+ */
+
+def rgb_hex(r,g,b):
+    h = diccionari.get(r)
+    e = diccionari.get(g)
+    x = diccionari.get(b)
+    print("El valor hexadecimal és #"+h+e+x)
+
+    
+    
+def hex_rgb(hexa):
+    r = hexa[0:2].upper()
+    g = hexa[2:4].upper()
+    b = hexa[4:].upper()
+
+    for clau, valor in diccionari.items():
+        if valor == r:
+            h = clau
+    for clau, valor in diccionari.items():
+        if valor == g:
+            e = clau
+    for clau, valor in diccionari.items():
+        if valor == b:
+            x = clau
+    print("r:",h,", g:",e,", b:",x)
+    print("color rgb = ("+str(h)+", "+str(e)+", "+str(x)+")")
+    
+    
+# LLISTA DIGITS
+HEX = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+# LLISTA DE PARELLS
+parells = []
+for primer_digit in HEX:
+    for segon_digit in HEX:
+        parells.append(primer_digit+segon_digit)
+# DICCIONARI
+diccionari = {i: parell for i, parell in enumerate(parells)}
+
+# OPCIO 1 RGB a HEX, qualsevol tecla per HEX a RGB
+opcio = input('''
+[1] RGB a HEX
+[ ] HEX a RGB
+''')
+# OPCIO RGB a HEX
+if opcio == "1":
+    while True:
+        r = int(input("r: "))
+        if 0 <= r <= 255:
+            break
+        else:
+            print("El valor de 'r' ha de ser entre 0 a 255")
+    while True:
+        g = int(input("g: "))
+        if 0 <= g <= 255:
+            break
+        else:
+            print("El valor de 'g' ha de ser entre 0 a 255")     
+    while True:
+        
+        b = int(input("b: "))
+        if 0 <= b <= 255:
+            break
+        else:
+            print("El valor de 'b' ha de ser entre 0 a 255")
+            
+    rgb_hex(r,g,b)
+# HEX a RGB
+else:
+    while True:
+        hexa = input("#")
+        hexa = hexa.upper()
+        if len(hexa) == 6 and all(c in HEX for c in hexa):
+            break
+        else:
+            print("El valor ha d'estar entre 000000 i FFFFFF")
+    hex_rgb(hexa)
+    
