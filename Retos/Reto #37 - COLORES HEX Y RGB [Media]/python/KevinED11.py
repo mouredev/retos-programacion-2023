@@ -22,8 +22,8 @@ class ValidateRGBColorFormat:
         if not (
             isinstance(color, tuple)
             and len(color) == 3
-            and all(isinstance(value, int) for value in color)
-            and all(0 <= value <= 255 for value in color)
+            and all(isinstance(value, int) 
+                    and 0 <= value <= 255 for value in color)
         ):
             raise RGBColorFormatError(
                 f"Invalid RGB color format: {color}, correct format is (r, g, b)"
