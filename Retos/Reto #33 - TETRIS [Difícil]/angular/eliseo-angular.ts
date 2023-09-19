@@ -21,102 +21,103 @@ import { take, finalize, filter, map, tap } from 'rxjs/operators';
   standalone: true,
   imports: [CommonModule],
   template: `
-  <div class="wrapper-piece" >
-  <div class="piece">
-    <ng-container *ngFor="let row of nextPiece.data[rotation]">
+<div class="container">
+  <div class="board">
+    <div *ngFor="let row of nextPiece.data[rotation]">
       <div
         *ngFor="let cell of row"
         [style.border-width]="cell?1:0"
         [style.background-color]="cell && nextPiece.color"
       ></div>
-    </ng-container>
-  </div>
-</div>
-<h1>Points: {{points}}</h1>
-<div class="wrapper">
-  <div class="board">
-    <div *ngFor="let row of board">
-      <div
-        *ngFor="let cell of row"
-        [style.background-color]="cell"
-        [style.border-width]="cell?1:0"
-      ></div>
     </div>
   </div>
-  <div class="label" *ngIf="status==1" (click)="startGame()">
-    <h2>Click to start</h2>
-  </div>
-  <div class="label" *ngIf="status==2" (click)="newGame();startGame()">
-    <h2>Game Over</h2>
-    (click to new game)
+  <div class="center">
+    <h1>Points: {{points}}</h1>
+    <div class="wrapper">
+      <div class="board">
+        <div *ngFor="let row of board">
+          <div
+            *ngFor="let cell of row"
+            [style.background-color]="cell"
+            [style.border-width]="cell?1:0"
+          ></div>
+        </div>
+      </div>
+      <div class="label" *ngIf="status==1" (click)="startGame()">
+        <h2>Click to start</h2>
+      </div>
+      <div class="label" *ngIf="status==2" (click)="newGame();startGame()">
+        <h2>Game Over</h2>
+        (click to new game)
+      </div>
+    </div>
+    <div class="keyboard">
+      <button (click)="btSubject.next([(rotation + 7) % 4,posX,posY])">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-arrow-clockwise"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+          />
+          <path
+            d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
+          />
+        </svg>
+      </button>
+      <button (click)="btSubject.next([rotation,posX-1,posY])">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-chevron-left"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+          />
+        </svg>
+      </button>
+      <button (click)="btSubject.next([rotation,posX+1,posY])">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-chevron-right"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+      </button>
+      <button (click)="btSubject.next([rotation,posX,posY+1])">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-chevron-down"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
 </div>
-<div class="keyboard">
-  <button (click)="btSubject.next([(rotation + 7) % 4,posX,posY])">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-arrow-clockwise"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
-      />
-      <path
-        d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
-      />
-    </svg>
-  </button>
-  <button (click)="btSubject.next([rotation,posX-1,posY])">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-chevron-left"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-      />
-    </svg>
-  </button>
-  <button (click)="btSubject.next([rotation,posX+1,posY])">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-chevron-right"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-      />
-    </svg>
-  </button>
-  <button (click)="btSubject.next([rotation,posX,posY+1])">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      class="bi bi-chevron-down"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-      />
-    </svg>
-  </button>
-</div>
-
   `,
   styles: [
     `
@@ -128,8 +129,7 @@ import { take, finalize, filter, map, tap } from 'rxjs/operators';
     }
     .keyboard {
       width: 10rem;
-      margin: auto;
-      padding-left: 10rem;
+      margin-left: auto;
       display: grid;
       grid-template-columns: repeat(3, 3rem);
       margin-top: 1rem;
@@ -172,50 +172,34 @@ import { take, finalize, filter, map, tap } from 'rxjs/operators';
       text-align: center;
       cursor: pointer;
     }
-    .board *,
-    .piece * {
-      box-sizing: border-box;
+    .center{
+      width:20rem;
     }
     .wrapper {
       position: relative;
-      width: 18rem;
-      margin: auto;
-      overflow: hidden;
+      margin-left:1rem;
+    }
+    .board{
+      min-width:7rem;
     }
     .board > div div {
       border: 1px solid silver;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.2rem;
+      height: 1.2rem;
       display: inline-block;
+      box-sizing: border-box;
     }
     .board > div {
-      height: 1.5rem;
+      height: 1.2rem;
     }
     .board .fill {
       background-color: silver;
     }
-    .wrapper-piece {
-      position: absolute;
-      top: 1rem;
-      left: 50%;
-      margin-left: -17.5rem;
-      z-index:1000;
-    }
-    .piece {
-      position: absolute;
-      z-index: -1;
-      display: flex;
-      width: 7.5rem;
-      flex-wrap: wrap;
-    }
-    .piece div {
-      border: 1px solid silver;
-      width: 1.5rem;
-      height: 1.5rem;
-      display: inline-block;
-    }
-    .piece div.fill {
-      background-color: red;
+    .container{
+      display:flex;
+      width:22.5rem;
+      margin:auto;
+      justify-content: flex-start;
     }
       `,
   ],
@@ -241,43 +225,11 @@ export class App implements OnInit, OnDestroy {
   control$!: Observable<any>;
   sub!: Subscription;
 
-  btSubject: Subject<number[]> = new Subject<any>();
+  btSubject: Subject<{rotation:number,posX:number,posY:number}> = new Subject<{rotation:number,posX:number,posY:number}>();
 
+  //checkPiece
+  checkPiece=0;
   ngOnInit() {
-    //Todos los observables devuelven un array con los nuevos valores de [rotation,posX,posY]
-
-    //Observable botones
-    const buttons$ = this.btSubject as Observable<number[]>;
-
-    //Observable teclado
-    const keyboard$ = fromEvent(document, 'keydown').pipe(
-      filter((x: any) => x.keyCode >= 37 && x.keyCode <= 40),
-      map((x: any) => {
-        const code = x.keyCode;
-        if (code == 37) return [this.rotation, this.posX - 1, this.posY];
-        if (code == 39) return [this.rotation, this.posX + 1, this.posY];
-        if (code == 40) return [this.rotation, this.posX, this.posY + 1];
-        const rotation = (this.rotation + 7) % 4;
-        return [rotation, this.posX, this.posY];
-      })
-    );
-    //Observable de tiempo
-    const timer$ = timer(0, 100).pipe(
-      filter(
-        (_) =>
-          this.interval == 0 ||
-          new Date().getTime() - this.timeActual > this.interval
-      ),
-      map((_) => [this.rotation, this.posX, this.posY + 1]),
-      tap((_) => {
-        this.timeActual = new Date().getTime();
-      })
-    );
-      
-    //Un único observable que devuelve caso de que pase cualquiera de los tres casos anteriores
-    this.control$ = merge(timer$, buttons$, keyboard$);
-    
-    //Iniciamos el juego
     setTimeout(() => {
       this.newGame();
     });
@@ -286,19 +238,42 @@ export class App implements OnInit, OnDestroy {
   newGame() {
     this.board = emptyBoard.map((x) => [...x]);
   }
+  getObservable():Observable<{rotation:number,posX:number,posY:number}>
+  {
+    //Observable botones
+    const buttons$ = this.btSubject as Observable<{rotation:number,posX:number,posY:number}>;
 
+    //Observable teclado
+    const keyboard$ = fromEvent(document, 'keydown').pipe(
+      filter((x: any) => x.keyCode >= 37 && x.keyCode <= 40),
+      map((x: any) => {
+        const code = x.keyCode;
+        if (code == 37) return {rotation:this.rotation,posX:this.posX - 1, posY:this.posY};
+        if (code == 39) return {rotation:this.rotation, posX:this.posX + 1, posY:this.posY};
+        if (code == 40) return {rotation:this.rotation, posX:this.posX, posY:this.posY + 1};
+        const rotation = (this.rotation + 7) % 4;
+        return {rotation:rotation, posX:this.posX, posY:this.posY};
+      })
+    );
+    //Observable de tiempo
+    const timer$ = timer(0, this.interval).pipe(
+      map((_) => ({rotation:this.rotation, posX:this.posX, posY:this.posY + 1})),
+    );
+    return merge(timer$, buttons$, keyboard$);
+  }
+  
   startGame() {
-    this.newPiece();
     this.status = 0;
     this.points = 0;
-    this.interval = 1000;
+    this.interval=1000;
+    this.newPiece();
 
+  }
+  subscribe(){
     this.sub && this.sub.unsubscribe();
-    this.timeActual = new Date().getTime();
-
     //Nos subscribimos al observable
-    this.sub = this.control$.subscribe(
-      ([rotation, posX, posY]: [number, number, number]) => {
+    this.sub = this.getObservable().subscribe(
+      ({rotation, posX, posY}) => {
         if (this.status) return;
         this.removeBoard(); //limpiamos el "board" con la pieza en el estado actual
         if (this.check(rotation, posX, posY)) {
@@ -383,7 +358,7 @@ export class App implements OnInit, OnDestroy {
 
   private newPiece() {
     this.interval -= 10;
-    if (this.interval < 0) this.interval = 0;
+    if (this.interval < 100) this.interval = 100;
 
     this.piece = this.nextPiece;
     this.nextPiece =
@@ -391,12 +366,12 @@ export class App implements OnInit, OnDestroy {
     this.posX = 5+this.piece.posIni[0];
     this.posY = this.piece.posIni[1];
     this.rotation = 0;
-    console.log(this.check(this.rotation, this.posX, this.posY))
     if (!this.check(this.rotation, this.posX, this.posY)) {
       this.sub && this.sub.unsubscribe();
       this.status = 2;
     } else {
       this.fillBoard();
+      this.subscribe()
     }
   }
 
