@@ -28,30 +28,40 @@ cosas = [
 lista = [animales,cosas]
 def get_word():
     select = random.choice(lista)
-    return random.choice(select).capitalize()
+    return random.choice(select)
 
 def camouflage_word(word):
     camu = len(word)* "_"
     new_word = ""
+    espacio = 0
     for i in range(len(word)):
-        new_word = new_word + random.choice([camu[i],word[i]])
+        
+        character_new = random.choice([camu[i],word[i]])
+        if character_new == "_":
+            espacio += 1
+        if espacio >= ((len(word)*60)/100):
+            new_word = new_word + word[i]
+        else:
+            new_word = new_word + character_new
     return new_word   
 
 def game (guess_word,secret_word):
     lifes = 5
     secret_word_list = list(secret_word)
     guess_word_list = list(guess_word)
+    attempt = ""
     while lifes > 0:
         for character in guess_word_list:
             print(f"{character}",end=" ")
-        print("\n")
-        attempt = input (f"Vidas Restantes: {lifes} Adivina la Palabra: ")
-        print("\n")
-        attempt_word_list = list(attempt)
+        
         if attempt == secret_word or guess_word_list == secret_word_list :
-            print(f"HAS GANADO has adivinado la palabra {secret_word.upper()}!")
+            
+            print(f"\nHAS GANADO has adivinado la palabra {secret_word.upper()}!\n")
             break
         else:
+            print("\n")
+            attempt = input (f"Vidas Restantes: {lifes} Adivina la Palabra: ")
+            attempt_word_list = list(attempt)
             if len(attempt_word_list) == len(guess_word_list):
                 for i in range(len(secret_word_list)):
                     if attempt_word_list[i] == secret_word_list[i]:
@@ -76,4 +86,6 @@ def main():
     secret_word = get_word().lower()
     guess_word = camouflage_word(secret_word).lower()
     game(guess_word,secret_word)
-main()
+    
+if __name__ == "__main__":
+    main()
