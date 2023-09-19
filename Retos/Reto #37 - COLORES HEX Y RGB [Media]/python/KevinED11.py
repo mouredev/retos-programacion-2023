@@ -6,11 +6,11 @@ RGB = tuple[int, int, int]
 HEX = str
 
 
-class HexColorFormatError(ValueError):
+class HexColorFormatError(Exception):
     pass
 
 
-class RGBColorFormatError(ValueError):
+class RGBColorFormatError(Exception):
     pass
 
 
