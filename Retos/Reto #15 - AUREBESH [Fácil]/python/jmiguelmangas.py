@@ -61,11 +61,22 @@ def get_traduction():
 
 def spanish_aurenesh(sentence):
     traduction_aurenesh = []
-    two_letters = 0
-    for character in sentence:
+    two = 0
+    for i in range(len(sentence)):
+        character = sentence[i]
+        if i < (len(sentence))-1:
+            character_plus = sentence[i+1]
+            conjunction = character + character_plus
+            print(conjunction)
         for i in Aurebesh_alphabet:
-            if character == i:
+            if conjunction == i and two == 0:
                 traduction_aurenesh.append(Aurebesh_alphabet[i])
+                print("escribo dos letras")
+                two = 1
+            elif conjunction != i and character == i and two == 0:
+                traduction_aurenesh.append(Aurebesh_alphabet[i])
+                print("escribo una letra")
+    two = 0
     return traduction_aurenesh
 def main():
     opcion = get_traduction()
