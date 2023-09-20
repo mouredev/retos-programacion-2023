@@ -9,8 +9,16 @@
  * ¡Que la fuerza os acompañe!
  */"""
 
-Aurebesh_alphabet = { 
+Aurebesh_alphabet = {
     " ": " ",
+    "ae": "enth",
+    "ch": "cherek",
+    "eo": "onith",
+    "kh": "krenth",
+    "ng": "nen",
+    "oo": "orenth",
+    "sh": "shen",
+    "th": "thesh",
     "a": "aurek",
     "b": "besh",
     "c": "cresh",
@@ -36,18 +44,13 @@ Aurebesh_alphabet = {
     "w": "wesk",
     "x": "xesh",
     "y": "yirt",
-    "z": "zerek", 
-    "ae": "enth", 
-    "ch": "cherek",
-    "eo": "onith",
-    "kh": "krenth",
-    "ng": "nen",
-    "oo": "orenth",
-    "sh": "shen",
-    "th": "thesh",
+    "z": "zerek",
 }
+
+
 def get_sentence():
     return input("Escribe tu frase: ")
+
 
 def get_traduction():
     opcion = 0
@@ -59,35 +62,63 @@ def get_traduction():
             print(opcion)
     return opcion
 
-def spanish_aurenesh(sentence):
-    traduction_aurenesh = []
-    two = 0
+
+def spanish_aurebesh(sentence):
+    traduction_aurebesh = []
+    two_letters_sign = False
     for i in range(len(sentence)):
         character = sentence[i]
-        if i < (len(sentence))-1:
-            character_plus = sentence[i+1]
-            conjunction = character + character_plus
-            print(conjunction)
-        for i in Aurebesh_alphabet:
-            if conjunction == i and two == 0:
-                traduction_aurenesh.append(Aurebesh_alphabet[i])
-                print("escribo dos letras")
-                two = 1
-            elif conjunction != i and character == i and two == 0:
-                traduction_aurenesh.append(Aurebesh_alphabet[i])
-                print("escribo una letra")
-    two = 0
-    return traduction_aurenesh
+
+        if i < (len(sentence)) - 1:
+            character_plus = sentence[i + 1]
+            two_letters = character + character_plus
+
+        if two_letters_sign == False:
+            for aurebesh_character in Aurebesh_alphabet:
+                if two_letters == aurebesh_character:
+                    traduction_aurebesh.append(Aurebesh_alphabet[aurebesh_character])
+
+                    two_letters_sign = True
+                    break
+                elif (
+                    two_letters != aurebesh_character
+                    and character == aurebesh_character
+                ):
+                    traduction_aurebesh.append(Aurebesh_alphabet[aurebesh_character])
+        else:
+            two_letters_sign = False
+    return traduction_aurebesh
+
+
+def aurebesh_spanish(sentence):
+    traduction_spanish = []
+    character_search = ""
+    for i in range(len(sentence)):
+        character = sentence[i]
+        character_search = character_search + character
+        print(character_search)
+        for aurebesh_key, aurebesh_value in Aurebesh_alphabet.items():
+            if character_search == aurebesh_value:
+                traduction_spanish.append(aurebesh_key)
+                character_search=""
+
+    return traduction_spanish
+
+
 def main():
     opcion = get_traduction()
     sentence = get_sentence()
+
     if opcion == 1:
-        list_aurenesh =(spanish_aurenesh(sentence))
-        string_aurenesh = ''.join(map(str, list_aurenesh))
-        print(string_aurenesh)
-"""    elif opcion == 2:
-        print(aurenesh_spanish(sentence))"""
-    
-    
+        list_aurebesh = spanish_aurebesh(sentence)
+        string_aurebesh = "".join(map(str, list_aurebesh))
+        print("Traducido a Aurebesh: ", string_aurebesh)
+
+    elif opcion == 2:
+        list_spanish = aurebesh_spanish(sentence)
+        string_spanish = "".join(map(str, list_spanish))
+        print("Traducido a Español: ", string_spanish)
+
+
 if __name__ == "__main__":
     main()
