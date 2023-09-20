@@ -34,6 +34,12 @@ def print_matrix(number_steps):
             if step == 0:
                 print((((number_steps-1)*2)-(step*2)+2)*" ","_")
             print((((number_steps-1)*2)-(step*2))*" ","_|")
+    else:
+        number_steps = abs(number_steps)
+        for step in range(number_steps):
+            if step == 0:
+                print((((step-1)*2)-(number_steps*2)+2)*" ","_")
+            print(((step*2)+1)*" ","|_")
         
 def main():
     number_steps = get_number()
