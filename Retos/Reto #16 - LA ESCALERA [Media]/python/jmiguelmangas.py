@@ -17,12 +17,27 @@ import sys
 def get_number():
     
     try:
-        steps = int(input("Numero de Escalones: "))
+        return int(input("Numero de Escalones: "))
     except ValueError:
-        sys.exit("Tienes que introducir un numero negativo,positivo o 0")
+        sys.exit("Tienes que introducir un numero negativo,positivo u 0")
+        
+def stair_constructor(number_steps):
+    
+    if number_steps != 0:
+        print_matrix(number_steps)
+    else:
+        print("__")
+        
+def print_matrix(number_steps):
+    if number_steps > 0:
+        for step in range(number_steps):
+            if step == 0:
+                print((((number_steps-1)*2)-(step*2)+2)*" ","_")
+            print((((number_steps-1)*2)-(step*2))*" ","_|")
         
 def main():
     number_steps = get_number()
+    stair_constructor(number_steps)
 
 if __name__ == "__main__":
     main()
