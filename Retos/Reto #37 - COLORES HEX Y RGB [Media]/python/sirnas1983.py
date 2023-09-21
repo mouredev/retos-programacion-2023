@@ -1,4 +1,4 @@
-def rgb_to_hex_converter(r,g,b) -> int:
+def rgb_to_hex_converter(r,g,b) -> str:
     try:
         if 0<=r<=255 and 0<=g<=255 and 0<=b<=255:  
             r = str(hex(r))[2:].rjust(2,'0') 
