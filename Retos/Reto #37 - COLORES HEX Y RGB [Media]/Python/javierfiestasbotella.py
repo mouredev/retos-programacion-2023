@@ -17,5 +17,6 @@ def hex_a_rgb(hex_color):
     b = int(hex_color[4:6], 16)
     return (r, g, b)
 
+#ejemplo
 print(rgb_a_hex(0, 0, 0))
 print(hex_a_rgb('#000000'))
