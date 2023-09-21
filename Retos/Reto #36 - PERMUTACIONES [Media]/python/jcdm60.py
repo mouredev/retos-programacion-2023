@@ -38,8 +38,9 @@ class WordPermuter:
         while word_list[j] <= word_list[i]:
             j -= 1
         word_list[i], word_list[j] = word_list[j], word_list[i]
-        word_list[i + 1 :] = reversed(word_list[i + 1 :])
+        word_list[i + 1 :] = reversed(word_list[i + 1 :])  
         return word_list
+
 
     def print_permutations(self):
         self.generate_permutations()
