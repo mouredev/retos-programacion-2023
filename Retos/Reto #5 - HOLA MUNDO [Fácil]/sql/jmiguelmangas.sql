@@ -1,0 +1,2 @@
+
+SELECT 'hola mundo';
