@@ -12,20 +12,17 @@
 	(b (parse-integer (subseq hex 5 7) :radix 16)))
     (format t "r: ~a, g: ~a, b: ~a~&" r g b)))
 
-(defun position-rgb (string letter &optional end)
-  (subseq string
-	  (+ 3 letter)
-	  (unless end
-	    (+ 6 letter))))
+(defun split (string)
+  (loop for i = 0 then (1+ j)
+	as j = (position #\, string :start i)
+        collect (subseq string i j)
+        while j))
 
 (defun rgb->hex (rgb)  
-  (let ((r (position #\r rgb))
-	(g (position #\g rgb))
-	(b (position #\b rgb)))
-    (format t "#~x~x~x~&"
-	    (parse-integer (position-rgb rgb r))
-	    (parse-integer (position-rgb rgb g))
-	    (parse-integer (position-rgb rgb b t)))))
+  (let ((rgb (loop for i in (split rgb)
+		   collect (parse-integer i :start 3 :junk-allowed t))))
+    (format t "#~{~2,'0x~}~&"
+	    rgb)))
 
 (defun main ()
   (hex->rgb "#ffff00")
