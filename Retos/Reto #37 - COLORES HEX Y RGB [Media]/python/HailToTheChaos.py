@@ -10,7 +10,7 @@ def hex2rgb(hex:str) -> dict:
     '''La función `hex2rgb` toma un código de color hexadecimal como entrada y devuelve un diccionario que
     contiene los valores RGB correspondientes.
     
-    Parameters
+    Parametros
     ----------
     hex : str
         El parámetro "hex" es una cadena que representa un código de color hexadecimal.
@@ -36,7 +36,7 @@ def hex2rgb(hex:str) -> dict:
 def rgb2hex(r,g,b) -> str:
     '''La función `rgb2hex` convierte valores RGB a un código de color hexadecimal.
     
-    Parameters
+    Parametros
     ----------
     r
         El parámetro "r" representa el componente rojo del color RGB.
