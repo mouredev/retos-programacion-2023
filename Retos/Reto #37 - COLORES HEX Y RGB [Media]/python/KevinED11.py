@@ -74,10 +74,8 @@ class RGBToHexConverter(IRGBConverter):
 
 class Main:
     @staticmethod
-    def run() -> None:
-        rgb_converter = RGBToHexConverter()
-        hex_converter = HexToRGBConverter()
-
+    def run(rgb_converter: IRGBConverter, 
+            hex_converter: IHEXConverter) -> None:
         result = rgb_converter.convert((255, 0, 0))
         print(result)
 
@@ -86,4 +84,8 @@ class Main:
 
 
 if __name__ == "__main__":
-    Main.run()
+    rgb_converter = RGBToHexConverter()
+    hex_converter = HexToRGBConverter()
+
+    Main.run(rgb_converter=rgb_converter, 
+             hex_converter=hex_converter)
