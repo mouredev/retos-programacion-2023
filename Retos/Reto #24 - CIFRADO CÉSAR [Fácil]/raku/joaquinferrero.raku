@@ -22,12 +22,20 @@ sub cifra-césar($texto, $hay-que-cifrar = True, $desplazamiento = 3) {
 
     my $texto-cifrado = [~] gather {		# resultado de la (des)codificación
         for $texto.comb -> $letra {
-            my $letra-es-mayúscula = True if $letra eq $letra.uc;
-            my $letra-en-minúscula = $letra.lc;
+            my $letra-índice = %letra-a-indice{$letra};
+            my Bool $letra-es-mayúscula = not defined $letra-índice;
+            my $letra-en-minúscula = $letra-es-mayúscula
+                ?? do {
+                    my $l = $letra.lc;
+                    $letra-índice = %letra-a-indice{$l};
+                    $letra-es-mayúscula = False if not defined $letra-índice;   # Es un carácter no alfabético
+                    $l;
+                }
+                !!  $letra;
 
             take do {
-                my $letra-cifrada = (%letra-a-indice{$letra-en-minúscula}:exists)
-                    ?? %indice-a-letra{(%letra-a-indice{$letra-en-minúscula} + $shift) % @alfabeto}
+                my $letra-cifrada = (defined $letra-índice)
+                    ?? %indice-a-letra{($letra-índice + $shift) % @alfabeto}
                     !! $letra;
 
                 $letra-cifrada = $letra-cifrada.uc if $letra-es-mayúscula;
