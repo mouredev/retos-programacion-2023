@@ -14,20 +14,20 @@ use v6;
 
 sub cifra-césar($texto, $hay-que-cifrar = True, $desplazamiento = 3) {
     my @alfabeto = <a á b c ç d e é f g h i í j k l m n ñ o ó p q r s t u ú ü v w x y z>;
-    my %indice-a-letra = @alfabeto.kv;
-    my %letra-a-indice = %indice-a-letra.invert;
+    my %índice-a-letra = @alfabeto.kv;
+    my %letra-a-índice = %índice-a-letra.invert;
 
     my $shift = $desplazamiento;		# separación entre alfabetos normal y codificado
     $shift *= -1 if $hay-que-cifrar;		# al decodificar se invierte el sentido del desplazamiento
 
     my $texto-cifrado = [~] gather {		# resultado de la (des)codificación
         for $texto.comb -> $letra {
-            my $letra-índice = %letra-a-indice{$letra};
+            my $letra-índice = %letra-a-índice{$letra};
             my Bool $letra-es-mayúscula = not defined $letra-índice;
             my $letra-en-minúscula = $letra-es-mayúscula
                 ?? do {
                     my $l = $letra.lc;
-                    $letra-índice = %letra-a-indice{$l};
+                    $letra-índice = %letra-a-índice{$l};
                     $letra-es-mayúscula = False if not defined $letra-índice;   # Es un carácter no alfabético
                     $l;
                 }
@@ -35,7 +35,7 @@ sub cifra-césar($texto, $hay-que-cifrar = True, $desplazamiento = 3) {
 
             take do {
                 my $letra-cifrada = (defined $letra-índice)
-                    ?? %indice-a-letra{($letra-índice + $shift) % @alfabeto}
+                    ?? %índice-a-letra{($letra-índice + $shift) % @alfabeto}
                     !! $letra;
 
                 $letra-cifrada = $letra-cifrada.uc if $letra-es-mayúscula;
