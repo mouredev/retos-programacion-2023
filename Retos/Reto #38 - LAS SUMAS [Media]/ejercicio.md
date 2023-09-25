@@ -14,7 +14,7 @@
  *   elementos repetidos en ella).
  * - Ejemplo: Lista = [1, 5, 3, 2],  Objetivo = 6
  *   Soluciones: [1, 5] y [1, 3, 2] (ambas combinaciones suman 6)
- *   (Sin no existen combinaciones, retornar una lista vacía)
+ *   (Si no existen combinaciones, retornar una lista vacía)
  */
 ```
 #### Tienes toda la información extendida sobre los retos de programación semanales en **[retosdeprogramacion.com/semanales2023](https://retosdeprogramacion.com/semanales2023)**.
