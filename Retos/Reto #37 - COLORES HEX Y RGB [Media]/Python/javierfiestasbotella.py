@@ -7,6 +7,8 @@
  * HEX a RGB: hex: #000000 -> (r: 0, g: 0, b: 0)
  */
 '''
+
+
 def rgb_a_hex(r, g, b):
     return "#{:02x}{:02x}{:02x}".format(r, g, b)
 
