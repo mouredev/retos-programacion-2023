@@ -16,7 +16,7 @@
 
 function fizzBuzz() {
     for (let index = 1; index <= 100; index++) {
-        if (index % 3 === 0 && index % 5 === 0) {
+        if (index % 15 === 0) {
             console.log('fizzbuzz')
         } else if (index % 3 === 0) {
             console.log('fizz');
