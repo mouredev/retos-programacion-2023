@@ -42,7 +42,7 @@ namespace deathwing696
         {
             string c = "hola";
             char[] c2 = c.ToCharArray();
-            Recursion(c2, 0, c2.Length - 1);
+            Permuta(c2, 0, c2.Length - 1);
             Console.ReadKey();
         }
     }
