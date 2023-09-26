@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--
+      Crea las funciones capaces de transformar colores HEX
+      a RGB y viceversa. Ejemplos: RGB a HEX: r: 0, g: 0, b: 0 -> #000000
+      HEX a RGB: hex: #000000 -> (r: 0, g: 0, b: 0) 
+    
+    OJO: Para aprovechar su potencial realmente de este codigo se debe tener un servidor web 
+    como por ejemplo: lamp, wamp. En mi caso use Go Live (plugins) en Visual Studio Code
+    -->
+        
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Colores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Colores</h1>
+        <label for="colorInput">Ingrese un color RGB o HEX:</label>
+        <input type="text" id="colorInput" placeholder="Ejemplo: #FF5733 o rgb(255, 87, 51)" size="30">
+        <button onclick="convertirColor()">Convertir</button>
+        <button onclick="limpiar()">Limpiar</button>
+        <div id="resultado">
+            <br/>
+            <table id="tabla">
+                <tr>
+                    <th>Color Introducido</th>
+                    <th>Color Resultado</th>
+                </tr>
+                <tr>
+                    <td class="color-introducido" id="colorIntroducido"></td>
+                    <td class="color-resultado" id="colorResultado"></td>
+                </tr>
+                <tr>
+                    <td style="height: 50px;" class="color-introducido" id="colorIntroducido1"></td>
+                    <td style="height: 50px;" class="color-resultado" id="colorResultado1"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Esta función convierte un valor de color en formato hexadecimal (HEX) a formato de color RGB.
+        function hexToRgb(hex) {
+            hex = hex.replace(/^#/, '');
+            var r = parseInt(hex.slice(0, 2), 16);
+            var g = parseInt(hex.slice(2, 4), 16);
+            var b = parseInt(hex.slice(4, 6), 16);
+            return `rgb(${r}, ${g}, ${b})`;
+            /*Devuelve Un string en formato "rgb(r, g, b)" donde r, g y b 
+            son los valores de los componentes rojo, verde y azul del color.*/
+        }
+         
+        // Esta función convierte un valor de color en formato RGB a formato hexadecimal (HEX)
+        function rgbToHex(rgb) {
+            var match = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+            if (!match) {
+                throw new Error('El formato RGB no es válido.');
+            }
+            var hex = '#' + ('0' + parseInt(match[1], 10).toString(16)).slice(-2) +
+                        ('0' + parseInt(match[2], 10).toString(16)).slice(-2) +
+                        ('0' + parseInt(match[3], 10).toString(16)).slice(-2);
+            return hex;
+            // Devuelve Un string en formato HEX
+        }
+
+        function convertirColor() {
+            var input = document.getElementById("colorInput").value;
+            var resultado = "";
+
+            try {
+                if (input.startsWith("#")) {
+                    resultado = hexToRgb(input);
+                } else if (input.startsWith("rgb(")) {
+                    resultado = rgbToHex(input);
+                } else {
+                    throw new Error("Formato de color no válido. Debe ser HEX (#xxxxxx) o RGB (rgb(r, g, b)).");
+                }
+
+                // Obtiene el valor del input
+                var colorValor = document.getElementById("colorInput").value;
+
+                // Obtiene los elementos de color introducido y resultado en la primera fila de la tabla
+                var colorIntroducido = document.getElementById("colorIntroducido");
+                var colorResultado = document.getElementById("colorResultado");
+
+                // Obtiene los elementos de color introducido y resultado en la segunda fila de la tabla
+                var colorIntroducido1 = document.getElementById("colorIntroducido1");
+                var colorResultado1 = document.getElementById("colorResultado1");
+
+                // Actualiza el valor del color introducido en la primera fila (Text0)
+                colorIntroducido.textContent = input;
+
+                // Actualiza el valor del resultado en la primera fila(muestra color)
+                colorResultado.textContent = resultado;
+    
+
+                // Actualiza el valor del color introducido en la segunda fila utilizando CSS
+                var colorIntroducido1 = document.querySelector(".color-introducido#colorIntroducido1");
+                colorIntroducido1.style.backgroundColor = colorValor;
+                //colorIntroducido1.textContent = input; muestra el valor introducido
+
+                // Actualiza el valor del resultado en la segunda fila utilizando CSS
+                var colorResultado1 = document.querySelector(".color-resultado#colorResultado1");
+                colorResultado1.style.backgroundColor = resultado;
+                //colorResultado1.textContent = resultado; muestra el valor resultado
+
+                
+                
+            } catch (error) {
+                document.getElementById("colorIntroducido").textContent = "Error";
+                document.getElementById("colorResultado").textContent = error.message;
+            }
+        }
+    
+        function limpiar(){
+
+            // Limpia los datos en la primera fila de la tabla
+            document.getElementById("colorInput").value = "";
+            document.getElementById("colorIntroducido").textContent = "";
+            document.getElementById("colorResultado").textContent = "";
+
+            // Limpia los datos en la segunda fila de la tabla
+            //
+            //document.getElementById("colorIntroducido1").textContent = ""; NO se esta usando
+            //document.getElementById("colorResultado1").textContent = ""; NO se esta usando
+            document.querySelector(".color-introducido#colorIntroducido1").style.backgroundColor = "";
+            document.querySelector(".color-resultado#colorResultado1").style.backgroundColor = "";
+        
+        }
+    </script>
+</body>
+</html>
