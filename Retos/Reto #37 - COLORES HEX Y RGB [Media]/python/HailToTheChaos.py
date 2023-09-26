@@ -35,25 +35,30 @@ def hex2rgb(hex: str) -> tuple[int, int, int]:
         return (0, 0, 0)
 
 
-def rgb2hex(r, g, b) -> str:
+def rgb2hex(r: int, g: int, b: int) -> str:
     '''La función `rgb2hex` convierte valores RGB a un código de color hexadecimal.
-
-    Parametros
+    
+    Parameters
     ----------
-    r
-        El parámetro "r" representa el componente rojo del color RGB.
-    g
+    r : int
+        El parámetro `r` representa el componente rojo del color RGB. Debe ser un valor entero entre 0 y
+    255.
+    g : int
         El parámetro `g` representa el componente verde del color RGB.
-    b
-        El parámetro "b" representa el componente azul del color RGB.
-
+    b : int
+        El parámetro `b` representa el componente azul del color RGB. Es un valor entero que va de 0 a 255,
+    que indica la intensidad del azul en el color.
+    
     Returns
     -------
-        La función `rgb2hex` devuelve una cadena que representa el código de color hexadecimal en el
-    formato "#RRGGBB", donde RR, GG y BB son los valores hexadecimales de los componentes rojo, verde y
-    azul respectivamente.
-
+        La función `rgb2hex` devuelve una cadena que representa el código de color hexadecimal de los
+    valores RGB dados.
+    
     '''
+    r = max(0, min(255, r))
+    g = max(0, min(255, g))
+    b = max(0, min(255, b))
+
     return f"#{r:02x}{g:02x}{b:02x}".upper()
 
 
@@ -72,7 +77,7 @@ def main():
             b = int(input('B (0-255): '))
 
             hex_value = rgb2hex(r, g, b)
-            print(f'(r: {r}, g: {g}, {b}: 0) -> {hex_value}')
+            print(f'(r: {r}, g: {g}, b: {b}) -> {hex_value}')
 
 
 if __name__ == "__main__":
