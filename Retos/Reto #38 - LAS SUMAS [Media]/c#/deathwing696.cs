@@ -69,21 +69,6 @@ namespace deathwing696
             }
         }
 
-        public static void Borra_fila_soluciones(int fila)
-        {
-            if (fila == num_soluciones - 1)
-            {
-                num_soluciones--;
-            }
-            else
-            {
-                for (int i = fila; i < num_soluciones; i++)
-                {
-                    soluciones[i] = soluciones[i + 1];
-                }
-            }
-        }
-
         static private bool Iguales(List<int> fila1, List<int> fila2)
         {
             if (fila1.Count == fila2.Count)
