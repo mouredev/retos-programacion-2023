@@ -1,17 +1,16 @@
-def obtener_sublistas(longitud: int, objetivo: int) -> list:
-    return []
+from pprint import pprint
 
-
-def sumas(lista: list, objetivo: int) -> list:
+def partes_recursiva(lista: list) -> list:
+    def auxiliar(lista: list, res: list):
+        for e in res.copy():
+            aux = e.copy()
+            aux.append(lista[0])
+            res.append(aux)
+        res.append([lista[0]])
+        if len(lista) != 1:
+            auxiliar(lista[1:], res)
     resultado = list()
-
-    lista = list(filter(lambda x: x <= objetivo, lista))
-
-    for n in range(1, len(lista)+1):
-        resultado += obtener_sublistas(n, objetivo)
-
+    auxiliar(lista, resultado)
     return resultado
 
-
-resultado = sumas([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5)
-print(resultado)
+pprint(partes_recursiva([1, 2, 3, 4, 5]))
