@@ -13,7 +13,6 @@ de una lista que suman el valor objetivo.
 '''
 
 def find_sum(list: [], target: int):
-    print(list)
     sums = _find_sum(list, [], target, [])
     # Ordenamos
     sorted_sums = [sorted(s) for s in sums]
@@ -32,4 +31,6 @@ def _find_sum(list: [], source: [], target: int, sums: []):
     return sums
                 
 
-print('Sums: ', find_sum([1, 5, 3, 2], 6))
+print('[1, 5, 3, 2] - Possible sums: ', find_sum([1, 5, 3, 2], 6))
+print('[8, 3, 7, 1] - Possible sums: ', find_sum([8, 3, 7, 1], 2))
+print('[1, 2, 3, 4, 5, 6, 7, 8, 9] - Possible sums: ', find_sum([1, 2, 3, 4, 5, 6, 7, 8, 9], 12))
