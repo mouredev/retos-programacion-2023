@@ -46,7 +46,11 @@ def transform_columnid_number(column_id):
     valor = 0
     for i in range(longitud_id):
         if column_id[i] in column_values:
-            valor = column_values[column_id]
+            valor_col = column_values[column_id[i]]
+            if i == (longitud_id - 1):
+                valor = valor + valor_col
+            else:
+                valor = valor + ((26 ** ((longitud_id - 1) - (i))) * valor_col)
 
     return valor
 
