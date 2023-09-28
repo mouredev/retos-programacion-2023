@@ -15,6 +15,6 @@ use v6;
 sub HEXtoRGB($HEX) { $HEX.substr(1).comb(2)».parse-base(16) }
 sub RGBtoHEX(+@RGB) { '#' ~ @RGB.map({.base(16)}).join }
 
-say "({ HEXtoRGB('#C21A4D').join(",") })";
-say "({ RGBtoHEX(194, 26, 77)         })";
+"(r: %d, g: %d, b: %d)".sprintf( HEXtoRGB('#C21A4D') ).say;
+say RGBtoHEX(194, 26, 77);
 
