@@ -1,5 +1,3 @@
-import copy
-
 '''
  Crea una función que encuentre todas las combinaciones de los números
  de una lista que suman el valor objetivo.
@@ -12,7 +10,6 @@ import copy
    Soluciones: [1, 5] y [1, 3, 2] (ambas combinaciones suman 6)
    (Si no existen combinaciones, retornar una lista vacía)
  '''
-
 
 def find_combinations(lst: list, target: int) -> list:
     def recursivity_func(start, target, nums):
