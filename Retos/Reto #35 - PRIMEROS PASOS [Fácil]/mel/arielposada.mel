@@ -1,0 +1,93 @@
+// MEL (Maya Embedded Laguange) es usado para automatizar tareas de Autodesk Maya
+// es usado para el renderizado de imágenes, sin embargo se usarán ejemplos en consola
+
+// Para más información: https://courses.cs.washington.edu/courses/cse459/06wi/help/mayaguide/Complete/MEL_Expressions.pdf
+
+// Hola mundo
+print("¡Hola, MEL!");
+
+// Variables
+string $myVariable = "Esto es una variable";
+$myVariable = "Aquí asigno un nuevo valor a la variable";
+
+// Tipos de datos primitivos
+string $myString = "Mi cadena de texto";
+int $myInt = 1;
+float $myFloat = 1.5;
+int $myBool = 1; // MEL no tiene un tipo de dato booleano, pero puedes usar 1 para True y 0 para False
+
+// Constantes
+// MEL no tiene una forma de definir constantes. Sin embargo, puedes seguir la convención de nombrar variables en mayúsculas para indicar que son constantes.
+string $MY_CONSTANT = "No existen las constantes. Simplemente se nombran variables en mayúscula.";
+
+// Control de flujo
+if ($myInt == 1)
+{
+    print("myInt vale 1");
+}
+else if ($myInt == 2)
+{
+    print("myInt vale 2");
+}
+else
+{
+    print("myInt no vale ni 1 ni 2");
+}
+
+// Estructuras
+string $myList[] = {$myString, $myInt, $myFloat, $myBool};
+string $myTuple[] = {$myString, $myInt, $myFloat, $myBool};
+// MEL no tiene un tipo de dato conjunto (set), pero se pueden usar arrays y funciones para simularlo
+string $myDictionary[] = {"str", $myString, "int", $myInt, "float", $myFloat, "bool", $myBool};
+
+// Bucles
+// For
+for ($index = 0; $index < 10; $index++)
+{
+    print($index);
+}
+
+// For Each
+for ($item in $myList)
+{
+    print($item);
+}
+
+// While
+int $index = 0;
+while ($index < size($myList))
+{
+    print($myList[$index]);
+    $index++;
+}
+
+// Funciones
+global proc myFunction()
+{
+    print("Función simple");
+}
+
+global proc string myFunctionWithReturn()
+{
+    return "Función con retorno";
+}
+
+global proc myFunctionWithParam(int $param)
+{
+    print("Función con un parámetro de valor " + $param);
+}
+
+myFunction();
+print(myFunctionWithReturn());
+myFunctionWithParam(256);
+
+// Clases
+// MEL no tiene clases, pero puedes usar structs y procedimientos globales
+
+// Excepciones
+// MEL no tiene un manejo de excepciones nativo. Sin embargo, puedes usar "catch" para capturar errores
+if (`catch(eval("print(0 / 0);")`))
+{
+    print("Se ha producido una excepción");
+}
+print("Siempre se ejecuta el finally");
