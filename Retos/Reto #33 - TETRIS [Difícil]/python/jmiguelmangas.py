@@ -25,6 +25,7 @@ import time
 
 from os import system
 
+import random
 
 screen = [
     ["🔳", "🔳", "🔳", "🔳", "🔳", "🔳", "🔳", "🔳", "🔳", "🔳"],
@@ -45,28 +46,55 @@ screen = [
     ["🔳", "🔳", "🔳", "🔳", "🔳", "🔳", "🔳", "🔳", "🔳", "🔳"],
     
 ]
-
+cube = {"shape":[(0,0),(0,1),(1,0),(1,1)],"rotation_left": False,"rotation_right": False}
+stick = {"shape":[(0,0),(0,1),(0,2),(0,3)],"rotation_left": False,"rotation_right": False}
+hat = {"shape":[(0,1),(1,0),(1,1),(1,2)],"rotation_left": False,"rotation_right": False}
+left_shoe = {"shape":[(0,0),(1,0),(1,1),(1,2)],"rotation_left": False,"rotation_right": False}
+right_shoe = {"shape":[(0,2),(1,0),(1,1),(1,2)],"rotation_left": False,"rotation_right": False}
+left_corner = {"shape":[(0,0),(0,1),(1,1),(1,2)],"rotation_left": False,"rotation_right": False}
+right_corner = {"shape":[(0,1),(0,2),(1,0),(1,1)],"rotation_left": False,"rotation_right": False}
+pieces = [
+    cube,stick,hat,left_shoe,right_shoe,left_corner,right_corner
+]
+piece_blocked = 0
+position_piece = []
 
 def print_screen():
     global screen
     for row in screen:
         print("".join(row))
-
-
-def main():
+def print_piece():
+    global screen
+    global pieces
+    global piece_blocked
+    global position_piece
+    piece = random.choice(pieces)
+    for element in piece["shape"]:
+        screen[element[0]][element[1]+4] = "🔲"
+        position_piece.append((element[0],element[1]+4))
+    piece_blocked = 0
+def fall_piece():
+    
+def game():
     timer = 0
     timer_max = 100
     game_score = 0
-    while timer <= timer_max:
-        system("clear")
+    game_over = False
+    global piece_blocked
+    print_piece()
+    while timer <= timer_max and game_over == False:
+        #system("clear")
         print(f"Time Remaining: {timer_max-timer} Segs\n")
         print(f"Game Score: {game_score} points\n")
         print_screen()
+        fall_piece()
         time.sleep(1)
+        if piece_blocked == 1:
+            print_piece()
         timer += 1
 
-    print(f"Game Over, Final Score: {game_score}")
-
+    print(f"\nGame Over, Final Score: {game_score}")
 
 if __name__ == "__main__":
-    main()
+
+    game()
