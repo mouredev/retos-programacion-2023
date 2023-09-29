@@ -1,0 +1,5 @@
+fun iter i 0 f = ()
+  | iter i n f = (f i; iter (i+1) (n-1) f)
+do print "!Hola Mundo!\n"
+do iter 1 10 (fn i => print(Int.toString i^"\n"))
+do OS.Process.exit OS.Process.success
