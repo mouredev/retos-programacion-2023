@@ -1,4 +1,4 @@
-from typing import Callable, Self
+from typing import Callable, Self, Protocol
 from abc import ABC, abstractmethod
 
 
@@ -14,6 +14,16 @@ class RGBColorFormatError(Exception):
     pass
 
 
+class RGBtoHEX(Protocol):
+    def __call__(self, color: RGB) -> HEX: 
+        ...
+
+
+class HEXtoRGB(Protocol):
+    def __call__(self, color: HEX) -> RGB: 
+        ...
+
+        
 class ValidateRGBColorFormat:
     def __init__(self, fn: Callable[[Self, RGB], HEX]) -> None:
         self.fn = fn
@@ -84,8 +94,5 @@ class Main:
 
 
 if __name__ == "__main__":
-    rgb_converter = RGBToHexConverter()
-    hex_converter = HexToRGBConverter()
-
-    Main.run(rgb_converter=rgb_converter, 
-             hex_converter=hex_converter)
+    Main.run(rgb_converter=RGBToHexConverter(),
+             hex_converter=HexToRGBConverter())
