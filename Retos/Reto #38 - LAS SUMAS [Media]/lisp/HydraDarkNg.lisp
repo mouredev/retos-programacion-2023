@@ -11,8 +11,6 @@
 ;;;   (Si no existen combinaciones, retornar una lista vacía)
 ;;;
 
-
-
 (defun combinations-finder (numbers target)
   (labels ((combinations-helper (nums acc)
              (cond
