@@ -17,7 +17,7 @@ def filtrar_segun_sumatoria(lista_de_combinaciones, valor):
     return lista_filtrada
 
 lista_numeros = [1, 5, 3, 2]
-valor_objetivo = 5
+valor_objetivo = 6
 combinaciones = combinaciones_posibles(lista_numeros)
 resultado = filtrar_segun_sumatoria(combinaciones, valor_objetivo)
 
