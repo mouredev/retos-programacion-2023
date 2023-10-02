@@ -7,6 +7,8 @@
  * HEX a RGB: hex: #000000 -> (r: 0, g: 0, b: 0)
  */
 
+//Este ejecicio se realizo sin la utilizacion de toString(16) ni rejex
+
 const HexToRgb = (hex) =>{
     
     const array = hex.slice('')
@@ -47,7 +49,7 @@ const HexToRgb = (hex) =>{
     const G = arrayCopy.slice(2,4)
     const B = arrayCopy.slice(4,6)
 
-    // let suma = 100*(centena[0]*16 + centena[1]*1) + 10*(centena[0]*16 + centena[1]*1) + (centena[0]*16 + centena[1]*1)
+
     const RGB = new Array(3)
 
     RGB[0] = 16*R[0]+R[1]
