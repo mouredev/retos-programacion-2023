@@ -9,3 +9,4 @@ def triples_pitagoricos(x):
                         print(triple)
 
 triples_pitagoricos(50)
+
