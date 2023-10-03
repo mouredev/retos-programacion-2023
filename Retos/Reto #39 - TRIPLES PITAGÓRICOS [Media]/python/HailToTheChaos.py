@@ -11,8 +11,10 @@ Crea una función que encuentre todos los triples pitagóricos
   
 '''
 
-def find_pythagorean_triples(max):
+
+def find_pythagorean_triples(max: int) -> list:
     triples = []
+
     for a in range(1, max + 1):
         for b in range(a, max + 1):
             # c = (a^2 + b^2)^1/2
@@ -20,6 +22,7 @@ def find_pythagorean_triples(max):
             # Tiene que ser numero entero y menor o igual al numero dado
             if c.is_integer() and c <= max:
                 triples.append((a, b, int(c)))
+
     return triples
 
 
