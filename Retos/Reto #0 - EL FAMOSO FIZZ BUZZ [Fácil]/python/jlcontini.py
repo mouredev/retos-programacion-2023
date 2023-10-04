@@ -30,7 +30,7 @@ def is_multiple(number: int, multiple: int) -> bool:
   return number % multiple == 0
 
 
-def print_numbers_in_range(a, b):
+def print_numbers_in_range(a, b) -> str:
   for i in range(a, b+1):
     if is_multiple(i, 3) and is_multiple(i, 5):
       print(fizz + buzz + "\n")
