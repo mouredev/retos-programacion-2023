@@ -26,13 +26,14 @@ fizz = "fizz"
 buzz = "buzz"
 
 
-def is_multiple(n1: int, n2: int) ->bool:
+def is_multiple(n1: int, n2: int) -> bool:
   return n1 % n2 == 0
 
 
 def print_numbers_in_range(a, b):
+
   for i in range(a, b+1):
-        
+
     if is_multiple(i, 3) and is_multiple(i, 5):
       print(fizz + buzz + "\n")
     elif is_multiple(i, 3):
