@@ -26,8 +26,8 @@ fizz = "fizz"
 buzz = "buzz"
 
 
-def is_multiple(n1: int, n2: int) -> bool:
-  return n1 % n2 == 0
+def is_multiple(number: int, multiple: int) -> bool:
+  return number % multiple == 0
 
 
 def print_numbers_in_range(a, b):
@@ -47,4 +47,5 @@ def main():
 
 
 
-main()
+if __name__ == "__main__": 
+  main()
