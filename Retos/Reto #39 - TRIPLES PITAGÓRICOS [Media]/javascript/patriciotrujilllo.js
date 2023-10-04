@@ -35,7 +35,7 @@ const tiplesPitagoricos = (numeroMax) =>{
     }
     return allTiples
 }
-console.log(tiplesPitagoricos(5))
-console.log(tiplesPitagoricos(10))
-console.log(tiplesPitagoricos(13))
-console.log(tiplesPitagoricos(15))
+console.log(tiplesPitagoricos(5)) //--> [ [ 3, 4, 5 ] ]
+console.log(tiplesPitagoricos(10)) //--> [ [ 3, 4, 5 ], [ 6, 8, 10 ] ]
+console.log(tiplesPitagoricos(13)) //--> [ [ 3, 4, 5 ], [ 6, 8, 10 ] ]
+console.log(tiplesPitagoricos(15)) //--> [ [ 3, 4, 5 ], [ 6, 8, 10 ], [ 9, 12, 15 ] ]
