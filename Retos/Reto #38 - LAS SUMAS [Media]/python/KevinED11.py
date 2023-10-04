@@ -1,4 +1,4 @@
-from typing import Optional, TypeAlias, Callable, Never, Protocol
+from typing import Optional, TypeAlias, Never, Protocol
 import functools
 import itertools
 import unittest
@@ -9,8 +9,11 @@ import abc
 IntTuple: TypeAlias = tuple[int, ...]
 OptionalIntTuple: TypeAlias = Optional[IntTuple]
 ListOptionalIntTuple: TypeAlias = list[OptionalIntTuple]
-FindCombinationsFunction: TypeAlias = Callable[[
-    IntTuple, int], ListOptionalIntTuple]
+
+
+class FindCombinationsFunctionSignature(Protocol):
+    def __call__(self, numbers: IntTuple, target_number: int) -> ListOptionalIntTuple:
+        ...
 
 
 class ExitWords(enum.StrEnum):
@@ -49,15 +52,20 @@ def raise_invalid_target_number_exception(msg: str) -> Never:
 
 
 def is_valid_numbers_argument(numbers: IntTuple) -> bool:
+    minimum_permitted_length_of_numbers = 1
     return (
         isinstance(numbers, tuple)
-        and len(numbers) > 1
+        and len(numbers) > minimum_permitted_length_of_numbers
         and all(isinstance(number, int) for number in numbers)
     )
 
 
 def is_valid_target_number_argument(target_number: int) -> bool:
-    return isinstance(target_number, int) and target_number > 0
+    minimum_permitted_target_number = 1
+    return (
+        isinstance(target_number, int)
+        and target_number > minimum_permitted_target_number
+    )
 
 
 def validate_find_combinations_function_arguments(
@@ -75,8 +83,8 @@ def validate_find_combinations_function_arguments(
 
 
 def validate_find_combinations_arguments(
-    fn: FindCombinationsFunction,
-) -> FindCombinationsFunction:
+    fn: FindCombinationsFunctionSignature,
+) -> FindCombinationsFunctionSignature:
     """
     A decorator function that takes in a function and returns a wrapped version of that function.
     """
@@ -119,6 +127,7 @@ class CombinationSearcher(ISearcher):
 
 
 class SearcherFactory(abc.ABC):
+    @abc.abstractmethod
     def get_searcher(self) -> ISearcher:
         pass
 
@@ -126,6 +135,9 @@ class SearcherFactory(abc.ABC):
 class CombinationSearcherFactory(SearcherFactory):
     def get_searcher(self) -> ISearcher:
         return CombinationSearcher()
+
+
+SearcherFactoryDict: TypeAlias = dict[str, SearcherFactory]
 
 
 class TestFindCombinations(unittest.TestCase):
@@ -166,7 +178,7 @@ class TestFindCombinations(unittest.TestCase):
                 find_combinations_with_integrated_function((1,), 5)
 
 
-def available_factories() -> dict[str, SearcherFactory]:
+def available_factories() -> SearcherFactoryDict:
     """
     Returns a dictionary of available factories.
     """
@@ -175,17 +187,20 @@ def available_factories() -> dict[str, SearcherFactory]:
     }
 
 
-def read_searcher(factories: dict[str, SearcherFactory]) -> SearcherFactory:
+def read_searcher(factories: SearcherFactoryDict) -> SearcherFactory:
     """
     Reads user input to determine which searcher to use and
     returns the corresponding SearcherFactory object.
     """
+    factory_by_default = factories["combinations"]
     while (
         searcher_to_use := input("ingresa el nombre del buscador a utilizar: ")
     ) not in list(ExitWords):
         if searcher_to_use in factories:
             return factories[searcher_to_use]
         print("El buscador ingresado no existe")
+
+    return factory_by_default
 
 
 def main(factory: SearcherFactory) -> None:
