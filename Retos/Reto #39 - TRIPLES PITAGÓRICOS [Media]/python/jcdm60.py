@@ -30,10 +30,10 @@ class PythagoreanTriplesFinder:
     def get_triples(self):
         return self.triples
 
-# Example usage:
-max_value = 20
-triples_finder = PythagoreanTriplesFinder(max_value)
-triples_finder.find_pythagorean_triples()
-triples = triples_finder.get_triples()
-print(triples)
+if __name__ == "__main__":
+    max_value = 10
+    triples_finder = PythagoreanTriplesFinder(max_value)
+    triples_finder.find_pythagorean_triples()
+    triples = triples_finder.get_triples()
+    print(triples)
 
