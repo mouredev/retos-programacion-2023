@@ -1,9 +1,9 @@
 <?php
 
-$triples = [];
 
 function encontrar_numeros_pitagoricos($n) {
 
+    $triples = [];
 
     for($a = 1; $a <= $n; $a++) {
         for($b = $a; $b <= $n; $b++) {
