@@ -11,7 +11,6 @@ public class ViankaMB {
             } else {
                 System.out.println(x);
             }
-
         }
     }
 }
