@@ -1,0 +1,2 @@
+INDEX VERSION 1.132+/Users/viankamb/Documents/RetosProgramacion2023/retos-programacion-2023/Retos/Reto /.metadata/.plugins/org.eclipse.jdt.core
+1865797976.index

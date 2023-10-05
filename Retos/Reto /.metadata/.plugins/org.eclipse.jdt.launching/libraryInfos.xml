@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/adoptopenjdk-15.jdk/Contents/Home" version="15.0.2"/>
+    <libraryInfo home="/Users/viankamb/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.7.v20230425-1502" version="17.0.7"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home" version="17.0.7"/>
+    <libraryInfo home="/Users/viankamb/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.7.v20230425-1502/jre" version="17.0.7"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-20.jdk/Contents/Home" version="20.0.1"/>
+</libraryInfos>
