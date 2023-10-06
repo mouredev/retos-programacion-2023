@@ -1,24 +1,3 @@
-const range = (start, end, step = 1) => {
-    if (arguments.length === 1) {
-        end = start;
-        start = 0;
-    }
-
-    const res = [];
-
-    if (step > 0) {
-        for (let i = start; i < end; i += step) {
-            res.push(i);
-        }
-    } else if (step < 0) {
-        for (let i = start; i > end; i += step) {
-            res.push(i);
-        }
-    }
-
-    return res;
-}
-
 const find_sums = (numeros, objetivo) => {
 
     const find_sum = (start, objetivo, combination) => {
@@ -49,5 +28,4 @@ const find_sums = (numeros, objetivo) => {
     find_sum(0, objetivo, [])
     console.log(result)
 }
-
 find_sums([2,1,5,3,4], 3)
