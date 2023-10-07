@@ -4,7 +4,7 @@
 # - La función únicamente recibe el número máximo que puede
 # aparecer en el triple.
 # - Ejemplo: Los triples menores o iguales a 10 están
-# formados por (3, 4, 5) y (6, 8, 10).
+#  formados por (3, 4, 5) y (6, 8, 10).
 
 import math
 
