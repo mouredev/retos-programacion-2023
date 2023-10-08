@@ -1,7 +1,7 @@
 import unittest
 
 
-def pythagorean_tiples(k: int):
+def pythagorean_tiples(k: int) -> list[tuple[int, int, int]]:
     base_triples, all_triples, m = [], set(), 2
     while m * m < k:
         n, c = 1, 0
