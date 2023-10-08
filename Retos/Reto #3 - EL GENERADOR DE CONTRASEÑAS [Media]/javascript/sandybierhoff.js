@@ -12,7 +12,7 @@ function generatePassword({ size, upperCaseLetters, numbers, symbols }) {
     if(symbols)
         availableCharCodes = availableCharCodes.concat(Array.from(Array(10), (_, i) => i+33));
     
-    let availableCharCodeLength = availableCharCodes.length;
+    const availableCharCodeLength = availableCharCodes.length;
 
     for (let index = 0; index < size; index++) {
         password += String.fromCharCode(availableCharCodes[getRandomNumber(availableCharCodeLength)]);            
@@ -21,7 +21,7 @@ function generatePassword({ size, upperCaseLetters, numbers, symbols }) {
     return password;
 }
 
-let options = {
+const options = {
     size: 9,
     numbers: true,
     symbols: true,
