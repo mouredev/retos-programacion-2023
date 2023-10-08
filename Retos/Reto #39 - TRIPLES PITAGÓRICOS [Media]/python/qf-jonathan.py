@@ -1,7 +1,7 @@
 import unittest
 
 
-def pitagorean_tiples(k: int):
+def pythagorean_tiples(k: int):
     base_triples, all_triples, m = [], set(), 2
     while m * m < k:
         n, c = 1, 0
@@ -19,16 +19,16 @@ def pitagorean_tiples(k: int):
 
 class TestPitagoreanTripple(unittest.TestCase):
     def test_basic(self):
-        self.assertEqual(pitagorean_tiples(10), [(3, 4, 5), (6, 8, 10)])
+        self.assertEqual(pythagorean_tiples(10), [(3, 4, 5), (6, 8, 10)])
         self.assertEqual(
-            pitagorean_tiples(15), [(3, 4, 5), (5, 12, 13), (6, 8, 10), (9, 12, 15)]
+            pythagorean_tiples(15), [(3, 4, 5), (5, 12, 13), (6, 8, 10), (9, 12, 15)]
         )
         self.assertEqual(
-            pitagorean_tiples(17),
+            pythagorean_tiples(17),
             [(3, 4, 5), (5, 12, 13), (6, 8, 10), (8, 15, 17), (9, 12, 15)],
         )
         self.assertEqual(
-            pitagorean_tiples(20),
+            pythagorean_tiples(20),
             [
                 (3, 4, 5),
                 (5, 12, 13),
@@ -40,11 +40,11 @@ class TestPitagoreanTripple(unittest.TestCase):
         )
 
     def test_stress(self):
-        self.assertEqual(len(pitagorean_tiples(100)), 52)
-        self.assertEqual(len(pitagorean_tiples(1000)), 881)
-        self.assertEqual(len(pitagorean_tiples(10000)), 12471)
-        self.assertEqual(len(pitagorean_tiples(100000)), 161436)
-        self.assertEqual(len(pitagorean_tiples(123456)), 203405)
+        self.assertEqual(len(pythagorean_tiples(100)), 52)
+        self.assertEqual(len(pythagorean_tiples(1000)), 881)
+        self.assertEqual(len(pythagorean_tiples(10000)), 12471)
+        self.assertEqual(len(pythagorean_tiples(100000)), 161436)
+        self.assertEqual(len(pythagorean_tiples(123456)), 203405)
 
 
 if __name__ == "__main__":
