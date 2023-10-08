@@ -7,12 +7,18 @@ function jugarTenis(secuencia) {
     const puntuaciones = ["Love", 15, 30, 40];
   
     for (const punto of secuencia) {
+      if (punto !== "P1" && punto !== "P2") {
+        // Si el punto no es "P1" ni "P2", es un valor no válido
+        console.error(`Error: Valor no válido en la secuencia - ${punto}`);
+        return; // Detener el juego debido al error
+      }
+      // Comprar el valor de la secuencias y de acuerdo al valor se aumenta el puntaje
       if (punto === "P1") {
         puntuacion.P1++;
       } else if (punto === "P2") {
         puntuacion.P2++;
       }
-  
+      // validacion cuando llegovs a la maxima cantidad de puntos 
       if (puntuacion.P1 >= 3 && puntuacion.P2 >= 3) {
         if (puntuacion.P1 === puntuacion.P2) {
           if (puntuacion.P1 === 3) {
