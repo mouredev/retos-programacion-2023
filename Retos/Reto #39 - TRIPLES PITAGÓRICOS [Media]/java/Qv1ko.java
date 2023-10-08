@@ -4,7 +4,7 @@ public class Qv1ko {
         findPythagoreanTriple(10);
     }
 
-    public static void findPythagoreanTriple(int max) {
+    private static void findPythagoreanTriple(int max) {
 
         for (int a = 1; a <= max; a++) {
             for (int b = a; b <= max; b++) {
