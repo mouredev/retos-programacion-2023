@@ -3,7 +3,7 @@ import unittest
 from unittest.mock import patch, Mock
 
 
-def last_commits(n: int):
+def last_commits(n: int) -> list[list[str]]:
     cmd = [
         "git",
         "log",
