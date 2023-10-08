@@ -17,7 +17,7 @@ def pythagorean_tiples(k: int):
     return sorted(all_triples)
 
 
-class TestPitagoreanTripple(unittest.TestCase):
+class PythagoreanTriplesTest(unittest.TestCase):
     def test_basic(self):
         self.assertEqual(pythagorean_tiples(10), [(3, 4, 5), (6, 8, 10)])
         self.assertEqual(
