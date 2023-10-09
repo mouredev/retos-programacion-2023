@@ -11,11 +11,13 @@ public class Sdesantiago {
 	public static void main(String[] args) {
 		for (int i=0;i<=100;i++) {
 			if (i%3==0 && i%5==0)
-				System.out.println(i+" fizzbuzz");
+				System.out.println("fizzbuzz");
 			else if (i%3==0)
-				System.out.println(i+" fizz");
+				System.out.println("fizz");
 			else if (i%5==0)
-				System.out.println(i+" buzz");
+				System.out.println("buzz");
+			else
+				System.out.println(i);
 		}
 	}
 }
