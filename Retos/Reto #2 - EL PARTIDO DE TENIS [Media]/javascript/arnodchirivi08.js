@@ -16,35 +16,39 @@
  * - Si quieres, puedes controlar errores en la entrada de datos.   
  * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
  */
-const puntuacionNumerico = { 0: 'Love', 1: 15, 2: 30, 3: 40, 4: 50, 5: 60 }
-const jugadores = { p1: 'P1', p2: 'P2' }
+const punctuation = { 0: 'Love', 1: 15, 2: 30, 3: 40, 4: 50, 5: 60 };
+const players = { P1: 0, P2: 0 }
 
 
-function puntuacionJuegodos(secuencia) {
-    let player1 = 0;
-    let player2 = 0;
+function game(sequence) {
+    if (verifySequence(sequence)) {
+        console.log('Existe un error en la secuencia ingresada');
+    }
 
-    if(verificarValoresCorrectos(secuencia)) return console.log('Existe un error en la secuencia ingresada')
-    for (let i = 0; i < secuencia.length; i++) {
-        secuencia[i] === jugadores.p1 ? player1++ : player2++;
-        if (player1 === player2 && (player1 >= 3 || player2 >= 3)) {
-            console.log('Deuce');
+    for (let i = 0; i < sequence.length; i++) {
+        const player = sequence[i];
+       
+        if (player === 'P1' || player === 'P2') {
+            players[player]++;
         }
-        else if (player1 >= 5 || player2 >= 5) {
-            player1 > player2 ? console.log('Ha ganado P1') : console.log('Ha ganado P2');
-        }
-        else if (player1 >= 4 || player2 >= 4) {
-            player1 > player2 ? console.log('Ventaja P1') : console.log('Ventaja P2');
-        }
-        else if (player1 <= 3 || player2 <= 3) {
-            console.log(`${puntuacionNumerico[player1]} ${puntuacionNumerico[player2]}`)
+        if (players.P1 === players.P2 && (players.P1 >= 3 || players.P2 >= 3)) {
+            imprimirResultados('Deuce');
+        } else if (players.P1 >= 5 || players.P2 >= 5) {
+            imprimirResultados(players.P1 > players.P2 ? 'Ha ganado P1' : 'Ha ganado P2')
+        } else if (players.P1 >= 4 || players.P2 >= 4) {
+            imprimirResultados(players.P1 > players.P2 ? 'Ventaja P1' : 'Ventaja P2');
+        } else {
+            imprimirResultados(`${punctuation[players.P1]} ${punctuation[players.P2]}`);
         }
     }
 }
 
-function verificarValoresCorrectos(secuencia) {
-    return secuencia.some(item => item !== jugadores.p1 && item !== jugadores.p2)
+function verifySequence(sequence) {
+    return sequence.some(item => item !== 'P1' && item !== 'P2')
 }
 
-puntuacionJuegodos(['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1']);
+function imprimirResultados(resultado) {
+    console.log(resultado);
+}
 
+game(['P1', 'P1', 'P2', 'P2', 'P1', 'P2', 'P1', 'P1'])
