@@ -14,9 +14,7 @@
 #
 
 def multiplication_table(number):
-    for i in range(1, 11):
-        result = number * i
-        print(f"{number} x {i} = {result}")
+    [print(f"{number} x {i} = {number * i}") for i in range(1, 11)] 
 
 if __name__ == "__main__":
     number = int(input("Ingrese un número: "))
