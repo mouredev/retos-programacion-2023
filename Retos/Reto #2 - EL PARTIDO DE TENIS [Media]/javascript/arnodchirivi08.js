@@ -25,12 +25,14 @@ function game(sequence) {
         console.log('Existe un error en la secuencia ingresada');
     }
 
-    for (let i = 0; i < sequence.length; i++) {
-        const player = sequence[i];
-       
+    sequence.forEach(player => {
         if (player === 'P1' || player === 'P2') {
             players[player]++;
         }
+        
+        const puntuationP1 = punctuation[players.P1];
+        const puntuationP2 = punctuation[players.P2];
+
         if (players.P1 === players.P2 && (players.P1 >= 3 || players.P2 >= 3)) {
             imprimirResultados('Deuce');
         } else if (players.P1 >= 5 || players.P2 >= 5) {
@@ -38,9 +40,9 @@ function game(sequence) {
         } else if (players.P1 >= 4 || players.P2 >= 4) {
             imprimirResultados(players.P1 > players.P2 ? 'Ventaja P1' : 'Ventaja P2');
         } else {
-            imprimirResultados(`${punctuation[players.P1]} ${punctuation[players.P2]}`);
+            imprimirResultados(`${puntuationP1} ${puntuationP2}`);
         }
-    }
+    });
 }
 
 function verifySequence(sequence) {
