@@ -13,7 +13,7 @@ def octal_and_hex(entero: int):
     #octal
     current_int = entero
     octal = ""
-    while current_int >= 0:
+    while current_int > 0:
         octal = str(current_int % 8) +  octal
         current_int //=8
     
@@ -24,7 +24,7 @@ def octal_and_hex(entero: int):
     current_int = entero
     hex_values = "0123456789ABCDEF"
     hex = ""
-    while current_int >= 0:
+    while current_int > 0:
         hex = hex_values[current_int % 16] +  hex
         current_int //=16
     
