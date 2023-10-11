@@ -6,7 +6,7 @@
  *       1 x 2 = 2
  *       1 x 3 = 3
  *       ... 
-"""
+ """
 
 def MultiplicationTable(n):
     for i in range(1, 11):
