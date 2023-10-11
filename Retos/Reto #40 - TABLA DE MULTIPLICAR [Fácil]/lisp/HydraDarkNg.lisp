@@ -9,6 +9,8 @@
 ;;;
 
 (defun main ()
+  (format t "Ingresa un número: ")
+  (force-output)
   (let ((number (parse-integer (read-line))))
     (loop for i from 1 to 10 do
       (format t "~a x ~2,' d = ~a~%" number i (* number i)))))
