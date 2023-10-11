@@ -1,4 +1,4 @@
-package programacion;
+package retosprogramacion;
 
 import java.util.Scanner;
 
