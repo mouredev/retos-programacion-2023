@@ -15,9 +15,10 @@ def tabla_multiplicacion(number: int) -> str:
 if __name__ == "__main__":
     continuar = 'si'
     while continuar.lower() == "si":
-        valor = int(input('Ingrese un numero para obtener su tabla de multiplicar \n'))
+        valor = input('Ingrese un numero para obtener su tabla de multiplicar \n')
+        valor = int(valor) if valor.isnumeric() else -1
         if valor >= 0:
-            print(tabla_multiplicacion(valor))
+            print(tabla_multiplicacion(int(valor)))
             continuar = input('¿Desea continuar? (si/no) \n')
             continue
         print('El numero ingresado debe ser positivo')
