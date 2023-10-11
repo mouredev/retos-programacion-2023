@@ -8,8 +8,10 @@
 #       ...
 #
 
+tabla = int(input('Que tabla de multiplicar quieres ver:'))
+
 def tablaDel(tabla:int):
     for num in range(11):
         print(f"{tabla} + {num} = {tabla * num}")
 
-tablaDel(3)
+tablaDel(tabla)

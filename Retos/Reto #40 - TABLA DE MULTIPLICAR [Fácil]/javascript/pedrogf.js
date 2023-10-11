@@ -7,6 +7,14 @@
  *       1 x 3 = 3
  *       ...
  */
+const readline = require('readline');
+
+let read = readline.createInterface(process.stdin, process.stdout);
+
+  read.question('Tabla de multiplicar del:', (answer) => {
+    timesTable(answer)
+    read.close()
+})
 
 function timesTable (table) {
     for (let n = 0; n <= 10; n++) {
@@ -14,4 +22,3 @@ function timesTable (table) {
     }
 }
 
-timesTable(3)
