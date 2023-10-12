@@ -16,4 +16,4 @@ def mul_table(num: int):
 if __name__ == "__main__":
     num = int(input("Welcome! Please enter a number to print its multiplication table:"))
     mul_table(num)
-    print("Have a nice day!")
+    print("Have a nice day!\n")
