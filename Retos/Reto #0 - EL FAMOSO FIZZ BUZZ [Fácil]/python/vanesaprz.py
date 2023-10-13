@@ -5,18 +5,15 @@
  * - Múltiplos de 3 por la palabra "fizz".
  * - Múltiplos de 5 por la palabra "buzz".
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
-
 """
 
-def FizzBuzz(num : int) -> str:
-    if (num %3==0)and(num %5==0):
-        return "fizzbuzz"
-    elif(num % 3 == 0):
-        return "fizz"
-    elif(num % 5 == 0):
-        return "buzz"
+for number in range(1,101):
+    if number % 5 == 0 and number % 3 == 0:
+        print("fizzbuzz")
+    elif number % 5 == 0:
+        print("buzz")
+    elif number % 3 == 0:
+        print("fizz")
     else:
-        return str(num)
-    
-for i in range(1, 101):
-    print(FizzBuzz(i) + "\n")
+        print(number)
+
