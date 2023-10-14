@@ -12,7 +12,7 @@
 
 int main()
 {
-    int num;
+    int n;
 
     do {
 
