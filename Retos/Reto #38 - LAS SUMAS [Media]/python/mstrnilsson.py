@@ -30,7 +30,6 @@ def combination(num: list, target: int):
         print(list(sumlist))
                
 
-if __name__ == "__main__":
-    combination([1, 5, 3, 2], 6)
+combination([1, 5, 3, 2], 6)
     
     
