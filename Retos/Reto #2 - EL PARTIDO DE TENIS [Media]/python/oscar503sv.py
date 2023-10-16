@@ -34,8 +34,12 @@ def mostrar_puntuacion(p1_puntuacion, p2_puntuacion):
         if p1_puntuacion == p2_puntuacion:
             return "Deuce"
         elif p1_puntuacion > p2_puntuacion:
+            if p1_puntuacion >= p2_puntuacion+2:
+                return "Ha ganado P1"
             return "Ventaja P1"
         else:
+            if p2_puntuacion >= p1_puntuacion+2:
+                return "Ha ganado P2"
             return "Ventaja P2"
     else:
         return f"{calcular_puntuacion(p1_puntuacion)} - {calcular_puntuacion(p2_puntuacion)}"
@@ -56,12 +60,10 @@ def jugar_tenis(secuencia):
         puntuacion_actual = mostrar_puntuacion(p1_puntuacion, p2_puntuacion)
         print(puntuacion_actual)
 
-        if puntuacion_actual == "Ventaja P1":
-            print("Ha ganado el P1")
-            return
-        elif puntuacion_actual == "Ventaja P2":
-            print("Ha ganado el P2")
-            return
+        if puntuacion_actual == "Ha ganado P1" or puntuacion_actual == "Ha ganado P2":
+            return puntuacion_actual
+        
+          
 
-secuencia = ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"]
+secuencia = ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P2", "P2", "P2"]
 jugar_tenis(secuencia)
