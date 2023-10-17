@@ -155,7 +155,7 @@ class Acertijo:
         print('🧱'*20)
         answer = ''
         while (not self.comprobar(answer)) and self.intentos > 0:
-            answer = input(self.pregunta + '\n -> ')
+            answer = input(self.pregunta + '\n ↪ ')
             if not self.comprobar(answer):
                 self.intentos -= 1
                 if self.intentos > 0:
@@ -495,6 +495,7 @@ def mostrar_mensaje_bienvenida():
     print('🧱'*20,end="")
     print("""
 🧙🏽 Sinopsis:
+🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
 Acabas de entrar en una mansión encantada, la cuál consiste en una serie
 de habitaciones. En cada habitación hay un acertijo que debes resolver
 para poder pasar a la siguiente. Si resuelves el acertijo, ganas 50 puntos,
@@ -504,30 +505,34 @@ pierdes el juego. Si logras encontrar el dulce, ganas el juego.
 que debes resolver para poder salir. Si no los resuelves, pierdes una vida.
 🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
 🎩 Cómo se calcula el puntaje:
+🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
 El puntaje se calcula de la siguiente manera:
 (puntaje / pasos) + vidas, por lo que es importante resolver los acertijos
 en la menor cantidad de pasos posibles y con la mayor cantidad de vidas.
 🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
 📝 Controles:
+🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
 Para moverte, debes escribir la dirección hacia donde quieres ir:
-N -> Norte
-S -> Sur
-E -> Este
-W -> Oeste
+N → Norte
+S → Sur
+E → Este
+W → Oeste
 
 Para salir del juego, debes escribir X
 🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
 🔮 Para tener en cuenta:
-  - Si resuelves un acertijo, puedes volver a entrar en la habitación
-  pero ya no habrá acertijo y te aumentará el número de pasos.
-  - No debes preocuparte por acentos, signos de puntuación o
-  mayúsculas/minúsculas en las respuestas, ya que el juego se encarga
-  de validar eso. Por ejemplo, si la respuesta es "El perro", entonces
-  puedes escribir "el perro", "El Perro", "perro", etc.
-  - Si quieres ver el tablero completo, puedes cambiar el valor de la
-  variable DEBUG_MODE a True.
+🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
+- Si resuelves un acertijo, puedes volver a entrar en la habitación
+pero ya no habrá acertijo y te aumentará el número de pasos.
+- No debes preocuparte por acentos, signos de puntuación o
+mayúsculas/minúsculas en las respuestas, ya que el juego se encarga
+de validar eso. Por ejemplo, si la respuesta es "El perro", entonces
+puedes escribir "el perro", "El Perro", "perro", etc.
+- Si quieres ver el tablero completo, puedes cambiar el valor de la
+variable DEBUG_MODE a True.
 🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
 🧛 ¡Mucha suerte! Presiona cualquier tecla para comenzar 🪄
+🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
 """)
     input(" ↪ ")
 
