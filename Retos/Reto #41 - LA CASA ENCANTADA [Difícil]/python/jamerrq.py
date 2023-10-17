@@ -2,10 +2,14 @@ import random
 import os
 import time
 
+# MODO DEBUG
+# Si debug es True, entonces se mostrarán todas las habitaciones
+DEBUG_MODE = False
+
 # Limpiar la pantalla
-
-
-def clear():
+def clear(force=False):
+    if DEBUG_MODE and not force:
+        return
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
@@ -47,7 +51,7 @@ acertijos = [
         'pista': 'Se usa en un día muy triste'
     },
     {
-        'pregunta': 'Tom mide 1,80, es ayudante en una carnicería y lleva zapatos de la talla 45. ¿Qué pesa?',
+        'pregunta': 'Tom mide 1.80, es ayudante en una carnicería y lleva zapatos de la talla 45. ¿Qué pesa?',
         'respuesta': 'Carne',
         'pista': 'Lee bien la pregunta'
     },
@@ -59,14 +63,67 @@ acertijos = [
     {
         'pregunta': '¿De qué color es el caballo blanco de Santiago?',
         'respuesta': 'Blanco',
-        'pista': 'Es un caballo blanco'
+        'pista': 'Lee bien la pregunta'
     },
     {
         'pregunta': 'Si un pastor tiene 15 ovejas y se le mueren todas menos nueve, ¿cuántas le quedan?',
         'respuesta': 'Nueve',
         'pista': 'Lee bien la pregunta'
+    },
+    {
+        'pregunta': 'Tengo un arco y soy de madera, pero no una flecha. ¿Qué soy?',
+        'respuesta': 'Un violín',
+        'pista': 'Es un instrumento musical'
+    },
+    {
+        'pregunta': 'Cuando me necesitas, me tiras. Cuando ya no me necesitas, me recoges. ¿Qué soy?',
+        'respuesta': 'El ancla',
+        'pista': 'Se usa en los barcos'
+    },
+    {
+        'pregunta': 'Círculo redondo al que, si lo golpeas, das un buen brinco del susto. ¿Qué es?',
+        'respuesta': 'El tambor',
+        'pista': 'Porrumpompom'
+    },
+    {
+        'pregunta': 'Dos abanicos que no paran en todo el día, pero cuando duermes se quedan quietos. ¿Qué son?',
+        'respuesta': 'Las pestañas',
+        'pista': 'Están en tus ojos'
+    },
+    {
+        'pregunta': 'No tengo cabeza, pero sí cuello.',
+        'respuesta': 'La botella',
+        'pista': 'Se usa para beber'
+    },
+    {
+        'pregunta': 'Pese a tener 4 patas, no puedo correr ni caminar. ¿Qué soy?',
+        'respuesta': 'La silla',
+        'pista': 'Se usa para descansar las nalgas 🌚'
     }
 ]
+
+print('Hay {} acertijos'.format(len(acertijos)))
+
+
+def preprocess(input):
+    # Preprocesar la respuesta
+    # 1. Quitar los espacios en blanco
+    # output = input.replace(' ', '')
+    output = input
+    # 2. Quitar los signos de puntuación
+    signos = ['.', ',', '¿', '?', '¡', '!',
+              '(', ')', '[', ']', '{', '}', ':', ';', '-', '_', '—', '«', '»', '“', '”']
+    for signo in signos:
+        output = output.replace(signo, '')
+    # 3. Quitar los acentos
+    output = output.replace('á', 'a').replace('é', 'e').replace(
+        'í', 'i').replace('ó', 'o').replace('ú', 'u')
+    # 4. Convertir a minúsculas
+    output = output.lower()
+    # 5. Quitar los artículos (el, la, los, las, un, una, unos, unas)
+    output = output.replace('el ', '').replace('la ', '').replace('los ', '').replace(
+        'las ', '').replace('una ', '').replace('un ', '').replace('unos ', '').replace('unas ', '')
+    return output
 
 
 class Acertijo:
@@ -80,7 +137,8 @@ class Acertijo:
         self.resuelto = False
 
     def comprobar(self, respuesta):
-        return respuesta == self.respuesta or respuesta == self.respuesta.lower() or respuesta == self.respuesta.upper() or respuesta == self.respuesta.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u') or respuesta == self.respuesta.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').lower() or respuesta == self.respuesta.replace('á', 'a').replace('é', 'e').replace('í', 'i').replace('ó', 'o').replace('ú', 'u').upper() or self.respuesta.replace('El ', '').replace('La ', '').replace('Los ', '').replace('Las ', '') == respuesta or self.respuesta.replace('El ', '').replace('La ', '').replace('Los ', '').replace('Las ', '') == respuesta.lower() or self.respuesta.replace('El ', '').replace('La ', '').replace('Los ', '').replace('Las ', '') == respuesta.upper()
+        # print(preprocess(respuesta), preprocess(self.respuesta))
+        return preprocess(respuesta) == preprocess(self.respuesta)
 
     def usar_pista(self):
         if self.pista_usada:
@@ -89,8 +147,12 @@ class Acertijo:
             print(self.pista)
             self.pista_usada = True
 
-    def resolver(self):
-        print('🎩 ACERTIJO 🪄')
+    def resolver(self, no_clear=False, n=0):
+        if not n:
+            print('🎩 ACERTIJO 🪄')
+        else:
+            print(f'🎩 ACERTIJO {n} de 2 🪄'.format(n))
+        print('🧱'*20)
         answer = ''
         while (not self.comprobar(answer)) and self.intentos > 0:
             answer = input(self.pregunta + '\n -> ')
@@ -99,20 +161,22 @@ class Acertijo:
                 if self.intentos > 0:
                     print("Respuesta incorrecta 😔, te quedan {} intentos".format(
                         self.intentos))
-                    print('Pista: ', self.pista)
+                    print('Pista 🐦‍: ', self.pista)
         if self.comprobar(answer):
-            clear()
-            print('%'*50)
+            if not no_clear:
+                clear()
+            print('🧱'*20)
             print("🎉 Respuesta correcta 🎉")
-            print('%'*50)
+            print('🧱'*20)
             time.sleep(1)
             self.resuelto = True
             return True
         else:
-            clear()
-            print('%'*50)
+            if not no_clear:
+                clear()
+            print('🧱'*20)
             print("💀 Respuesta incorrecta, perdiste una vida 💀")
-            print('%'*50)
+            print('🧱'*20)
             time.sleep(1)
             return False
 
@@ -164,12 +228,6 @@ class Mansion:
         # a la puerta de entrada
         puerta = Habitacion(0, 0, 'puerta')
 
-        # Se crea una habitación dulce en una posición aleatoria
-        dulce_fila = random.randint(1, n-1)
-        dulce_columna = random.randint(1, m-1)
-        # print('Dulce en: {}, {}'.format(dulce_fila, dulce_columna))
-        dulce = Habitacion(dulce_fila, dulce_columna, 'dulce')
-
         # TODO: Implementar la creación de las habitaciones fantasmas
 
         # Crear las habitaciones normales
@@ -193,12 +251,11 @@ class Mansion:
 
         dulce_fila = None
         dulce_columna = None
-        while dulce_fila is None or self.habitaciones[dulce_fila][dulce_columna].type != 'normal':
-            dulce_fila = random.randint(1, n-1)
-            dulce_columna = random.randint(1, m-1)
+        while dulce_fila is None or self.habitaciones[dulce_fila][dulce_columna].type != 'normal' or not (dulce_fila + dulce_columna):
+            dulce_fila = random.randint(0, n-1)
+            dulce_columna = random.randint(0, m-1)
+        dulce = Habitacion(dulce_fila, dulce_columna, 'dulce')
         # Colocar el dulce en la habitación correspondiente
-        # dulce_fila = 0
-        # dulce_columna = 1
         print('Dolce en: {}, {}'.format(dulce_fila, dulce_columna))
         self.habitaciones[dulce_fila][dulce_columna] = dulce
 
@@ -206,55 +263,43 @@ class Mansion:
 
         def mostrar_habitacion(habitacion):
             # Si el jugador está en la habitación, mostrarlo
-            if(habitacion.x == x and habitacion.y == y and jogando):
+            if habitacion.x == x and habitacion.y == y and jogando and habitacion.type != 'dulce':
+                # print(x, y)
                 str_hab = str(habitacion)
-                if(habitacion.solved != None):
-                    if(habitacion.solved):
+                if habitacion.solved != None:
+                    if habitacion.solved:
                         str_hab = '✅'
                     else:
                         str_hab = '❌'
                 return '👤' + ' ' + str_hab
-            elif(habitacion.solved and jogando):
+            elif habitacion.solved and jogando:
                 return '   ✅'
-            elif(habitacion.solved == False and jogando):
+            elif habitacion.solved == False and jogando:
                 return '   ❌'
             # Si no se ha terminado el juego y la habitación
             # es de tipo fantasma, entonces mostrar una habitación normal (en
             # caso que no se haya resulto la habitación)
             elif habitacion.type == 'dulce':
-                if not jogando:
+                if not jogando or DEBUG_MODE:
                     return '   🍭'
                 else:
                     return '   ⬜️'
-            elif habitacion.type == 'fantasma' and jogando:
-                if habitacion.solved == None:
-                    return '   ⬜️'
-                elif habitacion.solved:
-                    return '   ✅'
+            elif habitacion.type == 'fantasma':
+                if jogando and not DEBUG_MODE:
+                    if habitacion.solved == None:
+                        return '   ⬜️'
+                    elif habitacion.solved:
+                        return '   ✅'
+                    else:
+                        return '   ❌'
                 else:
-                    return '   ❌'
-            elif habitacion.x == x and habitacion.y == y:
-                return '👤' + ' ' + str(habitacion)
+                    return '   👻'
             else:
                 return '   ' + str(habitacion)
-
-        # def special_format(habitacion):
-        #     if habitacion.type == 'puerta':
-        #         return 'LA PUERTA'
-        #     elif habitacion.type == 'fantasma':
-        #         return 'HABITACIÓN FANTASMA'
-        #     elif habitacion.type == 'dulce':
-        #         return 'HABITACIÓN DULCE'
-        #     else:
-        #         return 'HABITACIÓN NORMAL'
 
         # Mostrar cada fila de la matriz
         for fila in self.habitaciones:
             print(' '.join([mostrar_habitacion(h) for h in fila]))
-
-        # Mostrar la posición del jugador
-        # print('Estás en: {}, {} ({})'.format(x, y,
-        #       special_format(habitacion=self.habitaciones[x][y])))
 
 
 class Juego:
@@ -276,10 +321,16 @@ class Juego:
 
     def mostrar(self):
         self.mansion.mostrar(self.x, self.y, self.jugando)
-        print('%'*50)
-        print('🎩 Score: {}'.format(self.score))
-        print('🍄 Vidas: {}'.format(self.vidas))
-        print('🗺️  Estás en: {}, {}'.format(self.x, self.y))
+        # print()
+        print('🧱'*20)
+        print('🎩   Puntaje: {0:.2f}'.format(self.get_real_score()))
+        print('🍄     Vidas: {}'.format(self.vidas))
+        print('🗺️   Estás en: ({}, {})'.format(self.x, self.y))
+        print('🥾     Pasos: {}'.format(self.steps))
+        print('🔑 Acertijos: {}'.format(len(self.resueltas)))
+
+    def get_real_score(self):
+        return (self.score / max(1, self.steps)) + self.vidas
 
     def mover(self, direccion):
         if direccion == 'N' or direccion == 'n':
@@ -288,9 +339,9 @@ class Juego:
                 self.steps += 1
             else:
                 clear()
-                print('%'*50)
+                print('🧱'*20)
                 print('🚫 No puedes ir hacia el norte 🚫')
-                print('%'*50)
+                print('🧱'*20)
                 time.sleep(1)
 
         elif direccion == 'S' or direccion == 's':
@@ -299,9 +350,9 @@ class Juego:
                 self.steps += 1
             else:
                 clear()
-                print('%'*50)
+                print('🧱'*20)
                 print('🚫 No puedes ir hacia el sur 🚫')
-                print('%'*50)
+                print('🧱'*20)
                 time.sleep(1)
 
         elif direccion == 'E' or direccion == 'e':
@@ -310,53 +361,67 @@ class Juego:
                 self.y += 1
             else:
                 clear()
-                print('%'*50)
+                print('🧱'*20)
                 print('🚫 No puedes ir hacia el este 🚫')
-                print('%'*50)
+                print('🧱'*20)
                 time.sleep(1)
 
-        elif direccion == 'O' or direccion == 'o':
+        elif direccion == 'W' or direccion == 'w':
             if self.y > 0:
                 self.steps += 1
                 self.y -= 1
             else:
                 clear()
-                print('%'*50)
+                print('🧱'*20)
                 print('🚫 No puedes ir hacia el oeste 🚫')
-                print('%'*50)
+                print('🧱'*20)
                 time.sleep(1)
 
         elif direccion == 'X' or direccion == 'x':
-            print('Sayonara 👋')
+            print('🎃 Hasta Luego 👋')
             self.jugando = False
         else:
             print('Dirección no válida')
 
     def jugar(self):
+        clear(force=True)
         while self.jugando:
             clear()
-            print('%'*50)
+            print('🧱'*20)
+            print('🧱'*4 + '🏚️  MANSIÓN ENCANTADA 🏚️' + '🧱'*5)
+            print('🧱'*20)
+            if(DEBUG_MODE):
+                print('🎃 MODO DEBUG 🐛')
+                print('🧱'*20)
             self.mostrar()
-            print('%'*50)
-            direccion = input('¿Hacia dónde quieres ir? (N, S, E, O) ' +
-                              '\n' + 'Presiona X para salir.' + '\n -> ')
+            print('🧱'*20)
+            options = ['N ↑', 'S ↓', 'E →', 'W ←']
+            if self.x == 0:
+                options.remove('N ↑')
+            if self.x == self.mansion.n-1:
+                options.remove('S ↓')
+            if self.y == 0:
+                options.remove('W ←')
+            if self.y == self.mansion.m-1:
+                options.remove('E →')
+            direccion = input(f'🧭 ¿Hacia dónde quieres ir? [{", ".join(options)}]' +
+                              '\n' + 'Presiona X para salir.' + '\n ↪ ')
             self.mover(direccion)
             habitacion = self.mansion.habitaciones[self.x][self.y]
             if habitacion.type == 'fantasma':
-                # if(habitacion.solved != None):
-                #     print('%'*50)
-                #     print('Ya resolviste este acertijo 🪄')
-                #     continue
+                if(habitacion.solved != None):
+                    continue
                 clear()
+                print('🧱'*20)
                 print('Has entrado en una habitación fantasma 👻')
                 print('Debes resolver 2 acertijos para poder salir 🪤')
-                print('%'*50)
+                print('🧱'*20)
                 n = random.randint(0, len(acertijos)-1)
                 while n in self.resueltas:
                     n = random.randint(0, len(acertijos)-1)
                 acertijo1 = Acertijo(
                     acertijos[n]['pregunta'], acertijos[n]['respuesta'], acertijos[n]['pista'])
-                if acertijo1.resolver():
+                if acertijo1.resolver(no_clear=True, n=1):
                     self.score += 50
                     self.resueltas.add(n)
                     n = random.randint(0, len(acertijos)-1)
@@ -364,7 +429,7 @@ class Juego:
                         n = random.randint(0, len(acertijos)-1)
                     acertijo2 = Acertijo(
                         acertijos[n]['pregunta'], acertijos[n]['respuesta'], acertijos[n]['pista'])
-                    if(acertijo2.resolver()):
+                    if(acertijo2.resolver(no_clear=True, n=2)):
                         self.resueltas.add(n)
                         self.score += 50
                         habitacion.resolver(True)
@@ -382,13 +447,14 @@ class Juego:
                         print('Has perdido todas las vidas')
                         self.jugando = False
             elif habitacion.type == 'dulce':
-                print('%'*50)
+                print('🧱'*20)
                 print('Ganaste el juego 🎉')
                 print('Tu score es: {0:.2f}'.format(
                     self.score / self.steps + self.vidas))
-                print('%'*50)
-                print('\nTABLERO INICIAL:')
+                print('🧱'*20)
+                print('TABLERO INICIAL 🏁')
                 self.mansion.mostrar(self.x, self.y, False)
+                print('🧱'*20)
                 habitacion.resolver(True)
                 self.jugando = False
                 break
@@ -399,13 +465,12 @@ class Juego:
                 pass
             else:
                 if(habitacion.solved != None):
-                    print('%'*50)
-                    print('Ya resolviste este acertijo 🪄')
                     continue
                 clear()
+                print('🧱'*20)
                 print('Has entrado en una habitación normal 🛖')
                 print('Debes resolver un acertijo para poder salir 🪤')
-                print('%'*50)
+                print('🧱'*20)
                 n = random.randint(0, len(acertijos)-1)
                 while n in self.resueltas:
                     n = random.randint(0, len(acertijos)-1)
@@ -422,12 +487,61 @@ class Juego:
                         print('Has perdido todas las vidas, el juego ha finalizado 😞')
                         self.jugando = False
 
+def mostrar_mensaje_bienvenida():
+    # Mostrar mensaje de bienvenida
+    clear(force=True)
+    print('🧱'*20)
+    print('🎃 Bienvenido a la mansión encantada 🎃')
+    print('🧱'*20,end="")
+    print("""
+🧙🏽 Sinopsis:
+Acabas de entrar en una mansión encantada, la cuál consiste en una serie
+de habitaciones. En cada habitación hay un acertijo que debes resolver
+para poder pasar a la siguiente. Si resuelves el acertijo, ganas 50 puntos,
+pero si no lo resuelves, pierdes una vida. Si pierdes todas las vidas,
+pierdes el juego. Si logras encontrar el dulce, ganas el juego.
+🧟 ¡Ten cuidado! Hay habitaciones fantasmas, las cuales tienen 2 acertijos
+que debes resolver para poder salir. Si no los resuelves, pierdes una vida.
+🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
+🎩 Cómo se calcula el puntaje:
+El puntaje se calcula de la siguiente manera:
+(puntaje / pasos) + vidas, por lo que es importante resolver los acertijos
+en la menor cantidad de pasos posibles y con la mayor cantidad de vidas.
+🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
+📝 Controles:
+Para moverte, debes escribir la dirección hacia donde quieres ir:
+N -> Norte
+S -> Sur
+E -> Este
+W -> Oeste
+
+Para salir del juego, debes escribir X
+🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
+🔮 Para tener en cuenta:
+  - Si resuelves un acertijo, puedes volver a entrar en la habitación
+  pero ya no habrá acertijo y te aumentará el número de pasos.
+  - No debes preocuparte por acentos, signos de puntuación o
+  mayúsculas/minúsculas en las respuestas, ya que el juego se encarga
+  de validar eso. Por ejemplo, si la respuesta es "El perro", entonces
+  puedes escribir "el perro", "El Perro", "perro", etc.
+  - Si quieres ver el tablero completo, puedes cambiar el valor de la
+  variable DEBUG_MODE a True.
+🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱🧱
+🧛 ¡Mucha suerte! Presiona cualquier tecla para comenzar 🪄
+""")
+    input(" ↪ ")
+
+
 
 def main():
     # Crear la mansión
     mansion = Mansion()
-    # mansion.mostrar()
+    # Mostrar mensaje de bienvenida
+    if not DEBUG_MODE:
+        mostrar_mensaje_bienvenida()
+    # Crear el juego
     juego = Juego(mansion)
+    # Jugar
     juego.jugar()
 
 
