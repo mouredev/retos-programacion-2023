@@ -1,6 +1,5 @@
 open System
 
-
 type Coordenada = {
     Fila: int
     Columna: int
@@ -28,7 +27,6 @@ let generarFantasma =
 
 let construirCasa =
     let casa = Array2D.zeroCreate 4 4
-    let rnd = Random()
     for col in 0 .. 3 do
         for fila in 0 .. 3 do
             casa[col, fila] <- { Posicion = { Fila = fila; Columna = col }; Tipo = VACIO }
@@ -45,13 +43,31 @@ let mostrarCasa (casa: Habitacion[,]) =
         printfn ""
 
 let entrarHabitacion (casa: Habitacion[,]) (posicion: Coordenada) =
-    let habitacion = casa.[posicion.Columna, posicion.Fila]
-    match habitacion.Tipo with
-    | PUERTA -> printfn "Entrando a la casa"
-    | VACIO -> printfn "Habitacion vacia"
-    | FANTASMA -> printfn "Fantasma"
-    | DULCE -> printfn "Dulce"
-    | USUARIO -> printfn "Usuario"
+    let habitacion: Habitacion = casa.[posicion.Columna, posicion.Fila]
+    let hayFantasma = generarFantasma
+    if hayFantasma then
+        casa[posicion.Columna, posicion.Fila] <- { Posicion = posicion; Tipo = FANTASMA }
+    else
+        printfn "No hay fantasma"
+    let hasTerminado =
+        match habitacion.Tipo with
+        | PUERTA ->             
+            printfn "Has salido de la casa"
+            false
+        | VACIO -> 
+            printfn "No hay nada en esta habitacion. Responde la pregunta para continuar"
+            casa[posicion.Columna, posicion.Fila] <- { Posicion = posicion; Tipo = USUARIO }
+            false
+        | FANTASMA -> 
+            printfn "Has encontrado un fantasma"
+            false
+        | DULCE -> 
+            printfn "Has encontrado un dulce"
+            true
+        | USUARIO -> 
+            printfn "Ya estas en esta habitacion"
+            false
+    hasTerminado
 
 let rec leerDireccion() =
     printfn "Elige una direccion: norte, sur, este, oeste"
@@ -64,10 +80,15 @@ let rec leerDireccion() =
     | _ -> leerDireccion()
 
 let rec moverUsuario (casa: Habitacion[,]) (usuario: Coordenada) =
-    let direccion = leerDireccion()
+    let direccion = leerDireccion()   
     let nuevoUsuario = { Posicion = { Fila = usuario.Fila + direccion.Fila; Columna = usuario.Columna + direccion.Columna }; Tipo = USUARIO }
-    let nuevaCasa = Array2D.copy casa
-    nuevaCasa[usuario.Columna, usuario.Fila] <- nuevoUsuario
+    let fin = entrarHabitacion casa nuevoUsuario.Posicion
+    if not fin then
+        moverUsuario casa nuevoUsuario.Posicion
+    else
+        printfn "Has terminado el juego"
 
 let casa = construirCasa
 mostrarCasa casa
+moverUsuario casa { Fila = 0; Columna = 0 }
+
