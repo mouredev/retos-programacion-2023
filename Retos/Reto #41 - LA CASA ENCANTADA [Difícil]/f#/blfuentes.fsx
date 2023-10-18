@@ -12,13 +12,17 @@ type Habitacion = {
     Tipo: TipoHabitacion
 }
 
+Console.OutputEncoding <- System.Text.Encoding.UTF8
+
 let pintarASCII (hab: TipoHabitacion) =
+    let characterWidth = 2 // Adjust the width as needed
+
     match hab with
-    | PUERTA -> "P"
-    | VACIO -> " "
-    | FANTASMA -> "F"
-    | DULCE -> "D"
-    | USUARIO -> "U"
+    | PUERTA -> sprintf "%-*s" characterWidth "🚪"
+    | VACIO -> sprintf "%-*s" characterWidth "▒▒"
+    | FANTASMA -> sprintf "%-*s" characterWidth "👻"
+    | DULCE -> sprintf "%-*s" characterWidth "🍬"
+    | USUARIO -> sprintf "%-*s" characterWidth "😀"
 
 let generarFantasma =
     let numCheck = Random().Next(0, 9)
@@ -39,16 +43,16 @@ let construirCasa =
 let mostrarCasa (casa: Habitacion[,]) = 
     for col in 0 .. 3 do
         for fila in 0 .. 3 do
-            printf "%A" (pintarASCII casa[col, fila].Tipo)
+            printf "%s" (pintarASCII casa[col, fila].Tipo)
         printfn ""
 
 let entrarHabitacion (casa: Habitacion[,]) (posicion: Coordenada) =
-    let habitacion: Habitacion = casa.[posicion.Columna, posicion.Fila]
     let hayFantasma = generarFantasma
     if hayFantasma then
         casa[posicion.Columna, posicion.Fila] <- { Posicion = posicion; Tipo = FANTASMA }
     else
         printfn "No hay fantasma"
+    let habitacion: Habitacion = casa.[posicion.Columna, posicion.Fila]
     let hasTerminado =
         match habitacion.Tipo with
         | PUERTA ->             
@@ -69,26 +73,37 @@ let entrarHabitacion (casa: Habitacion[,]) (posicion: Coordenada) =
             false
     hasTerminado
 
-let rec leerDireccion() =
+let rec leerDireccion(usuario: Coordenada) =
     printfn "Elige una direccion: norte, sur, este, oeste"
     let direccion = Console.ReadLine()
-    match direccion with
-    | "norte" -> { Fila = -1; Columna = 0 }
-    | "sur" -> { Fila = 1; Columna = 0 }
-    | "este" -> { Fila = 0; Columna = 1 }
-    | "oeste" -> { Fila = 0; Columna = -1 }
-    | _ -> leerDireccion()
+    let coordinate =
+        match direccion with
+        | "norte" -> { Fila = 0; Columna = -1 }
+        | "sur" -> { Fila = 0; Columna = 1 }
+        | "este" -> { Fila = 1; Columna =0 }
+        | "oeste" -> { Fila = -1; Columna = 0 }
+        | _ -> leerDireccion(usuario)
+    let nuevaPosicion = { Fila = usuario.Fila + coordinate.Fila; Columna = usuario.Columna + coordinate.Columna }
+    if nuevaPosicion.Fila < 0 || nuevaPosicion.Fila > 3 || nuevaPosicion.Columna < 0 || nuevaPosicion.Columna > 3 then
+        printfn "No puedes salir de la casa"
+        leerDireccion(usuario)
+    else
+        coordinate
 
-let rec moverUsuario (casa: Habitacion[,]) (usuario: Coordenada) =
-    let direccion = leerDireccion()   
+
+let rec moverUsuario (casaMemo: Habitacion[,]) (casa: Habitacion[,]) (usuario: Coordenada) =
+    let direccion = leerDireccion(usuario)   
     let nuevoUsuario = { Posicion = { Fila = usuario.Fila + direccion.Fila; Columna = usuario.Columna + direccion.Columna }; Tipo = USUARIO }
+    let memoEstado: Habitacion = casaMemo.[usuario.Columna, usuario.Fila]
     let fin = entrarHabitacion casa nuevoUsuario.Posicion
+    casa[usuario.Columna, usuario.Fila] <- memoEstado
     if not fin then
-        moverUsuario casa nuevoUsuario.Posicion
+        mostrarCasa casa
+        moverUsuario casaMemo casa nuevoUsuario.Posicion
     else
         printfn "Has terminado el juego"
 
 let casa = construirCasa
+let casaMemo = Array2D.copy casa
 mostrarCasa casa
-moverUsuario casa { Fila = 0; Columna = 0 }
-
+moverUsuario casaMemo casa { Fila = 0; Columna = 0 }
