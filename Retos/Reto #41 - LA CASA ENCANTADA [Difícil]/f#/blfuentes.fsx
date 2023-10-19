@@ -42,7 +42,7 @@ let pintarASCII (hab: TipoHabitacion) =
 
 let generarFantasma() =
     let numCheck = Random().Next(0, 9)
-    numCheck >= 5
+    numCheck = 5
 
 let construirCasa() =
     let casa = Array2D.zeroCreate 4 4
