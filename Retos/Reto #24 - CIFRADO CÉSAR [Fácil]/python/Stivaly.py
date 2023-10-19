@@ -9,7 +9,7 @@ while True:
     if opcion == 1:
         # Solicitamos la clave para realizar la encriptación y la frase que vamos a encriptar
             key = int(input("Ingresa clave del 0 al 25"))
-            phrase = input("Ingresa la palabra que deseas cifrar").replace(" ","")
+            phrase = input("Ingresa la palabra que deseas cifrar").replace(" ","").upper()
             # Movilizamos la posición de los indices de la lista dinamica
             cesar_roulette = cesar_roulette[-key:] + cesar_roulette[:-key]
             encrypt = ""
