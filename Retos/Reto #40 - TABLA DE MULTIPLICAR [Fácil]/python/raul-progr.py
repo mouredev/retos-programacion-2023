@@ -1,4 +1,5 @@
 
+
 entero = int(input("Introduce un numero del 1 al 11 para hacer una tabla de multiplicar:  "))
 if entero <= 11:
     for i in range(1 , 11):
