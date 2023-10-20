@@ -46,9 +46,9 @@ let generarFantasma() =
 
 let construirCasa() =
     let casa = Array2D.zeroCreate 4 4
-    for col in 0 .. 3 do
-        for fila in 0 .. 3 do
-            casa[col, fila] <- { Posicion = { Fila = fila; Columna = col }; Tipo = VACIO }
+    for fila in 0 .. 3 do
+        for col in 0 .. 3 do
+            casa[fila, col] <- { Posicion = { Fila = fila; Columna = col }; Tipo = VACIO }
     let puerta = { Posicion = { Fila = 0; Columna = 0 }; Tipo = PUERTA }
     casa[0, 0] <- puerta
     let dulce = { Posicion = { Fila = 3; Columna = 2 }; Tipo = DULCE }
@@ -56,9 +56,9 @@ let construirCasa() =
     casa
 
 let mostrarCasa (casa: Habitacion[,]) = 
-    for col in 0 .. 3 do
-        for fila in 0 .. 3 do
-            printf "%s" (pintarASCII casa[col, fila].Tipo)
+    for fila in 0 .. 3 do
+        for col in 0 .. 3 do
+            printf "%s" (pintarASCII casa[fila, col].Tipo)
         printfn ""
 
 let rec resolverPregunta() =
@@ -73,12 +73,12 @@ let rec resolverPregunta() =
 
 
 let entrarHabitacion (casa: Habitacion[,]) (posicion: Coordenada) =
-    let habitacion: Habitacion = casa.[posicion.Columna, posicion.Fila]
+    let habitacion: Habitacion = casa.[posicion.Fila, posicion.Columna]
 
     let habitacionOcupada =
         if habitacion.Tipo = TipoHabitacion.VACIO then            
-            casa[posicion.Columna, posicion.Fila] <- { Posicion = posicion; Tipo = if generarFantasma() then FANTASMA else VACIO }
-            casa[posicion.Columna, posicion.Fila]
+            casa[posicion.Fila, posicion.Columna] <- { Posicion = posicion; Tipo = if generarFantasma() then FANTASMA else VACIO }
+            casa[posicion.Fila, posicion.Columna]
         else
             habitacion
 
@@ -89,7 +89,7 @@ let entrarHabitacion (casa: Habitacion[,]) (posicion: Coordenada) =
             false
         | VACIO -> 
             printfn "No hay nada en esta habitacion. Responde la pregunta para continuar"
-            casa[posicion.Columna, posicion.Fila] <- { Posicion = posicion; Tipo = USUARIO }
+            casa[posicion.Fila, posicion.Columna] <- { Posicion = posicion; Tipo = USUARIO }
             resolverPregunta()
             false
         | FANTASMA -> 
@@ -98,12 +98,12 @@ let entrarHabitacion (casa: Habitacion[,]) (posicion: Coordenada) =
             resolverPregunta()
             printfn "1 de 2...Veamos la segunda."
             resolverPregunta()
-            casa[posicion.Columna, posicion.Fila] <- { Posicion = posicion; Tipo = USUARIO }
+            casa[posicion.Fila, posicion.Columna] <- { Posicion = posicion; Tipo = USUARIO }
             false
         | DULCE -> 
             printfn "Has encontrado un dulce"
             printConColor "Has ganado el juego!" ConsoleColor.DarkMagenta
-            casa[posicion.Columna, posicion.Fila] <- { Posicion = posicion; Tipo = USUARIO }
+            casa[posicion.Fila, posicion.Columna] <- { Posicion = posicion; Tipo = USUARIO }
             true
         | USUARIO -> 
             printfn "Ya estas en esta habitacion."
@@ -114,10 +114,10 @@ let rec leerDireccion(usuario: Coordenada) =
     let direccion = leerEntradaValida "Elige una dirección." [|"norte"; "sur"; "este"; "oeste"|]
     let coordinate =
         match direccion with
-        | "norte" -> { Fila = 0; Columna = -1 }
-        | "sur" -> { Fila = 0; Columna = 1 }
-        | "este" -> { Fila = 1; Columna =0 }
-        | "oeste" -> { Fila = -1; Columna = 0 }
+        | "norte" -> { Fila = -1; Columna = 0 }
+        | "sur" -> { Fila = 1; Columna = 0 }
+        | "este" -> { Fila = 0; Columna = 1 }
+        | "oeste" -> { Fila = 0; Columna = -1 }
         | _ -> leerDireccion(usuario)
     let nuevaPosicion = { Fila = usuario.Fila + coordinate.Fila; Columna = usuario.Columna + coordinate.Columna }
     if nuevaPosicion.Fila < 0 || nuevaPosicion.Fila > 3 || nuevaPosicion.Columna < 0 || nuevaPosicion.Columna > 3 then
@@ -129,9 +129,9 @@ let rec leerDireccion(usuario: Coordenada) =
 let rec moverUsuario (casaMemo: Habitacion[,]) (casa: Habitacion[,]) (usuario: Coordenada) =
     let direccion = leerDireccion(usuario)   
     let nuevoUsuario = { Posicion = { Fila = usuario.Fila + direccion.Fila; Columna = usuario.Columna + direccion.Columna }; Tipo = USUARIO }
-    let memoEstado: Habitacion = casaMemo.[usuario.Columna, usuario.Fila]
+    let memoEstado: Habitacion = casaMemo.[usuario.Fila, usuario.Columna]
     let fin = entrarHabitacion casa nuevoUsuario.Posicion
-    casa[usuario.Columna, usuario.Fila] <- memoEstado
+    casa[usuario.Fila, usuario.Columna] <- memoEstado
     if not fin then
         mostrarCasa casa
         moverUsuario casaMemo casa nuevoUsuario.Posicion
