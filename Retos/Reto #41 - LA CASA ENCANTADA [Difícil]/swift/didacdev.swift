@@ -1,6 +1,7 @@
 import Foundation
 
 //---------------- Variables ---------------------------
+
 let riddles = [
     ("Si me tumbas, soy todo. Si me cortas por la cintura, me quedo en nada. ¿Qué soy?", "ocho"),
     ("¿Cuántos ladrillos se necesitan para completar un edificio hecho de ladrillos?", "uno"),
@@ -344,7 +345,6 @@ func goWest(room: (Int, Int)) -> (Int, Int) {
 
 func startGame() {
     setHouse()
-    printHouse()
     var actualRoom: (Int, Int) = getStart()
     let endRoom: (Int, Int) = getEnd()
     
@@ -452,31 +452,5 @@ func startGame() {
 }
 
 
-
-
-// Pruebas
-
 startGame()
 
-func printHouse() {
-    for row in house {
-        
-        var characters: String = ""
-        
-        for col in row {
-            if col is UsualRoom {
-                characters += "⬜️"
-            } else if col is GhostRoom {
-                characters += "👻"
-            } else if col is DoorRoom {
-                characters += "🚪"
-            } else {
-                characters += "🍭"
-            }
-        }
-        
-        print(characters)
-        characters = ""
-        
-    }
-}
