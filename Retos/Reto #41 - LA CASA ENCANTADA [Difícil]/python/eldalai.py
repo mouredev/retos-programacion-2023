@@ -11,6 +11,10 @@ class Door(Cell):
     ...
 
 
+class Candy(Cell):
+    ...
+
+
 class House:
     def __init__(self):
         door_pos_row = random.randint(0, 3)
@@ -32,6 +36,12 @@ class TestDoor(unittest.TestCase):
     def test_init(self):
         door = Door()
         self.assertIsNotNone(door)
+
+
+class TestCandy(unittest.TestCase):
+    def test_init(self):
+        candy = Candy()
+        self.assertIsNotNone(candy)
 
 
 class TestCell(unittest.TestCase):
