@@ -9,7 +9,7 @@
 """
 
 def FizzBuzz(num : int) -> str:
-    if (num %3)and(num %5==0):
+    if (num %3==0)and(num %5==0):
         return "fizzbuzz"
     elif(num % 3 == 0):
         return "fizz"

@@ -55,9 +55,12 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#35** - 28/09/23 | Fácil | [`PRIMEROS PASOS`](./Retos/Reto%20%2335%20-%20PRIMEROS%20PASOS%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2335%20-%20PRIMEROS%20PASOS%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2335%20-%20PRIMEROS%20PASOS%20%5BFácil%5D/)]
 * **#36** - 04/09/23 | Media | [`PERMUTACIONES`](./Retos/Reto%20%2336%20-%20PERMUTACIONES%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2336%20-%20PERMUTACIONES%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2336%20-%20PERMUTACIONES%20%5BMedia%5D/)]
 * **#37** - 18/09/23 | Media | [`COLORES HEX Y RGB`](./Retos/Reto%20%2337%20-%20COLORES%20HEX%20Y%20RGB%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2337%20-%20COLORES%20HEX%20Y%20RGB%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2337%20-%20COLORES%20HEX%20Y%20RGB%20%5BMedia%5D/)]
-* **#38** - 25/19/23 | Media | [`LAS SUMAS`](./Retos/Reto%20%2338%20-%20LAS%20SUMAS%20%5BMedia%5D/ejercicio.md) | Último reto publicado
+* **#38** - 25/09/23 | Media | [`LAS SUMAS`](./Retos/Reto%20%2338%20-%20LAS%20SUMAS%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2338%20-%20LAS%20SUMAS%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2338%20-%20LAS%20SUMAS%20%5BMedia%5D/)]
+* **#39** - 02/10/23 | Media | [`TRIPLES PITAGÓRICOS`](./Retos/Reto%20%2339%20-%20TRIPLES%20PITAGÓRICOS%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2339%20-%20TRIPLES%20PITAGÓRICOS%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2339%20-%20TRIPLES%20PITAGÓRICOS%20%5BMedia%5D/)]
+* **#40** - 09/10/23 | Fácil | [`TABLA DE MULTIPLICAR`](./Retos/Reto%20%2340%20-%20TABLA%20DE%20MULTIPLICAR%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2340%20-%20TABLA%20DE%20MULTIPLICAR%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2340%20-%20TABLA%20DE%20MULTIPLICAR%20%5BFácil%5D/)]
+* **#41** - 16/10/23 | Difícil | [`LA CASA ENCANTADA`](./Retos/Reto%20%2341%20-%20LA%20CASA%20ENCANTADA%20%5BDifícil%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 02/10/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1155775413457539082) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 23/10/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1163426241689427998) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
