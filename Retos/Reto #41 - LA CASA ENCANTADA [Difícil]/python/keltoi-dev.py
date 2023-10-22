@@ -35,7 +35,6 @@ def dibuja_pantalla(screen):
 # Estipula la posicion de los fantasmas y salida aleatoriamente
 def aleatorio(fantasma1, fantasma2, salida):
     salida = random.randint(1, 15)
-    print(salida)
     while True:
         fantasma1 = random.randint(1,15)
         if fantasma1 != salida:
@@ -54,7 +53,9 @@ def pregunta():
         print(preg_rta[sortea_pregunta][0])
         repuesta = input()
         if preg_rta[sortea_pregunta][1] == repuesta.lower():
-            break   
+            print("Has contestado correctamente")
+            break  
+        print("Has contestado mal, vuelve a intentarlo") 
     return 
 
 # Hace el movimiento por la mansion
@@ -73,9 +74,9 @@ def movimiento(pos):
         if pos == 3 or pos == 7 or pos == 11 or pos == 15:
             este = "--"
 
-        print(f"Hacia donde te quieres mover? ({norte}, {este}, {oeste} o {sur})")
+        print(f"Hacia donde te quieres mover? ({norte}, {este}, {oeste}, {sur} o salida)")
         preg_movimiento = input()
-        if preg_movimiento.lower() == norte or preg_movimiento.lower() == sur or preg_movimiento.lower() == este or preg_movimiento.lower() == oeste:
+        if preg_movimiento.lower() == norte or preg_movimiento.lower() == sur or preg_movimiento.lower() == este or preg_movimiento.lower() == oeste or preg_movimiento.lower() == "salida":
     
             if preg_movimiento.lower() == "norte":
                 posicion = pos - 4
@@ -92,7 +93,8 @@ def movimiento(pos):
             elif preg_movimiento.lower() == "este":
                 posicion = pos + 1
                 return posicion
-        
+            elif preg_movimiento.lower() == "salida":
+                exit()
         else:
             posicion = pos
             print("Se ha ingresado un dato erroneo")
@@ -111,6 +113,7 @@ while pos_nueva != salida:
     if pos_nueva == fantasma1 or pos_nueva == fantasma2:
         screen[x][y] = "👻"
         dibuja_pantalla(screen)
+        print("Te has encontrado un fantasma, desbes responder dos preguntas")
         pregunta()
         pregunta()
     else:
