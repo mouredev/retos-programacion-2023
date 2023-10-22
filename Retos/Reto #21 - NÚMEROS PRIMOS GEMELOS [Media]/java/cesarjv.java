@@ -18,7 +18,8 @@ import java.util.stream.IntStream;
  */
 public class cesarjv {
     public static void main(String[] args) {
-        List<Integer> primeNumbers = IntStream.range(2, 14).filter(App::isPrimeStream).boxed().toList();
+        Integer num=14;
+        List<Integer> primeNumbers = IntStream.range(2, num).filter(App::isPrimeStream).boxed().toList();
         Map<Integer,Integer> res=new HashMap<>();
         int comparisonValue=primeNumbers.get(0);
         for(Integer x: primeNumbers){
