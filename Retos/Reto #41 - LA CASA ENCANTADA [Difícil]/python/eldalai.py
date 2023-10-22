@@ -15,6 +15,10 @@ class Candy(Cell):
     ...
 
 
+class Ghost(Cell):
+    ...
+
+
 class House:
     def __init__(self):
         self.setup_special_cells()
@@ -60,6 +64,12 @@ class TestCandy(unittest.TestCase):
     def test_init(self):
         candy = Candy()
         self.assertIsNotNone(candy)
+
+
+class TestGhost(unittest.TestCase):
+    def test_init(self):
+        ghost = Ghost()
+        self.assertIsNotNone(ghost)
 
 
 class TestCell(unittest.TestCase):
