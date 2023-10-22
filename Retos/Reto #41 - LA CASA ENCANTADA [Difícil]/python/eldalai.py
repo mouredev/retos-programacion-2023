@@ -1,5 +1,8 @@
 import unittest
 
+class Cell:
+    ...
+
 class House:
     def __init__(self):
         self.cells = [
@@ -8,6 +11,12 @@ class House:
             ]
             for _ in range(4)
         ]
+
+class TestCell(unittest.TestCase):
+    def test_init(self):
+        cell = Cell()
+        self.assertIsNotNone(cell)
+
 
 class TestHouse(unittest.TestCase):
 
