@@ -4,11 +4,13 @@ import random
 
 
 class Cell:
-    ...
+    def __init__(self):
+        self.visile = False
 
 
 class Door(Cell):
-    ...
+    def __init__(self):
+        self.visile = True
 
 
 class Candy(Cell):
@@ -61,24 +63,28 @@ class TestDoor(unittest.TestCase):
     def test_init(self):
         door = Door()
         self.assertIsNotNone(door)
+        self.assertTrue(door.visile)
 
 
 class TestCandy(unittest.TestCase):
     def test_init(self):
         candy = Candy()
         self.assertIsNotNone(candy)
+        self.assertFalse(candy.visile)
 
 
 class TestGhost(unittest.TestCase):
     def test_init(self):
         ghost = Ghost()
         self.assertIsNotNone(ghost)
+        self.assertFalse(ghost.visile)
 
 
 class TestCell(unittest.TestCase):
     def test_init(self):
         cell = Cell()
         self.assertIsNotNone(cell)
+        self.assertFalse(cell.visile)
 
 
 class TestHouse(unittest.TestCase):
