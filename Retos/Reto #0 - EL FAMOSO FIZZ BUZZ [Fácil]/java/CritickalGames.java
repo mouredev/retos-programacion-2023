@@ -2,7 +2,12 @@
 public class CritickalGames {
 	public static void main(String args []) 
 	{
-		for(int i=1; i<=100; i++) 
+		CritickalGames objCGames = new CritickalGames();
+		objCGames.retoFizzBuzz(100);
+	}
+	
+	void retoFizzBuzz(int RANGO) {
+		for(int i=1; i<=RANGO; i++) 
 		{
 			int multiplo= 0;
 			if(i%3==0) 
