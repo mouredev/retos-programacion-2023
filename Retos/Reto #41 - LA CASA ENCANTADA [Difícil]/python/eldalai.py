@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, call
 import random
 
 
@@ -15,20 +15,91 @@ class Door(Cell):
     def __str__(self):
         return "🚪"
 
+    def enter(self):
+        print('Pregunta')
+        return False
+
+questions_answers = [
+    (
+        '¿Cuál es el animal terrestre más grande del mundo? ',
+        'elefante'
+    ),
+    (
+        '¿Qué animal es conocido como el "Rey de la Selva"? ',
+        'leon'
+    ),
+    (
+        '¿Cuál es el único mamífero capaz de volar? ',
+        'murcielago'
+    ),
+    (
+        '¿Qué animal es famoso por su franja negra y blanca y es originario de China? ',
+        'panda'
+    ),
+    (
+        '¿Qué animal es conocido por cambiar de color para camuflarse en su entorno? ',
+        'camaleon'
+    ),
+    (
+        '¿Cuál es el animal más rápido del mundo? ',
+        'guepardo'
+    ),
+    (
+        '¿Qué animal es famoso por regenerar sus extremidades si se cortan? ',
+        'estrella'
+    ),
+    (
+        '¿Cuál es el animal mamífero más grande del océano? ',
+        'ballena'
+    ),
+    (
+        '¿Cuál es el ave que no puede volar y es conocida por ser un excelente nadador? ',
+        'pingüino'
+    ),
+    (
+        '¿Qué animal es el símbolo de la longevidad en la cultura china? ',
+        'tortuga'
+    )
+]
+
+def question():
+    question, answer = random.choice(questions_answers)
+    while True:
+        user_answer = input(question)
+        if answer != user_answer:
+            print('mal! trampa [' + answer + ']')
+        else:
+            break
 
 class Enigma(Cell):
     def __str__(self):
         return "❓" if self.visile else "⬜️"
 
+    def enter(self):
+        print('Pregunta')
+        question()
+        self.visile = True
+        return False
 
 class Candy(Cell):
     def __str__(self):
         return "🍭" if self.visile else "⬜️"
 
+    def enter(self):
+        print('Candy!!')
+        self.visile = True
+        return True
+
 
 class Ghost(Cell):
     def __str__(self):
         return "👻" if self.visile else "⬜️"
+
+    def enter(self):
+        print('Fantasma, 2 Preguntas!')
+        question()
+        self.visile = True
+        return False
 
 
 class House:
@@ -84,6 +155,46 @@ class House:
         self.special_cells[
             (candy_pos_row, candy_pos_col)
         ] = Candy()
+
+    def move(self):
+        while True:
+            direction = input("en que direccion quiere ir (N/S/E/O)")
+            if direction == "N":
+                if self.player_row == 0:
+                    print('estas saliendo del tablero')
+                else:
+                    self.player_row -= 1
+                    break
+            if direction == "S":
+                if self.player_row == 3:
+                    print('estas saliendo del tablero')
+                else:
+                    self.player_row += 1
+                    break
+            if direction == "E":
+                if self.player_col == 0:
+                    print('estas saliendo del tablero')
+                else:
+                    self.player_col -= 1
+                    break
+            if direction == "O":
+                if self.player_col == 3:
+                    print('estas saliendo del tablero')
+                else:
+                    self.player_col += 1
+                    break
+
+    def enter_cell(self):
+        return self.cells[self.player_row][self.player_col].enter()
+
+
+def main():
+    house = House()
+    game_over = False
+    while not game_over:
+        print(house)
+        house.move()
+        game_over = house.enter_cell()
 
 
 class TestDoor(unittest.TestCase):
@@ -268,5 +379,134 @@ class TestHouse(unittest.TestCase):
             )
         )
 
+    @patch('builtins.print')
+    @patch('builtins.input', return_value = 'N')
+    @patch('random.randint', side_effect=[
+        2, 3,  # house
+        3, 1,  # candy
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
+    def test_move_N(self, randint_patched, input_patched, print_patched):
+        house = House()
+        house.move()
+        self.assertEqual(
+            house.player_row,
+            1,
+        )
+        print_patched.assert_not_called()
+        input_patched.assert_called_once()
+
+
+    @patch('builtins.print')
+    @patch('builtins.input', side_effect = ['N', 'S'])
+    @patch('random.randint', side_effect=[
+        0, 3,  # house
+        3, 1,  # candy
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
+    def test_move_N_error(self, randint_patched, input_patched, print_patched):
+        house = House()
+        house.move()
+        self.assertEqual(
+            house.player_row,
+            1,
+        )
+        self.assertEqual(
+            input_patched.call_count,
+            2,
+        )
+        self.assertEqual(
+            print_patched.call_args_list,
+            [
+                call('estas saliendo del tablero'),
+            ]
+        )
+
+    @patch('builtins.print')
+    @patch('builtins.input', return_value = 'S')
+    @patch('random.randint', side_effect=[
+        2, 3,  # house
+        3, 1,  # candy
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
+    def test_move_S(self, randint_patched, input_patched, print_patched):
+        house = House()
+        house.move()
+        self.assertEqual(
+            house.player_row,
+            3,
+        )
+        print_patched.assert_not_called()
+        input_patched.assert_called_once()
+
+
+    @patch('builtins.print')
+    @patch('builtins.input', side_effect = ['S', 'N'])
+    @patch('random.randint', side_effect=[
+        3, 3,  # house
+        3, 1,  # candy
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
+    def test_move_S_error(self, randint_patched, input_patched, print_patched):
+        house = House()
+        house.move()
+        self.assertEqual(
+            house.player_row,
+            2,
+        )
+        self.assertEqual(
+            input_patched.call_count,
+            2,
+        )
+        self.assertEqual(
+            print_patched.call_args_list,
+            [
+                call('estas saliendo del tablero'),
+            ]
+        )
+
+    @patch('builtins.print')
+    @patch('builtins.input', return_value = 'E')
+    @patch('random.randint', side_effect=[
+        2, 3,  # house
+        3, 1,  # candy
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
+    def test_move_E(self, randint_patched, input_patched, print_patched):
+        house = House()
+        house.move()
+        self.assertEqual(
+            house.player_col,
+            2,
+        )
+        print_patched.assert_not_called()
+        input_patched.assert_called_once()
+
+
+    @patch('builtins.print')
+    @patch('builtins.input', side_effect = ['E', 'O'])
+    @patch('random.randint', side_effect=[
+        3, 0,  # house
+        3, 1,  # candy
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
+    def test_move_E_error(self, randint_patched, input_patched, print_patched):
+        house = House()
+        house.move()
+        self.assertEqual(
+            house.player_col,
+            1,
+        )
+        self.assertEqual(
+            input_patched.call_count,
+            2,
+        )
+        self.assertEqual(
+            print_patched.call_args_list,
+            [
+                call('estas saliendo del tablero'),
+            ]
+        )
+
 if __name__ == '__main__':
-    unittest.main()
+    main()
