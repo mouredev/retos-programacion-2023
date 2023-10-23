@@ -34,7 +34,10 @@ class House:
         if (row_index, col_index,) in self.special_cells:
             return self.special_cells[(row_index, col_index,)]
         else:
-            return None
+            if random.randint(1, 10) == 1:
+                return Ghost()
+            else:
+                return None
 
     def setup_special_cells(self):
         self.special_cells = {
@@ -86,7 +89,10 @@ class TestHouse(unittest.TestCase):
         for room_index in range(4):
             self.assertEqual(len(house.cells[room_index]), 4)
 
-    @patch('random.randint', side_effect=[2, 3, 3, 1])
+    @patch('random.randint', side_effect=[
+        2, 3, 3, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
     def test_door_pos(self, randint_patched):
         house = House()
         self.assertIsInstance(
@@ -98,6 +104,7 @@ class TestHouse(unittest.TestCase):
         2, 3,  # house
         2, 3,  # candy
         3, 1,  # candy
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
     ])
     def test_candy_pos(self, randint_patched):
         house = House()
@@ -108,6 +115,34 @@ class TestHouse(unittest.TestCase):
         self.assertIsInstance(
             house.cells[3][1],
             Candy,
+        )
+
+
+    @patch('random.randint', side_effect=[
+        2, 3,  # house
+        3, 1,  # candy
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
+    def test_ghosts_pos(self, randint_patched):
+        house = House()
+        self.assertIsInstance(
+            house.cells[2][3],
+            Door,
+        )
+        self.assertIsInstance(
+            house.cells[3][1],
+            Candy,
+        )
+        self.assertIsNone(
+            house.cells[0][0]
+        )
+        self.assertIsInstance(
+            house.cells[0][1],
+            Ghost,
+        )
+        self.assertIsInstance(
+            house.cells[3][3],
+            Ghost,
         )
 
 
