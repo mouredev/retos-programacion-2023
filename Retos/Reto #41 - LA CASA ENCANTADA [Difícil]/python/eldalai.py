@@ -44,9 +44,15 @@ class House:
 
     def __str__(self):
         output = ""
-        for row in self.cells:
-            for item in row:
-                output += str(item)
+        for row_index, row in enumerate(self.cells):
+            for col_index, item in enumerate(row):
+                if (
+                    row_index == self.player_row and
+                    col_index == self.player_col
+                ):
+                    output += "😐"
+                else:
+                    output += str(item)
             output += '\n'
         return output
 
@@ -60,12 +66,16 @@ class House:
                 return Enigma()
 
     def setup_special_cells(self):
+        door_pos_row = random.randint(0, 3)
+        door_pos_col = random.randint(0, 3)
         self.special_cells = {
             (
-                random.randint(0, 3),
-                random.randint(0, 3),
+                door_pos_row,
+                door_pos_col,
             ): Door()
         }
+        self.player_row = door_pos_row
+        self.player_col = door_pos_col
         candy_pos_row = random.randint(0, 3)
         candy_pos_col = random.randint(0, 3)
         while (candy_pos_row, candy_pos_col,) in self.special_cells:
@@ -183,6 +193,21 @@ class TestHouse(unittest.TestCase):
         )
 
     @patch('random.randint', side_effect=[
+        2, 3, 3, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
+    def test_character_pos(self, randint_patched):
+        house = House()
+        self.assertEqual(
+            house.player_row,
+            2,
+        )
+        self.assertEqual(
+            house.player_col,
+            3,
+        )
+
+    @patch('random.randint', side_effect=[
         2, 3,  # house
         2, 3,  # candy
         3, 1,  # candy
@@ -238,7 +263,7 @@ class TestHouse(unittest.TestCase):
             (
                 '⬜️⬜️⬜️⬜️\n' +
                 '⬜️⬜️⬜️⬜️\n' +
-                '⬜️⬜️⬜️🚪\n' +
+                '⬜️⬜️⬜️😐\n' +
                 '⬜️⬜️⬜️⬜️\n'
             )
         )
