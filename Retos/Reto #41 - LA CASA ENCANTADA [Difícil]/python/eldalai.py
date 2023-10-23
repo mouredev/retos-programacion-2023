@@ -12,13 +12,18 @@ class Door(Cell):
     def __init__(self):
         self.visile = True
 
+    def __str__(self):
+        return "🚪"
+
 
 class Candy(Cell):
-    ...
+    def __str__(self):
+        return "🍭" if self.visile else " "
 
 
 class Ghost(Cell):
-    ...
+    def __str__(self):
+        return "👻" if self.visile else " "
 
 
 class House:
@@ -65,6 +70,13 @@ class TestDoor(unittest.TestCase):
         self.assertIsNotNone(door)
         self.assertTrue(door.visile)
 
+    def test__str__(self):
+        door = Door()
+        self.assertEqual(
+            str(door),
+            "🚪",
+        )
+
 
 class TestCandy(unittest.TestCase):
     def test_init(self):
@@ -72,12 +84,42 @@ class TestCandy(unittest.TestCase):
         self.assertIsNotNone(candy)
         self.assertFalse(candy.visile)
 
+    def test__str__invisible(self):
+        candy = Candy()
+        self.assertEqual(
+            str(candy),
+            " ",
+        )
+
+    def test__str__visible(self):
+        candy = Candy()
+        candy.visile = True
+        self.assertEqual(
+            str(candy),
+            "🍭",
+        )
+
 
 class TestGhost(unittest.TestCase):
     def test_init(self):
         ghost = Ghost()
         self.assertIsNotNone(ghost)
         self.assertFalse(ghost.visile)
+
+    def test__str__invisible(self):
+        ghost = Ghost()
+        self.assertEqual(
+            str(ghost),
+            " ",
+        )
+
+    def test__str__visible(self):
+        ghost = Ghost()
+        ghost.visile = True
+        self.assertEqual(
+            str(ghost),
+            "👻",
+        )
 
 
 class TestCell(unittest.TestCase):
