@@ -16,14 +16,19 @@ class Door(Cell):
         return "🚪"
 
 
+class Enigma(Cell):
+    def __str__(self):
+        return "❓" if self.visile else "⬜️"
+
+
 class Candy(Cell):
     def __str__(self):
-        return "🍭" if self.visile else " "
+        return "🍭" if self.visile else "⬜️"
 
 
 class Ghost(Cell):
     def __str__(self):
-        return "👻" if self.visile else " "
+        return "👻" if self.visile else "⬜️"
 
 
 class House:
@@ -37,6 +42,14 @@ class House:
             for row_index in range(4)
         ]
 
+    def __str__(self):
+        output = ""
+        for row in self.cells:
+            for item in row:
+                output += str(item)
+            output += '\n'
+        return output
+
     def get_cells(self, row_index, col_index):
         if (row_index, col_index,) in self.special_cells:
             return self.special_cells[(row_index, col_index,)]
@@ -44,7 +57,7 @@ class House:
             if random.randint(1, 10) == 1:
                 return Ghost()
             else:
-                return None
+                return Enigma()
 
     def setup_special_cells(self):
         self.special_cells = {
@@ -61,7 +74,6 @@ class House:
         self.special_cells[
             (candy_pos_row, candy_pos_col)
         ] = Candy()
-
 
 
 class TestDoor(unittest.TestCase):
@@ -88,7 +100,7 @@ class TestCandy(unittest.TestCase):
         candy = Candy()
         self.assertEqual(
             str(candy),
-            " ",
+            "⬜️",
         )
 
     def test__str__visible(self):
@@ -97,6 +109,28 @@ class TestCandy(unittest.TestCase):
         self.assertEqual(
             str(candy),
             "🍭",
+        )
+
+
+class TestEnigma(unittest.TestCase):
+    def test_init(self):
+        engima = Enigma()
+        self.assertIsNotNone(engima)
+        self.assertFalse(engima.visile)
+
+    def test__str__invisible(self):
+        engima = Enigma()
+        self.assertEqual(
+            str(engima),
+            "⬜️",
+        )
+
+    def test__str__visible(self):
+        engima = Enigma()
+        engima.visile = True
+        self.assertEqual(
+            str(engima),
+            "❓",
         )
 
 
@@ -110,7 +144,7 @@ class TestGhost(unittest.TestCase):
         ghost = Ghost()
         self.assertEqual(
             str(ghost),
-            " ",
+            "⬜️",
         )
 
     def test__str__visible(self):
@@ -165,7 +199,6 @@ class TestHouse(unittest.TestCase):
             Candy,
         )
 
-
     @patch('random.randint', side_effect=[
         2, 3,  # house
         3, 1,  # candy
@@ -193,6 +226,22 @@ class TestHouse(unittest.TestCase):
             Ghost,
         )
 
+    @patch('random.randint', side_effect=[
+        2, 3,  # house
+        3, 1,  # candy
+        0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+    ])
+    def test_ghosts_pos(self, randint_patched):
+        house = House()
+        self.assertEqual(
+            str(house),
+            (
+                '⬜️⬜️⬜️⬜️\n' +
+                '⬜️⬜️⬜️⬜️\n' +
+                '⬜️⬜️⬜️🚪\n' +
+                '⬜️⬜️⬜️⬜️\n'
+            )
+        )
 
 if __name__ == '__main__':
     unittest.main()
