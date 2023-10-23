@@ -98,6 +98,7 @@ class Ghost(Cell):
     def enter(self):
         print('Fantasma, 2 Preguntas!')
         question()
+        question()
         self.visile = True
         return False
 
