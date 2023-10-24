@@ -16,17 +16,33 @@ namespace reto42
     {
         static void Main(string[] args)
         {
+            //Ejemplo cruce 1 salida = (2.5, 2.5) 2.5
+            //Punto obj1 = new Punto(0, 0);
+            //Vector vel1 = new Vector(1, 1);            
+
+            //Punto obj2 = new Punto(5, 0);
+            //Vector vel2 = new Vector(-1, 1);            
+
+            //Ejemplo cruce 2 salida = (1.5,1.5) 1.5
             //Punto obj1 = new Punto(0, 0);
             //Vector vel1 = new Vector(1, 1);
 
-            //Punto obj2 = new Punto(5, 0);
+            //Punto obj2 = new Punto(3, 0);
             //Vector vel2 = new Vector(-1, 1);
 
-            Punto obj1 = new Punto(0, 0);
-            Vector vel1 = new Vector(1, 1);
+            //Ejemplo cruce 3 salida = (2, 2) 2
+            //Punto obj1 = new Punto(0, 0);
+            //Vector vel1 = new Vector(1, 1);
 
-            Punto obj2 = new Punto(3, 0);
-            Vector vel2 = new Vector(-1, 1);
+            //Punto obj2 = new Punto(4, 0);
+            //Vector vel2 = new Vector(-1, 1);
+
+            //Ejemplo ya se han cruzado
+            Punto obj1 = new Punto(0, 0);
+            Vector vel1 = new Vector(1, 0);
+
+            Punto obj2 = new Punto(0, 2);
+            Vector vel2 = new Vector(0, 1);
 
             Calcula_encuentro(obj1, vel1, obj2, vel2);
 
