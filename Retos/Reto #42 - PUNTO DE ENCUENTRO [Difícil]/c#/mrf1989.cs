@@ -1,39 +1,33 @@
 MovingObject objA = new(new(2, 2), new(1, 2));
 MovingObject objB = new(new(5, 5), new(0, -1));
-
 CalculateMeetingPoint(objA, objB);
+
 void CalculateMeetingPoint(MovingObject objA, MovingObject objB)
 {
-    if (objA.SpeedVector.X / objB.SpeedVector.X == objA.SpeedVector.Y / objB.SpeedVector.Y)
+
+    var tx = (objA.Position.X - objB.Position.X) / (objB.SpeedVector.X - objA.SpeedVector.X);
+    var ty = (objA.Position.Y - objB.Position.Y) / (objB.SpeedVector.Y - objA.SpeedVector.Y);
+
+    if (tx != ty)
     {
         Console.WriteLine("The objects are not located anywhere on the plane");
-        return;
     }
     else
     {
-        int seconds = 0;
-        while (objA.PointPosition.X != objB.PointPosition.X && objA.PointPosition.Y != objB.PointPosition.Y)
-        {
-            seconds++;
-
-            objA.PointPosition.X += objA.SpeedVector.X;
-            objA.PointPosition.Y += objA.SpeedVector.Y;
-            objB.PointPosition.X += objB.SpeedVector.X;
-            objB.PointPosition.Y += objB.SpeedVector.Y;
-        }
-
-        Console.WriteLine($"The objects have been found at point {objA.PointPosition.ToString()} after {seconds} seconds");
+        var t = tx;
+        Coord CutPoint = new(objA.Position.X + t * objA.SpeedVector.X, objA.Position.Y + t * objA.SpeedVector.Y);
+        Console.WriteLine($"The objects have been found at point {CutPoint} after {t} seconds");
     }
 }
 
 class MovingObject
 {
-    public Coord PointPosition { get; set; }
+    public Coord Position { get; set; }
     public Coord SpeedVector { get; set; }
 
-    public MovingObject(Coord pointPosition, Coord speedVector)
+    public MovingObject(Coord position, Coord speedVector)
     {
-        PointPosition = pointPosition;
+        Position = position;
         SpeedVector = speedVector;
     }
 }
