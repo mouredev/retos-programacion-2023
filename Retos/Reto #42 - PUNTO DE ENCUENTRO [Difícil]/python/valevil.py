@@ -14,9 +14,32 @@ def collision(
         The parameters `vr` and `vs` represent the velocity of objects R and A, where `vr[0]` is the velocity in the     x-direction and `vr[1]` is the velocity in the y-direction.
     '''
 
-    t_0 = (s[0] - r[0]) / (vr[0] - vs[0])
-    t_1 = (s[1] - r[1]) / (vr[1] - vs[1])
-    if (t := t_0) == t_1:
+    try: # What if some coord velocities are equal or none
+        t_0 = (s[0] - r[0]) / (vr[0] - vs[0])
+        if t_0 < 0: # If they would collide in the past then we don't care
+            print(f"Objects won't collide.")
+            return
+    except:
+        if s[0] != r[0]: # distance between them will be constant in time
+            print(f"Objects won't collide.")
+            return
+        t_0 = "any" # If they are in the same coord time doesn't matter
+        
+    try:
+        t_1 = (s[1] - r[1]) / (vr[1] - vs[1])
+        if t_1 < 0:
+            print(f"Objects won't collide.")
+            return
+    except:
+        if s[1] != r[1]:
+            print(f"Objects won't collide.")
+            return
+        else: t_1 = t_0
+
+    if t_0 == t_1 or t_0 == "any":
+        if (t := t_1) == "any": # This would mean they both have the same IC
+            print("The objects share their movement.")
+            return
         c = (s[0] + vs[0] * t, s[1] + vs[1] * t)
         print(f"Collision at x = {c[0]}, y = {c[1]} at t = {t}.")
     else:
