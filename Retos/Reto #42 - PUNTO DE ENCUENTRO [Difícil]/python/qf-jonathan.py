@@ -18,7 +18,7 @@ def meeting_point(
 ) -> tuple[tuple[float, float], float]:
     (ax, ay), (vax, vay) = obj_a.init_pos, obj_a.move_vec
     (bx, by), (vbx, vby) = obj_b.init_pos, obj_b.move_vec
-    (dx, dy), (dvx, dby) = (bx - ax, by - ay), (vax - vbx, vay - vby)
+    (dx, dy), (dvx, dvy) = (bx - ax, by - ay), (vax - vbx, vay - vby)
 
     if abs(dvx) > epsilon and (tx := dx / dvx) >= 0:
         x, y = obj_a.pos_at_time(tx)
@@ -26,7 +26,7 @@ def meeting_point(
         if abs(y - yb) < epsilon:
             return (x, y), tx
 
-    if abs(dby) > epsilon and (ty := dy / dby) >= 0:
+    if abs(dvy) > epsilon and (ty := dy / dvy) >= 0:
         x, y = obj_a.pos_at_time(ty)
         xb, _ = obj_b.pos_at_time(ty)
         if abs(x - xb) < epsilon:
