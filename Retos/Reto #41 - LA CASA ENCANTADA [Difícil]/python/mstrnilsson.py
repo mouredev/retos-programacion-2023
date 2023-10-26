@@ -1,4 +1,4 @@
-import random
+import random, time
 
 class bcolors:
     HEADER = '\033[95m'
@@ -18,7 +18,6 @@ ghost_coor2 = []
 lolli_coor = []
 next_coor = []
 now_coor = []
-line = []
 
 row=0
 column=0
@@ -32,7 +31,6 @@ down_arrow = "🔽"
 left_arrow = "◀️"
 right_arrow = "▶️"
 lollipop = "🍭"
-house = "🏚️"
 ok = "✅"
 up = 'n'
 down = 's'
@@ -44,22 +42,30 @@ key = ''
 finish = ''
 
 def intro():
-    txt1 = ' 👻 LA CASA ENCANTADA 👻 '
-    x = txt1.center(150, '#')
-    print(f'\n\n{bcolors.HEADER}{bcolors.BOLD}{x}{bcolors.ENDC}\n')
-    input()
-    txt2 = ' Te encuentas explorando una 🏚️  mansión abandonada llena de habitaciones. Elige la dirección con las teclas N_orte S_ur E_ste O_este '
-    print(txt2.center(150, '#'))
-    input()
-    txt2 = ' En cada habitación tendrás que resolver un pregunta para poder avanzar a la siguiente '
-    print(txt2.center(150, '#'))
-    input()
-    txt3 = ' Tu misión es encontrar la habitación de los dulces 🍭 '
-    print(txt3.center(150, '#'))
-    input()
+    txt1 = '👻 LA CASA ENCANTADA 👻'
+    u = txt1.center(67, '#')
+    print(f'\n{bcolors.HEADER}{bcolors.BOLD}{u}{bcolors.ENDC}\n')
+    time.sleep(1)
+    txt2 = 'Te encuentas explorando las habitaciones de una 🏚️  mansión abandonada'
+    v = txt2.center(66, '#')
+    print(f'\n{bcolors.HEADER}{bcolors.BOLD}{v}{bcolors.ENDC}\n')
+    time.sleep(4)
+    txt6 = 'Elige la dirección con las teclas N_orte 🔼 S_ur 🔽 E_ste ▶️  O_este ◀️ '
+    w = txt6.center(66, '#')
+    print(f'\n{bcolors.HEADER}{bcolors.BOLD}{w}{bcolors.ENDC}\n')
+    time.sleep(4)
+    txt5 = '  Para entrar en cada habitación tendrás que resolver una pregunta '
+    x = txt5.center(66, '#')
+    print(f'\n{bcolors.HEADER}{bcolors.BOLD}{x}{bcolors.ENDC}\n')
+    time.sleep(4)
+    txt3 = ' Tu misión es encontrar la habitación de los dulces 🍭  '
+    y = txt3.center(66, '#')
+    print(f'\n{bcolors.HEADER}{bcolors.BOLD}{y}{bcolors.ENDC}\n')
+    time.sleep(4)
     txt4 = ' ¡¡¡¡ 🎃 SUERTE 🎃 !!!! '
-    print(txt4.center(150, '#'))
-    input()
+    z = txt4.center(66, '#')
+    print(f'\n{bcolors.HEADER}{bcolors.BOLD}{z}{bcolors.ENDC}\n')
+    time.sleep(2)
 
 
 def random_room():
@@ -106,7 +112,6 @@ def paint_matrix(door_coor):
 
 def status():
     
-    
     key = input('\nHacia que habitación quieres moverte?\n').lower()
 
     if key == up:
@@ -131,19 +136,19 @@ def forbidden(key):
     
 
     if (now_coor[0] == 0 and key == up):
-        print(f'{bcolors.WARNING} ❌ No puedes moverte en esa dirección{bcolors.ENDC}')
+        print(f'{bcolors.WARNING}\n ❌ No puedes moverte en esa dirección{bcolors.ENDC}')
         return None
         
     elif (now_coor[1] == 0 and key == left):
-        print(f'{bcolors.WARNING} ❌ No puedes moverte en esa dirección{bcolors.ENDC}')
+        print(f'{bcolors.WARNING}\n ❌ No puedes moverte en esa dirección{bcolors.ENDC}')
         return None
         
     elif (now_coor[0] == 3 and key == down):
-        print(f'{bcolors.WARNING} ❌ No puedes moverte en esa dirección{bcolors.ENDC}')
+        print(f'{bcolors.WARNING}\n ❌ No puedes moverte en esa dirección{bcolors.ENDC}')
         return None
         
     elif (now_coor[1] == 3 and key == right):
-        print(f'{bcolors.WARNING} ❌ No puedes moverte en esa dirección{bcolors.ENDC}')
+        print(f'{bcolors.WARNING}\n ❌ No puedes moverte en esa dirección{bcolors.ENDC}')
         return None
     else:
         return key
@@ -169,21 +174,21 @@ def move_status(key):
 def wich_question(finish):
     
     if next_coor == ghost_coor1:
-        print(f'\n{bcolors.WARNING}👻👻 Has encontrado un fantasmico debes superar dos preguntas para entrar en la habitación 👻👻{bcolors.ENDC}\n')
-        input()
+        print(f'\n{bcolors.WARNING}BUUUU !!! 👻 El fantasmico te retiene y debes superar 2 preguntas para entrar 👻{bcolors.ENDC}\n')
+        time.sleep(2)
         times(2)
-        print(f'\n{bcolors.OKGREEN}Puedes moverte de habitación. Pulsa ↩️{bcolors.ENDC}\n')
-        input()
+        print(f'\n{bcolors.OKGREEN}Puedes entrar en la habitación{bcolors.ENDC}\n')
+        time.sleep(2)
         print_matrix[ghost_coor1[0]][ghost_coor1[1]] = ghost
         now_coor = next_coor.copy()
         return now_coor, finish
 
     elif next_coor == ghost_coor2:
-        print(f'\n{bcolors.WARNING}👻👻 Has encontrado un fantasmico debes superar dos preguntas para entrar en la habitación 👻👻{bcolors.ENDC}\n')
-        input()
+        print(f'\n{bcolors.WARNING}BUUUU !!! 👻 El fantasmico te retiene y debes superar 2 preguntas para entrar 👻{bcolors.ENDC}\n')
+        time.sleep(2)
         times(2)
-        print(f'\n{bcolors.OKGREEN}Puedes moverte de habitación{bcolors.ENDC}\n')
-        input()
+        print(f'\n{bcolors.OKGREEN}Puedes entrar en la habitación{bcolors.ENDC}\n')
+        time.sleep(2)
         print_matrix[ghost_coor2[0]][ghost_coor2[1]] = ghost
         now_coor = next_coor.copy()
         return now_coor, finish
@@ -191,8 +196,13 @@ def wich_question(finish):
 
     elif next_coor == lolli_coor:
         times(1)
-        print(f"{bcolors.OKGREEN}\n#########                                                                     #########\n#########                                                                     #########\n#########  🥳 🎉 Genial!! Has encontrado la habitación de los dulces 🍭🥳 🎉  #########\n#########                                                                     #########\n#########                                                                     #########\n{bcolors.ENDC}")
-        input()
+        foo = '#'
+        print(f'{bcolors.OKGREEN}{foo*9:68}{foo*9}{bcolors.ENDC}')
+        print(f'{bcolors.OKGREEN}{foo*9:68}{foo*9}{bcolors.ENDC}')
+        print(f'{bcolors.OKGREEN}{foo*9} 🍭 Genial!! Has encontrado la habitación de los dulces 🍭 {foo*9}{bcolors.ENDC}')
+        print(f'{bcolors.OKGREEN}{foo*9:68}{foo*9}{bcolors.ENDC}')
+        print(f'{bcolors.OKGREEN}{foo*9:68}{foo*9}{bcolors.ENDC}')
+        time.sleep(2)
         print_matrix[lolli_coor[0]][lolli_coor[1]] = lollipop
         now_coor = next_coor.copy()
         finish = 'lollipop'
@@ -200,8 +210,8 @@ def wich_question(finish):
         
     else:
         times(1)
-        print(f'\n{bcolors.OKGREEN}Puedes moverte de habitación. Pulsa ↩️{bcolors.ENDC}\n')
-        input()
+        print(f'\n{bcolors.OKGREEN}Puedes entrar en la habitación{bcolors.ENDC}\n')
+        time.sleep(2)
         print_matrix[next_coor[0]][next_coor[1]] = ok
         now_coor = next_coor.copy()
         return now_coor, finish
@@ -220,9 +230,9 @@ def eval_question():
     answer = (n1*n2)
     
     if answer_input.isnumeric() and int(answer_input) == answer:
-        print(f'\n{bcolors.OKGREEN}Correcto!! {bcolors.ENDC}')
+        print(f'\n{bcolors.OKGREEN}Correcto!!\n {bcolors.ENDC}')
     else: 
-        print(f'\n{bcolors.FAIL} ❌ Lo siento respuesta incorrecta{bcolors.ENDC}')
+        print(f'\n{bcolors.FAIL} ❌ Lo siento respuesta incorrecta, es {answer}, prueba otra vez{bcolors.ENDC}')
         times(1)
 
 
@@ -233,15 +243,15 @@ try:
     now_coor = paint_matrix(door_coor)
     while finish == '':
         key = status()
-        
         while key == None:
             key = status()
-        
         next_coor = move_status(key)
         forbidden(key)
         now_coor, finish = wich_question(finish)
-
         paint_matrix(door_coor)
+    
 except KeyboardInterrupt:
-    print('\nbye!!')    
+    print('\nbye!!\n')    
     SystemExit
+
+    
