@@ -1,8 +1,8 @@
-from typing import NamedTuple, Protocol, TypeAlias
+from typing import NamedTuple, Protocol
 import math
 
 
-Number: TypeAlias = float | int
+type Number = float | int
 
 
 class Coordinates(NamedTuple):
@@ -81,10 +81,8 @@ def calculate_intersection_point_in_motion(objects: Objects) -> None:
     intersection_point = calculate_intersection_point(
         objects.object1, time_to_intersection
     )
-    intersection_x = intersection_point.x
-    intersection_y = intersection_point.y
 
-    print(f"El punto de encuentro es ({intersection_x}, {intersection_y})")
+    print(f"El punto de encuentro es ({intersection_point.x}, {intersection_point.y})")
     print(f"El tiempo que les tomará encontrarse es {time_to_intersection}")
 
 
