@@ -6,7 +6,7 @@ class Object:
         self.init_pos = init_pos
         self.move_vec = move_vec
 
-    def post_at_time(self, time: float) -> tuple[float, float]:
+    def pos_at_time(self, time: float) -> tuple[float, float]:
         return (pos + vec * time for pos, vec in zip(self.init_pos, self.move_vec))
 
     def __str__(self) -> str:
@@ -18,16 +18,17 @@ def meeting_point(
 ) -> tuple[tuple[float, float], float]:
     (ax, ay), (vax, vay) = obj_a.init_pos, obj_a.move_vec
     (bx, by), (vbx, vby) = obj_b.init_pos, obj_b.move_vec
+    (dx, dy), (dvx, dby) = (bx - ax, by - ay), (vax - vbx, vay - vby)
 
-    if abs(vax - vbx) > epsilon and (tx := (bx - ax) / (vax - vbx)) >= 0:
-        x, y = obj_a.post_at_time(tx)
-        _, yb = obj_b.post_at_time(tx)
+    if abs(dvx) > epsilon and (tx := dx / dvx) >= 0:
+        x, y = obj_a.pos_at_time(tx)
+        _, yb = obj_b.pos_at_time(tx)
         if abs(y - yb) < epsilon:
             return (x, y), tx
 
-    if abs(vay - vby) > epsilon and (ty := (by - ay) / (vay - vby)) >= 0:
-        x, y = obj_a.post_at_time(ty)
-        xb, _ = obj_b.post_at_time(ty)
+    if abs(dby) > epsilon and (ty := dy / dby) >= 0:
+        x, y = obj_a.pos_at_time(ty)
+        xb, _ = obj_b.pos_at_time(ty)
         if abs(x - xb) < epsilon:
             return (x, y), ty
 
