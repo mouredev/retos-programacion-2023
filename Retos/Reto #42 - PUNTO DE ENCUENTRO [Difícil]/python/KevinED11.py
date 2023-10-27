@@ -84,7 +84,7 @@ def calculate_intersection_point_in_motion(objects: Objects) -> None:
     )
 
     print(f"El punto de encuentro es ({intersection_point.x}, {intersection_point.y})")
-    print(f"El tiempo que les tomará encontrarse es {time_to_intersection}")
+    print(f"El tiempo que les tomará encontrarse es {time_to_intersection} segundos.")
 
 
 class MotionCalculatorFn(Protocol):
