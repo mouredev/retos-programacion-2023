@@ -1,8 +1,8 @@
-from typing import NamedTuple, Protocol, TypeAlias
+from typing import NamedTuple, Protocol
 import math
 
 
-Number: TypeAlias = float | int
+type Number = float | int
 
 
 class Coordinates(NamedTuple):
@@ -71,7 +71,7 @@ def calculate_intersection_point_in_motion(objects: Objects) -> None:
         objects.object1.velocity, objects.object2.velocity
     )
 
-    if is_same_direction(diff_velocity):
+    if is_same_direction(diff_velocity=diff_velocity):
         print("Los objetos o puntos de encuentro son paralelos y nunca se encuentran.")
         return
 
@@ -81,10 +81,8 @@ def calculate_intersection_point_in_motion(objects: Objects) -> None:
     intersection_point = calculate_intersection_point(
         objects.object1, time_to_intersection
     )
-    intersection_x = intersection_point.x
-    intersection_y = intersection_point.y
 
-    print(f"El punto de encuentro es ({intersection_x}, {intersection_y})")
+    print(f"El punto de encuentro es ({intersection_point.x}, {intersection_point.y})")
     print(f"El tiempo que les tomará encontrarse es {time_to_intersection}")
 
 
@@ -97,9 +95,13 @@ def execute(motion_calculator: MotionCalculatorFn, objects: Objects) -> None:
     motion_calculator(objects=objects)
 
 
-if __name__ == "__main__":
+def main() -> None:
     object1 = Object(start_point=Coordinates(x=2, y=2), velocity=Velocity(x=2, y=2))
     object2 = Object(start_point=Coordinates(x=2, y=2), velocity=Velocity(x=2, y=2))
     objects = Objects(object1=object1, object2=object2)
 
     execute(motion_calculator=calculate_intersection_point_in_motion, objects=objects)
+
+
+if __name__ == "__main__":
+    main()
