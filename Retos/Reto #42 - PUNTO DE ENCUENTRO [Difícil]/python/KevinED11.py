@@ -1,5 +1,6 @@
 from typing import NamedTuple, Protocol
 import math
+import functools
 
 
 type Number = float | int
@@ -100,7 +101,17 @@ def main() -> None:
     object2 = Object(start_point=Coordinates(x=2, y=2), velocity=Velocity(x=2, y=2))
     objects = Objects(object1=object1, object2=object2)
 
-    execute(motion_calculator=calculate_intersection_point_in_motion, objects=objects)
+    execute_calculate_intersection_point_in_motion = functools.partial(
+        execute, motion_calculator=calculate_intersection_point_in_motion
+    )
+
+    execute_calculate_intersection_point_in_motion(objects=objects)
+
+    object3 = Object(start_point=Coordinates(x=4, y=3), velocity=Velocity(x=5, y=4))
+    object4 = Object(start_point=Coordinates(x=4, y=1), velocity=Velocity(x=3, y=4))
+    objects2 = Objects(object1=object3, object2=object4)
+
+    execute_calculate_intersection_point_in_motion(objects=objects2)
 
 
 if __name__ == "__main__":
