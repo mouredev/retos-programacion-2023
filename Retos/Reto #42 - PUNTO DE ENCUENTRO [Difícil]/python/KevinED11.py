@@ -82,7 +82,6 @@ def calculate_intersection_point_in_motion(objects: Objects) -> Result:
     )
 
     if is_same_direction(diff_velocity=diff_velocity):
-        print("Los objetos o puntos de encuentro son paralelos y nunca se encuentran.")
         return default_result
 
     time_to_intersection: float = calculate_time_to_intersection(
@@ -107,6 +106,10 @@ def execute(motion_calculator: MotionCalculatorFn, objects: Objects) -> Result:
 
 
 def print_motion_calculator_results(result: Result) -> None:
+    if result.time_to_intersection == 0:
+        print("Los objetos o puntos de encuentro son paralelos y nunca se encuentran.")
+        return
+    
     print(
         f"El punto de encuentro es ({result.intersection_point.x}, {result.intersection_point.y})"
     )
