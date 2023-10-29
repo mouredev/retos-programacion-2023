@@ -64,7 +64,16 @@ def is_same_direction(diff_velocity: Velocity) -> bool:
     return diff_velocity.x == 0 and diff_velocity.y == 0
 
 
-def calculate_intersection_point_in_motion(objects: Objects) -> None:
+class Result(NamedTuple):
+    time_to_intersection: float
+    intersection_point: Coordinates
+
+
+def calculate_intersection_point_in_motion(objects: Objects) -> Result:
+    default_result = Result(
+        time_to_intersection=0, intersection_point=Coordinates(x=0, y=0)
+    )
+
     diff_coordinates: Coordinates = calculate_diff_coordinates(
         objects.object1.start_point, objects.object2.start_point
     )
@@ -74,26 +83,36 @@ def calculate_intersection_point_in_motion(objects: Objects) -> None:
 
     if is_same_direction(diff_velocity=diff_velocity):
         print("Los objetos o puntos de encuentro son paralelos y nunca se encuentran.")
-        return
+        return default_result
 
-    time_to_intersection = calculate_time_to_intersection(
+    time_to_intersection: float = calculate_time_to_intersection(
         diff_coordinates, diff_velocity
     )
-    intersection_point = calculate_intersection_point(
+    intersection_point: Coordinates = calculate_intersection_point(
         objects.object1, time_to_intersection
     )
 
-    print(f"El punto de encuentro es ({intersection_point.x}, {intersection_point.y})")
-    print(f"El tiempo que les tomará encontrarse es {time_to_intersection} segundos.")
+    return Result(
+        time_to_intersection=time_to_intersection, intersection_point=intersection_point
+    )
 
 
 class MotionCalculatorFn(Protocol):
-    def __call__(self, objects: Objects) -> None:
+    def __call__(self, objects: Objects) -> Result:
         ...
 
 
-def execute(motion_calculator: MotionCalculatorFn, objects: Objects) -> None:
-    motion_calculator(objects=objects)
+def execute(motion_calculator: MotionCalculatorFn, objects: Objects) -> Result:
+    return motion_calculator(objects=objects)
+
+
+def print_motion_calculator_results(result: Result) -> None:
+    print(
+        f"El punto de encuentro es ({result.intersection_point.x}, {result.intersection_point.y})"
+    )
+    print(
+        f"El tiempo que les tomará encontrarse es {result.time_to_intersection} segundos."
+    )
 
 
 def main() -> None:
@@ -105,13 +124,15 @@ def main() -> None:
         execute, motion_calculator=calculate_intersection_point_in_motion
     )
 
-    execute_calculate_intersection_point_in_motion(objects=objects)
+    result1 = execute_calculate_intersection_point_in_motion(objects=objects)
+    print_motion_calculator_results(result=result1)
 
     object3 = Object(start_point=Coordinates(x=4, y=3), velocity=Velocity(x=5, y=4))
     object4 = Object(start_point=Coordinates(x=4, y=1), velocity=Velocity(x=3, y=4))
     objects2 = Objects(object1=object3, object2=object4)
 
-    execute_calculate_intersection_point_in_motion(objects=objects2)
+    result2 = execute_calculate_intersection_point_in_motion(objects=objects2)
+    print_motion_calculator_results(result=result2)
 
 
 if __name__ == "__main__":
