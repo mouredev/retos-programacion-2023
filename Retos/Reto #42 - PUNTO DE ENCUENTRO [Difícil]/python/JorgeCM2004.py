@@ -1,4 +1,5 @@
-class Object():
+from typing import NamedTuple
+class Object(NamedTuple):
     position: tuple
     speed: tuple
 
@@ -41,7 +42,16 @@ def main() -> None:
     objectA = Object(position = ask_position("A"), speed = ask_speed("A"))
     objectB = Object(position = ask_position("B"), speed = ask_speed("B"))
     if will_intersect(objectA, objectB):
-        pass
+        intersection = calculate_intersection(objectA, objectB)
+        if (intersection[0] - objectA.position[0]) % objectA.speed[0] == 0:
+            t1 = (intersection[0] - objectA.position[0]) / objectA.speed[0]
+            t2 = (intersection[0] - objectB.position[0]) / objectB.speed[0]
+            if t1 == t2:
+                print(f"Los objetos colisionarán en el punto {intersection} tras {t1} unidades de tiempo.")
+            else:
+                print(f"Aunque ambos objetos pasan por el mismo punto, necesitan distintos tiempos para alcanzar el punto {intersection}, El Objeto A necesita {t1} unidades de tiempo mientras que el Objeto B necesita {t2} unidades.")
+        else:
+            print("Los objetos A y B no colisionarán nunca dado que siguiendo sus proyecciones colisionaron en un momento anterior.")
     elif same_position(objectA, objectB):
         print("Los objetos A y B tienen tanto la misma direccion como la misma velocidad por lo que colisionaran en todos los puntos por los que pasen.")
     else:
