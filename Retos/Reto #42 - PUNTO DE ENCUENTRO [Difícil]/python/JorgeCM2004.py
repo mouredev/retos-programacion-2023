@@ -14,7 +14,8 @@ def ask_speed(obj: str) -> tuple:
     return (speedx, speedy)
 
 def will_intersect(obj1: Object, obj2: Object) -> bool:
-    return obj1.speed != obj2.speed
+    # Debemos calular las pendientes y ver si son iguales o no, li lo son las proyecciones son paralelas y nunca colisionarán.
+    return obj1.speed[1] / obj1.speed[0] != obj2.speed[1] / obj2.speed[0]
 
 def same_position(obj1: Object, obj2: Object) -> bool:
     return obj1.position == obj2.position
@@ -46,16 +47,22 @@ def main() -> None:
         if (intersection[0] - objectA.position[0]) % objectA.speed[0] == 0:
             t1 = (intersection[0] - objectA.position[0]) / objectA.speed[0]
             t2 = (intersection[0] - objectB.position[0]) / objectB.speed[0]
-            if t1 == t2:
-                print(f"Los objetos colisionarán en el punto {intersection} tras {t1} unidades de tiempo.")
+            if same_position(objectA, objectB):
+                 print(f"Aunque los objetos tengan distinta velocidad comienzan en el mismo punto de partida por lo que colisionarán en el punto {objectA.position} en el instante t = 0.")
             else:
-                print(f"Aunque ambos objetos pasan por el mismo punto, necesitan distintos tiempos para alcanzar el punto {intersection}, El Objeto A necesita {t1} unidades de tiempo mientras que el Objeto B necesita {t2} unidades.")
+                if t1 == t2:
+                    print(f"Los objetos colisionarán en el punto {intersection} tras {t1} unidades de tiempo.")
+                else:
+                    print(f"Aunque ambos objetos pasan por el mismo punto, necesitan distintos tiempos para alcanzar el punto {intersection}, El Objeto A necesita {t1} unidades de tiempo mientras que el Objeto B necesita {t2} unidades.")
         else:
             print("Los objetos A y B no colisionarán nunca dado que siguiendo sus proyecciones colisionaron en un momento anterior.")
     elif same_position(objectA, objectB):
-        print("Los objetos A y B tienen tanto la misma direccion como la misma velocidad por lo que colisionaran en todos los puntos por los que pasen.")
+        if objectA.speed == objectB.speed:
+            print("Los objetos A y B tienen tanto la misma direccion como la misma velocidad por lo que colisionaran en todos los puntos por los que pasen.")
+        else:
+            print(f"Los objetos A y B parten desde el mismo punto y siguen la misma trayectoria, sin embargo, tienen velocidades distintas por lo que solo tendrán una colisión en {objectA.position} en el intsante t = 0.")
     else:
-        print(f"Aunque los objetos tengan distinta velocidad comienzan en el mismo punto de partida por lo que colisionarán en el punto ({objectA.position[0]}, {objectA.position[1]}) en el instante t = 0.")
+        print(f"Los objetos A y B nunca colisionarán al tener la misma pendiente en sus proyecciones y empezar en puntos distintos.")
     
 if __name__ == "__main__":
     main()
