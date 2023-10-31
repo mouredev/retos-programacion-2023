@@ -15,7 +15,7 @@ class Jose827corrza {
     }
     
     public static void fizzBuzz() {
-        for (int i = 0 ; i <= 15 ; i++ ){
+        for (int i = 0 ; i <= 100 ; i++ ){
 		if( i % 3 == 0 && i % 5 == 0 ){
 			System.out.println("fizzbuzz");
 		} else if( i % 3 == 0  ){
