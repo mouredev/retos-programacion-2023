@@ -1,7 +1,23 @@
-(* Avoid using the default Ocaml pseudo-random seed. *)
+(******************************************************************************)
+(*                                                                            *)
+(*   Want to run this challenge?                                              *)
+(*   ---------------------------                                              *)
+(*   1. Download the Ocaml tooling from https://ocaml.org/install.            *)
+(*   2. Run either of these commands on the directory where this file is:     *)
+(*     [ocaml luishendrix92.ml] or                                            *)
+(*     [utop] and inside input [#use "luishendrix92.ml";;], then hit ENTER.   *)
+(*   3. Alternatively you can check an online playground:                     *)
+(*     https://replit.com/@luishendrix92/Reto43MoureDev#bin/main.ml           *)
+(*                                                                            *)
+(*   IMPORTANT: The minimum required version of Ocaml for this                *)
+(*   challenge is 4.14.0 due to [Seq.iterate] being relatively new.           *)
+(*   The profile I use for [.ocamlformat] is [janestreet].                    *)
+(*                                                                            *)
+(******************************************************************************)
+
 let _ = Random.self_init ()
 
-(** Prevents `n` from going < 0 or > 100, keeping it a valid percentage. *)
+(** Prevents [n] from going < 0 or > 100, keeping it a valid percentage. *)
 let percentage n = Int.max 0 (Int.min n 100)
 
 (** Makes an infinite sequence representing a weather report, consists
@@ -28,28 +44,20 @@ let initial_temp, initial_rain_prob, n_days =
   , (print_string "How many days?: ";
      read_int ()) )
 in
-let max_temp, rainy_days =
+let min_temp, max_temp, rainy_days =
   weather_report initial_temp initial_rain_prob
   |> Seq.take (max 1 n_days) (* Ensure there's at least 1 day to display. *)
-  |> Seq.fold_lefti (* Build up the maximum temperature and number of rainy days. *)
-       (fun (max_temp, rainy_days) i (temp, prob) ->
+  |> Seq.fold_lefti (* Compute the extreme temperatures and num. of rainy days. *)
+       (fun (min_temp, max_temp, rainy_days) i (temp, prob) ->
          Printf.sprintf "Day %d | Temperature: %d°C | Rain odds: %d%%" i temp prob
          |> print_endline;
-         max max_temp temp, rainy_days + Bool.to_int (prob >= 100))
-       (min_int, 0)
+         min min_temp temp, max max_temp temp, rainy_days + Bool.to_int (prob >= 100))
+       (max_int, min_int, 0)
 in
 print_endline "---------------------------------------------------";
-Printf.sprintf "Maximum temperature: %d°C | Rainy days: %d." max_temp rainy_days
+Printf.sprintf
+  "Min Temp: %d°C | Max Temp: %d°C | Rainy Days: %d."
+  min_temp
+  max_temp
+  rainy_days
 |> print_endline
-
-(** Want to run this challenge? Here's how:
-    1. Download the Ocaml tooling from https://ocaml.org/install.
-    2. Run either of these commands on the directory where this file is:
-    `ocaml luishendrix92.ml` or
-    `utop` and inside input `#use "luishendrix92.ml";;`, then hit ENTER.
-    3. Alternatively you can check an online playground:
-    https://replit.com/@luishendrix92/Reto43MoureDev#bin/main.ml
-
-    IMPORTANT: The minimum required version of Ocaml for this
-    challenge is 4.14.0 due to Seq.iterate being relatively new.
-    The profile I use for .ocamlformat is `janestreet`. *)
