@@ -53,6 +53,35 @@ def simulate(days: int, initial_temp: int, initial_rainprob: float):
 \t - Total Rain Days:     {sum(r[1] for r in reports)}"""
     )
 
+def get_initial_conditions():
+    while True: 
+        try: 
+            days = int(input("[?] Days to simulate?: "))
+            if days < 1:
+                print("[!] Error: value out of range. Enter an integer greater than 0.")
+            else:
+                break
+        except: 
+            print("[!] Error: input format is not allowed. You must enter an integer.")
+    
+    while True: 
+        try:
+            temp = int(input("[?] Initial temperature (ºC)?: "))
+            break
+        except: 
+            print("[!] Error: input format is not allowed. You must enter an integer.")
+
+    while True:
+        try:
+            prob = float(input("[?] Initial rain probability (0-1)?: "))
+            if not (0 < prob < 1):
+                print("[!] Error: probability out of range. Enter a probability between 0 and 1.")
+            else:
+                break
+        except: 
+            print("[!] Error: input format is not allowed. You must enter a float number.")
+    return days, temp, prob
 
 if __name__ == "__main__":
-    simulate(100, 24, 0.2)
+    initial_conditions = get_initial_conditions()
+    simulate(*initial_conditions)
