@@ -1,21 +1,40 @@
-MovingObject objA = new(new(2, 2), new(1, 2));
-MovingObject objB = new(new(5, 5), new(0, -1));
-CalculateMeetingPoint(objA, objB);
+// Test cases
+
+MovingObject obj1A = new(new(2, 2), new(1, 2));
+MovingObject obj1B = new(new(5, 5), new(-2, -1));
+
+MovingObject obj2A = new(new(0, 0), new(2, 1));
+MovingObject obj2B = new(new(0, 6), new(2, -2));
+
+MovingObject obj3A = new(new(5, 0), new(0, 3));
+MovingObject obj3B = new(new(14, 15), new(-3, -2));
+
+MovingObject obj4A = new(new(5, 0), new(0, 3));
+MovingObject obj4B = new(new(14, 15), new(3, 2));
+
+CalculateMeetingPoint(obj1A, obj1B);
+CalculateMeetingPoint(obj2A, obj2B);
+CalculateMeetingPoint(obj3A, obj3B);
+CalculateMeetingPoint(obj4A, obj4B);
 
 void CalculateMeetingPoint(MovingObject objA, MovingObject objB)
 {
 
-    var tx = (objA.Position.X - objB.Position.X) / (objB.SpeedVector.X - objA.SpeedVector.X);
-    var ty = (objA.Position.Y - objB.Position.Y) / (objB.SpeedVector.Y - objA.SpeedVector.Y);
+    var dx = objB.Position.X - objA.Position.X;
+    var dy = objB.Position.Y - objA.Position.Y;
+    var dsx = objB.SpeedVector.X - objA.SpeedVector.X;
+    var dsy = objB.SpeedVector.Y - objA.SpeedVector.Y;
 
-    if (tx != ty)
+    var t = - (dx * dsx + dy * dsy) / (Math.Pow(dsx, 2) + Math.Pow(dsy, 2));
+
+    if (t < 0 || Convert.ToDecimal(t) % 1 != 0)
     {
-        Console.WriteLine("The objects are not located anywhere on the plane");
+        Console.WriteLine("Objects do not intersect at any point in the plane");
     }
     else
     {
-        var t = tx;
-        Coord CutPoint = new(objA.Position.X + t * objA.SpeedVector.X, objA.Position.Y + t * objA.SpeedVector.Y);
+        Coord CutPoint = new(objA.Position.X + Convert.ToInt32(t) * objA.SpeedVector.X,
+            objA.Position.Y + Convert.ToInt32(t) * objA.SpeedVector.Y);
         Console.WriteLine($"The objects have been found at point {CutPoint} after {t} seconds");
     }
 }
