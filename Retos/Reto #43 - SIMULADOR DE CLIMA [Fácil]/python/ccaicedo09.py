@@ -67,15 +67,15 @@ class SimuladorClima():
             if self.temperatura > self.temperatura_max:
                 self.temperatura_max = self.temperatura
 
-            print(f"Día: {dia} Temperatura: {self.temperatura} Lloverá: {'Sí' if lluvia else 'No'}")
+            print(f"Día: {dia} | Temperatura: {self.temperatura}°C | Lloverá: {'Sí' if lluvia else 'No'}")
 
             #Aplicar el cambio de temperatura a la temperatura del día siguiente
 
             self.temperatura += cambio_temperatura
 
-        print(f"\nTemperatura mínima: {self.temperatura_min}°C")
-        print(f"Temperatura máxima: {self.temperatura_max}°C")
-        print(f"Días de lluvia: {self.dias_de_lluvia}")
+        print(f"\nTemperatura mínima: {self.temperatura_min}°C\n"
+            f"Temperatura máxima: {self.temperatura_max}°C\n"
+            f"Días de lluvia: {self.dias_de_lluvia}")
 
 
 if __name__ == "__main__":
