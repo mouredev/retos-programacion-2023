@@ -19,8 +19,8 @@ def find_sums(numbers: list, target: int)-> list:
     return combinations
 
 def main():
-    # numbers = [1, 1,2, 1, 1, 1, 2]
-    numbers = [1,5,3,2]
+    numbers = [1, 1,2, 1, 1, 1, 2]
+    # numbers = [1,5,3,2]
     target = 6
     combinations = find_sums(numbers, target)
 
