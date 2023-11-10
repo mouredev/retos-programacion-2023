@@ -13,14 +13,10 @@
 """
 
 def find_difference(string_one: str , string_two: str) -> list:
-    difference = []
     if len(string_one) != len(string_two):
         return "Ambas cadenas de texto deben ser iguales en longitud."
     
-    for word in range(len(string_one)):
-        if string_one[word] != string_two[word]:
-            difference.append(string_two[word])
-    return difference
+    return [string_two[word] for word in range(len(string_one)) if string_one[word] != string_two[word]]
 
 print(find_difference("Me llamo mouredev", "Me llemo mouredov"))
 print(find_difference("Me llamo.Brais Moure", "Me llamo brais moure"))
