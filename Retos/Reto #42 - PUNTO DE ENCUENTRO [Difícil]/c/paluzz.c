@@ -24,7 +24,7 @@ void rellenarVector(struct vector *p)
     }
 }
 
-int colision(struct vector *p, float *px, float *py)
+float colision(struct vector *p, float *px, float *py)
 {
     float vx, vy;
     float posx, posy;
