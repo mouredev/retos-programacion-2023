@@ -2,9 +2,11 @@
 Comentarios:
 
 - El enunciado no menciona que los objetos tengan tamaño. Si no lo tienen,
-  la probabilidad de cruzarse es cero, excepto que sus vectores de velocidad
-  sean colineares, y su velocidad relativa sea negativa. Voy a asumir que
-  los puntos tienen un tamaño finito, definido como el resto de variables.
+  la probabilidad de cruzarse es cero, excepto que se muevan en 1D (sus vectores
+  de velocidad sean paralelos entre sí y colineares con el vector de posición relativa),
+  y su velocidad relativa sea negativa. Voy a asumir que la colisión se produce si en
+  el punto de mayor aproximación los objetos están separados por una distancia menor
+  a un valor pequeño arbitrario (la variable global EPSILON, que defino como 10**-9).
 
 Desarrollo matemático:
 
@@ -52,6 +54,9 @@ Por tanto:
 Y finalmente:
 
 t = (-dx(0) * dvx - dy(0) * dvy) / (dvx**2 + dvy**2)
+
+De este tiempo t, y las posiciones iniciales y velocidades de los objetos,
+puede sacarse, obviamente las posiciones en el momento de máxima aproximación.
 """
 import math
 from dataclasses import dataclass
@@ -80,7 +85,6 @@ class Velocity:
 
 @dataclass
 class MovingObject:
-    radius: float
     position: Position
     velocity: Velocity
 
@@ -123,9 +127,7 @@ def calculate_closest_time(object1: MovingObject, object2: MovingObject) -> floa
 def calculate_collision(object1: MovingObject, object2: MovingObject) -> Result:
     """
     Given two objects moving in a 2D plane, say if, when and where
-    they will meet.
-    The objects are considered to meet if their closest approach is
-    closer than the sum of their radii.
+    they will collide (their relative distance smaller than a threshold).
 
     Args:
         object1 (MovingObject): first moving object.
@@ -135,22 +137,24 @@ def calculate_collision(object1: MovingObject, object2: MovingObject) -> Result:
         A Result object, with all the data we want.
     """
     t = calculate_closest_time(object1, object2)
-
-    # Closest distance:
     p1 = object1.position_after_time(t)
     p2 = object2.position_after_time(t)
-
     d = p1.distance_to(p2)
 
-    we_have_collision = d <= (object1.radius + object2.radius)
-    return Result(time=t, distance=d, position1=p1, position2=p2, we_have_collision=we_have_collision)
+    return Result(
+        time=t,
+        distance=d,
+        position1=p1,
+        position2=p2,
+        we_have_collision=d <= EPSILON,
+    )
 
 
 if __name__ == "__main__":
     # Example:
     print("Example:")
-    o1 = MovingObject(radius=0.1, position=Position(0, 0), velocity=Velocity(0, 0))
-    o2 = MovingObject(radius=0.1, position=Position(1, 0), velocity=Velocity(-1, 0))
+    o1 = MovingObject(position=Position(0, 0), velocity=Velocity(0, 0))
+    o2 = MovingObject(position=Position(1, 0), velocity=Velocity(-1, 0))
     r = calculate_collision(o1, o2)
     print(o1)
     print(o2)
