@@ -8,7 +8,7 @@ const show_score = (plays) =>{
 
     // Iterate over each play in array plays
     for(let play in plays){
-        if(play === "P1"){
+        if(plays[play] === "P1"){
             P1++;
         }
         else{
@@ -16,7 +16,7 @@ const show_score = (plays) =>{
         }
 
         // logic to determinate the game status
-        game_status = determinate_game_status(P1, P2)
+        let game_status = determinate_game_status(P1, P2);
         console.log(game_status);
 
         if(game_status === "Ganador"){
@@ -26,11 +26,30 @@ const show_score = (plays) =>{
 }
 
 const determinate_game_status = (P1, P2) =>{
-    // logica para determinar el estado del juego
-    // devolver el estado del juego
-    // (love, 15, 30, 40, Deuce, Ventaja, Ganador)
+    if(P1 == 1 && P2 == 0){
+        return "15 - Love";
+    }
+    else if(P1 == 2 && P2 == 0){
+        return "30 - Love";
+    }
+    else if(P1 == 2 && P2 == 1){
+        return "30 - 15";
+    }
+    else if(P1 ==  2 && P2 == 2){
+        return "30 - 30";
+    }
+    else if(P1 == 3 && P2 == 2){
+        return "40 - 30";
+    }
+    else if(P1 == P2){
+        return "Deuce";
+    }else if (P1 == 4) {
+        return "Ventaja P1";
+    }else if (P1 > 4) {
+        return "Ha ganado el P1";
+    }
 }
 
-// Ej. de uso
+
 let sequence_of_actions = ["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"];
 show_score(sequence_of_actions);
