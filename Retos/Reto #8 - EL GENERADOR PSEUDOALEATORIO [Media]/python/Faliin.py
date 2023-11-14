@@ -1,7 +1,7 @@
 # Define una semilla inicial
 seed = 0
 
-# Genera 10 números pseudoaleatorios entre 0 y 100
+# Genera 1 números pseudoaleatorios entre 0 y 100
 for i in range(1):
     # Actualiza la semilla con un valor diferente en cada iteración
     seed += i + 1
