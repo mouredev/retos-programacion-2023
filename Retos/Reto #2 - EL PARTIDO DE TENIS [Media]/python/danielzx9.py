@@ -49,7 +49,7 @@ def game(partido):
         else:
             print("Entrada no válida")
 
-        resultado = puntuacion(p1, p2)
+        resultado = puntaje(p1, p2)
         print(resultado)
 
         if "Ha ganado" in resultado:
