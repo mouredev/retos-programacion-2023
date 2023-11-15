@@ -1,0 +1,14 @@
+* >Natural Source Header 000000
+* :Mode S
+* :CP
+* <Natural Source Header
+/** New Program HELLO_WO.
+/**
+/** :author daniel.lopez-rodrigu
+/* TODO Enter your code here
+
+/*Lenguaje NATURAL (junto con ADABAS)
+
+WRITE "HOLA MUNDO"
+
+END
