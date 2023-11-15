@@ -16,7 +16,7 @@ class password():
     
 
     def config(self):
-        #possible_characters = []
+
         ###
         if self.upper_case == 0:
             l_lower_case = list(string.ascii_lowercase)
@@ -55,15 +55,11 @@ class password():
         return 'la contraseña es: {}'.format(''.join(pass_out))
 
 
-        
+
+pwd1 = password(20,True, True, True)
 
 
-
-#pwd1 = password(12, True, True, True)
-pwd1 = password(10,True, True, True)
-
-
-print(pwd1.config())
+pwd1.config()
 
 print(pwd1.generattor())
 
