@@ -87,4 +87,3 @@ sentencesToLeet(25660);
 sentencesToLeet(25, 5);
 sentencesToLeet(25.5);
 sentencesToLeet("Hello");
-
