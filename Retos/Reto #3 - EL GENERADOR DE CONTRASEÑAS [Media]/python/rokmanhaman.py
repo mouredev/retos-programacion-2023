@@ -7,7 +7,7 @@ class password():
 
     possible_characters = []
 
-    def __init__(self, long=8, upper_case=False, numeric=False, symbolyc=False):
+    def __init__(self, long, upper_case=False, numeric=False, symbolyc=False):
         self.long = long
         self.final_lenght = 8 if long < 8 else 16 if long > 16 else long
         self.upper_case = upper_case
