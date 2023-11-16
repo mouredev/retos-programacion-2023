@@ -54,12 +54,11 @@ const getParameter = (obj) => {
   if(key === 0){
     return 'Objeto vacío.';
   }
-//   Math.floor(Math.random() * key.length);
+
   const randomKey = getIndex(key.length)
   const randomObjectMember = obj[key[randomKey]];
 
   return randomObjectMember;
-  ;
 
 };
 
@@ -101,10 +100,25 @@ const getPassword = (passwordLength, upperCase, withNumbers, withSymbols) =>{
 
         return regexWithLowerCase.test(password) ? password : getPassword(upperCase, withNumbers, withSymbols);
     }
-    // else if(!upperCase && !withNumbers && withSymbols){
-    //     for(let i = 0; i < passwordLength; i++){
-    //         const parameter = getParameter(parameters) !=  ? parameter  : ;
-    //     }
+    else if(!upperCase && !withNumbers && withSymbols){
+        for(let i = 0; i < passwordLength; i++){
+            let parameter = '';
+            let flag = true;
+            
+            while(flag){
+                parameter = getParameter(parameters);
+                
+                if(parameter !== parameters.numbers){
+                    flag = false;
+                }
+            };
+            
+            const index = getIndex(parameter.length);
+
+            password += parameter[index];
+        }
+        return password;
+    }
 }
 
 
@@ -131,10 +145,14 @@ const withSymbols = true;
 const newPassword1 = passwordGenerator(12, true, true, true)
 const newPassword2 = passwordGenerator(10, false, true, true);
 const newPassword3 = passwordGenerator(10, false, false, false);
+const newPassword4 = passwordGenerator(10,false, false, true);
 
 
 console.log(newPassword1); // primera condicion con upper
 console.log(newPassword2); // segunda condicion con lower
-console.log(newPassword3)
+console.log(newPassword3);
+console.log(newPassword4);
 
-// console.log(getParameter(parameters))
+
+console.log(getParameter(parameters));
+console.log(parameters.numbers)
