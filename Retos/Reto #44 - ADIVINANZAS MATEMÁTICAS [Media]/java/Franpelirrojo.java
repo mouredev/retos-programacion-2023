@@ -94,12 +94,7 @@ public class Franpelirrojo {
             }
             case 2 -> { //división
                 System.out.println(operandoX + " / " + operandoY);
-                try {
-                    resultado = operandoX / operandoY;
-                } catch (ArithmeticException e) {
-                    throw new RuntimeException(operandoX + " / " + operandoY);
-                }
-
+                resultado = operandoX / operandoY;
             }
             case 3 -> { //resta
                 System.out.println(operandoX + " - " + operandoY);
