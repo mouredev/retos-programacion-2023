@@ -35,7 +35,6 @@ const parameters = {
     numbers: [0,1,2,3,4,5,6,7,8,9]
 }
 
-
 const getIndex = (num) => {
     if(!num){
         return 'Parámetro requerido.';
@@ -55,8 +54,8 @@ const getParameter = (obj) => {
   if(key === 0){
     return 'Objeto vacío.';
   }
-
-  const randomKey = Math.floor(Math.random() * key.length);
+//   Math.floor(Math.random() * key.length);
+  const randomKey = getIndex(key.length)
   const randomObjectMember = obj[key[randomKey]];
 
   return randomObjectMember;
@@ -64,47 +63,78 @@ const getParameter = (obj) => {
 
 };
 
-const getPasswordWithAllParameters = (passwordLength, upperCase, withNumbers, withSymbols) =>{
+const getPassword = (passwordLength, upperCase, withNumbers, withSymbols) =>{
     let password = '';
-    const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};:,.<>\/?|]).*$/;
 
-    if(upperCase, withNumbers, withSymbols){
-        for(let i = 0; i <= passwordLength - 1; i++){
+    const regexWithUpperCase = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};:,.<>\/?|]).*$/;
+    const regexWithLowerCase = /^(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};:,.<>\/?|]).*$/;
+
+
+
+    if(upperCase && withNumbers && withSymbols){
+        for(let i = 0; i < passwordLength; i++){
+            const parameter = getParameter(parameters);
+            const index = getIndex(parameter.length);
+    
+            password += parameter[index];
+        }
+        password = password.toUpperCase();
+
+        return regexWithUpperCase.test(password) ? password : getPassword(upperCase, withNumbers, withSymbols);
+    }
+    else if(!upperCase && !withNumbers && !withSymbols){
+        for(let i = 0; i < passwordLength; i++){
+            const parameter = parameters.alphabet;
+            const index = getIndex(parameter.length);
+
+            password += parameter[index];
+        }
+        return password;
+    }
+    else if(!upperCase && withNumbers && withSymbols){
+        for(let i = 0; i < passwordLength; i++){
             const parameter = getParameter(parameters);
             const index = getIndex(parameter.length);
     
             password += parameter[index];
         }
 
-        password = password.toUpperCase();
-
-        return regex.test(password) ? password : getPassword(upperCase, withNumbers, withSymbols);
+        return regexWithLowerCase.test(password) ? password : getPassword(upperCase, withNumbers, withSymbols);
     }
+    // else if(!upperCase && !withNumbers && withSymbols){
+    //     for(let i = 0; i < passwordLength; i++){
+    //         const parameter = getParameter(parameters) !=  ? parameter  : ;
+    //     }
 }
-const getPasswordWithLowerCase = ()=>{
-    // logica
-}
+
 
 const passwordGenerator = (passwordLength, upperCase, withNumbers, withSymbols) =>{
-    let password = '';
+    let password = getPassword(passwordLength, upperCase, withNumbers, withSymbols);
 
     const validPasswordLength = passwordLength >= 8 && passwordLength <= 16;
 
     if(!validPasswordLength){
         return 'La longitud de la contraseña debe estar entre 8 y 16';
-    } 
+    }
 
-    if(upperCase, withNumbers, withSymbols){
-        password = getPasswordWithAllParameters(passwordLength, upperCase, withNumbers, withSymbols);
-        return password;
-    }
-    else if( upperCase === true && (withNumbers, withSymbols) === false){
-        // logica
-    }
+    return password;
+    
     
     
 };
 
+const passwordLength = 8;
+const upperCase = false;
+const withNumbers = true; 
+const withSymbols = true;
 
-console.log(passwordGenerator(8, true, true, true));
+const newPassword1 = passwordGenerator(12, true, true, true)
+const newPassword2 = passwordGenerator(10, false, true, true);
+const newPassword3 = passwordGenerator(10, false, false, false);
+
+
+console.log(newPassword1); // primera condicion con upper
+console.log(newPassword2); // segunda condicion con lower
+console.log(newPassword3)
+
 // console.log(getParameter(parameters))
