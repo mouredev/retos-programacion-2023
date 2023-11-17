@@ -57,7 +57,6 @@ const getParameter = (obj) => {
 
   const randomKey = getIndex(key.length)
   const randomObjectMember = obj[key[randomKey]];
-
   return randomObjectMember;
 
 };
@@ -119,11 +118,28 @@ const getPassword = (passwordLength, upperCase, withNumbers, withSymbols) =>{
         }
         return password;
     }
+    else if (upperCase && withNumbers && !withSymbols) {
+        for(let i = 0; i < passwordLength; i++){
+            const parametersWithNoSymbols = { alphabet : [...parameters.alphabet], numbers: [...parameters.numbers]};
+
+            const parameter = getParameter(parametersWithNoSymbols);
+            const index = getIndex(parameter.length);
+
+            password += parameter[index];
+
+        }
+
+        return password;
+    }
+    
+    else if(upperCase && !withNumbers && !withSymbols){
+
+    }
 }
 
 
 const passwordGenerator = (passwordLength, upperCase, withNumbers, withSymbols) =>{
-    let password = getPassword(passwordLength, upperCase, withNumbers, withSymbols);
+    const password = getPassword(passwordLength, upperCase, withNumbers, withSymbols);
 
     const validPasswordLength = passwordLength >= 8 && passwordLength <= 16;
 
@@ -131,10 +147,7 @@ const passwordGenerator = (passwordLength, upperCase, withNumbers, withSymbols) 
         return 'La longitud de la contraseña debe estar entre 8 y 16';
     }
 
-    return password;
-    
-    
-    
+    return password;    
 };
 
 const passwordLength = 8;
@@ -147,6 +160,14 @@ const newPassword2 = passwordGenerator(10, false, true, true);
 const newPassword3 = passwordGenerator(10, false, false, false);
 const newPassword4 = passwordGenerator(10,false, false, true);
 
+// por hacer
+const newPassword5 = passwordGenerator(10, true, true, false); // no symbols
+const newPassword6 = passwordGenerator(10, true, false, false);
+
+console.log(newPassword5) // no symbols
+
+
+//----------------------
 
 console.log(newPassword1); // primera condicion con upper
 console.log(newPassword2); // segunda condicion con lower
@@ -154,5 +175,5 @@ console.log(newPassword3);
 console.log(newPassword4);
 
 
-console.log(getParameter(parameters));
-console.log(parameters.numbers)
+// console.log(getParameter(parameters));
+// console.log(parameters.numbers)
