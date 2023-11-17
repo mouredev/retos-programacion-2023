@@ -49,7 +49,7 @@ class Number():
 
 
 
-n= Number(7)
+n= Number(17)
 
 print(f"{n.value}  {n.check_primo()}, {n.check_fibonacci()} y {n.check_even()}")
 
