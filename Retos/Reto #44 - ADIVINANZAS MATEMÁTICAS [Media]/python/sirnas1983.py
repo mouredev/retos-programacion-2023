@@ -21,13 +21,17 @@ def operacion_aleatoria(tupla):
     return res, f"{a} {signo} {b} = "
 
 def operandos_aleatorios(nivel):
-    a = random.randint(1,10**nivel) - 1
-    b = random.randint(1,10**nivel) - 1
+    exp = nivel//2 + 1
+    a = random.randint(1,10**exp) - 1 
+    if nivel%2==0:
+        b = random.randint(1,10**(exp -1)) - 1
+    else:
+        b = random.randint(1,10**exp) - 1
     return a, b
 
 def juego_matematicas():
     jugar = input("¿Quieres jugar? s/n: ").lower() == "s"
-    tiempo = 3
+    tiempo = 5
     nivel = 1
     correctas = 0
     while jugar:
@@ -59,4 +63,3 @@ def juego_matematicas():
             print(f"Usted logro {correctas} respuestas correctas")
             
 juego_matematicas()
-        
