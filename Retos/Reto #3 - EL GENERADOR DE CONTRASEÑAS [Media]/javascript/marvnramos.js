@@ -133,7 +133,13 @@ const getPassword = (passwordLength, upperCase, withNumbers, withSymbols) =>{
     }
     
     else if(upperCase && !withNumbers && !withSymbols){
+        for(let i = 0; i < passwordLength; i++){
+            const parameter = parameters.alphabet;
+            const index = getIndex(parameter.length);
 
+            password += parameter[index];
+        }
+        return password.toUpperCase();
     }
 }
 
@@ -150,30 +156,20 @@ const passwordGenerator = (passwordLength, upperCase, withNumbers, withSymbols) 
     return password;    
 };
 
-const passwordLength = 8;
-const upperCase = false;
-const withNumbers = true; 
-const withSymbols = true;
 
-const newPassword1 = passwordGenerator(12, true, true, true)
-const newPassword2 = passwordGenerator(10, false, true, true);
-const newPassword3 = passwordGenerator(10, false, false, false);
-const newPassword4 = passwordGenerator(10,false, false, true);
-
-// por hacer
-const newPassword5 = passwordGenerator(10, true, true, false); // no symbols
-const newPassword6 = passwordGenerator(10, true, false, false);
-
-console.log(newPassword5) // no symbols
+const newPassword1 = passwordGenerator(12, true, true, true); // capital letters, numbers and symbols
+const newPassword2 = passwordGenerator(10, false, true, true); // lowercase letters, numbers and symbols
+const newPassword3 = passwordGenerator(10, false, false, false); // lowercase letters only
+const newPassword4 = passwordGenerator(10,false, false, true); // lowercase letters and symbols
+const newPassword5 = passwordGenerator(10, true, true, false); // capital letters and numbers
+const newPassword6 = passwordGenerator(10, true, false, false); // capital letters only
 
 
 //----------------------
 
 console.log(newPassword1); // primera condicion con upper
 console.log(newPassword2); // segunda condicion con lower
-console.log(newPassword3);
-console.log(newPassword4);
-
-
-// console.log(getParameter(parameters));
-// console.log(parameters.numbers)
+console.log(newPassword3); // just lower cases
+console.log(newPassword4); // no capital letters or numbers
+console.log(newPassword5) // no symbols
+console.log(newPassword6) // just upper cases
