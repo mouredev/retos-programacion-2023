@@ -29,24 +29,41 @@ const getRandomEnumKey = <T extends object>(someEnum: T): T[keyof T] => {
 class Game {
   private _answeredQuestionAmm: number;
   private _currentQuestion?: Question;
+  private _nextIncrement: "x" | "y";
+  private _digitsX: number;
+  private _digitsY: number;
 
   constructor() {
     this._answeredQuestionAmm = 0;
+    this._digitsX = this._digitsY = 10;
+    this._nextIncrement = "x";
   }
 
   get currentQuestion() {
     return this._currentQuestion;
   }
 
-  get answeredQuestionAmm () {
-    return this._answeredQuestionAmm
+  get answeredQuestionAmm() {
+    return this._answeredQuestionAmm;
+  }
+
+  private calculateDigists() {
+    if (this._answeredQuestionAmm > 0 && this._answeredQuestionAmm % 5 === 0) {
+      if (this._nextIncrement === "x") {
+        this._digitsX = this._digitsX * 10;
+        this._nextIncrement = "y";
+      } else if (this._nextIncrement === "y") {
+        this._digitsY = this._digitsY * 10;
+        this._nextIncrement = "x";
+      }
+    }
   }
 
   generateQuestion(): void {
-    //TODO: Incrementar el número de digitos segun las respuestas acertadas
+    this.calculateDigists();
 
-    const x = Math.floor(Math.random() * 10);
-    const y = Math.floor(Math.random() * 10);
+    const x = Math.floor(Math.random() * this._digitsX);
+    const y = Math.floor(Math.random() * this._digitsY);
     const operation = getRandomEnumKey(Operations);
     let operationSign = "";
     let result = 0;
@@ -66,6 +83,7 @@ class Game {
         break;
       case Operations["DIVIDE"]:
         result = x / y;
+        result = Number(result.toFixed(2));
         operationSign = "/";
         break;
     }
@@ -82,9 +100,6 @@ class Game {
   }
 }
 
-//-------------------------------
-// Metodos de vista
-//-------------------------------
 const showQuestion = (question: Question): void => {
   console.log(
     `Resultado de la siguiente operación: ${question.x} ${question.operationSign} ${question.y}?`,
@@ -114,6 +129,14 @@ const waitAnswerForAmmTime = (
   });
 };
 
+const showGameOver = (answeredQuestions: number) => {
+  console.log();
+  console.log("No has respondido correctamente ");
+  console.log(
+    `Lograste responder correctamente ${answeredQuestions} preguntas`,
+  );
+};
+
 const main = async () => {
   console.clear();
   const game = new Game();
@@ -130,13 +153,10 @@ const main = async () => {
     } catch (error) {
       console.error(error);
     }
+    console.log();
   }
 
-  //Mostrar resultados
-
-  console.clear();
-  console.log("No has respondido correctamente ");
-  console.log(`Lograste responder correctamente ${game.answeredQuestionAmm} preguntas`);
+  showGameOver(game.answeredQuestionAmm);
 };
 
 main();
