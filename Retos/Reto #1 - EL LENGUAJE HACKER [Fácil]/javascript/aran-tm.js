@@ -14,7 +14,6 @@ const LEET_SPEAK_ALPHABET =
 const LEET_NUMBERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const NUMBERS_TO_LEET = ['()', 'L', 'R', 'E', 'A', 'S', 'b', 'T', 'B', 'g'];
 
-
 function convert_to_leet_alphabet(){
 
     // get the string
