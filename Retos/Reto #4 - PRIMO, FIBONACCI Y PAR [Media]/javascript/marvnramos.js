@@ -48,20 +48,34 @@ function isFibonacci(num){
     return false;
 }
 
-const num = 0;
 
 const numberIs = (num) =>{
     let result = "";
 
-    if(isPar(num)){
-        result = `${num} es par`
+    if(isPrime(num)){
+        result = `${num} es primo, `;
+    }else{
+        result = `${num} no es primo, `;
     }
+
+    if(isFibonacci(num)){
+        result += "fibonacci, ";
+    }
+    else{
+        result += "no es fibonacci, "
+    }
+
+    if(isPar(num)){
+        result += "y es par";
+    }
+    else{
+        result += "y es impar";
+    }
+
+    console.log(result);
 
 }
 
-// console.log(primeFibonacciAndPar(num));
-// const x = 5*1**2 + 4;
-// const y = 5*1**2 - 4;
+const num = 7;
 
-// console.log(Math.sqrt(11));
-// console.log(Math.sqrt(y));
+numberIs(num);
