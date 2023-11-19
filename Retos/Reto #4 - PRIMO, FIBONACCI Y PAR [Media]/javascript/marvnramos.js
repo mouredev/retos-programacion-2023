@@ -11,10 +11,21 @@
  5n^2 + 4  ó  5n^2 - 4
 */
 
+
+
+/**
+ * Comprueba si un número es par.
+ * @param {number} num - El número a evaluar.
+ * @returns {boolean} - Devuelve true si el número es par, false si es impar.
+ */
 function isPar(num){
     return num % 2 === 0; 
 }
-
+/**
+ * Comprueba si un número es primo.
+ * @param {number} num - El número a evaluar.
+ * @returns {boolean} - Devuelve true si el número es primo, false si no lo es.
+ */
 function isPrime(num){
     let sqrt = Math.floor(Math.sqrt(num));
     
@@ -30,18 +41,29 @@ function isPrime(num){
     
     return true;
 }
-
+/**
+ * Comprueba si un numero pertenece a la secuencia de Fibonacci
+ * @param {number} num - El número a evaluar
+ * @returns {boolean} - Devuelve true si el numero cumple una de las dos condiciones, sino devuelve false
+ */
 function isFibonacci(num){
+    // Calcula dos posibles resultados de la fórmula que indica la pertenencia a la secuencia de Fibonacci.
     const firstResult = 5 * num**2 + 4;
     const secondResult = 5 * num**2 - 4;
 
+    // Calcula las raíces cuadradas de los resultados y verifica si son números enteros.
     const firstSqrt = Math.sqrt(firstResult);
     const secondSqrt = Math.sqrt(secondResult);
     
+    // Devuelve true si al menos uno de los resultados es un número entero.
     return Number.isInteger(firstSqrt) || Number.isInteger(secondSqrt);
 }
 
 
+/**
+ * Analiza un número e imprime mensajes que indican si es primo, pertenece a la secuencia de Fibonacci y si es par o impar.
+ * @param {number} num - El número a analizar.
+ */
 const numberIs = (num) =>{
     let result = "";
 
@@ -70,5 +92,4 @@ const numberIs = (num) =>{
 }
 
 const num = 2;
-
 numberIs(num);
