@@ -7,13 +7,16 @@ function predecir_clima(int $dias, int $tmp_inicial, int $p_lluvia_inicial): voi
     $dias_lluviosos = 0;
     $tmp_diarias = array($tmp_inicial);
 
+    echo "Hace {$tmp} grados actualmente, con {$p_lluvia}% de probabilidad de lluvia.\n";
+    echo "Predicciones para los {$dias} días siguientes:\n\n";
+
     for ($i = 1; $i <= $dias; $i++) {
-        echo "Día {$i}\n";
+        echo "- Día {$i}\n";
         echo "La probabilidad de lluvia es del {$p_lluvia}%\n";
 
-        $cambio = rand(0, 100);
+        $random = rand(0, 100);
 
-        if ($cambio <= 10) {
+        if ($random <= 10) {
             $subida = rand(0, 1);
 
             if ($subida) {
@@ -26,16 +29,18 @@ function predecir_clima(int $dias, int $tmp_inicial, int $p_lluvia_inicial): voi
         echo "La temperatura es de {$tmp} grados.\n";
         array_push($tmp_diarias, $tmp);
 
-        if ($p_lluvia == 100) {
+        if ($random <= $p_lluvia) {
+            echo "Es una jornada de lluvias.\n";
+            $tmp -= 1;
             $dias_lluviosos++;
         }
 
+        echo "\n";
 
         if ($tmp > 25) {
             $p_lluvia += 20;
             if ($p_lluvia > 100) {
                 $p_lluvia = 100;
-                $tmp -= 1;
             }
         } else if ($tmp < 5) {
             $p_lluvia -= 20;
@@ -46,9 +51,9 @@ function predecir_clima(int $dias, int $tmp_inicial, int $p_lluvia_inicial): voi
     }
 
     echo "RESUMEN:\n";
+    echo "- Temperatura máxima: " . max($tmp_diarias) . " grados.\n";
+    echo "- Tempratura mínima: " . min($tmp_diarias) . " grados.\n";
     echo "- Días lluviosos: {$dias_lluviosos}.\n";
-    echo "Temperatura máxima: " . max($tmp_diarias) . " grados.\n";
-    echo "Tempratura mínima: " . min($tmp_diarias) . " grados.\n";
 }
 
-predecir_clima(24, 24, 20);
+predecir_clima(10, 24, 30);
