@@ -12,10 +12,7 @@
 */
 
 function isPar(num){
-    if(num % 2 === 0){
-        return true; 
-    }
-    return false; // es impar
+    return num % 2 === 0; 
 }
 
 function isPrime(num){
@@ -41,11 +38,7 @@ function isFibonacci(num){
     const firstSqrt = Math.sqrt(firstResult);
     const secondSqrt = Math.sqrt(secondResult);
     
-    
-    if(Number.isInteger(firstSqrt) || Number.isInteger(secondSqrt)){
-        return true;
-    }
-    return false;
+    return Number.isInteger(firstSqrt) || Number.isInteger(secondSqrt);
 }
 
 
@@ -53,9 +46,9 @@ const numberIs = (num) =>{
     let result = "";
 
     if(isPrime(num)){
-        result = `${num} es primo, `;
+        result += `${num} es primo, `;
     }else{
-        result = `${num} no es primo, `;
+        result += `${num} no es primo, `;
     }
 
     if(isFibonacci(num)){
@@ -76,6 +69,6 @@ const numberIs = (num) =>{
 
 }
 
-const num = 7;
+const num = 2;
 
 numberIs(num);
