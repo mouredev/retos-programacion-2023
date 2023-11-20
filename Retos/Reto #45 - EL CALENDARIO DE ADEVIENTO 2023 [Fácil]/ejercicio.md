@@ -14,11 +14,12 @@
  *   participantes, mostrarlos, lanzar el sorteo o salir.
  * - Si seleccionas añadir un participante, podrás escribir su nombre y pulsar enter.
  * - Si seleccionas añadir un participante, y este ya existe, avisarás de ello.
- *   (Y no lo duplicacrás)
+ *   (Y no lo duplicarás)
  * - Si seleccionas mostrar los participantes, se listarán todos.
  * - Si seleccionas eliminar un participante, podrás escribir su nombre y pulsar enter.
  *   (Avisando de si lo has eliminado o el nombre no existe)
- * - Si seleccionas realizar el sorteo, elegirás una persona al azar y se eliminará del listado.
+ * - Si seleccionas realizar el sorteo, elegirás una persona al azar 
+ *   y se eliminará del listado.
  * - Si seleccionas salir, el programa finalizará.
  */
 ```
