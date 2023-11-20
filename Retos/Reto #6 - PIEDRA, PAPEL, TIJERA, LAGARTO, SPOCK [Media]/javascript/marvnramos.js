@@ -28,6 +28,11 @@ const input = [
     ["📄","✂️"]   // 2
 ];
 
+
+/**
+ * Calcula e imprime qué jugador gana más partidas
+ * @param {Array} input - Arreglo de arreglos con las jugadas de cada jugador
+ */
 function firstPlace(input){
     let player1 = 0;
     let player2 = 0;
