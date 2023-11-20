@@ -6,22 +6,85 @@ tie
 
 /*
 ===== Lógica del juego =====
-    🖖 rompe        ✂️
-    🖖 vaporiza     🗿
+    🖖 rompe        ✂️ [✅]
+    🖖 vaporiza     🗿 [✅]
 
-    ✂️ decapita     🦎
-    ✂️ corta        📄
+    ✂️ decapita     🦎 [✅]
+    ✂️ corta        📄 [✅]
 
-    📄 desautoriza  🖖
-    📄 envuelve     🗿
+    📄 desautoriza  🖖 [✅]
+    📄 envuelve     🗿 [✅]
 
-    🗿 aplasta      ✂️
-    🗿 aplasta      🦎
+    🗿 aplasta      ✂️ [✅]
+    🗿 aplasta      🦎 [✅]
 
-    🦎 envenena     🖖
-    🦎 devora       📄
+    🦎 envenena     🖖 [✅]
+    🦎 devora       📄 [✅]
 */
 
+const input = [
+    ["🗿","✂️"],  // 0
+    ["✂️","🗿"],  // 1
+    ["📄","✂️"]   // 2
+];
+
+function firstPlace(input){
+    let player1 = 0;
+    let player2 = 0;
+    let tie = 0;
+
+    for(let i = 0; i < input.length; i++){
+        if(input[i][0] === input[i][1]){
+            tie++;
+        }
+        else if(input[i][0] === "🖖" && input[i][1] === "✂️"){
+            player1++;
+
+        }
+        else if(input[i][0] === "🖖" && input[i][1] === "🗿"){
+            player1++;
+        }
+        else if(input[i][0] === "✂️" && input[i][1] === "🦎"){
+            player1++;
+        }
+        else if(input[i][0] === "✂️" && input[i][1] === "📄"){
+            player1++;
+        }
+        else if(input[i][0] === "📄" && input[i][1] === "🖖"){
+            player1++;
+        }
+        else if(input[i][0] === "📄" && input[i][1] === "🗿"){
+            player1++;
+        }
+        else if(input[i][0] === "🗿" && input[i][1] === "✂️"){
+            player1++;
+        }
+        else if(input[i][0] === "🗿" && input[i][1] === "🦎"){
+            player1++;
+        }
+        else if(input[i][0] === "🦎" && input[i][1] === "🖖"){
+            player1++;
+        }
+        else if(input[i][0] === "🦎" && input[i][1] === "📄"){
+            player1++;
+        }
+        else{
+            player2++;
+        }
+    }
+    
+    if(tie > player1 && tie > player2){
+        console.log("tie");
+    }
+    else if(player1 > player2){
+        console.log(`Player 1: ${player1} wins`);
+    }
+    else{
+        console.log(`Player 2: ${player2} wins`);
+    }
+}
+
+firstPlace(input);
 
 
 
