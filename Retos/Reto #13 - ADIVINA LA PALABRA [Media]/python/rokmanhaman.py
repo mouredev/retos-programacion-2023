@@ -29,49 +29,54 @@ class Word():
 
     def initial_sample(self):
         max_zeros = 0.6
-        
-        length = len(self.word)
-        bin = ''
-        for i in range(length):
-            if random.random() < max_zeros:
-                bin += self.word[i]
-            elif self.word[i] != " ":
-                bin += '_'
-        return bin
+        hidden_word = ""
+        word_list = self.word.split() 
+
+        for word in word_list:
+            for i, letter in enumerate(word):
+                if random.random() < max_zeros:
+                    hidden_word += word[i]
+                else:
+                    hidden_word += '_'
+            
+            hidden_word = hidden_word + " "
+
+        return hidden_word[:-1]
 
     def guess_word(self):
-        ini_sample = self.initial_sample()
 
-        ini_sample_list = list(ini_sample)
-        print(f"la palabra a adivinar es: {ini_sample}")
         
+        dict_hidden = {index: character for index, character in enumerate(self.initial_sample())}
+        dict_word = {index: character for index, character in enumerate(self.word)}
+       
         att = self.attemps
 
+        a = ''.join(dict_hidden.values())
+        b = ''.join(dict_word.values())
+
         while att > 0:
-            l = input("Ingrese una letra: ")
 
-            if l in self.word:
-                index = [i for i, c in enumerate(self.word) if c == l]  
-                for ind in index:
-                    ini_sample_list[ind] = l
-                out = ''.join(ini_sample_list)    
-                print(f"la palabra a adivinar es: {out}")
-            else:
-                att = att - 1
-                print(f"la letra: {l} no se encuentra en la frase. Le quedan {att} intentos")
+            print(f"la palabra a adivinar es: {''.join(dict_hidden.values())}")
+            letter = input("Ingrese una letra: ")
+
+            if letter not in dict_word.values():
+                    att = att - 1
+                    print(f"la letra: {letter} no se encuentra en la frase. Le quedan {att} intentos")         
             
-            if att == 0:
-                message = "GAME OVER!!!"
-            
-            out = ''.join(ini_sample_list) 
-                        
-            if self.word == out:
-                message = "WINNER!!!"
+            elif dict_hidden == dict_word:
+                out = "WiNNer!!!"
                 break
+                                                         
+            else:
+                indexs = [key for key, value in dict_word.items() if value == letter]
+                for index in indexs:
+                    dict_hidden[index] = letter
 
-        return print(message)
+        if att == 0:
+            out = "GaMe OvEr!!!"
+        
+        return print(out)
     
-
 word = Word("hola manola campeon", 5)
 #print(word.initial_sample())
 word.guess_word()
