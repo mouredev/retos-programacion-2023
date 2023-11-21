@@ -1,4 +1,5 @@
 # Reto #45: El calendario de aDEViento 2023
+
 #### Dificultad: Fácil | Publicación: 20/11/23 | Corrección: 27/11/23
 
 ## Enunciado
@@ -18,12 +19,14 @@
  * - Si seleccionas mostrar los participantes, se listarán todos.
  * - Si seleccionas eliminar un participante, podrás escribir su nombre y pulsar enter.
  *   (Avisando de si lo has eliminado o el nombre no existe)
- * - Si seleccionas realizar el sorteo, elegirás una persona al azar 
+ * - Si seleccionas realizar el sorteo, elegirás una persona al azar
  *   y se eliminará del listado.
  * - Si seleccionas salir, el programa finalizará.
  */
+
 ```
-#### Tienes toda la información extendida sobre los retos de programación semanales en **[retosdeprogramacion.com/semanales2023](https://retosdeprogramacion.com/semanales2023)**.
+
+#### Tienes toda la información extendida sobre los retos de programación semanales en **[retosdeprogramacion.com/semanales2023](https://retosdeprogramacion.com/semanales2023)**
 
 Sigue las **[instrucciones](../../README.md)**, consulta las correcciones y aporta la tuya propia utilizando el lenguaje de programación que quieras.
 
