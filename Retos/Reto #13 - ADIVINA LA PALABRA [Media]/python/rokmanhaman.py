@@ -56,24 +56,31 @@ class Word():
 
         while att > 0:
 
-            print(f"la palabra a adivinar es: {''.join(dict_hidden.values())}")
-            letter = input("Ingrese una letra: ")
-
-            if letter not in dict_word.values():
-                    att = att - 1
-                    print(f"la letra: {letter} no se encuentra en la frase. Le quedan {att} intentos")         
-            
-            elif dict_hidden == dict_word:
+            if list(dict_hidden.values()).count("_") == 0:
                 out = "WiNNer!!!"
                 break
-                                                         
-            else:
-                indexs = [key for key, value in dict_word.items() if value == letter]
-                for index in indexs:
-                    dict_hidden[index] = letter
 
-        if att == 0:
-            out = "GaMe OvEr!!!"
+            else:
+                print(f"la palabra a adivinar es: {''.join(dict_hidden.values())}")
+                letter = input("Ingrese una letra: ")
+
+                if letter not in dict_word.values():
+                    att = att - 1
+                    print(f"la letra: {letter} no se encuentra en la frase. Le quedan {att} intentos")
+                              
+                    """
+                    elif dict_hidden == dict_word:
+                        out = "WiNNer!!!"
+                        break
+                    """                                        
+                else:
+                    indexs = [key for key, value in dict_word.items() if value == letter]
+                
+                    for index in indexs:
+                        dict_hidden[index] = letter
+
+            if att == 0:
+                out = "GaMe OvEr!!!"
         
         return print(out)
     
