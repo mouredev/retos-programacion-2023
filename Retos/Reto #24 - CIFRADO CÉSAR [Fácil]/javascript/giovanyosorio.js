@@ -26,6 +26,7 @@ function cifrar(palabra, clave){
 }
 
 
+
 function descifrar(palabra, clave){
   
   let letra,respuesta=""
