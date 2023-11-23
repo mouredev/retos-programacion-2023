@@ -1,4 +1,8 @@
 function generatePassword(length, includeUppercase, includeNumbers, includeSymbols) {
+    if (length < 8 || length > 16) {
+        throw new Error('Invalid password length ' + length);
+    }
+
     const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz';
     const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numberChars = '0123456789';
