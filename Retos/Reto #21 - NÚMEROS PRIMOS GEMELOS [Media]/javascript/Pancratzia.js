@@ -9,7 +9,7 @@
  * - Ejemplo: Rango 14
  *   (3, 5), (5, 7), (11, 13)
  */
-function esPrimo(n){
+function esPrimo(numero){
     if (numero == 0 || numero == 1 || numero == 4) return false;
 	for (let x = 2; x < numero / 2; x++) {
 		if (numero % x == 0) return false;
@@ -21,8 +21,12 @@ function primosGemelos(rango = 10){
     let primosGemelos="";
 
     for(let i=1; i<=rango; i++){
-        
+        if(esPrimo(i) && esPrimo(i+2)){
+            primosGemelos += "("+i+", "+(i+2)+") ";
+        }
     }
+
+    console.log(primosGemelos);
 
 }
 
