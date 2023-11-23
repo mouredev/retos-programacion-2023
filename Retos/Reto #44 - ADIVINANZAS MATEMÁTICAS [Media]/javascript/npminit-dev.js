@@ -2,7 +2,7 @@ const readline = require('readline')
 
 let questCount = 1
 let correct = 0
-const ops = ['+', '-']
+const ops = ['+', '-', '*', '/']
 
 const createIF = (readline) => readline.createInterface({
   input: process.stdin,
@@ -34,9 +34,9 @@ const getOperation = (ops, quesCount) => {
 
 console.clear()
 console.log(
-` ---- MATH OPS GAME ----
-All result must be rounded to nearest the integer
-3 seconds contown per question...`)
+` <--- MATH OPS GAME --->
+All results must be rounded to the nearest integer
+3 seconds contdown per question...`)
 
 const question =() => {
   return new Promise((res, rej) => {
