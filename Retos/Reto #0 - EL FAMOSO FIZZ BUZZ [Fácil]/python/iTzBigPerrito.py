@@ -6,14 +6,14 @@ def main():
         multiplo3 = x % 3
         multiplo5 = x % 5
 
-        if(multiplo3 == 0):
+        if(multiplo3 == 0 and multiplo5 == 0):
+            print('fizzbuzz')
+            continue
+        elif(multiplo3 == 0):
             print('fizz')
             continue
         elif(multiplo5 == 0):
             print('buzz')
-            continue
-        elif(multiplo3 == 0 and multiplo5 == 0):
-            print('fizzbuzz')
             continue
         else:
             print(x)
