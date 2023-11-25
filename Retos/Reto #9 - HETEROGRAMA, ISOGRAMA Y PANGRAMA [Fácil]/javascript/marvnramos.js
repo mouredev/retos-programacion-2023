@@ -38,11 +38,36 @@ const isIsogram = function(string){
     return true;
 };
 
-
+/**
+ * Validates if a string is a pangram
+ * @param {*} string - a string to be tested
+ * @returns - true if the string is a pangram, false otherwise
+ */
 const isPangram = function(string){
-    // logic here
+    const containsNumbers = /[0-9]/;
+    const containsSpecialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+    
+    if(containsNumbers.test(string) || containsSpecialCharacters.test(string)){
+        return false; // the string contains numbers or special characteres so it is not an pangram
+    }
+    
+    const regex = /[a-z]/g;
+    let lowerCaseString = string.toLowerCase();
+    let letters = new Set(lowerCaseString.match(regex));
+
+    return letters.size === 26; // the string contains all the letters of the alphabet
 };
 
-let string = "abcdefg 1xyz";
-// console.log(isHeterogram(string));
-console.log(isIsogram(string));
+
+let string_heterogram = "Hi, het3rog4m";
+console.log(isHeterogram(string_heterogram));
+
+
+let string_isogram = "H3y, 1s0gr4ms 4r3 c00l!";
+let string_isogram2 = "Hey isogram";
+console.log(isIsogram(string_isogram));
+console.log(isIsogram(string_isogram2));
+
+let string_pangram = "The quick brown fox jumps over a lazy dog";
+console.log(isPangram(string_pangram));
+
