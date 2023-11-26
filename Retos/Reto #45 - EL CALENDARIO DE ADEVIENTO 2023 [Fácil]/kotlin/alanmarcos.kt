@@ -1,6 +1,6 @@
 package retos2023
 
-import java.util.Scanner
+import java.util.*
 
 /*
  * ¿Conoces el calendario de aDEViento de la comunidad (https://adviento.dev)?
@@ -26,33 +26,39 @@ fun main(){
     val competitors = mutableListOf<String>()
     val scanner = Scanner(System.`in`)
     boardOptions()
-    var userInput = scanner.nextLine()
-    while (userInput != "5"){
+    var userInput = scanner.nextLine().lowercase()
+    while ((userInput != "5") && (userInput != "Salir".lowercase())){
         when(userInput){
-            "1" -> {
+            "1", "Agregar participante".lowercase() -> {
                 val competitorName = competitorNameInput(scanner)
                 if (!competitors.contains(competitorName)) competitors.add(competitorName)
                 else println("El participante ya existe.")
             }
-            "2" -> {
+            "2", "Borrar participante".lowercase() -> {
                 val competitorName = competitorNameInput(scanner)
                 if (competitors.contains(competitorName)) competitors.remove(competitorName)
                 else println("El participante no existe.")
             }
-            "3" -> showAllCompetitors(competitors)
-            "4" -> launchLottery(competitors)
+            "3", "Mostrar todos los participantes".lowercase() -> showAllCompetitors(competitors)
+            "4", "Lanzar sorteo".lowercase() -> {
+                if (competitors.isNotEmpty()) {
+                    val randomlySelectCompetitor = launchLottery(competitors)
+                    println("Ha salido sorteado $randomlySelectCompetitor")
+                    competitors.remove(randomlySelectCompetitor)
+                } else println("La lista de participantes está vacía")
+            }
             else -> println("Opción incorrecta. Ingrésela otra vez.")
         }
         boardOptions()
-        userInput = scanner.nextLine()
+        userInput = scanner.nextLine().lowercase()
     }
     println("Hasta pronto!")
 
 }
 
-private fun launchLottery(competitors: MutableList<String>) = println("Ha salido sorteado ${competitors.random()}")
+private fun launchLottery(competitors: List<String>) = competitors.random()
 
-private fun showAllCompetitors(competitors: MutableList<String>) = competitors.forEach { println(it) }
+private fun showAllCompetitors(competitors: List<String>) = competitors.forEach { println(it) }
 
 private fun competitorNameInput(scanner: Scanner): String {
     println("Ingrese nombre: ")
