@@ -90,6 +90,3 @@ function firstPlace(input){
 }
 
 firstPlace(input);
-
-
-

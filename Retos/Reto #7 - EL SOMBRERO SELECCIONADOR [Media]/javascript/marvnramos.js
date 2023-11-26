@@ -16,6 +16,12 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+/**
+ * 
+ * @param {*} question  - Pregunta a realizar
+ * @param {*} options  - Array de opciones
+ * @returns - Promise que se resuelve con la opción seleccionada
+ */
 function askQuestion(question, options) {
   return new Promise((resolve, reject) => {
     const formattedOptions = options.map((option, index) => `${index + 1}. ${option}`);
@@ -30,6 +36,7 @@ function askQuestion(question, options) {
     });
   });
 }
+
 
 async function startSortingHat() {
   console.log('¡Bienvenido al Sombrero Seleccionador de Hogwarts!');
