@@ -20,7 +20,7 @@ function calcularGanador(jugador1, jugador2){
     ]
 
     if (indexPlayer1 === indexPlayer2){
-        return 'Empate'
+        return 'Tie'
     }
 
     if(opcionesGanar.some(par => par[0] === indexPlayer1 && par[1] === indexPlayer2)){
