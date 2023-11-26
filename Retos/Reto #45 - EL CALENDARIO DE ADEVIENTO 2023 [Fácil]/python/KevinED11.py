@@ -50,6 +50,11 @@ class AdevientoParticipationMecanism:
         self.participants.remove(participant)
 
     def show(self) -> None:
+        print("Lista de participantes:")
+        if not self.participants:
+            print("No hay participantes registrados.")
+            return
+
         for participant in self.participants:
             print(participant)
 
@@ -57,7 +62,7 @@ class AdevientoParticipationMecanism:
         time.sleep(3)
         giveaway_winner = self.participants[randint(0, len(self.participants) - 1)]
 
-        self.participants.remove(giveaway_winner)
+        self.delete(giveaway_winner)
         print(f"El ganador del sorteo es: {giveaway_winner}")
         return giveaway_winner
 
@@ -79,7 +84,7 @@ class AdevientoParticipationMecanism:
     def run(self) -> None:
         self.running = True
         options = self.get_options()
-        while True:
+        while self.running:
             print(
                 "1. Añadir participante, 2. Eliminar participante, 3. Mostrar participantes, 4. Realizar sorteo, 5. Salir"
             )
@@ -90,6 +95,7 @@ class AdevientoParticipationMecanism:
 
             result = options[option]()
             if isinstance(result, bool) and result:
+                self.running = False
                 break
 
     def exit(self) -> bool:
