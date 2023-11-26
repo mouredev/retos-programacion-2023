@@ -68,14 +68,17 @@ def aDEVinteo():
 
     elif orden == "2":
         participants_text = open("participants.text")
-        print(f"la lista de participante es: {participants_text.readlines()}")
+        name_list = participants_text.readlines()
+        name_list_temp=[]
+        for index in name_list:
+            name_list_temp.append(index.replace("\n", ""))
+        print(f"la lista de participante es: {name_list_temp}")
         participants_text.close()
 
     elif orden == "3":
         participants_text =  open("participants.text", "r+")
         work_line = participants_text.readlines()
-        result = random.choice(work_line)
-        print(f"estos son los participantes actuales: {work_line}")   
+        result = random.choice(work_line) 
         print(f"EL GANADOR EN EL SORTEO aDEViento es: {result}\nEste se eliminara del listado para las siguientes rifas")
         work_line.remove(result)
         participants_text =  open("participants.text", "w")
