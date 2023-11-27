@@ -2,24 +2,30 @@ from dataclasses import dataclass, field
 from typing import Protocol
 from random import randint
 import time
+from abc import abstractmethod, abstractproperty
 
 
 class ParticipationMecanism(Protocol):
     participants: list[str] = []
     running: bool = False
 
+    @abstractmethod
     def add(self, participant: str) -> None:
         ...
 
+    @abstractmethod
     def delete(self, participant: str) -> None:
         ...
 
+    @abstractmethod
     def show(self) -> None:
         ...
 
+    @abstractmethod
     def run_giveaway(self) -> str:
         ...
 
+    @abstractmethod
     def run(self) -> None:
         ...
 
@@ -29,7 +35,7 @@ def user_input(prompt: str) -> str:
 
 
 @dataclass
-class AdevientoParticipationMecanism:
+class AdevientoParticipationMecanism(ParticipationMecanism):
     participants: list[str] = field(default_factory=list)
     running: bool = field(default=False)
 
@@ -50,15 +56,19 @@ class AdevientoParticipationMecanism:
         self.participants.remove(participant)
 
     def show(self) -> None:
-        print("Lista de participantes:")
         if not self.participants:
             print("No hay participantes registrados.")
             return
 
+        print("Lista de participantes:")
         for participant in self.participants:
             print(participant)
 
     def run_giveaway(self) -> str:
+        if not self.participants:
+            print("No hay participantes para realizar el sorteo.")
+            return
+
         time.sleep(3)
         giveaway_winner = self.participants[randint(0, len(self.participants) - 1)]
 
