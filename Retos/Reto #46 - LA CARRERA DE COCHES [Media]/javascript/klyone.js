@@ -72,6 +72,7 @@ async function runSimulation(road1, road2) {
       road1[newCar1Index] = (car1Crash ? CRASH : CAR1);
     } else {
       car1Crash = false;
+      newCar1Index = car1Index;
     }
 
     if (!car2Crash) {
@@ -80,6 +81,7 @@ async function runSimulation(road1, road2) {
       road2[newCar2Index] = (car2Crash ? CRASH : CAR2);
     } else {
       car2Crash = false;
+      newCar2Index = car2Index;
     }
 
     showRaceStatus("Current", road1, road2);
