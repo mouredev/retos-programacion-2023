@@ -1,6 +1,9 @@
 const url = 'https://retosdeprogramacion.com?year=2023&challenge=0';
 
-
+/**
+ * Get the parameters from a url and print them in the console
+ * @param {*} url - The url to get the parameters from 
+ */
 const getParameters = (url) => {
     let index = url.indexOf('?');
     let values = [];
@@ -26,4 +29,3 @@ const getParameters = (url) => {
 }
 
 getParameters(url);
-
