@@ -57,6 +57,6 @@ def t9_code(number):
 
 
 
-num = "6-666-88-777-33-3-33-888"
+num = "2-6-666-88-777-33-3-33-888"
 output = t9_code(num)
 print(output)
