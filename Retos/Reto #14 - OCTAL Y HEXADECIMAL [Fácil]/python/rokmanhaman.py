@@ -43,18 +43,18 @@ class Number():
             i = i + 1
 
         
-        largo = len(resto_list)
         last_cociente  = cociente_list[i]
-        invert_resto = [resto_list[x] for x in range(largo-1,-1,-1)]
+        invert_resto = resto_list[::-1]
         hex_values = "0123456789ABCDEF"
-        invert_resto_hex =[hex_values[y] for y in invert_resto]
+        last_cociente_hex = hex_values[last_cociente]
+        invert_resto_hex = [hex_values[y] for y in invert_resto]
 
-        resultado_text = str(last_cociente)+ "".join(map(str, invert_resto_hex))
+        resultado_text = str(last_cociente_hex)+ "".join(map(str, invert_resto_hex))
 
         return print(f" el num decimal: {self.number} se corresponde con el num hexa: {resultado_text}")
 
 
-num_dec = Number(460)
+num_dec = Number(255)
 
 num_dec.dec_to_oct()
 num_dec.dec_to_hex()
