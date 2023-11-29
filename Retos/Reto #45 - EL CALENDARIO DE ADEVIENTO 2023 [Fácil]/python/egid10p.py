@@ -23,7 +23,7 @@
 #
 import random
 
-participantes = ["egidio", "giorgia", "maria", "luiz", "kiki", "pame"]
+participantes = []
 
 print("Hola bienvenido o bienvenida a Calendario de aDEViento 2023\n")
 
