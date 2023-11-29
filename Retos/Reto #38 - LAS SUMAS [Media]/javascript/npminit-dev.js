@@ -15,15 +15,14 @@ function getSumsLists(list, target) {
   let sList = list.filter(num => num <= target).sort()
   let result = []
 
-  function backTracking(sub, start) {
-    let sum = sub?.reduce((acc, curr) => acc += curr, 0) || 0
+  function backTracking(sub, start, sum) {
     if(sum === target) result.push(sub)
     for(let i = start; i < sList.length; i++) 
-      if(sum + list[i] <= target) backTracking([...sub, list[i]], i + 1)
+      if(sum + list[i] <= target) backTracking([...sub, list[i]], i + 1, sum + list[i])
   }
 
   for(let i = 0; i < sList.length - 1; i++) 
-    backTracking([list[i]], i + 1)
+    backTracking([list[i]], i + 1, list[i])
   return result
 }
 
@@ -35,6 +34,6 @@ console.log(getSumsLists([3, 2, 1, 6, 8, 4, 3, 10], 12))
 console.log(getSumsLists([3, 6, 9, 12, 15], 30)) 
 /* result = [[ 3, 6, 9, 12 ], [ 3, 12, 15 ], [ 6, 9, 15 ]] */
 console.log(getSumsLists([15, 10, 5, 2, 8, 10], 50)) 
-/* result = [[ 3, 6, 9, 12 ], [ 3, 12, 15 ], [ 6, 9, 15 ]] */
+/* result = [[15, 10, 5, 2, 8, 10]] */
 console.log(getSumsLists([1, 2, 3, 2, 1], 3)) 
-/* result = [[ 3, 6, 9, 12 ], [ 3, 12, 15 ], [ 6, 9, 15 ]] */
+/* result = [[ 1, 2 ], [ 1, 2 ], [ 2, 1 ], [ 3 ], [ 2, 1 ]] */
