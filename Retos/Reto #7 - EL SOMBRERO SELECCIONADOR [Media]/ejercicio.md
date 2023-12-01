@@ -5,7 +5,7 @@
 
 ```
 /*
- * Crea un programa que simule el comportamiento del sombrero selccionador del
+ * Crea un programa que simule el comportamiento del sombrero seleccionador del
  * universo mágico de Harry Potter.
  * - De ser posible realizará 5 preguntas (como mínimo) a través de la terminal.
  * - Cada pregunta tendrá 4 respuestas posibles (también a selecciona una a través de terminal).

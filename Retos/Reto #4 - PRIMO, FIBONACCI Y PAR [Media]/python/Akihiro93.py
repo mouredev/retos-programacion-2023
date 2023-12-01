@@ -42,4 +42,4 @@ else:
 if lista_de_Fibonacci.count(n_1) == 1:
     print("El numero: ", n_1, " es fibonacci")
 else:
-    print("El numero: ", n_1, " es par")
+    print("El numero: ", n_1, " no es fibonacci")
