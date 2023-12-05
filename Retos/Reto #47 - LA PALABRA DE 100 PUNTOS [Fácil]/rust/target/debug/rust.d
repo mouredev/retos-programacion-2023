@@ -1,0 +1,1 @@
+/Users/francisco.arenas/git/retos-programacion-2023/Retos/Reto\ #47\ -\ LA\ PALABRA\ DE\ 100\ PUNTOS\ [Fácil]/rust/target/debug/rust: /Users/francisco.arenas/git/retos-programacion-2023/Retos/Reto\ #47\ -\ LA\ PALABRA\ DE\ 100\ PUNTOS\ [Fácil]/rust/src/main.rs
