@@ -22,7 +22,6 @@
  *     se muestra 💥 y no avanza durante un turno.
  *   - Cada turno se imprimen las pistas y sus elementos.
  *   - Cuando la carrera finalice, se muestra el coche ganador o el empate.
- *   
  */
 ```
 #### Tienes toda la información extendida sobre los retos de programación semanales en **[retosdeprogramacion.com/semanales2023](https://retosdeprogramacion.com/semanales2023)**.
