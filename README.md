@@ -63,9 +63,10 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#43** - 30/10/23 | Fácil | [`SIMULADOR DE CLIMA`](./Retos/Reto%20%2343%20-%20SIMULADOR%20DE%20CLIMA%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2343%20-%20SIMULADOR%20DE%20CLIMA%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2343%20-%20SIMULADOR%20DE%20CLIMA%20%5BFácil%5D/)]
 * **#44** - 13/11/23 | Media | [`ADIVINANZAS MATEMÁTICAS`](./Retos/Reto%20%2344%20-%20ADIVINANZAS%20MATEMÁTICAS%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2344%20-%20ADIVINANZAS%20MATEMÁTICAS%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2344%20-%20ADIVINANZAS%20MATEMÁTICAS%20%5BMedia%5D/)]
 * **#45** - 20/11/23 | Fácil | [`EL CALENDARIO DE ADEVIENTO 2023`](./Retos/Reto%20%2345%20-%20EL%20CALENDARIO%20DE%20ADEVIENTO%202023%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2345%20-%20EL%20CALENDARIO%20DE%20ADEVIENTO%202023%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2345%20-%20EL%20CALENDARIO%20DE%20ADEVIENTO%202023%20%5BFácil%5D/)]
-* **#46** - 27/11/23 | Media | [`LA CARRERA DE COCHES`](./Retos/Reto%20%2346%20-%20LA%20CARRERA%20DE%20COCHES%20%5BMedia%5D/ejercicio.md) | Último reto publicado
+* **#46** - 27/11/23 | Media | [`LA CARRERA DE COCHES`](./Retos/Reto%20%2346%20-%20LA%20CARRERA%20DE%20COCHES%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2346%20-%20LA%20CARRERA%20DE%20COCHES%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2346%20-%20LA%20CARRERA%20DE%20COCHES%20%5BMedia%5D/)]
+* **#47** - 04/11/23 | Fácil | [`LA PALABRA DE 100 PUNTOS`](./Retos/Reto%20%2347%20-%20LA%20PALABRA%20DE%20100%20PUNTOS%20%5BFácil%5D/ejercicio.md) | Último reto publicado
 
-> **Corrección y Publicación próximo reto - 04/12/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/aNQNqZcB?event=1178638296092524544) en [Twitch](https://twitch.tv/mouredev)**
+> **Corrección y Publicación próximo reto - 11/12/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1181173439952863352) en [Twitch](https://twitch.tv/mouredev)**
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
