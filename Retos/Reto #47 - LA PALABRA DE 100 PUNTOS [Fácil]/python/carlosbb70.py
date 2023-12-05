@@ -8,6 +8,7 @@ abecedario = {
 
 while True:
 	palabra = input("Por favor introduzca una palabra: ")
+	palabra = palabra.lower()
 	suma = 0
 	for char in palabra:
 		for clave in abecedario:
