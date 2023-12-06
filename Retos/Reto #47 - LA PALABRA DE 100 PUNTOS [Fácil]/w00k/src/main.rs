@@ -74,7 +74,7 @@ fn main() {
         let words_in_lower_case = words.to_lowercase().clone();
         result = get_values(letters.clone(), words_in_lower_case);
 
-        println!("La palabra ingresada es {}, posee el peso {}.", words, result);
+        println!("La palabra ingresada es '{}', posee el peso {}.", words, result);
     }
 
     println!("Felidades has completado el reto");
