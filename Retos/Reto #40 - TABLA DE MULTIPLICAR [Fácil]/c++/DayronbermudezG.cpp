@@ -1,0 +1,31 @@
+/*
+ * Crea un programa que sea capaz de solicitarte un número y se
+ * encargue de imprimir su tabla de multiplicar entre el 1 y el 10.
+ * - Debe visualizarse qué operación se realiza y su resultado.
+ *   Ej: 1 x 1 = 1
+ *       1 x 2 = 2
+ *       1 x 3 = 3
+ *       ... 
+ */
+
+#include <iostream>
+
+int main()
+{
+    int n;
+
+    do {
+
+        std::cout << "Ingrese un numero: "; std::cin >> n;
+        std::cout << std::endl;
+
+        for(int i=0;i<=10;i++) {
+
+            std::cout << n << " x " << i << " = "<< n*i << std::endl;
+        }
+        std::cout << std::endl;
+
+    } while(true);
+
+    return 0;
+}

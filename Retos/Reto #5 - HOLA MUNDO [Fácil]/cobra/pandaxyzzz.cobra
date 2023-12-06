@@ -1,0 +1,5 @@
+use System.Console
+
+class HelloWorld
+    def main is shared
+        Console.WriteLine("¡Hola, mundo!")

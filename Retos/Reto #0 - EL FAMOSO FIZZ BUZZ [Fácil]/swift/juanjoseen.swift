@@ -1,27 +1,26 @@
 //
 //  juanjoseen.swift
-//  UIConfig
+//  
 //
-//  Created by Juan Jose Elias Navarro on 26/12/22.
+//  Created by Juan Jose Elias Navarro on 14/04/23.
 //
 
-import Foundation
+import UIKit
 
-func fizzBuzz(_ index: Int) -> String {
-    var str = ""
-    if index % 3 == 0 || index % 5 == 0 {
-        if index % 3 == 0 {
-            str += "fizz"
-        }
-        if index % 5 == 0 {
-            str += "buzz"
-        }
-        return str
+func fizzbuzz(_ num: Int) -> String {
+    if num.isMultiple(of: 3) && num.isMultiple(of: 5) {
+        return "fizzbuzz"
     } else {
-        return "\(index)"
+        if num.isMultiple(of: 3) {
+            return "fizz"
+        }
+        if num.isMultiple(of: 5) {
+            return "buzz"
+        }
     }
+    return String(format: "%d", num)
 }
 
-for i in 1...100 {
-    print(fizzBuzz(i))
+for i in 1..<100 {
+    print(fizzbuzz(i))
 }

@@ -1,0 +1,63 @@
+BEGIN
+    -- Punto 1: Hola, mundo!
+    print(("Hola, mundo!"), newline);
+
+    -- Punto 2: Crea una variable de texto o string
+    STRING miTexto := "¡Hola desde ALGOL 68!";
+
+    -- Punto 3: Crea una variable de número entero
+    INT miEntero := 42;
+
+    -- Punto 4: Crea una variable de número con decimales
+    REAL miDecimal := 3.14;
+
+    -- Punto 5: Crea una variable de tipo booleano
+    BOOL miBooleano := TRUE;
+
+    -- Punto 6: Crea una constante (no es directamente soportado en ALGOL 68)
+
+    -- Punto 7: Usa un if, else if y else
+    IF miEntero > 50 THEN
+        print(("El número es mayor que 50"), newline);
+    ELSE IF miEntero < 50 THEN
+        print(("El número es menor que 50"), newline);
+    ELSE
+        print(("El número es igual a 50"), newline);
+    FI;
+
+    -- Punto 8: Crea un Array
+    []INT miArray := [1, 2, 3, 4, 5];
+
+    -- Punto 9: Crea una lista (Array en ALGOL 68)
+    []STRING miLista := ["Manzana", "Banana", "Naranja"];
+
+    -- Punto 10: Crea una tupla (no aplicable en ALGOL 68)
+
+    -- Punto 11: Crea un set (no aplicable en ALGOL 68)
+
+    -- Punto 12: Crea un diccionario (no aplicable en ALGOL 68)
+
+    -- Punto 13: Usa un ciclo for
+    FOR i FROM 1 TO UPB miArray DO
+        print((image(miArray[i])), newline);
+    OD;
+
+    -- Punto 14: Usa un ciclo foreach (no aplicable en ALGOL 68)
+
+    -- Punto 15: Usa un ciclo while
+    INT contador := 0;
+    WHILE contador < 3 DO
+        print(("Contador: ", image(contador)), newline);
+        contador +:= 1;
+    OD;
+
+    -- Punto 16: Crea una función sin parámetros que no retorne nada (no aplicable en ALGOL 68)
+
+    -- Punto 17: Crea una función con parámetros que no retorne nada (no aplicable en ALGOL 68)
+
+    -- Punto 18: Crea una función con parámetros que retorne valor (no aplicable en ALGOL 68)
+
+    -- Punto 19: Crea una clase (no aplicable en ALGOL 68)
+
+    -- Punto 20: Muestra control de excepciones (no es soportado en ALGOL 68)
+END;

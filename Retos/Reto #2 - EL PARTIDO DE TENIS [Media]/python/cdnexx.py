@@ -22,7 +22,7 @@ class Player:
     def get_winner(self):
         return self.__winner
 
-    def set_winner(self, winner: bool):
+    def set_winner(self, winner: bool): 
         self.__winner = winner
 
     def display_score(self) -> str:
@@ -71,7 +71,7 @@ def game(player1: Player, player2: Player):
             elif "2" in has_scored:
                 player2.set_score(player2.get_score() + 1)
             else:
-                print("Ingresa a un jugador vÃ¡lido")
+                print("Ingresa a un jugador válido")
             score_table(player1, player2)
         else:
             print("El formato correcto de entrada es: P1 o P2")
