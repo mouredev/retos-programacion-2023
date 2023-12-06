@@ -26,10 +26,9 @@ def calcula_puntaje(palabra:str, puntos:int):
     if puntos == 100:
         print(f'Perfecto lo lograste la palabra {
             palabra} tiene {puntos} de puntaje')
-        return puntos
     else:
         print(f'Tu palabra "{palabra}" tiene {
-            puntos}, vamos intentalo de nuevo con otra palabra')
+            puntos} de puntaje, vamos intentalo de nuevo con otra palabra')
         puntos = 0
     return puntos
 
