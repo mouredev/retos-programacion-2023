@@ -27,7 +27,13 @@ def calcular_puntos(palabra: str) -> int:
               'k':11, 'l':12, 'm':13, 'n':14, 'ñ':15, 'o':16, 'ó':16, 'p':17, 'q':18, 'r':19, 's':20,
               't':21,'u':22, 'ú':22, 'ü':22, 'v':23, 'w':24, 'x':25, 'y':26, 'z':27 }
 
-    return sum([letras[x] for x in palabra])
+    try:
+        resultado = sum([letras[x] for x in palabra])
+    except KeyError as e:
+        print(f' El caracter {e} no pertenece as abecedario español...')
+        resultado = 0
+    
+    return resultado
 
 
 
