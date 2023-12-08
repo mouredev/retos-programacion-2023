@@ -38,7 +38,7 @@ public class moguism {
 
                     } else if(copiaPalabra.charAt(i) == 'Ñ'){
 
-                        puntos = puntos + puntosLetra;
+                        puntos = puntos + 15;
                         break;
 
                     }
