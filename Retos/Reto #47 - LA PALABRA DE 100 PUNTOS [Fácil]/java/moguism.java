@@ -25,12 +25,6 @@ public class moguism {
 
                     puntosLetra++;
 
-                    if(j == 78){ // Cuando llega a la Ñ
-
-                        puntosLetra++;
-
-                    }
-
                     if(copiaPalabra.charAt(i) == j){
 
                         puntos = puntos + puntosLetra;
@@ -40,6 +34,12 @@ public class moguism {
 
                         puntos = puntos + 15;
                         break;
+
+                    }
+
+                    if(j == 78){ // Cuando llega a la Ñ
+
+                        puntosLetra++;
 
                     }
 
