@@ -1,0 +1,25 @@
+### LA PALABRA DE 100 PUNTOS ###
+abc = ["a","b","c","d","e","f","g","h","i","j","k","l",
+     "m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+
+puntos = 0
+palabra = input("Ingrese una palabra para jugar: ")
+palabra = palabra.lower()
+my_palabra = list(palabra)
+while puntos < 100: 
+
+ for i in range(len(my_palabra)):
+    contador = 0
+    for j in range(len(abc)):
+        contador += 1
+        if my_palabra[i] in abc[j] :
+            puntos += contador
+            break
+ if puntos >= 100:
+    print(f"¡¡FELICITACIONES GANADOR, HAS HECHO UNA PALABRA QUE VALE {puntos}(>=100) PUNTOS!!")
+ else:
+    print(f"OHHH :( VALE MENOS DE 100 PUNTOS({puntos})")
+    puntos=0  
+    palabra = input("Ingrese otra palabra:")
+    palabra = palabra.lower()
+    my_palabra = list(palabra) 
