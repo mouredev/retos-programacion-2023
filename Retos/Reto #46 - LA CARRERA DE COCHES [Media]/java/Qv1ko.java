@@ -26,7 +26,7 @@ public class Qv1ko {
         while (track1.toCharArray()[0] != CAR && track2.toCharArray()[0] != CAR) {
 
             try {
-                Thread.sleep(10000);
+                Thread.sleep(1000);
             } catch (InterruptedException exc) {
                 exc.printStackTrace();
             }
