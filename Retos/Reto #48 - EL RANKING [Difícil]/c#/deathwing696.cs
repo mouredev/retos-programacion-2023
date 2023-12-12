@@ -56,7 +56,7 @@ namespace reto48
 
             await ProcessContentsAsync(github, owner, repo, contents, branch, aportaciones);
 
-            aportaciones = aportaciones.OrderByDescending(mi_objeto => mi_objeto.Num_veces).ToList();
+            aportaciones = aportaciones.OrderByDescending(conteo => conteo.Num_veces).ToList();
 
             foreach (var usuario in aportaciones)
             {
@@ -81,14 +81,14 @@ namespace reto48
                 {                    
                     var username = System.IO.Path.GetFileNameWithoutExtension(content.Name);
 
-                    if (!aportaciones.Any(mi_objeto => mi_objeto.Nombre_usuario == username))
+                    if (!aportaciones.Any(conteo => conteo.Nombre_usuario == username))
                     { 
                         Conteo usuario = new Conteo(username);
                         aportaciones.Add(usuario);
                     }
                     else
                     {
-                        Conteo usuario = aportaciones.Find(mi_objeto => mi_objeto.Nombre_usuario == username);
+                        Conteo usuario = aportaciones.Find(conteo => conteo.Nombre_usuario == username);
 
                         usuario.Num_veces++;
                     }
