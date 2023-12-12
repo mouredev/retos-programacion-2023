@@ -72,17 +72,15 @@ namespace reto48
             foreach (var content in contents)
             {
                 if (content.Type == ContentType.Dir)
-                {
-                    // Decodificar la ruta de la carpeta antes de la llamada recursiva
-                    var decodedSubfolderPath = Uri.UnescapeDataString(content.Path);
-                    // Obtener los contenidos de cada subdirectorio de manera recursiva
+                {                    
+                    var decodedSubfolderPath = Uri.UnescapeDataString(content.Path);                    
                     var subfolderContents = await github.Repository.Content.GetAllContentsByRef(owner, repo, decodedSubfolderPath, branch);
                     await ProcessContentsAsync(github, owner, repo, subfolderContents, branch, aportaciones);
                 }
                 else if (content.Type == ContentType.File)
-                {
-                    // El nombre del usuario es el nombre del archivo sin la extensión
+                {                    
                     var username = System.IO.Path.GetFileNameWithoutExtension(content.Name);
+
                     if (!aportaciones.Any(mi_objeto => mi_objeto.Nombre_usuario == username))
                     { 
                         Conteo usuario = new Conteo(username);
@@ -94,7 +92,6 @@ namespace reto48
 
                         usuario.Num_veces++;
                     }
-                      
                 }
             }
         }
