@@ -3,14 +3,14 @@ using System.IO;
 
 /*
  * Crea un programa capaz de interactuar con un fichero TXT.
- * IMPORTANTE: El fichero TXT NO debe subirse como parte de la correcci髇. 
- * 趎icamente el c骴igo.
+ * IMPORTANTE: El fichero TXT NO debe subirse como parte de la correcci贸n. 
+ * 脷nicamente el c贸digo.
  * 
  * - Si no existe, debe crear un fichero llamado "text.txt".
  * - Desde el programa debes ser capaz de introducir texto por consola y guardarlo
- *   en una nueva l韓ea cada vez que se pulse el bot髇 "Enter".
- * - Si el fichero existe, el programa tiene que dar la opci髇 de seguir escribiendo
- *   a continuaci髇 o borrar su contenido y comenzar desde el principio.
+ *   en una nueva l铆nea cada vez que se pulse el bot贸n "Enter".
+ * - Si el fichero existe, el programa tiene que dar la opci贸n de seguir escribiendo
+ *   a continuaci贸n o borrar su contenido y comenzar desde el principio.
  * - Si se selecciona continuar escribiendo, se tiene que mostrar por consola
  *   el texto que ya posee el fichero.  
  */
