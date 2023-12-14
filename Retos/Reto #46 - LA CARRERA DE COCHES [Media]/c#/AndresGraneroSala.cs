@@ -1,3 +1,7 @@
+/*
+ *Este script está hecho para unity el proyecto completo está en https://github.com/AndresGraneroSala/retos-semanales-mouredev
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
