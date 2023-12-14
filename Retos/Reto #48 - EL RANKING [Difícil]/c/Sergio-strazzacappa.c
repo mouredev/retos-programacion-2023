@@ -104,7 +104,9 @@ int lang_dir() {
 
     while (lang_entry = readdir(lang)) {
         if (strcmp(lang_entry->d_name, ".") &&
-            strcmp(lang_entry->d_name, "..")) {
+            strcmp(lang_entry->d_name, "..") &&
+            strcmp(lang_entry->d_name, "a.out") &&
+            strcmp(lang_entry->d_name, "output.txt")) {
                 //printf("%s\n", lang_entry->d_name);
 
                 char username[MAX_SIZE] = "";
