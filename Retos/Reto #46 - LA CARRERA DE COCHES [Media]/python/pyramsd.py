@@ -74,6 +74,7 @@ def check_race(position1: int, position2: int):
     if position1 == 0 and position2 == 0:
         print("Empate")
     elif position1 == 0:
+        
         print("Ha ganado el coche 🚙")
     elif position2 == 0:
         print("Ha ganado el coche 🚗")
