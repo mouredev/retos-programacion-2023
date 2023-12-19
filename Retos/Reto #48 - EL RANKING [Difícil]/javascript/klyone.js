@@ -4,6 +4,7 @@ const fsPromise = require('node:fs/promises');
 
 let users = {};
 let numUsers = 0;
+let numSolutions = 0;
 
 async function processPath(path)
 {
@@ -34,6 +35,8 @@ async function processPath(path)
         let ext = pathFunc.extname(entry.name);
         let name = pathFunc.basename(entry.name, ext);
 
+        numSolutions++;
+
         if (name in users) {
           users[name]++;
         } else {
@@ -57,6 +60,7 @@ async function main()
     return second[1] - first[1];
   });
 
+  console.log(`Number of Solutions ${numSolutions}`);
   console.log(`Number of Users: ${numUsers}`);
   console.log("User List: ");
   console.log(usersList);
