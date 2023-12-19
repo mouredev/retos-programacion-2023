@@ -11,19 +11,20 @@
 # - También se debe de mostrar el número de usuarios que han participado
 #   y el número de correcciones enviadas.
 #
-# Joaquín Ferrero, 20231212
+# Joaquín Ferrero, 20231219
 #
 use v5.10;
 use Path::Tiny;
 
 say "Lista de ejercicios resueltos por usuario";
 
-my $iter = path("../../")->iterator({recurse => 1});
+my $iter = path(".")->iterator({recurse => 1});
 
 my $total_correcciones;
 while ($path = $iter->()) {
     # extraemos de la ruta el nombre del usuario
     next if $path !~ m[\]/\S+?/(?<name>.+?)[.].{1,6}$];
+    next if $+{name} eq 'ejercicio';
 
     # Contamos una participación más de ese usuario
     $veces{$+{name}}++;
