@@ -51,7 +51,7 @@ leetalf = {
     "0": "O"
 }
 def traductor(): 
-    text = input("Ingresa el texto que deceas traducir")
+    text = input("Ingresa el texto que deseas traducir")
     traduction = ""
 
     for i in text : 
