@@ -40,4 +40,4 @@ function leetify(text) {
   console.log(textLeet);
 }
 
-leetify("a veces me siento solo");
+leetify("a veces me siento solo, y me lanzo a la calleeee (8)");
