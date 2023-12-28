@@ -1,0 +1,4 @@
+// https://www.sidefx.com/docs/houdini/vex/lang.html
+
+// dentro de un nodo attribwrangle, run over detail
+printf("Hola Mundo");

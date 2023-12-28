@@ -1,0 +1,11 @@
+It was the first high-level programming language to be designed for a computer. Unkown file extension
+
+
+R1.1(V0[:sig]) => R0
+R1.2(V0[:m x sig]) => R0
+0 => i | m + 1 => j
+[W [ i < j -> [ R1.1(V0[i: m x sig]) => R0 | i + 1 => i ] ] ]
+END
+R1.3() => R0
+'H';'e';'l';'l';'o';',';' ';'w';'o';'r';'l';'d';'!' => Z0[: m x sig] R1.2(Z0) => R0
+END

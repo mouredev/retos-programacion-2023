@@ -1,5 +1,5 @@
 ;   ////////////////////////////////
-;  //  ASM, The fast and furius  //
+;  //  ASM, The fast and furious //
 ; //     by MCC at Proenotec    //
 ;////////////////////////////////
 ;

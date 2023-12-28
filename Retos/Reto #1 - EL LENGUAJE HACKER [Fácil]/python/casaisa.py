@@ -38,6 +38,16 @@ char_map = {
         "x": ["><", ">|<", "}{", "ecks"],
         "y": ["j", "`/", "\\|/", "\\//"],
         "z": ["2", "7_", "-/_", "%", ">_", "~/_", "-\_", "-|_"],
+        "1": ["L","I"],
+        "2": ["R","Z"],
+        "3": ["E"],
+        "4": ["A"],
+        "5": ["S"],
+        "6": ["b","G"],
+        "7": ["T","L"],
+        "8": ["B"],
+        "9": ["g","q"],
+        "0": ["o","()"]
     }
 
 # Definimos nuestra funcion
@@ -50,7 +60,7 @@ def natural_to_1337(text):
             output_text += [char_map[old_text][0]]
         else:
             output_text += [old_text]
-    return " ".join(output_text)
+    return "".join(output_text)
 # Mitico lorem ipsum
 def lorem_ipsum():
     return "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
