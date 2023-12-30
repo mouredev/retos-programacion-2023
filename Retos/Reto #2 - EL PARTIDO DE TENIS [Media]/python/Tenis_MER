@@ -1,0 +1,140 @@
+# Reto #2: EL PARTIDO DE TENIS
+#### Dificultad: Media | Publicación: 09/01/23 | Corrección: 16/01/23
+
+## Enunciado
+
+"""
+/*
+ * Escribe un programa que muestre cómo transcurre un juego de tenis y quién lo ha ganado.
+ * El programa recibirá una secuencia formada por "P1" (Player 1) o "P2" (Player 2), según quien
+ * gane cada punto del juego.
+ * 
+ * - Las puntuaciones de un juego son "Love" (cero), 15, 30, 40, "Deuce" (empate), ventaja.
+ * - Ante la secuencia [P1, P1, P2, P2, P1, P2, P1, P1], el programa mostraría lo siguiente:
+ *   15 - Love
+ *   30 - Love
+ *   30 - 15
+ *   30 - 30
+ *   40 - 30
+ *   Deuce
+ *   Ventaja P1
+ *   Ha ganado el P1
+ * - Si quieres, puedes controlar errores en la entrada de datos.   
+ * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
+
+ * - La idea del programa es que juege solo hasta lograr un ganador mediante 
+ * - randon, al lograr un "Deuce" se juega hasta lograr un ganador. Espero este bien 
+ * - y si hay comentarios los dejen en el repo... Gracias 
+ */
+ 
+ """
+import random
+
+jugada = ""
+punto1 = ""
+punto2 = ""
+p1 = 0
+p2 = 0
+i = 0
+j = 0
+opcion = ["P1", "P2"]
+puntaje = ["Love", "15", "30", "40"]
+
+def empate(puntos1, puntos2):
+    jugada = random.choice(opcion)
+    if jugada == "P1":
+        puntos1 = "Ventaja P1"
+        print(puntos1)
+        jugada = random.choice(opcion)
+        if jugada == "P1":
+            print("Gana P1")
+        else:
+            print("Deuce")
+            empate(puntos1, puntos2)
+    else:
+        puntos2 = "Ventaja P2"
+        print(puntos2)
+        jugada = random.choice(opcion)
+        if jugada == "P2":
+            print("Gana P2")
+        else:
+            print("Deuce")
+            empate(puntos1, puntos2)
+
+       
+
+print("Comienza el juego")
+punto1 = puntaje[i]
+punto2 = puntaje[j]
+print(punto1 + " - " + punto2)
+
+while i < 20:
+    jugada = random.choice(opcion)
+    if i>=3 or j>=3:
+        break
+    else:
+        if jugada == "P1":
+            i = i+1
+            punto1 = puntaje[i]
+        if jugada == "P2":
+            j += 1 
+            punto2 = puntaje[j]
+        print(punto1 + " - " + punto2)
+
+if punto1 == "40" and punto2 == "40":
+    empate(punto1, punto2)
+
+if punto1 == "40":
+    jugada = random.choice(opcion)
+    if jugada == "P1":
+        print("Gana P1")
+    elif j<3:
+        while j<=3:
+            j +=1
+            punto2 = puntaje[j]
+            print(punto1 + " - " + punto2)
+            if punto2 == "40":
+                print("Deuce")
+                empate(punto1, punto2)
+                break
+            else:
+                jugada = random.choice(opcion)
+                if jugada == "P2":
+                    if j<3:
+                        continue
+                    else:
+                        empate(punto1,punto2)
+                        break
+                else:
+                    print("Gana P1")
+                    break
+                
+if punto2 == "40":
+    jugada = random.choice(opcion)
+    if jugada == "P2":
+        print("Gana P2")
+    elif i<3:
+        while i<=3:
+            i +=1
+            punto1 = puntaje[i]
+            print(punto1 + " - " + punto2)
+            if punto1 == "40":
+                print("Deuce")
+                empate(punto1, punto2)
+                break
+            else:
+                jugada = random.choice(opcion)
+                if jugada == "P1":
+                    if i<3:
+                        continue
+                    else:
+                        empate(punto1,punto2)
+                        break
+                else:
+                    print("Gana P2")
+                    break
+                    
+
+
+
+print("Fin del juego")
