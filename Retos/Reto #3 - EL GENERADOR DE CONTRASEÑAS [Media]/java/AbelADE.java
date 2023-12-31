@@ -171,8 +171,6 @@ public class PasswordGenerator {
                         int index = new java.util.Random().nextInt(simbols.length);
                         pasword += simbols[index];
                         break;
-                    default:
-                        pasword += "_";
                 }
             }
         return pasword;
