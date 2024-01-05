@@ -11,7 +11,7 @@
 # - También se debe de mostrar el número de usuarios que han participado
 #   y el número de correcciones enviadas.
 #
-# Joaquín Ferrero, 20231212
+# Joaquín Ferrero, 20231219
 #
 use v6;
 use Path::Finder;
@@ -22,11 +22,12 @@ say "Lista de ejercicios resueltos por usuario";
 my @archivos = Path::Finder.path(/ Reto \s . \d+ /).file.in("../../");
 
 # De los archivos nos quedamos con su nombre, menos la extensión, y los metemos al saco
-my $saco = @archivos.map({ (.basename.split(/\./))[0] }).Bag;
+# menos los archivos "ejercicio"
+my $saco = @archivos.map({ (.basename.split(/\./))[0] }).grep({ $_ ne "ejercicio" }).Bag;
 
 # Del saco imprimimos los elementos ordenados por número de participaciones,
 # y por orden alfabético en caso de empate
-$saco.pairs.sort({ -$_.value, $_.key })».&{ say $_.value, "\t", $_.key };
+$saco.pairs.sort({ -$_.value, $_.key })».&{ say .value, "\t", .key };
 
 # Totales
 say "-" x 40;
