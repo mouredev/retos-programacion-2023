@@ -56,4 +56,4 @@ const operation = (text) => {
   return(traduction);
 };
 
-console.log(operation("leet"));
+console.log("--- Obtained Data: " + operation("leet"));
