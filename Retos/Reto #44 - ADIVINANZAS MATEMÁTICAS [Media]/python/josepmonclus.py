@@ -28,7 +28,7 @@ def read_answer_with_timeout():
     timer.start()
     
     try:
-        answer = input(f"{a} {operations[operation - 1]} {b} = ")
+        answer = input(f"{a} {operations[operation]} {b} = ")
     finally:
         timer.cancel()
     return answer
@@ -49,13 +49,13 @@ while still_playing:
         
     a = random.randint(0, 10 ** a_length - 1)
     b = random.randint(0, 10 ** b_length - 1)
-    operation = random.randint(1, 2)
+    operation = random.randint(0, 0)
 
-    if operation == 1:
+    if operation == 0:
         answer = a + b
-    elif operation == 2:
+    elif operation == 1:
         answer = a - b
-    elif operation == 3:
+    elif operation == 2:
         answer = a * b
     else:
         answer = a / b
