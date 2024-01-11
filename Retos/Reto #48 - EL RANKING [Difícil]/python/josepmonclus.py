@@ -18,7 +18,6 @@ ejercicios = 0
 
 start_path = os.path.dirname(__file__)
 start_path = os.path.abspath(os.path.join(start_path, os.pardir, os.pardir))
-print(start_path)
 
 for ruta_actual, carpetas, archivos in os.walk(start_path):
     for archivo in archivos:
