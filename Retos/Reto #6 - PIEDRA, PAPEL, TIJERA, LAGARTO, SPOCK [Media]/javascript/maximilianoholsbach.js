@@ -10,16 +10,16 @@
  */
 
 /**
-| Usuario    | Computadora | Resultado       |
+| Player 1   | Player 2    | Resultado       |
 |------------|-------------|-----------------|
 | Piedra     | Piedra      | Empate          |
-| Piedra     | Papel       | Computadora gana|
-| Piedra     | tijera      | Usuario gana    |
-| Papel      | Piedra      | Usuario gana    |
+| Piedra     | Papel       | Player 2        |
+| Piedra     | tijera      | Player 1        |
+| Papel      | Piedra      | Player 1        |
 | Papel      | Papel       | Empate          |
-| Papel      | tijera      | Computadora gana|
-| tijera     | Piedra      | Computadora gana|
-| tijera     | Papel       | Usuario gana    |
+| Papel      | tijera      | Player 2        |
+| tijera     | Piedra      | Player 2        |
+| tijera     | Papel       | Player 1        |
 | tijera     | tijera      | Empate          |
 
  */
