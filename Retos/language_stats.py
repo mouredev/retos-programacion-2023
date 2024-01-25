@@ -13,8 +13,9 @@ def scan_dir(dir_path, challenges={}, languages={}, total=0, challenge_name=None
             elif "Reto #" not in path.name and path.name not in languages:
                 languages[path.name] = 0
 
-            _, _, total = scan_dir(path.path, challenges,
-                                   languages, total, challenge_name, path.name)
+            _, _, total = scan_dir(
+                path.path, challenges,
+                languages, total, challenge_name, path.name)
         else:
             if path_name in languages:
                 total += 1
