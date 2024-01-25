@@ -1,4 +1,4 @@
- ajunsimport Foundation
+import Foundation
 
 enum P {
     case _1
