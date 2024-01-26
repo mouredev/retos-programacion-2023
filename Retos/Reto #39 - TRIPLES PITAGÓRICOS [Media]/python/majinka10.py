@@ -24,3 +24,4 @@ def getTerna(number: int):
 
 print(getTerna(15))
 print(getTerna(10))
+print(getTerna(5))
