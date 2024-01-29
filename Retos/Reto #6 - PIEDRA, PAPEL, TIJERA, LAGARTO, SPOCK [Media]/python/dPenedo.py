@@ -69,6 +69,19 @@ def juego ():
         resultado = 0
     return resultado
 
+def preguntar_si_seguir():
+        while True:
+            print("Desean jugar otra partida? (s/n)")
+            respuesta_seguir = input("")
+            if respuesta_seguir.upper() == "S":
+                break
+            elif respuesta_seguir.upper() == "N":
+                exit()
+            else:
+                print("Seleccione una respuesta correctra")
+
+
+
     
 def main():
     limpiar_pantalla()
@@ -79,20 +92,25 @@ def main():
     juego_numero = 1
     while True:
         if juego_numero != 1:
+            print(f"Los resultados hasta ahora son:")
+            print(f"Jugador 1: {resultados['Jugador 1']} - Jugador 2: {resultados['Jugador 2']} - Empates: {resultados['Empates']}")
+            preguntar_si_seguir()
             limpiar_pantalla()
         print("*"*40)
         print(f"Este es el juego número {juego_numero}")
-        print(f"Los resultados hasta ahora son:")
         print(f"Jugador 1: {resultados['Jugador 1']} - Jugador 2: {resultados['Jugador 2']} - Empates: {resultados['Empates']}")
         print("*"*40)
+
         resultado = juego()
         if resultado == 1:
             resultados['Jugador 1'] += 1
+            juego_numero += 1
         elif resultado == 2:
             resultados['Jugador 2'] += 1
+            juego_numero += 1
         else:
             resultados['Empates'] += 1
-
+            juego_numero += 1
 
 
 if __name__ == "__main__":
