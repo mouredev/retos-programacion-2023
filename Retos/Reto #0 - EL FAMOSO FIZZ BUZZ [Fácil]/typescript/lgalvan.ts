@@ -7,15 +7,6 @@ Múltiplos de 5 por la palabra "buzz".
 Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz"
  */
 
-const PrintFizzBuzzByNumber = () => {
-    for (let index = 1; index <= 100; index++) {
-        const output = (index % 3 === 0 ? "fizz" : "") + (index % 5 === 0 ? "buzz" : "");
-        console.log(output || index);
-    }
-}
-
-PrintFizzBuzzByNumber();
-
 const PrintFizzBuzzByNumber2 = () => {
     for (let index = 1; index <= 100; index++) {
         let text = '';
