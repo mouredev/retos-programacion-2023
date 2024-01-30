@@ -1,3 +1,5 @@
+// Solucion sin usar Date. 
+
 import Foundation
 
 func numeroAleatorio1() -> Int {
