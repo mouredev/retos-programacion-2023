@@ -9,15 +9,22 @@
  */
 '''
 
+#Function creation
 def fizzbuzz():
-    for num in range(101):
-        if (num % 3 == 0 and num % 5 == 0):
+    #loop through 1-100
+    for num in range(1,101): 
+        #if the number is divisable by 3 and 5, we print "fizzbuzz"
+        if (num % 3 == 0 and num % 5 == 0): 
             print("fizzbuzz")
+        #if the number is divisable by 3, we print "fizz"
         elif num % 3 == 0:
             print("fizz")
+        #if the number is divisible by 5, we print "buzz"
         elif num % 5 == 0:
             print("buzz")
         else:
+        #if the number is not divisable by 3 or 5, we just print the number
             print(num)
 
+#We invoke the created function
 fizzbuzz()
