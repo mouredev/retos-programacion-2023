@@ -417,7 +417,7 @@ fn ciclos() {
 
         // Al igual que los anteriores bucles, se puede parar el ciclo y saltar la iteración
         // Y también se puede saltar el resto de código en ciertas circunstancias
-        if a > 8 {
+        if i > 8 {
             continue;
         }
         if i == 5 {
