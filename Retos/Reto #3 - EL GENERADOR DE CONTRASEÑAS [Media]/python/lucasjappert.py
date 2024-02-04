@@ -1,8 +1,6 @@
 import string
 import random
 
-symbols = ["!", "@", "#", "$", "%", "&"]
-
 def get_new_password(pass_length: int, include_upper_case_letters: bool = True, include_numbers: bool = True, include_symbols: bool = True):
     if pass_length < 8 or pass_length > 16: return "--------"
     result: str = ""
@@ -10,7 +8,7 @@ def get_new_password(pass_length: int, include_upper_case_letters: bool = True, 
     possible_chars = string.ascii_lowercase
     if include_upper_case_letters: possible_chars += string.ascii_uppercase
     if include_numbers: possible_chars += string.digits
-    if include_symbols: possible_chars += "".join(symbols)
+    if include_symbols: possible_chars += string.punctuation
 
     for i in range(0, pass_length):
         random_index = random.randint(0, len(possible_chars) - 1)
