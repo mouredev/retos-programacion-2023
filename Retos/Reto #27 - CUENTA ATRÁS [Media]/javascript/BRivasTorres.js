@@ -13,6 +13,6 @@ const countBackwards = (count, seconds) => {
 }
 
 console.log(countBackwards(5, 1000));
-// console.log(countBackwards(500, 3000));
-// console.log(countBackwards(10, 8000));
-// console.log(countBackwards(25, 4000));
+console.log(countBackwards(500, 3000));
+console.log(countBackwards(10, 8000));
+console.log(countBackwards(25, 4000));
