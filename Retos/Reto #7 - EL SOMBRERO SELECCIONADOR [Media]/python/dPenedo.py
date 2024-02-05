@@ -56,25 +56,25 @@ def preguntar_numero():
             print("Introduzca un carácter numérico")
     return respuesta
 
+def main():
+    while True:
+        print("Bienvenido al Test de Harry Potter para encontrar tu casa de Hogwards")
+        puntuaciones_casas = {casa: 0 for casa in CASAS}
 
-while True:
-    print("Bienvenido al Test de Harry Potter para encontrar tu casa de Hogwards")
-    print("Estas son las preguntas:")
-    puntuaciones_casas = {casa: 0 for casa in CASAS}
+        for pregunta, respuestas in PREGUNTAS:
+            print(f"\n {pregunta}")
+            for numero, (respuesta, casa) in enumerate(respuestas.items()):
+                print(f"{numero + 1} - {respuesta}")
+            respuesta = preguntar_numero()
+            puntuaciones_casas[list(respuestas.values())[respuesta - 1]] +=1
 
-    for pregunta, respuestas in PREGUNTAS:
-        print(f"Pregunta {pregunta}")
-        for numero, (respuesta, casa) in enumerate(respuestas.items()):
-            print(f"{numero + 1} - {respuesta}")
-        respuesta = preguntar_numero()
-        for numero, (respuesta_texto, casa) in enumerate(respuestas.items()):
-            if respuesta ==  numero + 1:
-                puntuaciones_casas[casa] += 1
+        casa_seleccionada = max(puntuaciones_casas, key=puntuaciones_casas.get)
+        print("*"*48)
+        print(f"¡La casa que más te representa es {casa_seleccionada}!")
+        print("*"*48)
+        break
 
-    casa_seleccionada = max(puntuaciones_casas, key=puntuaciones_casas.get)
-    print(f"\n¡La casa que más te representa es {casa_seleccionada}!")
-
-    break
-
+if __name__ == "__main__":
+    main()
 
 
