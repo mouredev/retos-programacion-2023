@@ -1,7 +1,10 @@
 """ 
 ## Enunciado
+<<<<<<< HEAD
+=======
 
 ```
+>>>>>>> cfbdbf06a332a75f42bb1db9cef090643e93d2ca
 /*
  * Escribe un programa que muestre por consola (con un print) los
  * números de 1 a 100 (ambos incluidos y con un salto de línea entre
