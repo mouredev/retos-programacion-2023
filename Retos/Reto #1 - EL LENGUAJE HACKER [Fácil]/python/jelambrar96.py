@@ -58,14 +58,14 @@ LEET_DICT = {
 }
 
 def leet_translator(string_in: str):
-	string_out = string_in.upper()
-	for k,v in LEET_DICT.items():
-		string_out = string_out.replace(k,v)
-	return string_out
+    string_out = [ item if not item in LEET_DICT.keys() else LEET_DICT[item] 
+                    for item in string_in.upper() ]
+    string_out = "".join(string_out)
+    return string_out
 
 if __name__ == '__main__':
-	string_in = input("Introduce el texto a convertir: ")
-	string_out = leet_translator(string_in)
-	print(string_out)
+    string_in = input("Introduce el texto a convertir: ")
+    string_out = leet_translator(string_in)
+    print(string_out)
 
 
