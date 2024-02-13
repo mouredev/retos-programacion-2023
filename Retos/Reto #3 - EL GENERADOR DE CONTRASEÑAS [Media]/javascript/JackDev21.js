@@ -9,8 +9,6 @@
  */
 
 
-const generarPassword = (conMinusculas, conMayusculas, conNumeros, conSimbolos) => {
-
     const minusculas = 'abcdefghijklmnopqrstuvwxyz';
     const mayusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numeros = '0123456789';
@@ -56,6 +54,7 @@ const generarPassword = (conMinusculas, conMayusculas, conNumeros, conSimbolos) 
     return password;
 }
 
+
 // Configurar las opciones de generación de contraseña
 const conMinusculas = true;
 const conMayusculas = true;
@@ -68,8 +67,6 @@ const nuevaPassword = generarPassword(conMinusculas, conMayusculas, conNumeros, 
 // Mostrar la contraseña generada
 console.log(nuevaPassword);
 console.log(nuevaPassword.length)
-
-
 
 
 
