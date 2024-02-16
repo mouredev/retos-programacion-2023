@@ -21,6 +21,8 @@ __status__ = "Production"
 
 
 def esPrimo(number: int):
+    if number < 2:
+        return False
     if esPar(number):
         return False
     for i in range(3, number//3, 2):
