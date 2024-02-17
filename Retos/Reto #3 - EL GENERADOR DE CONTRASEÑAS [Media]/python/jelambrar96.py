@@ -75,14 +75,7 @@ def password_generator(length=None, use_uppercase=True, use_numbers=True, use_sy
     return "".join(password_char_list)
 
 
-if __name__ == '__main__':
-
-    length=None
-    use_uppercase=True 
-    use_numbers=True
-    use_symbols=True
-    password = None
-
+def create_password(length=None, use_uppercase=True, use_numbers=True, use_symbols=True):
     while True:
         password = password_generator(length=length, use_uppercase=use_uppercase, 
                                         use_numbers=use_numbers, use_symbols=use_symbols)
@@ -91,6 +84,16 @@ if __name__ == '__main__':
                                         use_symbols=use_symbols)
         if check_flag:
             break
+    return password
 
-    print(password)
+
+if __name__ == '__main__':
+
+    length=None
+    use_uppercase=True 
+    use_numbers=True
+    use_symbols=True
+    for i in range(8,17):
+        password = create_password(length=i, use_uppercase=True, use_numbers=True, use_symbols=True)
+        print(password)
 
