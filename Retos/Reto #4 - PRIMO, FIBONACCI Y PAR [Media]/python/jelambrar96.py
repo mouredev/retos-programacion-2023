@@ -20,6 +20,10 @@ __email__ = "jelambrar@gmail.com"
 __status__ = "Production"
 
 
+def esPar(number: int):
+    return number % 2 == 0
+
+
 def esPrimo(number: int):
     if number < 2:
         return False
@@ -37,13 +41,9 @@ def esFibonacci(number: int):
     while True:
         if y == number:
             return True
-        if y >number:
+        if y > number:
             return False
         y, x = x + y, y
-
-
-def esPar(number: int):
-    return number % 2 == 0
 
 
 def evaluarNumero(number: int):
