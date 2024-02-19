@@ -61,9 +61,15 @@ Aquí encontrarás el listado de retos, su fecha de publicación, dificultad y e
 * **#41** - 16/10/23 | Difícil | [`LA CASA ENCANTADA`](./Retos/Reto%20%2341%20-%20LA%20CASA%20ENCANTADA%20%5BDifícil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2341%20-%20LA%20CASA%20ENCANTADA%20%5BDifícil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2341%20-%20LA%20CASA%20ENCANTADA%20%5BDifícil%5D/)]
 * **#42** - 23/10/23 | Difícil | [`PUNTO DE ENCUENTRO`](./Retos/Reto%20%2342%20-%20PUNTO%20DE%20ENCUENTRO%20%5BDifícil%5D/ejercicio.md) Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2342%20-%20PUNTO%20DE%20ENCUENTRO%20%5BDifícil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2342%20-%20PUNTO%20DE%20ENCUENTRO%20%5BDifícil%5D/)]
 * **#43** - 30/10/23 | Fácil | [`SIMULADOR DE CLIMA`](./Retos/Reto%20%2343%20-%20SIMULADOR%20DE%20CLIMA%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2343%20-%20SIMULADOR%20DE%20CLIMA%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2343%20-%20SIMULADOR%20DE%20CLIMA%20%5BFácil%5D/)]
-* **#44** - 13/10/23 | Media | [`ADIVINANZAS MATEMÁTICAS`](./Retos/Reto%20%2344%20-%20ADIVINANZAS%20MATEMÁTICAS%20%5BMedia%5D/ejercicio.md) | Último reto publicado
+* **#44** - 13/11/23 | Media | [`ADIVINANZAS MATEMÁTICAS`](./Retos/Reto%20%2344%20-%20ADIVINANZAS%20MATEMÁTICAS%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2344%20-%20ADIVINANZAS%20MATEMÁTICAS%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2344%20-%20ADIVINANZAS%20MATEMÁTICAS%20%5BMedia%5D/)]
+* **#45** - 20/11/23 | Fácil | [`EL CALENDARIO DE ADEVIENTO 2023`](./Retos/Reto%20%2345%20-%20EL%20CALENDARIO%20DE%20ADEVIENTO%202023%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2345%20-%20EL%20CALENDARIO%20DE%20ADEVIENTO%202023%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2345%20-%20EL%20CALENDARIO%20DE%20ADEVIENTO%202023%20%5BFácil%5D/)]
+* **#46** - 27/11/23 | Media | [`LA CARRERA DE COCHES`](./Retos/Reto%20%2346%20-%20LA%20CARRERA%20DE%20COCHES%20%5BMedia%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2346%20-%20LA%20CARRERA%20DE%20COCHES%20%5BMedia%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2346%20-%20LA%20CARRERA%20DE%20COCHES%20%5BMedia%5D/)]
+* **#47** - 04/12/23 | Fácil | [`LA PALABRA DE 100 PUNTOS`](./Retos/Reto%20%2347%20-%20LA%20PALABRA%20DE%20100%20PUNTOS%20%5BFácil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2347%20-%20LA%20PALABRA%20DE%20100%20PUNTOS%20%5BFácil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2347%20-%20LA%20PALABRA%20DE%20100%20PUNTOS%20%5BFácil%5D/)]
+* **#48** - 11/12/23 | Difícil | [`EL RANKING`](./Retos/Reto%20%2348%20-%20EL%20RANKING%20%5BDifícil%5D/ejercicio.md) | Correcciones: [[MI SOLUCIÓN](./Retos/Reto%20%2348%20-%20EL%20RANKING%20%5BDifícil%5D/python/mouredev.py)] [[COMUNIDAD](./Retos/Reto%20%2348%20-%20EL%20RANKING%20%5BDifícil%5D/)
 
-> **Corrección y Publicación próximo reto - 20/11/23 | [🗓️ Horario evento corrección en directo](https://discord.gg/mouredev?event=1173570988865232968) en [Twitch](https://twitch.tv/mouredev)**
+> **[[NUEVO] Retos de programación 2024](https://github.com/mouredev/roadmap-retos-programacion)**
+> 
+> [![Retos Semanales](https://img.shields.io/github/stars/mouredev/roadmap-retos-programacion?label=Retos%20Programación%202024&style=social)](https://github.com/mouredev/roadmap-retos-programacion)
 
 *Puedes ejecutar el archivo [language_stats.py](./Retos/language_stats.py) para visualizar las estadísticas de uso de cada lenguaje.*
 
@@ -113,7 +119,7 @@ Si quieres unirte a nuestra comunidad de desarrollo, aprender programación de A
 ![GitHub Followers](https://img.shields.io/github/followers/mouredev?style=social)
 ![GitHub Stars](https://img.shields.io/github/stars/mouredev?style=social)
 
-Soy ingeniero de software desde hace más de 12 años. Desde hace 4 años combino mi trabajo desarrollando Apps con creación de contenido formativo sobre programación y tecnología en diferentes redes sociales como **[@mouredev](https://moure.dev)**.
+Soy ingeniero de software desde 2010. Desde 2018 combino mi trabajo desarrollando Apps con la creación de contenido formativo sobre programación y tecnología en diferentes redes sociales como **[@mouredev](https://moure.dev)**.
 
 ### En mi perfil de GitHub tienes más información
 
