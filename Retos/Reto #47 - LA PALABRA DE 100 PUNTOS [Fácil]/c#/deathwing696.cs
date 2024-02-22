@@ -23,13 +23,14 @@ namespace reto_47
     {
         static void Main(string[] args)
         {
-            string palabra;
+            string palabra, cadena;
             int puntos = 0;
 
             do
             {
                 Console.Write("Introduce una palabra que tenga una puntuación igual o mayor a 100 puntos:");
-                palabra = Console.ReadLine();
+                cadena = Console.ReadLine();
+                palabra = Obtener_primera_palabra(cadena);
                 puntos = Calcula_puntos(palabra);
                 Console.WriteLine($"La palabra {palabra} tiene {puntos} puntos");
             } while (puntos < 100);
@@ -75,6 +76,18 @@ namespace reto_47
             }
 
             return salida.ToString().Normalize(NormalizationForm.FormC);
+        }
+
+        static private string Obtener_primera_palabra(string cadena)
+        {
+            string[] palabras;
+            string primera_palabra;
+
+            palabras = cadena.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            primera_palabra = palabras.Length > 0 ? palabras[0] : String.Empty;
+
+            return primera_palabra;
         }
     }
 }
