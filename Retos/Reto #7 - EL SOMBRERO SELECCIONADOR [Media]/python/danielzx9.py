@@ -49,6 +49,7 @@
 import random
 
 def main():
+    print("Reto 7")
     print("Responde a las siguientes preguntas para determinar a qué casa perteneces:")
 
     preguntas = [
