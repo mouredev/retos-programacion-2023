@@ -5,5 +5,7 @@
     puts "fizz"
   elsif n % 5 == 0
       puts "buzz"
+  else
+    puts n
   end
 end
