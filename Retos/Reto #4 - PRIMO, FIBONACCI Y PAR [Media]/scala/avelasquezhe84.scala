@@ -1,6 +1,5 @@
 import scala.math.sqrt
 import scala.math.floor
-import scala.compiletime.ops.double
 
 @main def main(args: String*) =
     val number = args(0).toInt
