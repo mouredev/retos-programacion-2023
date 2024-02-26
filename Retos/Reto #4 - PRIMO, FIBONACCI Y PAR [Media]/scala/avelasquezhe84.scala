@@ -12,7 +12,8 @@ import scala.math.floor
 def isEven(num: Int): Boolean = num % 2 == 0
 
 def isPrime(num: Int): Boolean = 
-    if num < 4 then true
+    if num < 0 then false
+    else if num < 4 then true
     else if isEven(num) then false
     else
         val upperLimit = floor(sqrt(num)).toInt
@@ -20,6 +21,8 @@ def isPrime(num: Int): Boolean =
         val res = factors.map(f => num % f == 0)
         !res.contains(true)
 
+// A number is Fibonacci if and only if one or both of (5*n2 + 4) or (5*n2 – 4) is a perfect square
+// Source: http://en.wikipedia.org/wiki/Fibonacci_number#Recognizing_Fibonacci_numbers
 def isFibonacci(num: Int): Boolean = 
     isPerfectSquare(5*num*num+4) || isPerfectSquare(5*num*num-4)
 
