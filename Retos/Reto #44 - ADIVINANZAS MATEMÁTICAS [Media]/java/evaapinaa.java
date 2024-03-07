@@ -29,6 +29,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Adivinanzas {
 
+	// Constante tiempo en milisegundos
 	public static final int MILISEGUNDOS = 3000;
 
 	public static int contadorAciertos = 0;
