@@ -2,22 +2,22 @@ import Foundation
 
 let characters = Set("abcdefghijklmnopqrstuvwxyz")
 
-func transforSentence(_ sentence: String) -> String {
+func transformSentence(_ sentence: String) -> String {
     sentence.trimmingCharacters(in: .whitespaces).lowercased()
 }
 
 func isHeterogram(_ sentence: String) -> Bool {
-    let compare = transforSentence(sentence)
+    let compare = transformSentence(sentence)
     return compare.count == Set(compare).count
 }
 
 func isIsogram(_ sentence: String) -> Bool {
-    let compare = transforSentence(sentence)
+    let compare = transformSentence(sentence)
     return compare.count != Set(compare).count
 }
 
 func isPangram(_ sentence: String) -> Bool {
-    let compare = transforSentence(sentence)
+    let compare = transformSentence(sentence)
     return characters.subtracting(compare).isEmpty
 }
 
