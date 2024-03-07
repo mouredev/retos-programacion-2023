@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 // SOLUCIÓN IMPLEMENTADA CON THREADS
 
-public class Adivinanzas {
+public class AdivinanzasMatematicas {
 
 	public static final int MILISEGUNDOS = 3000;
 
