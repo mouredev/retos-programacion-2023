@@ -11,41 +11,59 @@
  */
 """
 
-def main():
-    print("¡Bienvenido al Sombrero Seleccionador!")
-    print("Responde las siguientes preguntas para saber a qué casa perteneces:")
+def hacer_pregunta(pregunta, opciones):
+    print(pregunta)
+    for i, opcion in enumerate(opciones, start=1):
+        print(f"{i}. {opcion}")
+    
+    while True:
+        try:
+            respuesta = int(input("Selecciona tu respuesta (1-4): "))
+            if 1 <= respuesta <= 4:
+                return respuesta
+            else:
+                print("Por favor, ingresa un número válido.")
+        except ValueError:
+            print("Por favor, ingresa un número entero.")
 
-    # Preguntas y respuestas
+def sombrero_seleccionador():
     preguntas = [
-        "¿Prefieres la aventura o la estabilidad?",
-        "¿Valoras la inteligencia o la lealtad?",
-        # Agrega más preguntas aquí
+        "¿Qué cualidad valoras más en un amigo?",
+        "¿Qué tipo de magia prefieres?",
+        "En una situación difícil, ¿qué harías?",
+        "¿Qué animal mágico te gustaría tener como mascota?",
+        "¿Cuál es tu asignatura favorita en Hogwarts?"
     ]
 
-    casas = {
+    respuestas_casas = {
         "Gryffindor": 0,
         "Slytherin": 0,
         "Hufflepuff": 0,
         "Ravenclaw": 0
     }
 
-    for i, pregunta in enumerate(preguntas):
-        print(f"\nPregunta {i + 1}: {pregunta}")
-        print("1. Gryffindor")
-        print("2. Slytherin")
-        print("3. Hufflepuff")
-        print("4. Ravenclaw")
-        respuesta = int(input("Elige una opción (1-4): "))
+    for pregunta in preguntas:
+        respuesta = hacer_pregunta(pregunta, ["Valentía", "Ambición", "Lealtad", "Inteligencia"])
 
-        if respuesta in range(1, 5):
-            casa = list(casas.keys())[respuesta - 1]
-            casas[casa] += 1
-        else:
-            print("Opción inválida. Inténtalo de nuevo.")
+        if pregunta == preguntas[0]:
+            respuestas_casas["Gryffindor"] += respuesta
+            respuestas_casas["Slytherin"] += respuesta
+        elif pregunta == preguntas[1]:
+            respuestas_casas["Slytherin"] += respuesta
+            respuestas_casas["Ravenclaw"] += respuesta
+        elif pregunta == preguntas[2]:
+            respuestas_casas["Gryffindor"] += respuesta
+            respuestas_casas["Hufflepuff"] += respuesta
+        elif pregunta == preguntas[3]:
+            respuestas_casas["Slytherin"] += respuesta
+            respuestas_casas["Hufflepuff"] += respuesta
+        elif pregunta == preguntas[4]:
+            respuestas_casas["Ravenclaw"] += respuesta
+            respuestas_casas["Hufflepuff"] += respuesta
 
-    # Determina la casa
-    casa_elegida = max(casas, key=casas.get)
-    print(f"\n¡Eres parte de la casa {casa_elegida}!")
+    casa_seleccionada = max(respuestas_casas, key=respuestas_casas.get)
+    print(f"\n¡Bienvenido a {casa_seleccionada}!")
 
 if __name__ == "__main__":
-    main()
+    print("Bienvenido al Simulador del Sombrero Seleccionador")
+    sombrero_seleccionador()
