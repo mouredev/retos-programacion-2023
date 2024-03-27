@@ -34,5 +34,5 @@ def fizzbuzz_2():
 
 
 if __name__ == "__main__":
-   print(fizzbuzz_1())
-   fizzbuzz_2()
+    print(fizzbuzz_1())
+    fizzbuzz_2()
