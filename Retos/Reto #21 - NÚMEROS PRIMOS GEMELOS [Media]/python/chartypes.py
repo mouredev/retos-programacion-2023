@@ -9,7 +9,6 @@ def is_prime(number):
         n+=1
     return True
 
-
 def get_primes_par(range_number):
     primes_pars = []
 
