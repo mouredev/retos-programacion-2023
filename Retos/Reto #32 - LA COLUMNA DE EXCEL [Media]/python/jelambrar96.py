@@ -32,8 +32,16 @@ def numero_columna(columna: str):
     return numero_columna
 
 if __name__ == '__main__':
+
+    print("columna: A:", "value: ", numero_columna('A'))
     assert numero_columna('A') == 1, "ERROR: numero_columna('A')"
+
+    print("columna: Z:", "value: ", numero_columna('Z'))
     assert numero_columna('Z') == 26, "ERROR: numero_columna('Z')"
+
+    print("columna: AA:", "value: ", numero_columna('AA'))
     assert numero_columna('AA') == 27, "ERROR: numero_columna('AA')"
+
+    print("columna: CA:", "value: ", numero_columna('CA'))
     assert numero_columna('CA') == 79, "ERROR: numero_columna('CA')"
 
