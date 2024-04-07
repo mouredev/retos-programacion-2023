@@ -29,7 +29,7 @@ def to_leet_list_com(text:str)-> str:
 
 
 
-text = input("Enter text to transform to LEET: \n")
-print(to_leet(text.lower()))
+text = input("Enter text to transform to LEET: \n").lower()
+print(to_leet(text))
 print(to_leet_list_com(text))
  
