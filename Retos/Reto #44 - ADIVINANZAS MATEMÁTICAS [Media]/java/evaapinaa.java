@@ -66,9 +66,8 @@ public class Adivinanzas {
 		case "/":
 			if (num2 == 0) {
 				num2++; // Evitamos la división entre 0
-				resultadoOperacion = num1 / num2;
 			}
-			break;
+			resultadoOperacion = num1 / num2; break;
 		}
 		
 		System.out.println(num1 + " " + operacion + " " + num2 + ": ");
@@ -92,9 +91,7 @@ public class Adivinanzas {
 					continuar.set(false);
 					scanner.close();
 					System.exit(0);
-				} catch (InterruptedException e) {
-				}
-
+				} catch (InterruptedException e) {}
 			});
 			
 			// Iniciar el hilo temporizador
@@ -133,7 +130,5 @@ public class Adivinanzas {
 			scanner.close();
 			System.exit(0);
 		}
-
 	}
-
 }
