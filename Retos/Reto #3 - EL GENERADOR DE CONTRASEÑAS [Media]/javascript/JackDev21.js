@@ -69,6 +69,3 @@ const nuevaPassword = generarPassword(conMinusculas, conMayusculas, conNumeros, 
 console.log(nuevaPassword);
 console.log(nuevaPassword.length)
 
-
-
-

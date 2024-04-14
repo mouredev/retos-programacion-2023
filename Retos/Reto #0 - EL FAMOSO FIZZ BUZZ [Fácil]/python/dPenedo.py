@@ -20,4 +20,5 @@ for i in range(1, 101):
         print("fizz")
     elif multiplo_de_5:
         print("buzz")
-    print(i)
+    else:
+        print(i)
