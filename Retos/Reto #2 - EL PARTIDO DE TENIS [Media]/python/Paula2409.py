@@ -22,7 +22,16 @@
 ```
 """
 
-def tennis_game(secuence):
+def tennis_game(secuence: list):
+    """ Simulates a tennis game based on a sequence of points played by two players.
+    
+    Args:
+        secuence (list): a list of points
+    
+    Returns:
+        None
+    """
+
     score_P1 = 'Love'
     score_P2 = 'Love'
     deuce = ''
