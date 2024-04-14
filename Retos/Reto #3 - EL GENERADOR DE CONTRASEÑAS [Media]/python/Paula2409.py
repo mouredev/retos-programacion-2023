@@ -17,7 +17,7 @@
 import string
 import random
 
-def generate_password():
+def generate_password() -> str:
     """
     The function 'generate_password' generate a random password based on the given parameters.
 
@@ -25,10 +25,7 @@ def generate_password():
         None
     
     Returns:
-        Password with letters, numbers and symbols.
-    
-    _type_
-        str
+        str: password with letters, numbers and symbols.
     """
     
     # List of letters (lower and upper), numbers and symbols
