@@ -27,3 +27,4 @@ while True:
         break
     acierto=0        
 print(f'¡¡¡Enhorabuena la palabra {question} tiene un valor de 100!!!')   
+
