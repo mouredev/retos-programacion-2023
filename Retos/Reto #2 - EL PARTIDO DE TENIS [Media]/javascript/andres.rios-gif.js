@@ -17,17 +17,27 @@
  * - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
  */
 
-const score = (array) =>  {
-    let player1; 
-    let player2;
-    let noPoints = "Love"; 
+const player1 = "P1";
+const player2 = "P2";
+let p1 = 0;
+let p2 = 0;
 
-    if(player1 === 0 || player2 === 0) {
-        noPoints = "Love";
-    } else if(array[0] === "P1") {
-        player1 = 15;
-    }
-    console.log(player1 + " - " + noPoints);
-}
+const data = [
+  player1,
+  player1,
+  player2,
+  player2,
+  player1,
+  player2,
+  player1,
+  player1,
+];
 
-score(["P1"]); 
+const dataMap = data.map((x) => {
+  if (x === "P1") {
+    p1 += 15;
+  } else if (x === "P2") {
+    p2 += 15;
+  }
+  console.log(`${p1} - ${p2}`);
+});
