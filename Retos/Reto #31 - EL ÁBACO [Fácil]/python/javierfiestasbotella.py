@@ -1,3 +1,5 @@
+#Reto 31
+
 ejemplo=["O---OOOOOOOO",
  "OOO---OOOOOO",
  "---OOOOOOOOO",
