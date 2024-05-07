@@ -27,8 +27,8 @@ const leetConversor = (string:string) => {
         }
         
     };
-    console.log(phraseConverted);
-    
+
+    return phraseConverted;
 };
 
 leetConversor("Hola mundo");
