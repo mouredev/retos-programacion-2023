@@ -31,4 +31,4 @@ const leetConversor = (string:string) => {
     return phraseConverted;
 };
 
-leetConversor("Hola mundo");
+leetConversor("Gracias Mouredev");
