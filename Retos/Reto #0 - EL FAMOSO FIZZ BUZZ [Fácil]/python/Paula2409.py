@@ -1,10 +1,7 @@
 """ 
 ## Enunciado
-<<<<<<< HEAD
-=======
 
 ```
->>>>>>> cfbdbf06a332a75f42bb1db9cef090643e93d2ca
 /*
  * Escribe un programa que muestre por consola (con un print) los
  * números de 1 a 100 (ambos incluidos y con un salto de línea entre
@@ -17,12 +14,16 @@
 
 """
 
+import unittest
+
 def fizz_buzz():
-# The code is implementing the FizzBuzz problem. It iterates through the numbers from 1 to 100
-# (inclusive) using a for loop. For each number, it checks if it is divisible by 15 (both 3 and 5), in
-# which case it prints "fizzbuzz". If the number is only divisible by 5, it prints "buzz". If the
-# number is only divisible by 3, it prints "fizz". If the number is not divisible by either 3 or 5, it
-# simply prints the number itself.
+    """ This function iterates through the numbers from 1 to 100 (inclusive). 
+    If the number is divisible by 15 (both 3 and 5), prints "fizzbuzz". 
+    If the number is only divisible by 5, it prints "buzz". 
+    If the number is only divisible by 3, it prints "fizz".
+    When the number is not divisible by either 3 or 5, prints the number itself.
+    """
+
     for number in range(1,101):
         if number % 15 == 0:
             print('fizzbuzz')
@@ -32,5 +33,16 @@ def fizz_buzz():
             print('fizz')
         else:
             print(number)
+    return 'Programa Terminado'
         
 fizz_buzz()
+
+class TestFizzBuzz(unittest.TestCase):
+    
+    def test_fizz_buzz_type(self):
+        self.assertRaises(ValueError)
+        
+    def test_fizz_buzz_check(self):
+        self.assertIsNotNone(fizz_buzz())
+        
+unittest.main()
