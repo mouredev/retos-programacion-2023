@@ -10,11 +10,12 @@
 #  */
 
 import random
+import string
 # data
-number = ["1","2","3","4","5","6","7","8","9","0"]
-Upper_case = ["A","B","C","D","E","F","G","H","I","J","K","L","M"]
-lower_case = ["a","b","c","d","e","f","g","h","i","j","k","l","m"]
-symbol = ["!","@","#"]
+number = list(string.digits)
+Upper_case = list(string.ascii_uppercase)
+lower_case = list(string.ascii_lowercase)
+symbol = list(string.punctuation)
 
 def random_data():
      return random.choice([True,False])
