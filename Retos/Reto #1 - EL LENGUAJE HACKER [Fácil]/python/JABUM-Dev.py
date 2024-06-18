@@ -17,7 +17,7 @@ diccionario = {
     'I':'1',
     'J':',_|',
     'K':'>|',
-    'L':'£',
+    'L':'1',
     'M':'/\\/\\',
     'N':'^/',
     'O':'0',
@@ -45,7 +45,14 @@ diccionario = {
 }
 
 def convertir_texto(texto):
-    pass
+    texto_convertido = ""
+    for caracter in texto:
+        if caracter in diccionario:
+            convertir_caracter = diccionario.get(caracter)
+        else:
+            convertir_caracter = caracter
+        texto_convertido += convertir_caracter
+    print(texto_convertido)
 
-texto_usuario = input("Ingresa el texto que deseas trasformar a \"lenguaje hacker\": ")
+texto_usuario = input("Ingresa el texto que deseas trasformar a \"lenguaje hacker\": ").upper()
 convertir_texto(texto_usuario)
