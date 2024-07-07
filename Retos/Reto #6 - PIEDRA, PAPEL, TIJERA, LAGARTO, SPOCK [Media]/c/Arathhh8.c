@@ -18,43 +18,74 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define PIEDRA      0
-#define PAPEL       1
-#define TIJERA      2
-#define LAGARTO     3
-#define SPOCK       4
+typedef enum {
+    PIEDRA = 1,
+    PAPEL,
+    TIJERA,
+    LAGARTO,
+    SPOCK
+}Objeto;
 
 // Funcion que recibe los pares y determina el ganador
-void recibePares(char* pares, int* player1,  int* player2);
+void recibePares(char* par, int* player1,  int* player2);
+void solicitaPar(char* par);
+void imprimeObjetos();
 
 int main(void){
 
-    char pares[2];
+    char par[2];
     int player1_wins = 0;
     int player2_wins = 0;
+    int rondas;
+    int i = 0;
 
-    pares[0] = PIEDRA;
-    pares[1] = TIJERA;
+    printf("Ingresa el numero de rondas a jugar: ");
+    scanf("%d", &rondas);
 
-    recibePares(pares, &player1_wins, &player2_wins);
+    
 
-    if(player1_wins > player2_wins){
-        printf("El jugador 1 ha ganado\n");
-        printf("Victorias jugador 1: %d\n", player1_wins);
-        printf("Victorias jugador 2: %d\n", player2_wins);
+    for(int i = 0; i < rondas; i++){
+        solicitaPar(par);
+        recibePares(par, &player1_wins, &player2_wins);
     }
+    
+    if(player1_wins > player2_wins){
+        printf("Player 1 ha ganada");
+    }
+    
 
     return 0;
-
 }
 
-void recibePares(char* pares, int* player1,  int* player2){
+void recibePares(char* par, int* player1,  int* player2){
 
-    if(pares[0] == PIEDRA && pares[1] == TIJERA){
-        printf("Jugador 1 gana\n");
-        *player1 = *player1 + 1;
+    if(par[0] == PIEDRA && par[1] == TIJERA){
+        (*player1)++;
+        printf("Player 1 Gana esta ronda\n");
+        printf("\n");
     }
 
 }
 
+
+void solicitaPar(char* par){
+
+    printf("Player 1. Selecciona tu objeto:\n");
+    imprimeObjetos();
+    scanf("%d", (int*)&par[0]);
+
+    printf("Player 2. Selecciona tu objeto:\n");
+    imprimeObjetos();
+    scanf("%d", (int*)&par[1]);
+
+}
+
+void imprimeObjetos(){
+    printf("1. Piedra  ");
+    printf("2. Papel  ");
+    printf("3. Tijera  ");
+    printf("4. Lagarto  ");
+    printf("5. Spock\n");
+    printf("Seleccionar: ");
+}
 
