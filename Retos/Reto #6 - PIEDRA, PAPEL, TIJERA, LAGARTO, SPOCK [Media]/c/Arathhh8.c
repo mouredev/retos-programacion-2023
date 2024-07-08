@@ -14,78 +14,76 @@
  * - Debes buscar información sobre cómo se juega con estas 5 posibilidades.
  */
 
+#include <stdio.h>
+#include <string.h>
 
-#include<stdio.h>
-#include<stdlib.h>
+#define MAX_GAMES 100
 
-typedef enum {
-    PIEDRA = 1,
-    PAPEL,
-    TIJERA,
-    LAGARTO,
-    SPOCK
-}Objeto;
+// Function prototypes
+int determine_winner(char player1, char player2);
+void evaluate_games(char games[][2], int num_games);
 
-// Funcion que recibe los pares y determina el ganador
-void recibePares(char* par, int* player1,  int* player2);
-void solicitaPar(char* par);
-void imprimeObjetos();
+int main(void) {
+    // Example input
+    char games[MAX_GAMES][2] = {
+        {'S', 'R'}, // Rock vs Scissors
+        {'S', 'R'}, // Scissors vs Rock
+        {'P', 'S'}, // Paper vs Scissors
+        {'L', 'P'}, // Lizard vs Paper
+        {'V', 'R'}  // Spock vs Rock
+    };
+    int num_games = 5;
 
-int main(void){
-
-    char par[2];
-    int player1_wins = 0;
-    int player2_wins = 0;
-    int rondas;
-    int i = 0;
-
-    printf("Ingresa el numero de rondas a jugar: ");
-    scanf("%d", &rondas);
-
-    
-
-    for(int i = 0; i < rondas; i++){
-        solicitaPar(par);
-        recibePares(par, &player1_wins, &player2_wins);
-    }
-    
-    if(player1_wins > player2_wins){
-        printf("Player 1 ha ganada");
-    }
-    
+    evaluate_games(games, num_games);
 
     return 0;
 }
 
-void recibePares(char* par, int* player1,  int* player2){
-
-    if(par[0] == PIEDRA && par[1] == TIJERA){
-        (*player1)++;
-        printf("Player 1 Gana esta ronda\n");
-        printf("\n");
+// Function to determine the winner of a single game
+// R: Rock, P: Paper, S: Scissors, L: Lizard, V: Spock
+int determine_winner(char player1, char player2) {
+    if (player1 == player2) {
+        return 0; // Tie
     }
 
+    switch (player1) {
+        case 'R': // Rock
+            return (player2 == 'S' || player2 == 'L') ? 1 : 2;
+        case 'P': // Paper
+            return (player2 == 'R' || player2 == 'V') ? 1 : 2;
+        case 'S': // Scissors
+            return (player2 == 'P' || player2 == 'L') ? 1 : 2;
+        case 'L': // Lizard
+            return (player2 == 'P' || player2 == 'V') ? 1 : 2;
+        case 'V': // Spock
+            return (player2 == 'R' || player2 == 'S') ? 1 : 2;
+        default:
+            return -1; // Invalid input
+    }
+}
+
+// Function to evaluate all games and determine the overall winner
+void evaluate_games(char games[][2], int num_games) {
+    int player1_wins = 0;
+    int player2_wins = 0;
+
+    for (int i = 0; i < num_games; i++) {
+        int result = determine_winner(games[i][0], games[i][1]);
+        if (result == 1) {
+            player1_wins++;
+        } else if (result == 2) {
+            player2_wins++;
+        }
+    }
+
+    if (player1_wins > player2_wins) {
+        printf("Player 1 wins\n");
+    } else if (player2_wins > player1_wins) {
+        printf("Player 2 wins\n");
+    } else {
+        printf("Tie\n");
+    }
 }
 
 
-void solicitaPar(char* par){
-
-    printf("Player 1. Selecciona tu objeto:\n");
-    imprimeObjetos();
-    scanf("%d", (int*)&par[0]);
-
-    printf("Player 2. Selecciona tu objeto:\n");
-    imprimeObjetos();
-    scanf("%d", (int*)&par[1]);
-
-}
-
-void imprimeObjetos(){
-    printf("1. Piedra  ");
-    printf("2. Papel  ");
-    printf("3. Tijera  ");
-    printf("4. Lagarto  ");
-    printf("5. Spock\n");
-    printf("Seleccionar: ");
-}
 
