@@ -20,6 +20,7 @@
 // SOLUTION:
 const points = ["p1", "p1", "p2", "p2", "p1", "p2", "p1", "p1"];
 const initialPoints = 15; 
+const intermediatePoints = 10; 
 let puntosDelJugador1 = 0; 
 let puntosDelJugador2 = 0; 
 
@@ -31,9 +32,16 @@ const tennisGame = () => {
   console.log(`Jugador1: ${puntosDelJugador1} - Jugador2: ${puntosDelJugador2}`);
   puntosIniciales(2, "p2");
   console.log(`Jugador1: ${puntosDelJugador1} - Jugador2: ${puntosDelJugador2}`);
-  puntosIniciales(2, "p2");
+  puntosIniciales(3, "p2");
   console.log(`Jugador1: ${puntosDelJugador1} - Jugador2: ${puntosDelJugador2}`);
 
+  const status = defineDeuce(puntosDelJugador1, puntosDelJugador2);
+  if(status === "Deuse") {
+    puntosIntermedios(4, "p1");
+    console.log(`Jugador1: ${puntosDelJugador1} - Jugador2: ${puntosDelJugador2}`);
+    puntosIntermedios(5, "p2");
+    console.log(`Jugador1: ${puntosDelJugador1} - Jugador2: ${puntosDelJugador2}`);
+  }
 }
 
 const puntosIniciales = (turno, jugador) => {
@@ -43,5 +51,20 @@ const puntosIniciales = (turno, jugador) => {
     puntosDelJugador2 = puntosDelJugador2 + initialPoints;
   }
 }
+
+const defineDeuce = (p1, p2) => {
+  if(p1 === p2) {
+    return "Deuse"
+  }
+}
+
+const puntosIntermedios = (turno, jugador) => {
+  if(points[turno] === "p1" && jugador === "p1") {
+    puntosDelJugador1 = puntosDelJugador1 + intermediatePoints;
+  } else if(points[turno] === "p2" &&  jugador === "p2") {
+    puntosDelJugador2 = puntosDelJugador2 + intermediatePoints;
+  }
+}
+
 
 tennisGame();
