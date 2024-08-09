@@ -18,16 +18,17 @@
  */
 
 // SOLUTION:
-const punctuation = { 
-  0: 'Love',
-  1: 15, 
-  2: 30, 
-  3: 40, 
-  4: 50, 
-  5: 60 
-};
 
-const players = { 
-  P1: 0, 
-  P2: 0 
+const points = ["p1", "p1", "p2", "p2", "p1", "p2", "p1", "p1"];
+let jugador1 = 0
+let jugador2 = 0
+let data; 
+
+const result = () => {
+  data = points.map(x => {
+    x === "p1" (jugador1 + 15)
+  });
+  console.log(data);
 }
+
+result();
