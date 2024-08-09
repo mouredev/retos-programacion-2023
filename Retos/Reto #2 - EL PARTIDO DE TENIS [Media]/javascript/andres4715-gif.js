@@ -17,4 +17,31 @@
  - Consulta las reglas del juego si tienes dudas sobre el sistema de puntos.   
  */
 
- // SOLUTION: 
+// SOLUTION:
+const points = ["p1", "p1", "p2", "p2", "p1", "p2", "p1", "p1"];
+const initialPoints = 15; 
+let puntosDelJugador1 = 0; 
+let puntosDelJugador2 = 0; 
+
+
+const tennisGame = () => {
+  puntosIniciales(0, "p1");
+  console.log(`Jugador1: ${puntosDelJugador1} - Jugador2: ${puntosDelJugador2}`);
+  puntosIniciales(1, "p1");
+  console.log(`Jugador1: ${puntosDelJugador1} - Jugador2: ${puntosDelJugador2}`);
+  puntosIniciales(2, "p2");
+  console.log(`Jugador1: ${puntosDelJugador1} - Jugador2: ${puntosDelJugador2}`);
+  puntosIniciales(2, "p2");
+  console.log(`Jugador1: ${puntosDelJugador1} - Jugador2: ${puntosDelJugador2}`);
+
+}
+
+const puntosIniciales = (turno, jugador) => {
+  if(points[turno] === "p1" && jugador === "p1") {
+    puntosDelJugador1 = puntosDelJugador1 + initialPoints;
+  } else if(points[turno] === "p2" &&  jugador === "p2") {
+    puntosDelJugador2 = puntosDelJugador2 + initialPoints;
+  }
+}
+
+tennisGame();
