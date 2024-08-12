@@ -19,7 +19,7 @@
 
 // SOLUTION:
 const punctuation = {
-  0: "Love",
+  0: "love",
   1: 15,
   2: 30,
   3: 40,
@@ -32,32 +32,37 @@ const players = {
   P2: 0,
 };
 
-const game = (sequence) =>  {
-  sequence.forEach((player) => {
+const playingTennis = (points) => {
+  let dataP1;
+  let dataP2;
+
+  points.forEach((player) => {
     if (player === "P1" || player === "P2") {
-      players[player]++; 
+      players[player]++;
     }
 
-    const puntuationP1 = punctuation[players.P1];
-    const puntuationP2 = punctuation[players.P2];
+    dataP1 = punctuation[players.P1];
+    dataP2 = punctuation[players.P2];
 
-    if (players.P1 === players.P2 && (players.P1 >= 3 || players.P2 >= 3)) {
-      imprimirResultados("Deuce");
-    } else if (players.P1 >= 5 || players.P2 >= 5) {
-      imprimirResultados(
-        players.P1 > players.P2 ? "Ha ganado P1" : "Ha ganado P2"
-      );
-    } else if (players.P1 >= 4 || players.P2 >= 4) {
-      imprimirResultados(players.P1 > players.P2 ? "Ventaja P1" : "Ventaja P2");
-    } else {
-      imprimirResultados(`${puntuationP1} ${puntuationP2}`);
+    if (dataP1 > dataP2) {
+      console.log(`${dataP1} - ${dataP2}`);
+      console.log("Ventaja P1");
+    } else if (dataP2 > dataP1) {
+      console.log(`${dataP2} - ${dataP1}`);
+      console.log("Ventaja P2");
+    }
+    if (dataP1 === dataP2) {
+      console.log(`${dataP1} - ${dataP2}`);
+      console.log("Deuce");
     }
   });
-}
 
-function imprimirResultados(resultado) {
-  console.log(resultado);
-}
+  console.log(`--- FINAL SCORE: ${dataP1} - ${dataP2}`)
+  if (players.P1 > players.P2) {
+    console.log("P1 IS THE WINNER");
+  } else {
+    console.log("P2 IS THE WINNER");
+  }
+};
 
-
-game(["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"]);
+playingTennis(["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"]);
