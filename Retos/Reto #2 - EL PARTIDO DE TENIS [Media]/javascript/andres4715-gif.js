@@ -33,31 +33,24 @@ const players = {
 };
 
 const playingTennis = (points) => {
-  let dataP1;
-  let dataP2;
-
   points.forEach((player) => {
     if (player === "P1" || player === "P2") {
       players[player]++;
-    }
+    };
 
-    dataP1 = punctuation[players.P1];
-    dataP2 = punctuation[players.P2];
-
-    if (dataP1 > dataP2 && punctuation[players.P1] >= 50 && punctuation[players.P1] < 60) {
-      console.log(`${dataP1} - ${dataP2}`);
+    const data = `${punctuation[players.P1]} - ${punctuation[players.P2]}`
+    console.log(data); 
+    if (punctuation[players.P1] > punctuation[players.P2] && punctuation[players.P1] >= 50 && punctuation[players.P1] < 60) {
       console.log("advantage P1");
-    } else if (dataP2 > dataP1 && punctuation[players.P2] >= 50 && punctuation[players.P2] < 60) {
-      console.log(`${dataP2} - ${dataP1}`);
+    } else if (punctuation[players.P2] > punctuation[players.P1] && punctuation[players.P2] >= 50 && punctuation[players.P2] < 60) {
       console.log("advantage P2");
     }
-    if (dataP1 === dataP2) {
-      console.log(`${dataP1} - ${dataP2}`);
+    if (punctuation[players.P1] === punctuation[players.P2]) {
       console.log("Deuce");
     }
   });
 
-  console.log(`--- FINAL SCORE: ${dataP1} - ${dataP2}`)
+  console.log(`--- FINAL SCORE: ${punctuation[players.P1]} - ${punctuation[players.P2]}`)
   if (players.P1 > players.P2) {
     console.log("P1 IS THE WINNER");
   } else {
