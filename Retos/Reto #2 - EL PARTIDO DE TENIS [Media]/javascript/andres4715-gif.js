@@ -44,10 +44,10 @@ const playingTennis = (points) => {
     dataP1 = punctuation[players.P1];
     dataP2 = punctuation[players.P2];
 
-    if (dataP1 > dataP2 && punctuation[players.P1] >= 40) {
+    if (dataP1 > dataP2 && punctuation[players.P1] >= 50 && punctuation[players.P1] < 60) {
       console.log(`${dataP1} - ${dataP2}`);
       console.log("advantage P1");
-    } else if (dataP2 > dataP1 && punctuation[players.P2] >= 40) {
+    } else if (dataP2 > dataP1 && punctuation[players.P2] >= 50 && punctuation[players.P2] < 60) {
       console.log(`${dataP2} - ${dataP1}`);
       console.log("advantage P2");
     }
