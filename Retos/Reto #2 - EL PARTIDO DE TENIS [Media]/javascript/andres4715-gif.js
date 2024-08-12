@@ -46,10 +46,10 @@ const playingTennis = (points) => {
 
     if (dataP1 > dataP2) {
       console.log(`${dataP1} - ${dataP2}`);
-      console.log("Ventaja P1");
+      console.log("advantage P1");
     } else if (dataP2 > dataP1) {
       console.log(`${dataP2} - ${dataP1}`);
-      console.log("Ventaja P2");
+      console.log("advantage P2");
     }
     if (dataP1 === dataP2) {
       console.log(`${dataP1} - ${dataP2}`);
