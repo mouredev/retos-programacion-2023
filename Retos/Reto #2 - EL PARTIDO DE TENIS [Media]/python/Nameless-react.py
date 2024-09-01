@@ -65,4 +65,4 @@ def partidoTenis (*points):
 
 
 
-partidoTenis("P1", "P1", "P2", "P2", "P1", "P2", "P1", "P3")
+partidoTenis("P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1")
