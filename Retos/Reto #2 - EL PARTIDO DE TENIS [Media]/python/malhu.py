@@ -40,4 +40,4 @@ def juegoTenis(List):
 
         else: print(f"Jugador 1: {marcador[p1]} - Jugador 2: {marcador[p2]}")
 
-juegoTenis (["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P1"])
+juegoTenis (["P1", "P1", "P2", "P2", "P1", "P2", "P1", "P2"])

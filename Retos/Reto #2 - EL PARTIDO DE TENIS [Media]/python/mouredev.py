@@ -37,7 +37,7 @@ def tenis_game(points: list):
           "Ha ganado el P1" if p1_points > p2_points else "Ha ganado el P2")
 
 
-tenis_game([Player.P1, Player.P1, Player.P2, Player.P2,
+tenis_game([Player.P1, Player.P1, Player.P2, Player.P3,
            Player.P1, Player.P2, Player.P1, Player.P1])
 
 tenis_game([Player.P1, Player.P1, Player.P2, Player.P2,
