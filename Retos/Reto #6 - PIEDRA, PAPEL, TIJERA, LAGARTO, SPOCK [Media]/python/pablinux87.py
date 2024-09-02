@@ -41,7 +41,6 @@ def partida(manos:list)->str:
     return 'Empate' if p1 == p2 else 'Ganador -> Jugador 1' if p1 > p2 else 'Ganador -> Jugador 2'  
     
 
-print(partida([("🗿", "🗿")]))
 print(partida([("🗿", "✂️")]))
 print(partida([("✂️", "🗿")]))
 print(partida([("🗿", "🗿"), ("🗿", "🗿"), ("🗿", "🗿"), ("🗿", "🗿")]))
