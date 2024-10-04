@@ -16,7 +16,7 @@ const data = {
 };
 
 const howLongThePasswordIs = 10;
-const role = {
+const rule = {
   MIN: 8,
   MAX: 16,
 };
@@ -38,7 +38,7 @@ const mixing = (strData) => {
   return finalData;
 };
 
-if (howLongThePasswordIs >= role.MIN && howLongThePasswordIs <= role.MAX) {
+if (howLongThePasswordIs >= rule.MIN && howLongThePasswordIs <= rule.MAX) {
   console.log('✅✅✅ Generating your new password...');
   console.log(`Password with CAPS: ${mixing(data.CAPS)}`);
   console.log(`Password with lowerCase: ${mixing(data.LOWERCASE)}`);
