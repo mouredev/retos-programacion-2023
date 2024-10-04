@@ -15,7 +15,7 @@ const data = {
   SYMBOLS: '!#$%&*+-:<=>?@_|~',
 };
 
-const howLongThePasswordIs = 10;
+const howLongThePasswordIs = 12;
 const rule = {
   MIN: 8,
   MAX: 16,
@@ -44,5 +44,9 @@ if (howLongThePasswordIs >= rule.MIN && howLongThePasswordIs <= rule.MAX) {
   console.log(`Password with lowerCase: ${mixing(data.LOWERCASE)}`);
   console.log(`Password with digits: ${mixing(data.DIGITS)}`);
   console.log(`Password with symbols: ${mixing(data.SYMBOLS)}`);
-  console.log(`Mixing Password: ${mixing(mix)}`);
+  console.log(`Mixed Password: ${mixing(mix)}`);
+} else {
+  console.log(
+    `❌❌❌ Your password must contain min ${rule.MIN} and Max ${rule.MAX} Characters`
+  );
 }
