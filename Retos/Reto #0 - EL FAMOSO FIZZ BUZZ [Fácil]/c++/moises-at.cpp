@@ -12,7 +12,7 @@ void fizzbuzz() {
         } else {
             cout << x << endl;
         }
-    }
+    } 
 }
 
 int main() {
