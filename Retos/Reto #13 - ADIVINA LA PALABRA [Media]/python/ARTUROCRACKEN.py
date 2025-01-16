@@ -100,6 +100,11 @@ def juego_de_palabras():
 
     while(True):
         print(f"\nIntentos restantes: {intentos}")
+        
+        if intentos == 0:
+            print(f"¡Has perdido! La palabra era: {palabra}")
+            break
+            
         print(" ".join(palabra_oculta))
         respuesta = input(f"\n¿Cual es esta palabra? Inserta una letra o la palabra: ").lower()
 
@@ -131,9 +136,5 @@ def juego_de_palabras():
         else:
             intentos -= 1
             print("La respuesta debe ser una letra o contener la misma cantidad de letras que la palabra.\n")
-            
-        if intentos == 0:
-            print(f"¡Has perdido! La palabra era: {palabra}")
-
 
 juego_de_palabras()
