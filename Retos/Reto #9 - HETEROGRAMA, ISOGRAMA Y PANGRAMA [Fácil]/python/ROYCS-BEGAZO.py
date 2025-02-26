@@ -17,6 +17,8 @@ def isograma(diccionario = dict):
             print(frecuency_list)
             return False
     return True
+    frecuency = set(diccionario.values())
+    return len(frecuency) == 1
 def pangrama(diccionario = dict):
     alpha = set(string.ascii_lowercase)
     alpha -= set(diccionario.keys())
