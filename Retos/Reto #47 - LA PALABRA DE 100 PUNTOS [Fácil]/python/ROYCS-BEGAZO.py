@@ -16,4 +16,4 @@ while True:
             print('Has introducido una palabra de 100 puntos! El programa finalizará.')
             break
     except Exception as e:
-        print(f'ocurrion un error :{ e}, trate de nuevo')
+        print(f'ocurrio un error :{e}, trate de nuevo')
