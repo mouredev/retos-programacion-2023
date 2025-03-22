@@ -43,7 +43,6 @@ public class RoyMartinez3103 {
 
     public static String generarPassword(int longitud, boolean incluirNumeros, boolean incluirMayusculas, boolean incluirSimbolos) {
         StringBuilder caracteres = new StringBuilder(LETRAS_MIN);  // Incluye siempre letras minúsculas
-        System.out.println(caracteres);
         if (incluirMayusculas) {
             caracteres.append(LETRAS_MAY);
         }
