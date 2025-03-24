@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Retos/Reto #0 - EL FAMOSO FIZZ BUZZ [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #10 - LA API [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #11 - URL PARAMS [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #12 - VIERNES 13 [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #13 - ADIVINA LA PALABRA [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #14 - OCTAL Y HEXADECIMAL [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #15 - AUREBESH [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #16 - LA ESCALERA [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #17 - GIT Y GITHUB [Difícil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #18 - WEB SCRAPING [Difícil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #19 - ANÁLISIS DE TEXTO [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #1 - EL LENGUAJE HACKER [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #20 - LA TRIFUERZA [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #21 - NÚMEROS PRIMOS GEMELOS [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #22 - LA ESPIRAL [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #23 - LA BASE DE DATOS [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #24 - CIFRADO CÉSAR [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #25 - EL CÓDIGO KONAMI [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #26 - TESTING [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #27 - CUENTA ATRÁS [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #28 - EXPRESIÓN MATEMÁTICA [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #29 - EL CARÁCTER INFILTRADO [Fácil]/java"/>
+	<classpathentry excluding="java/" kind="src" path="Retos/Reto #2 - EL PARTIDO DE TENIS [Media]"/>
+	<classpathentry kind="src" path="Retos/Reto #2 - EL PARTIDO DE TENIS [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #30 - EL TECLADO T9 [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #31 - EL ÁBACO [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #32 - LA COLUMNA DE EXCEL [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #33 - TETRIS [Difícil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #34 - EL TXT [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #35 - PRIMEROS PASOS [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #36 - PERMUTACIONES [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #37 - COLORES HEX Y RGB [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #38 - LAS SUMAS [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #39 - TRIPLES PITAGÓRICOS [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #3 - EL GENERADOR DE CONTRASEÑAS [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #40 - TABLA DE MULTIPLICAR [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #41 - LA CASA ENCANTADA [Difícil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #42 - PUNTO DE ENCUENTRO [Difícil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #43 - SIMULADOR DE CLIMA [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #44 - ADIVINANZAS MATEMÁTICAS [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #45 - EL CALENDARIO DE ADEVIENTO 2023 [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #46 - LA CARRERA DE COCHES [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #47 - LA PALABRA DE 100 PUNTOS [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #48 - EL RANKING [Difícil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #4 - PRIMO, FIBONACCI Y PAR [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #5 - HOLA MUNDO [Fácil]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #6 - PIEDRA, PAPEL, TIJERA, LAGARTO, SPOCK [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #7 - EL SOMBRERO SELECCIONADOR [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #8 - EL GENERADOR PSEUDOALEATORIO [Media]/java"/>
+	<classpathentry kind="src" path="Retos/Reto #9 - HETEROGRAMA, ISOGRAMA Y PANGRAMA [Fácil]/java"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
