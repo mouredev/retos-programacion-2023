@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -34,25 +35,40 @@ public class RoyMartinez3103 {
     public static String[] IngresarJuego() {
         String[] juego;
         Scanner scan = new Scanner(System.in);
-        String cadena;
+        while (true) {
+            System.out.println("Ingresa las jugadas separadas por coma (ejemplo: piedra,papel,tijera,lagarto,spock): ");
+            String entrada = scan.nextLine().toUpperCase();
+            juego = entrada.split(",");
 
-        System.out.println("==== PIEDRA, PAPEL, TIJERA, LAGARTO, SPOCK ===");
-        System.out.println("Ingresa el juego, separado por una coma cada movimiento: ");
-        System.out.println("\t\tEJEMPLO: piedra,papel");
-        cadena = scan.nextLine().toUpperCase();
-        juego = cadena.split(",");
+            if (juego.length % 2 != 0) {
+                System.out.println("ERROR: Debes ingresar un número par de jugadas.");
+                continue;
+            }
 
-        if (juego.length % 2 != 0) {
-            System.out.println("ERROR, la cantidad de movimientos debe ser par.\n");
-            IngresarJuego();
-        }
+            if (juego.length == 2) {
+                System.out.println("ERROR: Debe haber más de una jugada.");
+                continue;
+            }
 
-        if (juego.length == 2) {
-            System.out.println("EL juego debe tener más de 1 jugada.\n");
-            IngresarJuego();
+            boolean valido = Arrays.stream(juego).allMatch(j -> {
+                try {
+                    Opciones.valueOf(j);
+                    return true;
+                } catch (IllegalArgumentException e) {
+                    return false;
+                }
+            });
+
+            if (!valido) {
+                System.out.println("ERROR: Ingresaste una jugada no válida.");
+                continue;
+            }
+
+            break;
         }
 
         return juego;
+
     }
 
     public static void Jugar(String[] juego) {
