@@ -1,5 +1,3 @@
-package neomantix;
-
 public class Neomantix {
 
 	public static void main(String[] args) {
