@@ -38,8 +38,8 @@ function fnLenguajeHackerV2(myText: string) {
     return myTextHack.join("")
 }
 
-console.log("\n\n")
+console.log("\n")
 console.log( myText )
 console.log( fnLenguajeHacker(myText) )
 console.log( fnLenguajeHackerV2(myText) )
-console.log("\n\n")
+console.log("\n")
