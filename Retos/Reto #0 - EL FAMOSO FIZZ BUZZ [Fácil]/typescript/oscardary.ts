@@ -7,11 +7,11 @@
  * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
  */
 
-let inicio = 1
+let numero = 1
 
-while (inicio <= 100) {
-    let multiplo3 = inicio % 3
-    let multiplo5 = inicio % 5
+while (numero <= 100) {
+    let multiplo3 = numero % 3
+    let multiplo5 = numero % 5
     
     if (multiplo3 == 0 && multiplo5 == 0) {
         console.log("fizzbuzz")
@@ -20,7 +20,7 @@ while (inicio <= 100) {
     } else if (multiplo5 == 0) {
         console.log("buzz")
     } else {
-        console.log(inicio)
+        console.log(numero)
     }
-    inicio++
+    numero++
 }
