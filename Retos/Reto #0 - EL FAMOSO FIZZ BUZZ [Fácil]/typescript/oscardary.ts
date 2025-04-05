@@ -12,9 +12,8 @@ let inicio = 1
 while (inicio <= 100) {
     let multiplo3 = inicio % 3
     let multiplo5 = inicio % 5
-
     
-    if (multiplo3 == 0 && multiplo5 == 5) {
+    if (multiplo3 == 0 && multiplo5 == 0) {
         console.log("fizzbuzz")
     } else if (multiplo3 == 0) {
         console.log("fizz")
