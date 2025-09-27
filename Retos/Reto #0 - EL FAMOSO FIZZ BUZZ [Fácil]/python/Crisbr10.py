@@ -1,13 +1,20 @@
-num = 1
+"""/*
+ * Escribe un programa que muestre por consola (con un print) los
+ * números de 1 a 100 (ambos incluidos y con un salto de línea entre
+ * cada impresión), sustituyendo los siguientes:
+ * - Múltiplos de 3 por la palabra "fizz".
+ * - Múltiplos de 5 por la palabra "buzz".
+ * - Múltiplos de 3 y de 5 a la vez por la palabra "fizzbuzz".
+ */"""
 
-while num <= 100:
-    if num % 3 == 0 and num % 5 == 0:
-        print('fizz buzz\n')
-    elif num % 3 == 0:
-        print('fizz\n')
-    elif num % 5 == 0:
-        print('buzz\n')
-    else:
-        print(f'{num}\n')
-        
-    num+=1
+def fizz_buzz():
+    for i in range(1, 100):
+        if i%3 ==0 and i%5 == 0:
+            print("Fizz Buzz")
+        elif i%3 == 0:
+            print("Fizz")
+        elif i%5 == 0:
+            print("Buzz")
+        else: print(i)
+
+fizz_buzz()
