@@ -1,49 +1,66 @@
-#Definimos el diccionario para relacionar cada letra del alfabeto español al leet
-dictionary = {
-    "A" : "4",
-    "B" : "I3",
-    "C" : "[",
-    "D" : ")",
-    "E" : "3",
-    "F" : "|=",
-    "G" : "&",
-    "H" : "#",
-    "I" : "1",
-    "J" : ",_|",
-    "K" : ">|",
-    "L" : "1",
-    "M" : "/\\/\\",
-    "N" : "^/",
-    "O" : "0",
-    "P" : "|*",
-    "Q" : "(_,)",
-    "R" : "I2",
-    "S" : "5",
-    "T" : "7",
-    "U" : "(_)",
-    "V" : "\\/",
-    "W" : "\\/\\/",
-    "X" : "><",
-    "Y" : "j",
-    "Z" : "2"
+"""
+/*
+ * Escribe un programa que reciba un texto y transforme lenguaje natural a
+ * "lenguaje hacker" (conocido realmente como "leet" o "1337"). Este lenguaje
+ *  se caracteriza por sustituir caracteres alfanuméricos.
+ * - Utiliza esta tabla (https://www.gamehouse.com/blog/leet-speak-cheat-sheet/) 
+ *   con el alfabeto y los números en "leet".
+ *   (Usa la primera opción de cada transformación. Por ejemplo "4" para la "a")
+ */
+"""
+
+leet_letters = {
+    "a" : "4", 
+    "b" : "I3", 
+    "c" : "[",  
+    "d" : ")",
+    "e" : "3", 
+    "f" : "|:", 
+    "g" : "6",  
+    "h" : "#",
+    "i" : "1", 
+    "j" : ",_|", 
+    "k" : ">|",  
+    "l" : "1",
+    "m" : "[V]", 
+    "n" : "^/", 
+    "o" : "0",  
+    "p" : "|*",
+    "q" : "(_,)", 
+    "r" : "I2", 
+    "s" : "5",  
+    "t" : "7",
+    "u" : "(_)", 
+    "v" : "|/", 
+    "w" : "(n)",  
+    "x" : "><",
+    "y" : "j", 
+    "z" : "2",
+    "1" : "L", 
+    "2" : "R", 
+    "3" : "E", 
+    "4" : "A", 
+    "5" : "S",
+    "6" : "b", 
+    "7" : "T", 
+    "8" : "B", 
+    "9" : "g", 
+    "0" : "o",
+    " " : " "
 }
 
-def translate(text:str):
+def hacker_languaje(word):
     
-    #Eliminamos espacios al inicio y final y pasamos todas las letras a mayúsculas
-    text_upper = text.strip()
-    text_upper = text.upper()
+    leet_word = []
+    i = 0
     
-    translated_text = ""
-    
-    for character in text_upper:
-        #Verificamos que el caracter esta en el diccionario
-        if character in dictionary.keys():
-            translated_text += dictionary[character]  
-        #Si no está se le agrega al texto traducido directamente por no tener traducción en el leguaje leet
-        else:
-            translated_text += character
-    return translated_text   
+    for letter in word:
 
-#Ejemplo de uso de la función
-print(translate("Hello Python !"))
+        if i < len(word):
+            leet_word.append(leet_letters[letter])
+            i+=1
+    
+    return "".join(leet_word)
+        
+word_to_traduce = input("Indique la palabra a traducir: \n")
+print(hacker_languaje(word_to_traduce))
