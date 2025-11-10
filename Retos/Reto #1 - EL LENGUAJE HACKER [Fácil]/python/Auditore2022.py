@@ -11,7 +11,9 @@ texto2=[]
 for c in texto.upper():
     if c in LEET:
         texto2.append(LEET[c])
-    else:
+    elif c == " ":
         texto2.append(" ")
+    else:
+        texto2.append(c)
     resultado ="".join(texto2)
 print(f"resultado: {resultado}")
