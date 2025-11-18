@@ -23,5 +23,5 @@
 
 
 
- # Call the funcion with limit
+ # Call the function with limit
  fizzbuzz(100)
